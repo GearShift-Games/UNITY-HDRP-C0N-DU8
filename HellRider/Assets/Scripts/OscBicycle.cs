@@ -7,6 +7,7 @@ using Unity.VisualScripting;
 using System;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using TMPro;
 
 public class OscBicycle : MonoBehaviour
 {
@@ -19,11 +20,17 @@ public class OscBicycle : MonoBehaviour
 
     // For the handling of resets and restarts
     private bool reset;
-    private bool hasUser;
-    private bool InTutorial;
+    private bool hasUser = true;
+    private bool InTutorial = true;
+
+    public TMP_Text tutorialXPosition;
+    public TMP_Text tutorialCenter;
+    public TMP_Text tutorialLeft;
+    public TMP_Text tutorialRight;
 
     // Value left and right for turning
-    public float X;
+    private float X;
+    private float Raw_x;
     private float Left;
     private float Center;
     private float Right;
@@ -36,6 +43,7 @@ public class OscBicycle : MonoBehaviour
     {
         // From Touchdesigner
         oscReceiver.Bind("/X", TraiterXOSC); // left right value of the player
+        oscReceiver.Bind("/X_RAW", TraiterXRAWOSC); // RAW left right value of the player for the tutorial only
         oscReceiver.Bind("/Reset", TraiterResetOSC); // if no value change for 5 seconds (not possible if still on the bike)
         oscReceiver.Bind("/Intro", TraiterIntroOSC); // starts the tutorial for new player when acitvated
 
@@ -57,9 +65,18 @@ public class OscBicycle : MonoBehaviour
             // hide leaderboard
         }
 
-        //Debug.Log(X);
+        Debug.Log("has user " + hasUser);
+        Debug.Log("in tutorial " + InTutorial);
 
-        messageTransmitter("/test", 3);
+        if (InTutorial == true)
+        {
+            tutorialXPosition.text = Raw_x.ToString();
+            tutorialCenter.text = Raw_x.ToString();
+            tutorialLeft.text = Raw_x.ToString();
+            tutorialRight.text = Raw_x.ToString();
+        }
+
+        //messageTransmitter("/test", 3);
     }
 
     private void messageTransmitter(string id, float value)
@@ -129,6 +146,31 @@ public class OscBicycle : MonoBehaviour
         //Debug.Log(value);
     }
 
+    void TraiterXRAWOSC(OSCMessage oscMessage)
+    {
+        // Récupérer une valeur numérique en tant que float
+        // même si elle est de type float ou int :
+        float value;
+        if (oscMessage.Values[0].Type == OSCValueType.Int)
+        {
+            value = oscMessage.Values[0].IntValue;
+        }
+        else if (oscMessage.Values[0].Type == OSCValueType.Float)
+        {
+            value = oscMessage.Values[0].FloatValue;
+        }
+        else
+        {
+            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            return;
+        }
+
+        Raw_x = value;
+
+        Debug.Log(Raw_x);
+
+    }
+
     void TraiterResetOSC(OSCMessage oscMessage)
     {
         // Récupérer une valeur numérique en tant que float
@@ -148,7 +190,7 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Debug.Log("Reset " + value);
+        Debug.Log("Reset armed");
 
         reset = true;
 
@@ -236,32 +278,51 @@ public class OscBicycle : MonoBehaviour
         {
             if (tutorialNumber == 3)
             {
-                if (X < 0.1 && X > -0.1)
+                if (Raw_x < 0.1 && Raw_x > -0.1)
                 {
-                    Center = X;
+                    Center = Raw_x;
+                    Debug.Log("center");
                     messageTransmitter("/Center", Center);
+                    tutorial[tutorialNumber].SetActive(false);
+                    tutorialNumber++;
                 }
             }
             else if (tutorialNumber == 4)
             {
-                if (X < -0.1)
+                if (Raw_x < Center - 0.05)
                 {
-                    Left = X;
+                    Left = Raw_x;
+                    Debug.Log("left");
                     messageTransmitter("/Left", Left);
+                    tutorial[tutorialNumber].SetActive(false);
+                    tutorialNumber++;
                 }
             }
             else if (tutorialNumber == 5)
             {
-                if (X > 0.1)
+                if (Raw_x > Center + 0.05)
                 {
-                    Right = X;
-                    messageTransmitter("/Right", Right); 
+                    Right = Raw_x;
+                    Debug.Log("right");
+                    messageTransmitter("/Right", Right);
+                    tutorial[tutorialNumber].SetActive(false);
+                    tutorialNumber++;
                 }
+            } else
+            {
+                tutorial[tutorialNumber].SetActive(false);
+                tutorialNumber++;
             }
 
-            Debug.Log("Confirm " + X);
-            tutorial[tutorialNumber].SetActive(false);
-            tutorialNumber++;
+            Debug.Log(tutorialNumber);
+
+            if (tutorialNumber == tutorial.Length)
+            {
+                tutorialPanel.SetActive(false);
+                Debug.Log("tutorial done");
+                InTutorial = false;
+            }
+
         }
         //}
     }
