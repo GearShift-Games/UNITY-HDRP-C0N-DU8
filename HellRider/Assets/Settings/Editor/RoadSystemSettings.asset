@@ -16,10 +16,10 @@ MonoBehaviour:
     drawBoundingBoxes: 0
     useRayCast: 1
     copyHitNormal: 0
-    newRoadPrefab: {fileID: 1051319620133669680, guid: e39e30e8f21a473459003c6a0c4f61fe,
+    newRoadPrefab: {fileID: 5289687580774087140, guid: f69704fd4a700984496212015b3776dc,
       type: 3}
   intersectionSettings:
-    newIntersectionPrefab: {fileID: 149898915311221245, guid: aeb10a04baec0ec4c89e084891dc032f,
+    newIntersectionPrefab: {fileID: 1679416186424278633, guid: bd66a132f9c61fa4aa49cc1f3a42d1e6,
       type: 3}
   drawNavigatorDebug: 0
   drawNavigatorDebugPoints: 0
