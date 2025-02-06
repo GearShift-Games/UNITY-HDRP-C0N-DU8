@@ -77,7 +77,7 @@ public class testFunctions : MonoBehaviour
         Vector3 currentEulerAngles = transform.rotation.eulerAngles;
 
         // Check if the bike is tilted too far (based on pitch and roll)
-        float tiltThreshold = 70f;
+        float tiltThreshold = 30f;
 
         // If the bike is tilted too much in the pitch (forward/backward), apply corrective torque
         if (Mathf.Abs(currentEulerAngles.x) > tiltThreshold)
@@ -91,7 +91,7 @@ public class testFunctions : MonoBehaviour
         if (Mathf.Abs(currentEulerAngles.z) > tiltThreshold)
         {
             // Apply torque to bring the bike upright again (in the z-axis)
-            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 1000f;
+            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 50f;
             rb.AddTorque(Vector3.forward * correctionTorque, ForceMode.Force);
         }
     }
