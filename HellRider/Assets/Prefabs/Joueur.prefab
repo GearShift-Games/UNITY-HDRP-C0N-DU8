@@ -144,20 +144,20 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 100
-  m_WheelDampingRate: 0.25
+  m_Mass: 300
+  m_WheelDampingRate: 3
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
-    m_ExtremumSlip: 0.2
-    m_ExtremumValue: 1
+    m_ExtremumSlip: 0.6
+    m_ExtremumValue: 0.6
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -215,20 +215,20 @@ WheelCollider:
     targetPosition: 0.5
   m_SuspensionDistance: 0.3
   m_ForceAppPointDistance: 0
-  m_Mass: 100
-  m_WheelDampingRate: 0.25
+  m_Mass: 300
+  m_WheelDampingRate: 3
   m_ForwardFriction:
     m_ExtremumSlip: 0.4
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.8
     m_AsymptoteValue: 0.5
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_SidewaysFriction:
     m_ExtremumSlip: 0.2
     m_ExtremumValue: 1
     m_AsymptoteSlip: 0.5
     m_AsymptoteValue: 0.75
-    m_Stiffness: 1
+    m_Stiffness: 1.5
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: 3798592319338942476}
   - component: {fileID: 1856148840945748682}
   - component: {fileID: 6059089692913301127}
-  - component: {fileID: 2591478612577289215}
   - component: {fileID: 7299130152038666042}
   m_Layer: 0
   m_Name: Joueur
@@ -324,22 +323,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.6163095, y: 0.9234374, z: 2.323639}
   m_Center: {x: 0, y: 2.517407, z: 0.03533173}
---- !u!114 &2591478612577289215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8924534791955939053}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 973f262cc3b0121409bc0770b759cca0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheel_col:
-  - {fileID: 8690609198352496660}
-  - {fileID: 310125070233736129}
-  torque: 2000
 --- !u!114 &7299130152038666042
 MonoBehaviour:
   m_ObjectHideFlags: 0
