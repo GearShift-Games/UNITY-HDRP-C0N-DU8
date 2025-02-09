@@ -8,6 +8,7 @@ using System;
 using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using TMPro;
+using UnityEngine.UI;
 
 public class OscBicycle : MonoBehaviour
 {
@@ -23,18 +24,22 @@ public class OscBicycle : MonoBehaviour
     private bool hasUser = true;
     private bool InTutorial = true;
 
+    // Tutorial gameobject and such
+    public GameObject tutoX;
     public TMP_Text tutorialXPosition;
     public TMP_Text tutorialCenter;
     public TMP_Text tutorialLeft;
     public TMP_Text tutorialRight;
+    public Slider tutorialSlider;
 
-    // Value left and right for turning
+    // Value left and right for turning and for calibration
     private float X;
     private float Raw_x;
     private float Left;
     private float Center;
     private float Right;
 
+    // Buttons control
     private float Confirm;
     private float Cancel;
 
@@ -50,7 +55,6 @@ public class OscBicycle : MonoBehaviour
         // From Arduino
         oscReceiver.Bind("/Affirm", TraiterConfirmOSC); // starts the tutorial for new player when acitvated
         oscReceiver.Bind("/Tease", TraiterPauseOSC); // starts the tutorial for new player when acitvated
-
     }
 
     private void Update()
@@ -74,6 +78,8 @@ public class OscBicycle : MonoBehaviour
             tutorialCenter.text = Raw_x.ToString();
             tutorialLeft.text = Raw_x.ToString();
             tutorialRight.text = Raw_x.ToString();
+
+            tutorialSlider.value = X;
         }
 
         //messageTransmitter("/test", 3);
@@ -216,6 +222,7 @@ public class OscBicycle : MonoBehaviour
         }
         tutorialNumber = 0;
         tutorialPanel.SetActive(true);
+        tutoX.SetActive(true);
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
@@ -310,6 +317,7 @@ public class OscBicycle : MonoBehaviour
                         messageTransmitter("/Right", Right);
                         tutorial[tutorialNumber].SetActive(false);
                         tutorialNumber++;
+                        tutoX.SetActive(false);
                     }
                 } else
                 {
@@ -357,6 +365,11 @@ public class OscBicycle : MonoBehaviour
                 Debug.Log("pause " + value);
                 tutorialNumber--;
                 tutorial[tutorialNumber].SetActive(true);
+
+                if (tutorialNumber == 6)
+                {
+                    tutoX.SetActive(true);
+                }
             }
         }
     }
