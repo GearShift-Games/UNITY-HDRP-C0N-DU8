@@ -936,12 +936,6 @@ Transform:
   - {fileID: 370517197}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!146 &1192351830 stripped
-WheelCollider:
-  m_CorrespondingSourceObject: {fileID: 310125070233736129, guid: 91ddd95433a07f4469d6975cda89eec5,
-    type: 3}
-  m_PrefabInstance: {fileID: 3296263952150084559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1281491699
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1503,12 +1497,6 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -7753262369343236921, guid: af439024b843a2044a83159b094fd740, type: 3}
---- !u!146 &1588554693 stripped
-WheelCollider:
-  m_CorrespondingSourceObject: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
-    type: 3}
-  m_PrefabInstance: {fileID: 3296263952150084559}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1649265835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1651,30 +1639,6 @@ Transform:
   - {fileID: 1367334223}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1937365126 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8924534791955939053, guid: 91ddd95433a07f4469d6975cda89eec5,
-    type: 3}
-  m_PrefabInstance: {fileID: 3296263952150084559}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1937365131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1937365126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bfdec2f66acdf4d9d1e32f0ee395f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frontWheelCollider: {fileID: 1588554693}
-  rearWheelCollider: {fileID: 1192351830}
-  maxSteeringAngle: 30
-  maxMotorTorque: 3000
-  maxBrakeTorque: 3000
-  maxTiltAngle: 30
 --- !u!1 &2018956960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: af439024b843a2044a83159b094fd740,
@@ -1899,50 +1863,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1856148840945748682, guid: 91ddd95433a07f4469d6975cda89eec5,
+    - target: {fileID: 310125070233736129, guid: 91ddd95433a07f4469d6975cda89eec5,
         type: 3}
-      propertyPath: m_Constraints
-      value: 0
+      propertyPath: m_Mass
+      value: 300
       objectReference: {fileID: 0}
-    - target: {fileID: 1856148840945748682, guid: 91ddd95433a07f4469d6975cda89eec5,
+    - target: {fileID: 310125070233736129, guid: 91ddd95433a07f4469d6975cda89eec5,
         type: 3}
-      propertyPath: m_ImplicitCom
-      value: 0
+      propertyPath: m_WheelDampingRate
+      value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 2591478612577289215, guid: 91ddd95433a07f4469d6975cda89eec5,
+    - target: {fileID: 310125070233736129, guid: 91ddd95433a07f4469d6975cda89eec5,
         type: 3}
-      propertyPath: torque
-      value: 2000
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
       objectReference: {fileID: 0}
-    - target: {fileID: 2591478612577289215, guid: 91ddd95433a07f4469d6975cda89eec5,
+    - target: {fileID: 310125070233736129, guid: 91ddd95433a07f4469d6975cda89eec5,
         type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3392100846078464007, guid: 91ddd95433a07f4469d6975cda89eec5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9914449
-      objectReference: {fileID: 0}
-    - target: {fileID: 3392100846078464007, guid: 91ddd95433a07f4469d6975cda89eec5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.13052616
-      objectReference: {fileID: 0}
-    - target: {fileID: 3392100846078464007, guid: 91ddd95433a07f4469d6975cda89eec5,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3392100846078464007, guid: 91ddd95433a07f4469d6975cda89eec5,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3392100846078464007, guid: 91ddd95433a07f4469d6975cda89eec5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 15
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3798592319338942476, guid: 91ddd95433a07f4469d6975cda89eec5,
         type: 3}
@@ -1994,20 +1933,45 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
+        type: 3}
+      propertyPath: m_Mass
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
+        type: 3}
+      propertyPath: m_WheelDampingRate
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
+        type: 3}
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumSlip
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8690609198352496660, guid: 91ddd95433a07f4469d6975cda89eec5,
+        type: 3}
+      propertyPath: m_SidewaysFriction.m_ExtremumValue
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 8924534791955939053, guid: 91ddd95433a07f4469d6975cda89eec5,
         type: 3}
       propertyPath: m_Name
       value: Joueur
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 366509412598866837, guid: 91ddd95433a07f4469d6975cda89eec5, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 8924534791955939053, guid: 91ddd95433a07f4469d6975cda89eec5,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1937365131}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91ddd95433a07f4469d6975cda89eec5, type: 3}
 --- !u!1001 &8655177665642112534
 PrefabInstance:

@@ -31,7 +31,7 @@ public class testFunctions : MonoBehaviour
         // Get input for turning, acceleration, and braking
         turnInput = Input.GetAxis("Horizontal"); // A/D or Left/Right arrow
         accelInput = Input.GetAxis("Vertical"); // W/S or Up/Down arrow
-        brakeInput = Input.GetButton("Fire1") ? 1f : 0f; // Fire1 button for braking (usually Left Shift)
+        brakeInput = Input.GetButton("Fire1") ? 1f : 0f; // Fire1 button for braking (control left)
 
         // Update the bike's turning/leaning
         UpdateTurning();
@@ -83,7 +83,7 @@ public class testFunctions : MonoBehaviour
         if (Mathf.Abs(currentEulerAngles.x) > tiltThreshold)
         {
             // Apply torque to bring the bike upright again (in the x-axis)
-            float correctionTorque = Mathf.Sign(currentEulerAngles.x) * 100f;
+            float correctionTorque = Mathf.Sign(currentEulerAngles.x) * 10f;
             rb.AddTorque(Vector3.right * correctionTorque, ForceMode.Force);
         }
 
@@ -91,8 +91,11 @@ public class testFunctions : MonoBehaviour
         if (Mathf.Abs(currentEulerAngles.z) > tiltThreshold)
         {
             // Apply torque to bring the bike upright again (in the z-axis)
-            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 50f;
+            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 10f;
             rb.AddTorque(Vector3.forward * correctionTorque, ForceMode.Force);
+        } else
+        {
+            rb.AddTorque(currentEulerAngles, ForceMode.Force);
         }
     }
 }
