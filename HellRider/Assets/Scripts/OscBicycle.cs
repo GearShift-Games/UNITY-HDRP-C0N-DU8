@@ -65,8 +65,8 @@ public class OscBicycle : MonoBehaviour
             // hide leaderboard
         }
 
-        Debug.Log("has user " + hasUser);
-        Debug.Log("in tutorial " + InTutorial);
+        //Debug.Log("has user " + hasUser);
+        //Debug.Log("in tutorial " + InTutorial);
 
         if (InTutorial == true)
         {
@@ -148,27 +148,30 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterXRAWOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
-        float value;
-        if (oscMessage.Values[0].Type == OSCValueType.Int)
+        if (InTutorial == true)
         {
-            value = oscMessage.Values[0].IntValue;
-        }
-        else if (oscMessage.Values[0].Type == OSCValueType.Float)
-        {
-            value = oscMessage.Values[0].FloatValue;
-        }
-        else
-        {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
-            return;
-        }
+            // Récupérer une valeur numérique en tant que float
+            // même si elle est de type float ou int :
+            float value;
+            if (oscMessage.Values[0].Type == OSCValueType.Int)
+            {
+                value = oscMessage.Values[0].IntValue;
+            }
+            else if (oscMessage.Values[0].Type == OSCValueType.Float)
+            {
+                value = oscMessage.Values[0].FloatValue;
+            }
+            else
+            {
+                // Si la valeur n'est ni un float ou int, on quitte la méthode :
+                return;
+            }
 
-        Raw_x = value;
+            Raw_x = value;
 
-        Debug.Log(Raw_x);
-
+            //Debug.Log(Raw_x);
+        }
+        return;
     }
 
     void TraiterResetOSC(OSCMessage oscMessage)
@@ -273,58 +276,58 @@ public class OscBicycle : MonoBehaviour
          * 7 - test calibration pour le joueur
          * 8 - appuyer de nouveau pour confirmer les calibration et commencer le jeu
          */
-        //if (InTutorial == true) {
-        if (value == 1 && tutorialNumber <= tutorial.Length - 1 && tutorialNumber >= 0)
-        {
-            if (tutorialNumber == 3)
+        if (InTutorial == true) {
+            if (value == 1 && tutorialNumber <= tutorial.Length - 1 && tutorialNumber >= 0)
             {
-                if (Raw_x < 0.1 && Raw_x > -0.1)
+                if (tutorialNumber == 3)
                 {
-                    Center = Raw_x;
-                    Debug.Log("center");
-                    messageTransmitter("/Center", Center);
+                    if (Raw_x < 0.1 && Raw_x > -0.1)
+                    {
+                        Center = Raw_x;
+                        Debug.Log("center");
+                        messageTransmitter("/Center", Center);
+                        tutorial[tutorialNumber].SetActive(false);
+                        tutorialNumber++;
+                    }
+                }
+                else if (tutorialNumber == 4)
+                {
+                    if (Raw_x < Center - 0.05)
+                    {
+                        Left = Raw_x;
+                        Debug.Log("left");
+                        messageTransmitter("/Left", Left);
+                        tutorial[tutorialNumber].SetActive(false);
+                        tutorialNumber++;
+                    }
+                }
+                else if (tutorialNumber == 5)
+                {
+                    if (Raw_x > Center + 0.05)
+                    {
+                        Right = Raw_x;
+                        Debug.Log("right");
+                        messageTransmitter("/Right", Right);
+                        tutorial[tutorialNumber].SetActive(false);
+                        tutorialNumber++;
+                    }
+                } else
+                {
                     tutorial[tutorialNumber].SetActive(false);
                     tutorialNumber++;
                 }
-            }
-            else if (tutorialNumber == 4)
-            {
-                if (Raw_x < Center - 0.05)
+
+                Debug.Log(tutorialNumber);
+
+                if (tutorialNumber == tutorial.Length)
                 {
-                    Left = Raw_x;
-                    Debug.Log("left");
-                    messageTransmitter("/Left", Left);
-                    tutorial[tutorialNumber].SetActive(false);
-                    tutorialNumber++;
+                    tutorialPanel.SetActive(false);
+                    Debug.Log("tutorial done");
+                    InTutorial = false;
                 }
-            }
-            else if (tutorialNumber == 5)
-            {
-                if (Raw_x > Center + 0.05)
-                {
-                    Right = Raw_x;
-                    Debug.Log("right");
-                    messageTransmitter("/Right", Right);
-                    tutorial[tutorialNumber].SetActive(false);
-                    tutorialNumber++;
-                }
-            } else
-            {
-                tutorial[tutorialNumber].SetActive(false);
-                tutorialNumber++;
-            }
 
-            Debug.Log(tutorialNumber);
-
-            if (tutorialNumber == tutorial.Length)
-            {
-                tutorialPanel.SetActive(false);
-                Debug.Log("tutorial done");
-                InTutorial = false;
             }
-
         }
-        //}
     }
 
     void TraiterPauseOSC(OSCMessage oscMessage)
@@ -348,13 +351,13 @@ public class OscBicycle : MonoBehaviour
 
         Cancel = value;
 
-        //if (InTutorial == true) {
-        if (value == 1 && tutorialNumber <= 2 && tutorialNumber >= 1) // 3 tuto for now
-        {
-            Debug.Log("pause " + value);
-            tutorialNumber--;
-            tutorial[tutorialNumber].SetActive(true);
+        if (InTutorial == true) {
+            if (value == 1 && tutorialNumber <= 2 && tutorialNumber >= 1) // 3 tuto for now
+            {
+                Debug.Log("pause " + value);
+                tutorialNumber--;
+                tutorial[tutorialNumber].SetActive(true);
+            }
         }
-        //}
     }
 }
