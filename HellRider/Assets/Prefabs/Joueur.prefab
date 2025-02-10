@@ -286,7 +286,7 @@ Rigidbody:
   m_Mass: 1500
   m_Drag: 0
   m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_CenterOfMass: {x: 0, y: -0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -340,7 +340,7 @@ MonoBehaviour:
   maxSteeringAngle: 30
   maxMotorTorque: 3000
   maxBrakeTorque: 3000
-  maxTiltAngle: 30
+  tiltThreshold: 40
 --- !u!1001 &7675809580998580362
 PrefabInstance:
   m_ObjectHideFlags: 0
