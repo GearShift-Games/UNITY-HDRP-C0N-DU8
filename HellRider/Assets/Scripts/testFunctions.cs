@@ -7,10 +7,11 @@ public class testFunctions : MonoBehaviour
     public WheelCollider rearWheelCollider;
 
     // Parameters for bike control
+    // public float speed = 30f; // Speed
     public float maxSteeringAngle = 30f; // Maximum steering angle
     public float maxMotorTorque = 1500f; // Maximum acceleration (motor torque)
     public float maxBrakeTorque = 3000f; // Maximum braking force
-    public float maxTiltAngle = 30f; // Maximum lean angle to prevent falling
+    public float tiltThreshold = 30f; // Maximum lean angle to prevent falling
 
     // For smooth turning/leaning
     private float turnInput = 0f;
@@ -54,6 +55,7 @@ public class testFunctions : MonoBehaviour
     {
         // Apply steering angle based on turn input (left/right)
         frontWheelCollider.steerAngle = turnInput * maxSteeringAngle;
+        Debug.Log(frontWheelCollider.steerAngle);
     }
 
     void ApplyAcceleration()
@@ -61,6 +63,7 @@ public class testFunctions : MonoBehaviour
         // Apply motor torque to the rear wheel for acceleration
         float motorTorqueValue = accelInput * maxMotorTorque;
         rearWheelCollider.motorTorque = motorTorqueValue;
+        // frontWheelCollider.rotationSpeed = speed;
     }
 
     void UpdateBraking()
@@ -76,26 +79,20 @@ public class testFunctions : MonoBehaviour
         // Get the current rotation of the bike
         Vector3 currentEulerAngles = transform.rotation.eulerAngles;
 
-        // Check if the bike is tilted too far (based on pitch and roll)
-        float tiltThreshold = 30f;
-
         // If the bike is tilted too much in the pitch (forward/backward), apply corrective torque
-        if (Mathf.Abs(currentEulerAngles.x) > tiltThreshold)
+        if (Mathf.Abs(currentEulerAngles.x) > tiltThreshold && Mathf.Abs(currentEulerAngles.x) < 360f - tiltThreshold)
         {
             // Apply torque to bring the bike upright again (in the x-axis)
-            float correctionTorque = Mathf.Sign(currentEulerAngles.x) * 10f;
+            float correctionTorque = Mathf.Sign(currentEulerAngles.x) * 100f;
             rb.AddTorque(Vector3.right * correctionTorque, ForceMode.Force);
         }
 
         // If the bike is tilted too much in the roll (sideways), apply corrective torque
-        if (Mathf.Abs(currentEulerAngles.z) > tiltThreshold)
+        if (Mathf.Abs(currentEulerAngles.z) > tiltThreshold && Mathf.Abs(currentEulerAngles.z) < 360f - tiltThreshold)
         {
             // Apply torque to bring the bike upright again (in the z-axis)
-            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 10f;
+            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 100f;
             rb.AddTorque(Vector3.forward * correctionTorque, ForceMode.Force);
-        } else
-        {
-            rb.AddTorque(currentEulerAngles, ForceMode.Force);
         }
     }
 }
