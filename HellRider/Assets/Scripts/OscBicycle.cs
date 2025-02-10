@@ -25,7 +25,7 @@ public class OscBicycle : MonoBehaviour
     private bool InTutorial = true;
 
     // Tutorial gameobject and such
-    public GameObject tutoX;
+    public GameObject tutorialXPositionGameobject;
     public TMP_Text tutorialXPosition;
     public TMP_Text tutorialCenter;
     public TMP_Text tutorialLeft;
@@ -33,11 +33,11 @@ public class OscBicycle : MonoBehaviour
     public Slider tutorialSlider;
 
     // Value left and right for turning and for calibration
-    private float X;
-    private float Raw_x;
-    private float Left;
-    private float Center;
-    private float Right;
+    private float X = 0;
+    private float Raw_x = 0;
+    private float Left = 0;
+    private float Center = 0;
+    private float Right = 0; // put some 0 to help prevent major error when something goes wrong
 
     // Buttons control
     private float Confirm;
@@ -222,7 +222,7 @@ public class OscBicycle : MonoBehaviour
         }
         tutorialNumber = 0;
         tutorialPanel.SetActive(true);
-        tutoX.SetActive(true);
+        tutorialXPositionGameobject.SetActive(true);
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
@@ -317,7 +317,7 @@ public class OscBicycle : MonoBehaviour
                         messageTransmitter("/Right", Right);
                         tutorial[tutorialNumber].SetActive(false);
                         tutorialNumber++;
-                        tutoX.SetActive(false);
+                        tutorialXPositionGameobject.SetActive(false);
                     }
                 } else
                 {
@@ -368,7 +368,7 @@ public class OscBicycle : MonoBehaviour
 
                 if (tutorialNumber == 6)
                 {
-                    tutoX.SetActive(true);
+                    tutorialXPositionGameobject.SetActive(true);
                 }
             }
         }
