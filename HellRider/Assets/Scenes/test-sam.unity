@@ -407,6 +407,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: mechanisme_velo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 2ecf649f894610e49abe23f324df4f61,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -548,6 +553,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: roue_velo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: d797f7cff1cd80646987c345b250ca85,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -615,6 +625,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: perso_export
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30ba538ca0d0d5043885931c80c15c17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -693,6 +708,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: ennemi
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1111,6 +1131,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: frame_velo
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c095eacc9f70f574ab4da110b5123525,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1128,6 +1153,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: guidon_trust
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283934341150148148, guid: 0cd98d435d1cf4b4baf826da11406fb0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8656619274673957422, guid: 0cd98d435d1cf4b4baf826da11406fb0,
         type: 3}
@@ -1251,6 +1281,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: casque_export
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: f3e604dd88eb62f468153378d82d539d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
