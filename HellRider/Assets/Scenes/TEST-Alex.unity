@@ -904,50 +904,20 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 298460047828281769, guid: c3e20853fd56f4a4da695698e4ad38bc,
+    - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 298460047828281769, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 25
-      objectReference: {fileID: 0}
-    - target: {fileID: 298460047828281769, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 25
+      propertyPath: m_ForwardFriction.m_Stiffness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.168
-      objectReference: {fileID: 0}
-    - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.588
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
-      propertyPath: m_Radius
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.y
-      value: -0.168
-      objectReference: {fileID: 0}
-    - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.z
-      value: -0.447
+      propertyPath: m_SidewaysFriction.m_Stiffness
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
