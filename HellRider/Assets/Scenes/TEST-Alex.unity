@@ -907,47 +907,47 @@ PrefabInstance:
     - target: {fileID: 298460047828281769, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 298460047828281769, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 298460047828281769, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 50
+      value: 25
       objectReference: {fileID: 0}
     - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.48
+      value: -0.168
       objectReference: {fileID: 0}
     - target: {fileID: 2184793542158135911, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Center.z
-      value: 1.175
+      value: 0.588
       objectReference: {fileID: 0}
     - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Radius
-      value: 0.5
+      value: 0.25
       objectReference: {fileID: 0}
     - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Center.y
-      value: -0.48
+      value: -0.168
       objectReference: {fileID: 0}
     - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Center.z
-      value: -0.89
+      value: -0.447
       objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
@@ -1003,31 +1003,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: velo_fonctionel
-      objectReference: {fileID: 0}
-    - target: {fileID: 7075741049465353834, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8648897306483108046, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Mass
-      value: 700
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Size.x
-      value: 0.5255293
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 1.0474303
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.46442997
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
