@@ -40,8 +40,8 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808930506552003390}
   serializedVersion: 2
-  m_Center: {x: 0, y: -0.63, z: -1.08}
-  m_Radius: 0.62
+  m_Center: {x: 0, y: -0.48, z: -0.89}
+  m_Radius: 0.5
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
@@ -130,7 +130,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 60, y: 60, z: 60}
+  m_LocalScale: {x: 50, y: 50, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2058873706423223875}
@@ -217,7 +217,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7075741049465353834}
   serializedVersion: 4
-  m_Mass: 1500
+  m_Mass: 700
   m_Drag: 0
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: -0.5, z: 0}
@@ -255,8 +255,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 2.7952116, z: 2.241922}
-  m_Center: {x: 0, y: 1.3383206, z: 0.24880767}
+  m_Size: {x: 0.5255293, y: 1.0474303, z: 2.241922}
+  m_Center: {x: 0, y: 0.46442997, z: 0.24880767}
 --- !u!114 &9022635331490415671
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -315,8 +315,8 @@ WheelCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8696726212447410251}
   serializedVersion: 2
-  m_Center: {x: 0, y: -0.63, z: 1.425}
-  m_Radius: 0.62
+  m_Center: {x: 0, y: -0.48, z: 1.175}
+  m_Radius: 0.5
   m_SuspensionSpring:
     spring: 35000
     damper: 4500
