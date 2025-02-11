@@ -917,7 +917,7 @@ PrefabInstance:
     - target: {fileID: 4969944837042352741, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_SidewaysFriction.m_Stiffness
-      value: 2.5
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
@@ -973,51 +973,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: velo_fonctionel
-      objectReference: {fileID: 0}
-    - target: {fileID: 8520220998683345507, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9848078
-      objectReference: {fileID: 0}
-    - target: {fileID: 8520220998683345507, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.17364816
-      objectReference: {fileID: 0}
-    - target: {fileID: 8520220998683345507, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8520220998683345507, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8520220998683345507, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 20
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Size.y
-      value: 0.9376664
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Size.z
-      value: 1.0021515
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.y
-      value: 0.5193119
-      objectReference: {fileID: 0}
-    - target: {fileID: 8943569673912552399, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      propertyPath: m_Center.z
-      value: 0.10456085
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
