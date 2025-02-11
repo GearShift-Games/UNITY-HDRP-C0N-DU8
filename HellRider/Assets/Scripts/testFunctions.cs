@@ -24,7 +24,7 @@ public class testFunctions : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        rb.centerOfMass = new Vector3(0f, -2f, 0f); // Adjust the center of mass lower for more stability
+        rb.centerOfMass = new Vector3(0f, -1.5f, 0f); // Adjust the center of mass lower for more stability
     }
 
     void Update()
