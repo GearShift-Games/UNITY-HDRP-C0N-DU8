@@ -55,7 +55,7 @@ public class testFunctions : MonoBehaviour
     {
         // Apply steering angle based on turn input (left/right)
         frontWheelCollider.steerAngle = turnInput * maxSteeringAngle;
-        Debug.Log(frontWheelCollider.steerAngle);
+        //Debug.Log(frontWheelCollider.steerAngle);
     }
 
     void ApplyAcceleration()
@@ -91,8 +91,17 @@ public class testFunctions : MonoBehaviour
         if (Mathf.Abs(currentEulerAngles.z) > tiltThreshold && Mathf.Abs(currentEulerAngles.z) < 360f - tiltThreshold)
         {
             // Apply torque to bring the bike upright again (in the z-axis)
-            float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 100f;
-            rb.AddTorque(Vector3.forward * correctionTorque, ForceMode.Force);
+            /*float correctionTorque = Mathf.Sign(currentEulerAngles.z) * 100f;
+            rb.AddTorque(Vector3.forward * correctionTorque, ForceMode.Force);*/
+            
+            if (Mathf.Abs(currentEulerAngles.z) > 40 && Mathf.Abs(currentEulerAngles.z) < 180)
+            {
+                transform.eulerAngles = new Vector3(currentEulerAngles.x, currentEulerAngles.y, 40);
+            }
+            else if (Mathf.Abs(currentEulerAngles.z) < 320 && Mathf.Abs(currentEulerAngles.z) > 180)
+            {
+                transform.eulerAngles = new Vector3(currentEulerAngles.x, currentEulerAngles.y, 320);
+            }
         }
     }
 }
