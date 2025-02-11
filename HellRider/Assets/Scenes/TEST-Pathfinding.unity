@@ -291,8 +291,8 @@ Transform:
   m_GameObject: {fileID: 182631847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 79.05, y: 1.35, z: -11.2}
-  m_LocalScale: {x: 6.4155955, y: 1, z: 1}
+  m_LocalPosition: {x: 78.886, y: 1.118, z: -11.2}
+  m_LocalScale: {x: 8.090121, y: 2.1947, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -894,6 +894,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 811639112}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811639115}
   m_SourcePrefab: {fileID: 100100000, guid: cc9f79fe98af3994a8ba7c750635b126, type: 3}
 --- !u!1 &767101694
 GameObject:
@@ -1171,7 +1175,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811639111}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f9390631cf23854c951b6624f54aaad, type: 3}
   m_Name: 
@@ -1210,6 +1214,31 @@ NavMeshAgent:
   m_BaseOffset: 0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &811639115
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811639111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfcedb1d5dc9a642af26784286e25a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 950451318}
+  - {fileID: 466045352}
+  - {fileID: 182631848}
+  - {fileID: 1566969249}
+  - {fileID: 904057871}
+  - {fileID: 1962715422}
+  - {fileID: 2085974212}
+  marginOfError: 1
+  normalSpeed: 22
+  slowedSpeed: 10
+  turnAngleThreshold: 45
+  activationRadius: 8
 --- !u!1 &821455327
 GameObject:
   m_ObjectHideFlags: 0
@@ -1647,6 +1676,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2094823216}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094823219}
   m_SourcePrefab: {fileID: 100100000, guid: 8de5b7a646023aa469f78047629bfc3d, type: 3}
 --- !u!1 &1075169301 stripped
 GameObject:
@@ -1661,7 +1694,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075169301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f9390631cf23854c951b6624f54aaad, type: 3}
   m_Name: 
@@ -1700,6 +1733,31 @@ NavMeshAgent:
   m_BaseOffset: 0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &1075169305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075169301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfcedb1d5dc9a642af26784286e25a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 950451318}
+  - {fileID: 466045352}
+  - {fileID: 182631848}
+  - {fileID: 1566969249}
+  - {fileID: 904057871}
+  - {fileID: 1962715422}
+  - {fileID: 2085974212}
+  marginOfError: 1
+  normalSpeed: 24
+  slowedSpeed: 8
+  turnAngleThreshold: 45
+  activationRadius: 8
 --- !u!1 &1197930126
 GameObject:
   m_ObjectHideFlags: 0
@@ -1861,6 +1919,18 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224774174}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224774175}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224774176}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224774177}
   m_SourcePrefab: {fileID: 100100000, guid: 0c74920cc6490d24bb78c82d556c7333, type: 3}
 --- !u!1 &1224774168 stripped
 GameObject:
@@ -1938,7 +2008,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1224774168}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f9390631cf23854c951b6624f54aaad, type: 3}
   m_Name: 
@@ -1979,6 +2049,87 @@ MonoBehaviour:
   normalSpeed: 20
   slowedSpeed: 12
   turnAngleThreshold: 45
+--- !u!114 &1224774175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfcedb1d5dc9a642af26784286e25a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 950451318}
+  - {fileID: 466045352}
+  - {fileID: 182631848}
+  - {fileID: 1566969249}
+  - {fileID: 904057871}
+  - {fileID: 1962715422}
+  - {fileID: 2085974212}
+  marginOfError: 1
+  normalSpeed: 20
+  slowedSpeed: 12
+  turnAngleThreshold: 45
+  activationRadius: 8
+--- !u!114 &1224774176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2e7306249c2e374ca892a4f1bb3108d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 950451318}
+  - {fileID: 466045352}
+  - {fileID: 182631848}
+  - {fileID: 1566969249}
+  - {fileID: 904057871}
+  - {fileID: 1962715422}
+  - {fileID: 2085974212}
+  marginOfError: 1
+  normalSpeed: 20
+  slowedSpeed: 12
+  turnAngleThreshold: 45
+  activationRadius: 8
+  acceleration: 8
+  maxSpeed: 22
+--- !u!114 &1224774177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32cf290509b8c5446801b425445634f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 950451318}
+  - {fileID: 466045352}
+  - {fileID: 182631848}
+  - {fileID: 1566969249}
+  - {fileID: 904057871}
+  - {fileID: 1962715422}
+  - {fileID: 2085974212}
+  marginOfError: 1
+  normalSpeed: 20
+  slowedSpeed: 12
+  extremeSlowedSpeed: 4
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 85
+  activationRadius: 8
+  acceleration: 8
+  maxSpeed: 22
 --- !u!1 &1251482970
 GameObject:
   m_ObjectHideFlags: 1
@@ -7544,6 +7695,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1075169302}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075169305}
   m_SourcePrefab: {fileID: 100100000, guid: f64665302afcc8246bdf97bc2bf1bab3, type: 3}
 --- !u!1 &2024225659
 GameObject:
@@ -7956,7 +8111,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094823215}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3f9390631cf23854c951b6624f54aaad, type: 3}
   m_Name: 
@@ -7995,6 +8150,31 @@ NavMeshAgent:
   m_BaseOffset: 0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
+--- !u!114 &2094823219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094823215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dfcedb1d5dc9a642af26784286e25a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 950451318}
+  - {fileID: 466045352}
+  - {fileID: 182631848}
+  - {fileID: 1566969249}
+  - {fileID: 904057871}
+  - {fileID: 1962715422}
+  - {fileID: 2085974212}
+  marginOfError: 1
+  normalSpeed: 18
+  slowedSpeed: 12
+  turnAngleThreshold: 45
+  activationRadius: 8
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
