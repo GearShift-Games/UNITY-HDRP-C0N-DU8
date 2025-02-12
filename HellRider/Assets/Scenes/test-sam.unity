@@ -908,7 +908,7 @@ PrefabInstance:
     - target: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1006,7 +1006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &271919324
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1708,6 +1708,74 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 475753840}
   m_CullTransparentMesh: 1
+--- !u!1001 &499948935
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1169.0548
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 564.22156
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2187.264
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1907141065820029541, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9164877017410996888, guid: d31a9aceb58a09d4f9f1c60339c648c4,
+        type: 3}
+      propertyPath: m_Name
+      value: gauge
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d31a9aceb58a09d4f9f1c60339c648c4, type: 3}
 --- !u!1 &519014862
 GameObject:
   m_ObjectHideFlags: 0
@@ -2565,7 +2633,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &867936245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4479,7 +4547,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1433912058
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5083,7 +5151,7 @@ RectTransform:
   m_Father: {fileID: 603752531}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 0.23885345, y: -0.0024414062}
   m_SizeDelta: {x: -0.4753, y: -0.67505}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6659,3 +6727,4 @@ SceneRoots:
   - {fileID: 207728681}
   - {fileID: 449842559}
   - {fileID: 2145108156}
+  - {fileID: 499948935}
