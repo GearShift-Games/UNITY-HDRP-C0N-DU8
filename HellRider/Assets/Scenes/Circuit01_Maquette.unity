@@ -1565,6 +1565,108 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 229613428}
   m_CullTransparentMesh: 1
+--- !u!1 &233999141
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 233999145}
+  - component: {fileID: 233999144}
+  - component: {fileID: 233999143}
+  - component: {fileID: 233999142}
+  m_Layer: 0
+  m_Name: OSC Manager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &233999142
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233999141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0eff54a0b951cc408776a06a01a0f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  oscReceiver: {fileID: 233999143}
+  oscTransmitter: {fileID: 233999144}
+  tutorial:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  tutorialPanel: {fileID: 903376107}
+  Speed: 0
+--- !u!114 &233999143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233999141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbba286dc10e549b2bdec947ef8dbd3b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  _closeOnPause: 0
+  _mapBundle: {fileID: 0}
+  _workInEditor: 0
+  _localHostMode: 0
+  _localHost: 10.0.0.149
+  _localPort: 8001
+--- !u!114 &233999144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233999141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 464088183d2a1484ab8fb64e356c9f5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _autoConnect: 1
+  _closeOnPause: 0
+  _mapBundle: {fileID: 0}
+  _workInEditor: 0
+  _localHostMode: 0
+  _localPortMode: 2
+  _localReceiver: {fileID: 0}
+  _localHost: 10.0.0.149
+  _localPort: 7000
+  _remoteHost: 127.0.0.1
+  _remotePort: 8002
+  _useBundle: 0
+--- !u!4 &233999145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233999141}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &236276376
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,6 +4791,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: Osc
+      value: 
+      objectReference: {fileID: 233999141}
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Enabled
@@ -13863,7 +13970,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1799781945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16742,3 +16849,4 @@ SceneRoots:
   - {fileID: 1351288952}
   - {fileID: 1269609344}
   - {fileID: 1523950839}
+  - {fileID: 233999145}

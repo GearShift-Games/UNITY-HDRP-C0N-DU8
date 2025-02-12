@@ -25,12 +25,12 @@ public class OscBicycle : MonoBehaviour
     private bool InTutorial = true;
 
     // Tutorial gameobject and such
-    public GameObject tutorialXPositionGameobject;
+    /*public GameObject tutorialXPositionGameobject;
     public TMP_Text tutorialXPosition;
     public TMP_Text tutorialCenter;
     public TMP_Text tutorialLeft;
     public TMP_Text tutorialRight;
-    public Slider tutorialSlider;
+    public Slider tutorialSlider;*/
 
     // Value left and right for turning and for calibration
     private float X = 0;
@@ -76,7 +76,7 @@ public class OscBicycle : MonoBehaviour
         //Debug.Log("has user " + hasUser);
         //Debug.Log("in tutorial " + InTutorial);
 
-        if (InTutorial == true)
+        /*if (InTutorial == true)
         {
             tutorialXPosition.text = Raw_x.ToString();
             tutorialCenter.text = Raw_x.ToString();
@@ -84,7 +84,7 @@ public class OscBicycle : MonoBehaviour
             tutorialRight.text = Raw_x.ToString();
 
             tutorialSlider.value = X;
-        }
+        }*/
 
         //messageTransmitter("/test", 3);
     }
@@ -226,7 +226,7 @@ public class OscBicycle : MonoBehaviour
         }
         tutorialNumber = 0;
         tutorialPanel.SetActive(true);
-        tutorialXPositionGameobject.SetActive(true);
+        //tutorialXPositionGameobject.SetActive(true);
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
@@ -321,7 +321,7 @@ public class OscBicycle : MonoBehaviour
                         messageTransmitter("/Right", Right);
                         tutorial[tutorialNumber].SetActive(false);
                         tutorialNumber++;
-                        tutorialXPositionGameobject.SetActive(false);
+                        //tutorialXPositionGameobject.SetActive(false);
                     }
                 } else
                 {
@@ -372,7 +372,7 @@ public class OscBicycle : MonoBehaviour
 
                 if (tutorialNumber == 6)
                 {
-                    tutorialXPositionGameobject.SetActive(true);
+                    //tutorialXPositionGameobject.SetActive(true);
                 }
             }
         }
