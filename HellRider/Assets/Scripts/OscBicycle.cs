@@ -43,6 +43,9 @@ public class OscBicycle : MonoBehaviour
     private float Confirm;
     private float Cancel;
 
+    //Speed
+    public float Speed = 0;
+
 
     private void Start()
     {
@@ -55,6 +58,7 @@ public class OscBicycle : MonoBehaviour
         // From Arduino
         oscReceiver.Bind("/Affirm", TraiterConfirmOSC); // starts the tutorial for new player when acitvated
         oscReceiver.Bind("/Tease", TraiterPauseOSC); // starts the tutorial for new player when acitvated
+        oscReceiver.Bind("/Raw", TraiterRawOSC); // starts the tutorial for new player when acitvated
     }
 
     private void Update()
@@ -372,5 +376,33 @@ public class OscBicycle : MonoBehaviour
                 }
             }
         }
+    }
+
+    void TraiterRawOSC(OSCMessage oscMessage)
+    {
+        // Récupérer une valeur numérique en tant que float
+        // même si elle est de type float ou int :
+        float value;
+        if (oscMessage.Values[0].Type == OSCValueType.Int)
+        {
+            value = oscMessage.Values[0].IntValue;
+        }
+        else if (oscMessage.Values[0].Type == OSCValueType.Float)
+        {
+            value = oscMessage.Values[0].FloatValue;
+        }
+        else
+        {
+            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            return;
+        }
+
+        Debug.Log(value);
+
+        value = ScaleValue(value, -30000,30000,-1,1);
+
+        Speed = value;
+
+        Debug.Log(Speed);
     }
 }
