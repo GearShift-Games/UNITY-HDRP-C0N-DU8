@@ -1458,6 +1458,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 811639119}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811639121}
   m_SourcePrefab: {fileID: 100100000, guid: cc9f79fe98af3994a8ba7c750635b126, type: 3}
 --- !u!1 &621276227
 GameObject:
@@ -1855,6 +1859,21 @@ MonoBehaviour:
   maxSpeed: 40
   DistanceCheckpoint: 0
   Checkpointpassed: 0
+--- !u!114 &811639121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811639111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLeft: 0
+  TimerOn: 0
+  TimerTxt: {fileID: 0}
 --- !u!1 &833172050
 GameObject:
   m_ObjectHideFlags: 0
@@ -2035,6 +2054,86 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.size
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[0]
+      value: 
+      objectReference: {fileID: 1527878299}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[1]
+      value: 
+      objectReference: {fileID: 1791846197}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[2]
+      value: 
+      objectReference: {fileID: 409434938}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[3]
+      value: 
+      objectReference: {fileID: 1690122927}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[4]
+      value: 
+      objectReference: {fileID: 1897620664}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[5]
+      value: 
+      objectReference: {fileID: 1808318034}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[6]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[7]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[8]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[9]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[10]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[11]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[12]
+      value: 
+      objectReference: {fileID: 88507747}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: waypoints.Array.data[13]
+      value: 
+      objectReference: {fileID: 88507747}
     - target: {fileID: 8648897306483108046, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Mass
@@ -2052,6 +2151,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 8648897306483108046, guid: c3e20853fd56f4a4da695698e4ad38bc, type: 3}
+    - {fileID: 65738687179933468, guid: c3e20853fd56f4a4da695698e4ad38bc, type: 3}
+    - {fileID: 9022635331490415671, guid: c3e20853fd56f4a4da695698e4ad38bc, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
@@ -2065,16 +2166,12 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
-      insertIndex: -1
+      insertIndex: 2
       addedObject: {fileID: 1326278089}
     - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 1326278094}
-    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: c3e20853fd56f4a4da695698e4ad38bc,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1326278095}
+      addedObject: {fileID: 1326278098}
   m_SourcePrefab: {fileID: 100100000, guid: c3e20853fd56f4a4da695698e4ad38bc, type: 3}
 --- !u!1 &958049480
 GameObject:
@@ -2339,6 +2436,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2094823223}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094823225}
   m_SourcePrefab: {fileID: 100100000, guid: 8de5b7a646023aa469f78047629bfc3d, type: 3}
 --- !u!1 &1075169301 stripped
 GameObject:
@@ -2426,6 +2527,21 @@ MonoBehaviour:
   maxSpeed: 22
   DistanceCheckpoint: 0
   Checkpointpassed: 0
+--- !u!114 &1075169311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075169301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLeft: 0
+  TimerOn: 0
+  TimerTxt: {fileID: 0}
 --- !u!1001 &1224774167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2549,6 +2665,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1224774180}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224774182}
   m_SourcePrefab: {fileID: 100100000, guid: 0c74920cc6490d24bb78c82d556c7333, type: 3}
 --- !u!1 &1224774168 stripped
 GameObject:
@@ -2720,6 +2840,21 @@ MonoBehaviour:
   acceleration: 15
   maxSpeed: 22
   DistanceCheckpoint: 0
+--- !u!114 &1224774182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLeft: 0
+  TimerOn: 0
+  TimerTxt: {fileID: 0}
 --- !u!1 &1251482970
 GameObject:
   m_ObjectHideFlags: 1
@@ -3084,39 +3219,7 @@ NavMeshAgent:
   m_BaseOffset: 0.55
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1326278094
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1326278084}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ab57aa3c22114439a965d8a2568bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1527878299}
-  - {fileID: 1791846197}
-  - {fileID: 409434938}
-  - {fileID: 1690122927}
-  - {fileID: 1897620664}
-  - {fileID: 1808318034}
-  - {fileID: 88507747}
-  marginOfError: 1
-  normalSpeed: 20
-  slowedSpeed: 20
-  extremeSlowedSpeed: 20
-  turnAngleThreshold: 45
-  extremeTurnAngleThreshold: 90
-  activationRadius: 3
-  acceleration: 15
-  maxSpeed: 22
-  DistanceCheckpoint: 0
-  Checkpointpassed: 0
-  turnSpeed: 100
---- !u!114 &1326278095
+--- !u!114 &1326278098
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3125,23 +3228,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326278084}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef145389df48a34c9637f21a0210b2b, type: 3}
+  m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 1527878299}
-  - {fileID: 1791846197}
-  - {fileID: 409434938}
-  - {fileID: 1690122927}
-  - {fileID: 1897620664}
-  - {fileID: 1808318034}
-  - {fileID: 88507747}
-  activationRadius: 8
-  acceleration: 15
-  maxSpeed: 22
-  DistanceCheckpoint: 0
-  Checkpointpassed: 0
-  turnSpeed: 100
+  TimeLeft: 0
+  TimerOn: 0
+  TimerTxt: {fileID: 0}
 --- !u!1 &1351288948
 GameObject:
   m_ObjectHideFlags: 0
@@ -10209,6 +10301,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1075169309}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075169311}
   m_SourcePrefab: {fileID: 100100000, guid: f64665302afcc8246bdf97bc2bf1bab3, type: 3}
 --- !u!1 &2036251075
 GameObject:
@@ -10582,6 +10678,21 @@ MonoBehaviour:
   maxSpeed: 27
   DistanceCheckpoint: 0
   Checkpointpassed: 0
+--- !u!114 &2094823225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094823215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TimeLeft: 0
+  TimerOn: 0
+  TimerTxt: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

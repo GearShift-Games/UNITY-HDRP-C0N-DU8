@@ -458,9 +458,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5568744951543452658}
   - component: {fileID: 8943569673912552399}
-  - component: {fileID: 9022635331490415671}
   - component: {fileID: 7870899111708003432}
-  - component: {fileID: 65738687179933468}
   - component: {fileID: 7798636280842693571}
   m_Layer: 0
   m_Name: velo_fonctionel
@@ -509,24 +507,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5255293, y: 0.9376664, z: 1.0021515}
   m_Center: {x: 0, y: 0.5193119, z: 0.10456085}
---- !u!114 &9022635331490415671
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89bfdec2f66acdf4d9d1e32f0ee395f7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  frontWheelCollider: {fileID: 2184793542158135911}
-  rearWheelCollider: {fileID: 4969944837042352741}
-  maxSteeringAngle: 30
-  maxMotorTorque: 3000
-  maxBrakeTorque: 3000
-  tiltThreshold: 40
 --- !u!195 &7870899111708003432
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -549,7 +529,7 @@ NavMeshAgent:
   m_BaseOffset: 0.55
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &65738687179933468
+--- !u!114 &7798636280842693571
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -558,49 +538,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 7075741049465353834}
   m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5ab57aa3c22114439a965d8a2568bb9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  marginOfError: 1
-  normalSpeed: 20
-  slowedSpeed: 20
-  extremeSlowedSpeed: 20
-  turnAngleThreshold: 45
-  extremeTurnAngleThreshold: 90
-  activationRadius: 3
-  acceleration: 15
-  maxSpeed: 22
-  DistanceCheckpoint: 0
-  Checkpointpassed: 0
-  turnSpeed: 100
---- !u!114 &7798636280842693571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: bef145389df48a34c9637f21a0210b2b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  waypoints: []
   activationRadius: 5
   acceleration: 15
   maxSpeed: 22
