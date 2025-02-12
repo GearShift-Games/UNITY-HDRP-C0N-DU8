@@ -6,7 +6,7 @@ public class Timer : MonoBehaviour
     public float TimeLeft;
     public bool TimerOn = false;
 
-    public Text TimerTxt;
+    public GameObject timeDisplay;
 
     void Start()
     {
@@ -36,8 +36,6 @@ public class Timer : MonoBehaviour
         currentTime += 1;
 
         float seconds = Mathf.FloorToInt(currentTime % 60);
-
-        TimerTxt.text = string.Format("{1:00}", seconds);
     }
 
 }
