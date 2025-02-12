@@ -20,9 +20,16 @@ public class Navigation8 : MonoBehaviour
 
     private float currentSpeed;  // Vitesse actuelle de l'ennemi
     public float DistanceCheckpoint = 0f;
+    public float score { get; set; }
+    public GameObject Bike { get; set; }
+
+
+    public int Checkpointpassed;
     // Start is called before the first frame update
     void Start()
     {
+        Bike = this.gameObject;
+
         agent = GetComponent<NavMeshAgent>();
         currentSpeed = normalSpeed;  // La vitesse initiale est normale
         agent.speed = currentSpeed;  // Applique la vitesse initiale au NavMeshAgent
@@ -33,12 +40,27 @@ public class Navigation8 : MonoBehaviour
     void Update()
     {
         DistanceCheckpoint = Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position);
-        Debug.Log(Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position));
+        //Debug.Log(Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position));
         // Vérifie si l'ennemi est dans la zone d'activation autour du point de destination actuel
+
+        var distance = Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position);
+        //Debug.Log(distance);
+        //Debug.Log(Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[currentWaypointIndex + 1].position));
+        var betweenCheckpoint = ScaleValue(distance, Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[(currentWaypointIndex + 1) % waypoints.Length].position), 0, 0, 1);
+
+        //Debug.Log(gameObject.name + " " + betweenCheckpoint + " " + Checkpointpassed);
+
+        score = Checkpointpassed + betweenCheckpoint;
+        //Debug.Log("score of " + gameObject.name + " : " + score);
+
         if (Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position) < activationRadius)
         {
             // Si c'est le cas, passe au point suivant
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            Checkpointpassed++;
+            //Debug.Log(gameObject.name + Checkpointpassed);
+            
+
             agent.destination = waypoints[currentWaypointIndex].position;  // Met à jour la destination
         }
 
@@ -71,6 +93,11 @@ public class Navigation8 : MonoBehaviour
             currentSpeed = Mathf.MoveTowards(currentSpeed, 0, acceleration * Time.deltaTime);  // Ralentit quand on approche du point de destination
         }
     }
+
+    public static float ScaleValue(float value, float inputMin, float inputMax, float outputMin, float outputMax)
+    {
+        return Mathf.Clamp(((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin), outputMin, outputMax);
+    }//im gonna take the distance between checkpoint to 0 to 1 to make more sense
 
     // Cette fonction permet de dessiner une sphère de détection autour des waypoints dans l'éditeur (pour tester)
     void OnDrawGizmos()

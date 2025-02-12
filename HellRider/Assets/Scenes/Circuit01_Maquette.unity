@@ -1399,6 +1399,55 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &603420752
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 603420754}
+  - component: {fileID: 603420753}
+  m_Layer: 0
+  m_Name: PositionManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &603420753
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603420752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2670e71edc65c04b92754027e058f11, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  players:
+  - {fileID: 1224774168}
+  - {fileID: 2094823215}
+  - {fileID: 1075169301}
+  - {fileID: 811639111}
+--- !u!4 &603420754
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603420752}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -461.85, y: 0.596, z: 32.966}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &620711682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1502,6 +1551,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 811639118}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811639119}
   m_SourcePrefab: {fileID: 100100000, guid: cc9f79fe98af3994a8ba7c750635b126, type: 3}
 --- !u!1 &621276227
 GameObject:
@@ -1869,7 +1922,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 811639111}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32cf290509b8c5446801b425445634f0, type: 3}
   m_Name: 
@@ -1891,6 +1944,37 @@ MonoBehaviour:
   activationRadius: 8
   acceleration: 3
   maxSpeed: 40
+--- !u!114 &811639119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811639111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba89aabbae00f4a8b68bf4c97752a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 15
+  slowedSpeed: 30
+  extremeSlowedSpeed: 20
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 3
+  maxSpeed: 40
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
 --- !u!1001 &938132850
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2192,7 +2276,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1075169301}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 32cf290509b8c5446801b425445634f0, type: 3}
   m_Name: 
@@ -2214,6 +2298,37 @@ MonoBehaviour:
   activationRadius: 8
   acceleration: 20
   maxSpeed: 20
+--- !u!114 &1075169309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075169301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 49ba89aabbae00f4a8b68bf4c97752a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 22
+  slowedSpeed: 1
+  extremeSlowedSpeed: 1
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 1
+  maxSpeed: 22
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
 --- !u!1001 &1224774167
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2290,7 +2405,7 @@ PrefabInstance:
     - target: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: m_Name
-      value: ennemi
+      value: ennemi_red
       objectReference: {fileID: 0}
     - target: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
@@ -2469,6 +2584,7 @@ MonoBehaviour:
   acceleration: 15
   maxSpeed: 22
   DistanceCheckpoint: 0
+  Checkpointpassed: 0
 --- !u!114 &1224774180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8680,6 +8796,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1075169308}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075169309}
   m_SourcePrefab: {fileID: 100100000, guid: f64665302afcc8246bdf97bc2bf1bab3, type: 3}
 --- !u!1 &2075358289
 GameObject:
@@ -8908,7 +9028,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094823215}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 49ba89aabbae00f4a8b68bf4c97752a2, type: 3}
   m_Name: 
@@ -8931,6 +9051,7 @@ MonoBehaviour:
   acceleration: 13
   maxSpeed: 27
   DistanceCheckpoint: 0
+  Checkpointpassed: 0
 --- !u!114 &2094823224
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8938,7 +9059,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2094823215}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e8905389719b54a469ff710b6dde0cd6, type: 3}
   m_Name: 
@@ -8975,3 +9096,4 @@ SceneRoots:
   - {fileID: 1436883718}
   - {fileID: 1305137393}
   - {fileID: 938132850}
+  - {fileID: 603420754}
