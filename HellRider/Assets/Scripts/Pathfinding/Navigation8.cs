@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Navigation8 : MonoBehaviour
+public class Navigation8 : MonoBehaviour, IPlayerScore
 {
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
     private NavMeshAgent agent;
@@ -22,6 +22,10 @@ public class Navigation8 : MonoBehaviour
     public float DistanceCheckpoint = 0f;
     public float score { get; set; }
     public GameObject Bike { get; set; }
+
+    // The interface property can directly use the field.
+    float IPlayerScore.score => score;
+    GameObject IPlayerScore.Bike => Bike;
 
 
     public int Checkpointpassed;

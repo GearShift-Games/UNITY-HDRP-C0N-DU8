@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Navigation8JoueurGen3 : MonoBehaviour
+public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
 {
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
     private NavMeshAgent agent;
@@ -15,9 +15,13 @@ public class Navigation8JoueurGen3 : MonoBehaviour
     private float currentSpeed = 0f;  // Vitesse actuelle
 
     public float DistanceCheckpoint = 0f;
-    public float score { get; set; }
     public int Checkpointpassed;
+
+    public float score { get; set; }
     public GameObject Bike { get; set; }
+
+    float IPlayerScore.score => score;
+    GameObject IPlayerScore.Bike => Bike;
 
     // Paramètre de contrôle de la rotation par le joueur
     public float turnSpeed = 100f;  // Vitesse de rotation
