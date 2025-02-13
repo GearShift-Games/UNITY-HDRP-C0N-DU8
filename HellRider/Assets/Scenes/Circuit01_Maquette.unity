@@ -2960,6 +2960,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 179802227}
     m_Modifications:
+    - target: {fileID: 592252746070330153, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: m_Speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 592252746070330153, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 50000
+      objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: cc9f79fe98af3994a8ba7c750635b126,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3012,6 +3022,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
         type: 3}
+      propertyPath: maxSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: normalSpeed
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: slowedSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: acceleration
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: extremeSlowedSpeed
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1527878299}
@@ -3053,7 +3093,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811639121}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811639122}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 811639123}
   m_SourcePrefab: {fileID: 100100000, guid: cc9f79fe98af3994a8ba7c750635b126, type: 3}
 --- !u!1 &698388789
 GameObject:
@@ -3473,6 +3525,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 620711682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &811639121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811639111}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe8ae465ccce443b638ff320c905a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 30
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 20
+  maxSpeed: 45
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &811639122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811639111}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778a940f67e835240be82b56b862d99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &811639123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 811639111}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6c61f6064f10040ba005d40ee51d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 5
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
 --- !u!1 &833172050
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,8 +4363,18 @@ PrefabInstance:
       objectReference: {fileID: 233999141}
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
+      propertyPath: maxSpeed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: acceleration
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
@@ -4451,6 +4609,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 179802227}
     m_Modifications:
+    - target: {fileID: 5411384887063560301, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: m_Speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411384887063560301, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 50000
+      objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: 8de5b7a646023aa469f78047629bfc3d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4503,6 +4671,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
         type: 3}
+      propertyPath: maxSpeed
+      value: 49
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: normalSpeed
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: slowedSpeed
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: acceleration
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: extremeSlowedSpeed
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1527878299}
@@ -4544,7 +4742,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094823225}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094823226}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2094823227}
   m_SourcePrefab: {fileID: 100100000, guid: 8de5b7a646023aa469f78047629bfc3d, type: 3}
 --- !u!1 &1063976864
 GameObject:
@@ -4636,6 +4846,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2013212627}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1075169311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075169301}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe8ae465ccce443b638ff320c905a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 38
+  slowedSpeed: 25
+  extremeSlowedSpeed: 17
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 38
+  maxSpeed: 38
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &1075169312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075169301}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778a940f67e835240be82b56b862d99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &1075169313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1075169301}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6c61f6064f10040ba005d40ee51d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 5
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
 --- !u!1 &1129851987
 GameObject:
   m_ObjectHideFlags: 0
@@ -4973,6 +5279,36 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
+      propertyPath: maxSpeed
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: normalSpeed
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: slowedSpeed
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: acceleration
+      value: 18
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: extremeSlowedSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
       propertyPath: waypoints.Array.data[0]
       value: 
       objectReference: {fileID: 1527878299}
@@ -5061,10 +5397,32 @@ PrefabInstance:
       propertyPath: m_Name
       value: ennemi_red
       objectReference: {fileID: 0}
+    - target: {fileID: 8066115598560417655, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: m_Speed
+      value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 8066115598560417655, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 50000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1224774176}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224774177}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1224774178}
   m_SourcePrefab: {fileID: 100100000, guid: 0c74920cc6490d24bb78c82d556c7333, type: 3}
 --- !u!1 &1224774168 stripped
 GameObject:
@@ -5078,6 +5436,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1224774167}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1224774176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe8ae465ccce443b638ff320c905a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 40
+  slowedSpeed: 22
+  extremeSlowedSpeed: 15
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  maxSpeed: 40
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &1224774177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778a940f67e835240be82b56b862d99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &1224774178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1224774168}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6c61f6064f10040ba005d40ee51d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 5
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
 --- !u!1 &1251482970
 GameObject:
   m_ObjectHideFlags: 1
@@ -14282,6 +14736,46 @@ PrefabInstance:
       propertyPath: m_Name
       value: ennemi_jaune
       objectReference: {fileID: 0}
+    - target: {fileID: 8957222788578502119, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: m_Speed
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8957222788578502119, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: m_AngularSpeed
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: maxSpeed
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: normalSpeed
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: slowedSpeed
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: acceleration
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: extremeSlowedSpeed
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
         type: 3}
       propertyPath: waypoints.Array.data[0]
@@ -14320,7 +14814,19 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075169311}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075169312}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1075169313}
   m_SourcePrefab: {fileID: 100100000, guid: f64665302afcc8246bdf97bc2bf1bab3, type: 3}
 --- !u!1 &2021003960
 GameObject:
@@ -14699,6 +15205,102 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1030503703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2094823225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094823215}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31fe8ae465ccce443b638ff320c905a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 42
+  slowedSpeed: 18
+  extremeSlowedSpeed: 15
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  maxSpeed: 42
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &2094823226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094823215}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 778a940f67e835240be82b56b862d99f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 1
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
+--- !u!114 &2094823227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2094823215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e6c61f6064f10040ba005d40ee51d56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  waypoints:
+  - {fileID: 1527878299}
+  - {fileID: 1791846197}
+  - {fileID: 409434938}
+  - {fileID: 1690122927}
+  - {fileID: 1897620664}
+  - {fileID: 1808318034}
+  - {fileID: 88507747}
+  marginOfError: 5
+  normalSpeed: 45
+  slowedSpeed: 20
+  extremeSlowedSpeed: 12
+  maxSpeed: 50
+  turnAngleThreshold: 45
+  extremeTurnAngleThreshold: 90
+  activationRadius: 8
+  acceleration: 25
+  DistanceCheckpoint: 0
+  Checkpointpassed: 0
+  baseTurnSpeed: 120
 --- !u!1 &2132514680
 GameObject:
   m_ObjectHideFlags: 0
