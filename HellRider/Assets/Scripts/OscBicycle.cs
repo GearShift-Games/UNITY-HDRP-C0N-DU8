@@ -108,8 +108,8 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterMessageOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -121,22 +121,22 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
         Debug.Log(value);
 
-        // Changer l'échelle de la valeur pour l'appliquer à la rotation :
+        // Changer l'Ã©chelle de la valeur pour l'appliquer Ã  la rotation :
         float rotation = ScaleValue(value, 0, 4095, 45, 315);
-        // Appliquer la rotation au GameObject ciblé :
+        // Appliquer la rotation au GameObject ciblÃ© :
         //Joueur.transform.eulerAngles = new Vector3(0, rotation, 0);
     }
 
     void TraiterXOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -148,7 +148,7 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
@@ -160,8 +160,8 @@ public class OscBicycle : MonoBehaviour
     {
         if (InTutorial == true)
         {
-            // Récupérer une valeur numérique en tant que float
-            // même si elle est de type float ou int :
+            // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+            // mÃªme si elle est de type float ou int :
             float value;
             if (oscMessage.Values[0].Type == OSCValueType.Int)
             {
@@ -173,7 +173,7 @@ public class OscBicycle : MonoBehaviour
             }
             else
             {
-                // Si la valeur n'est ni un float ou int, on quitte la méthode :
+                // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
                 return;
             }
 
@@ -186,8 +186,8 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterResetOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -199,7 +199,7 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
@@ -231,8 +231,8 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterIntroOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -244,7 +244,7 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
@@ -256,8 +256,8 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterConfirmOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -269,7 +269,7 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
@@ -344,8 +344,8 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterPauseOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -357,7 +357,7 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
@@ -380,8 +380,8 @@ public class OscBicycle : MonoBehaviour
 
     void TraiterRawOSC(OSCMessage oscMessage)
     {
-        // Récupérer une valeur numérique en tant que float
-        // même si elle est de type float ou int :
+        // RÃ©cupÃ©rer une valeur numÃ©rique en tant que float
+        // mÃªme si elle est de type float ou int :
         float value;
         if (oscMessage.Values[0].Type == OSCValueType.Int)
         {
@@ -393,13 +393,13 @@ public class OscBicycle : MonoBehaviour
         }
         else
         {
-            // Si la valeur n'est ni un float ou int, on quitte la méthode :
+            // Si la valeur n'est ni un float ou int, on quitte la mÃ©thode :
             return;
         }
 
         Debug.Log(value);
 
-        value = ScaleValue(value, -30000,30000,-1,1);
+        value = ScaleValue(value, -15000,15000,-1,1);
 
         Speed = value;
 
