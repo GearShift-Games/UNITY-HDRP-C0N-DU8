@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Navigation8: MonoBehaviour, IPlayerScore
+public class NavTest : MonoBehaviour, IPlayerScore
 {
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
     private NavMeshAgent agent;
