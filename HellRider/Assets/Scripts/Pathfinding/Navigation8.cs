@@ -118,7 +118,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     void ChangeNormalSpeed()
     {
         normalSpeed = Random.Range(40f, 50f);
-        Debug.Log("Nouvelle normalSpeed: " + normalSpeed);
+        //Debug.Log("Nouvelle normalSpeed: " + normalSpeed);
     }
 
     // Fonction utilitaire pour mettre à l'échelle une valeur d'un intervalle vers un autre

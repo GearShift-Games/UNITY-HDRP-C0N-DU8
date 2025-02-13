@@ -1,5 +1,3 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
@@ -15,21 +13,28 @@ public class PositionManager : MonoBehaviour
         // Create a list of IPlayerScore objects.
         List<IPlayerScore> scores = new List<IPlayerScore>();
 
-        // Add all players that have a component implementing IPlayerScore.
+        // Add all active players that have a component implementing IPlayerScore.
         foreach (GameObject player in players)
         {
-            IPlayerScore playerScore = player.GetComponent<IPlayerScore>();
-            if (playerScore != null)
+            // Check if the player is not null and active in the scene.
+            if (player != null && player.activeInHierarchy)
             {
-                scores.Add(playerScore);
+                IPlayerScore playerScore = player.GetComponent<IPlayerScore>();
+                if (playerScore != null)
+                {
+                    scores.Add(playerScore);
+                }
             }
         }
 
-        // Add the main player.
-        IPlayerScore mainScore = MainPlayer.GetComponent<IPlayerScore>();
-        if (mainScore != null)
+        // Optionally, add the main player if it is active.
+        if (MainPlayer != null && MainPlayer.activeInHierarchy)
         {
-            scores.Add(mainScore);
+            IPlayerScore mainScore = MainPlayer.GetComponent<IPlayerScore>();
+            if (mainScore != null)
+            {
+                scores.Add(mainScore);
+            }
         }
 
         // Sort the list in descending order of score.
@@ -38,11 +43,16 @@ public class PositionManager : MonoBehaviour
         // Now, scores[0] is the player in first place, scores[1] second, etc.
         for (int i = 0; i < scores.Count; i++)
         {
-            Debug.Log($"Place {i + 1}: {scores[i].Bike.name} with score {scores[i].score}");
-            scores[i].Bike.GetComponent<Timer>().TimerOn = false;
-            if (i + 1 == 5)
+            // Disable timer for all players
+            Timer timer = scores[i].Bike.GetComponent<Timer>();
+            if (timer != null)
             {
-                scores[i].Bike.GetComponent<Timer>().TimerOn = true;
+                timer.TimerOn = false;
+                // Enable timer for the player in 5th place
+                if (i + 1 == scores.Count)
+                {
+                    timer.TimerOn = true;
+                }
             }
         }
     }

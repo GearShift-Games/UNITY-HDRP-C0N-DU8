@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float TimeLeft;
+    private float TimeLeft = 30f;
     public bool TimerOn = false;
 
     public GameObject timeDisplay;
 
     void Start()
     {
-        TimerOn = true;
+        //TimerOn = true; pls dont start the timer of everyone when the game start
     }
 
     void Update()
@@ -27,7 +27,13 @@ public class Timer : MonoBehaviour
                 //Debug.Log("Time is UP!");
                 TimeLeft = 0;
                 TimerOn = false;
+                this.gameObject.SetActive(false);
             }
+            //Debug.Log(this.gameObject + " " + TimeLeft);
+        }
+        else
+        {
+            //deactivate ui
         }
     }
 
@@ -36,6 +42,7 @@ public class Timer : MonoBehaviour
         currentTime += 1;
 
         float seconds = Mathf.FloorToInt(currentTime % 60);
+        Debug.Log(this.gameObject + " " + seconds);
     }
 
 }
