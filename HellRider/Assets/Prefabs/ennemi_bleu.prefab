@@ -316,11 +316,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5568744951543452658}
-  - component: {fileID: 8922257317703582242}
-  - component: {fileID: 8873031980485478293}
-  - component: {fileID: 4746603514846932469}
-  - component: {fileID: 7632524585201411628}
-  - component: {fileID: 6569725130447714663}
+  - component: {fileID: 5411384887063560301}
+  - component: {fileID: 6820465879906412323}
+  - component: {fileID: 6137177071385171175}
+  - component: {fileID: 6384311004619838023}
   m_Layer: 0
   m_Name: ennemi_bleu
   m_TagString: Untagged
@@ -354,28 +353,7 @@ Transform:
   - {fileID: 4246866742723633671}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &8922257317703582242
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.05, z: 0.07}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &8873031980485478293
+--- !u!195 &5411384887063560301
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -397,7 +375,7 @@ NavMeshAgent:
   m_BaseOffset: 0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &4746603514846932469
+--- !u!65 &6820465879906412323
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -418,7 +396,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.05, z: 0.07}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &7632524585201411628
+--- !u!114 &6137177071385171175
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -449,7 +427,7 @@ MonoBehaviour:
   maxSpeed: 27
   DistanceCheckpoint: 0
   Checkpointpassed: 0
---- !u!114 &6569725130447714663
+--- !u!114 &6384311004619838023
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -463,7 +441,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeLeft: 0
   TimerOn: 0
-  TimerTxt: {fileID: 0}
+  timeDisplay: {fileID: 0}
 --- !u!1 &8919071672993454187
 GameObject:
   m_ObjectHideFlags: 0

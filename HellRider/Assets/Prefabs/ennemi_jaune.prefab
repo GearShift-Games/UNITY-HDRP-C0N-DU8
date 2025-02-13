@@ -452,11 +452,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5568744951543452658}
-  - component: {fileID: 2449353148480362392}
-  - component: {fileID: 3334445029153942889}
-  - component: {fileID: 7649100682695473905}
-  - component: {fileID: 5744607867681029136}
-  - component: {fileID: 1007500312693094926}
+  - component: {fileID: 8957222788578502119}
+  - component: {fileID: 1165781501860731037}
+  - component: {fileID: 9184430739887197004}
+  - component: {fileID: 4537172432240772282}
   m_Layer: 0
   m_Name: ennemi_jaune
   m_TagString: Untagged
@@ -490,28 +489,7 @@ Transform:
   - {fileID: 6519175588956091638}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &2449353148480362392
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.05, z: 0.07}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &3334445029153942889
+--- !u!195 &8957222788578502119
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -533,7 +511,7 @@ NavMeshAgent:
   m_BaseOffset: 0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!65 &7649100682695473905
+--- !u!65 &1165781501860731037
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -554,7 +532,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.05, z: 0.07}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5744607867681029136
+--- !u!114 &9184430739887197004
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -585,7 +563,7 @@ MonoBehaviour:
   maxSpeed: 22
   DistanceCheckpoint: 0
   Checkpointpassed: 0
---- !u!114 &1007500312693094926
+--- !u!114 &4537172432240772282
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -599,7 +577,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeLeft: 0
   TimerOn: 0
-  TimerTxt: {fileID: 0}
+  timeDisplay: {fileID: 0}
 --- !u!1001 &5060752573308141
 PrefabInstance:
   m_ObjectHideFlags: 0

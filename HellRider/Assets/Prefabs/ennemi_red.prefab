@@ -388,14 +388,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5568744951543452658}
-  - component: {fileID: 6377181579553311170}
-  - component: {fileID: 1593343353510930768}
-  - component: {fileID: 6753254712242426369}
-  - component: {fileID: 1987433551059191619}
-  - component: {fileID: 8592376027869439429}
-  - component: {fileID: 2906574047750523492}
-  - component: {fileID: 6391368890703634874}
-  - component: {fileID: 4601912984393593807}
+  - component: {fileID: 8066115598560417655}
+  - component: {fileID: 5617198446830096185}
+  - component: {fileID: 252061887070579204}
+  - component: {fileID: 557239852777416632}
   m_Layer: 0
   m_Name: ennemi_red
   m_TagString: Untagged
@@ -429,28 +425,7 @@ Transform:
   - {fileID: 4670553130155621227}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!65 &6377181579553311170
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Size: {x: 0.02, y: 0.05, z: 0.07}
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!195 &1593343353510930768
+--- !u!195 &8066115598560417655
 NavMeshAgent:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -472,61 +447,7 @@ NavMeshAgent:
   m_BaseOffset: 0.02
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &6753254712242426369
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a2e7306249c2e374ca892a4f1bb3108d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  marginOfError: 1
-  normalSpeed: 20
-  slowedSpeed: 15
-  turnAngleThreshold: 45
-  activationRadius: 8
-  acceleration: 15
-  maxSpeed: 22
---- !u!114 &1987433551059191619
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32cf290509b8c5446801b425445634f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  marginOfError: 1
-  normalSpeed: 20
-  slowedSpeed: 12
-  extremeSlowedSpeed: 8
-  turnAngleThreshold: 45
-  extremeTurnAngleThreshold: 90
-  activationRadius: 8
-  acceleration: 15
-  maxSpeed: 22
---- !u!65 &8592376027869439429
+--- !u!65 &5617198446830096185
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -547,7 +468,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.02, y: 0.05, z: 0.07}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &2906574047750523492
+--- !u!114 &252061887070579204
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -578,37 +499,7 @@ MonoBehaviour:
   maxSpeed: 22
   DistanceCheckpoint: 0
   Checkpointpassed: 0
---- !u!114 &6391368890703634874
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7075741049465353834}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c04032a681c95bd4f8302aadef3e3032, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  marginOfError: 1
-  normalSpeed: 20
-  slowedSpeed: 12
-  extremeSlowedSpeed: 8
-  turnAngleThreshold: 45
-  extremeTurnAngleThreshold: 90
-  activationRadius: 8
-  acceleration: 15
-  maxSpeed: 22
-  DistanceCheckpoint: 0
---- !u!114 &4601912984393593807
+--- !u!114 &557239852777416632
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -622,7 +513,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TimeLeft: 0
   TimerOn: 0
-  TimerTxt: {fileID: 0}
+  timeDisplay: {fileID: 0}
 --- !u!1 &7993974050447381155
 GameObject:
   m_ObjectHideFlags: 0

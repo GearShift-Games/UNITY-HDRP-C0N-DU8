@@ -55,7 +55,7 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
         // --- Contrôle de la vitesse ---
         // La vitesse est désormais contrôlée par l'input vertical (touches Z/S ou flèches haut/bas)
         // La valeur obtenue va de -1 (ralenti/frein ou marche arrière) à 1 (accélération)
-        float verticalInput = RealSpeed; //Input.GetAxis("Vertical");
+        float verticalInput = Input.GetAxis("Vertical"); //RealSpeed;
         float targetSpeed = verticalInput * maxSpeed;
         // On fait évoluer progressivement currentSpeed vers targetSpeed pour simuler l'accélération/décélération
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
