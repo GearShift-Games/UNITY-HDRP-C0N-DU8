@@ -9,16 +9,21 @@ public class canvas : MonoBehaviour
 {
     // Variables for the timer to work
     public bool TimerOn = true;
-    public float Timer;
+    public float LiveTimer;
     public TMP_Text timerDisplay;
 
     // UI Position
-    public TMP_Text placement;
+    public GameObject player;
+    public TMP_Text placementUI;
+    public int placement;
+    public int previousPlacement;
 
     // Start is called before the first frame update
     void Start()
     {
         TimerOn = true;
+        placement = player.GetComponent<Timer>().position;
+        previousPlacement = placement;
     }
 
     // Update is called once per frame
@@ -26,8 +31,21 @@ public class canvas : MonoBehaviour
     {
         if (TimerOn)
         {
-            Timer += Time.deltaTime;
-            updateTimer(Timer);
+            LiveTimer += Time.deltaTime;
+            updateTimer(LiveTimer);
+            placement = player.GetComponent<Timer>().position;
+            if (placement != previousPlacement)
+            {
+                if (placement == 1)
+                {
+                    placementUI.text = string.Format("{0:0}er", placement);
+                }
+                else
+                {
+                    placementUI.text = string.Format("{0:0}e", placement);
+                }
+            }
+            previousPlacement = placement;
         }
     }
 

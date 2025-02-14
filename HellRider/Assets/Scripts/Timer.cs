@@ -6,13 +6,12 @@ public class Timer : MonoBehaviour
     private float TimeLeft = 30f;
     public bool TimerOn = false;
 
-    public GameObject timeDisplay;
-
     public int position;
 
     void Start()
     {
         //TimerOn = true; pls dont start the timer of everyone when the game start
+        // >:) you can tell me what to do
     }
 
     void Update()
