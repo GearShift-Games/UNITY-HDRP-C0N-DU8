@@ -7,9 +7,14 @@ using System;
 
 public class canvas : MonoBehaviour
 {
+    // Variables for the timer to work
     public bool TimerOn = true;
     public float Timer;
     public TMP_Text timerDisplay;
+
+    // UI Position
+    public TMP_Text placement;
+
     // Start is called before the first frame update
     void Start()
     {
