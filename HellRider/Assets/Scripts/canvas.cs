@@ -15,15 +15,12 @@ public class canvas : MonoBehaviour
     // UI Position
     public GameObject player;
     public TMP_Text placementUI;
-    public int placement;
     public int previousPlacement;
 
     // Start is called before the first frame update
     void Start()
     {
         TimerOn = true;
-        placement = player.GetComponent<Timer>().position;
-        previousPlacement = placement;
     }
 
     // Update is called once per frame
@@ -33,19 +30,19 @@ public class canvas : MonoBehaviour
         {
             LiveTimer += Time.deltaTime;
             updateTimer(LiveTimer);
-            placement = player.GetComponent<Timer>().position;
-            if (placement != previousPlacement)
+            Timer placement = player.GetComponent<Timer>();
+            if (placement.position != previousPlacement)
             {
-                if (placement == 1)
+                if (placement.position == 1)
                 {
-                    placementUI.text = string.Format("{0:0}er", placement);
+                    placementUI.text = string.Format("{0:0}er", placement.position);
                 }
                 else
                 {
-                    placementUI.text = string.Format("{0:0}e", placement);
+                    placementUI.text = string.Format("{0:0}e", placement.position);
                 }
             }
-            previousPlacement = placement;
+            previousPlacement = placement.position;
         }
     }
 

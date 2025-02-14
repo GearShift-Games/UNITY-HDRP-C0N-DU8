@@ -553,9 +553,14 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  activationRadius: 5
-  acceleration: 15
-  maxSpeed: 22
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  activationRadius: 8
+  acceleration: 30
+  maxSpeed: 50
   Osc: {fileID: 0}
   RealSpeed: 0
   DistanceCheckpoint: 0
@@ -574,7 +579,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TimerOn: 0
-  timeDisplay: {fileID: 0}
+  position: 0
 --- !u!1001 &5060752573308141
 PrefabInstance:
   m_ObjectHideFlags: 0
