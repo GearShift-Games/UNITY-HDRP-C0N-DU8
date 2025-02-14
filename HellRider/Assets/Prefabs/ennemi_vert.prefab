@@ -445,17 +445,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  marginOfError: 1
-  normalSpeed: 15
-  slowedSpeed: 30
-  extremeSlowedSpeed: 20
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  marginOfError: 5
+  normalSpeed: 40
+  slowedSpeed: 12
+  extremeSlowedSpeed: 8
+  maxSpeed: 50
   turnAngleThreshold: 45
   extremeTurnAngleThreshold: 90
   activationRadius: 8
-  acceleration: 3
-  maxSpeed: 40
+  acceleration: 15
   DistanceCheckpoint: 0
   Checkpointpassed: 0
+  baseTurnSpeed: 120
 --- !u!114 &1980208880419554872
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -468,9 +474,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeft: 0
   TimerOn: 0
-  timeDisplay: {fileID: 0}
+  position: 0
 --- !u!1 &7801051374181026428
 GameObject:
   m_ObjectHideFlags: 0

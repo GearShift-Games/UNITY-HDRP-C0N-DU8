@@ -552,17 +552,23 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  marginOfError: 1
-  normalSpeed: 22
-  slowedSpeed: 1
-  extremeSlowedSpeed: 1
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  marginOfError: 5
+  normalSpeed: 40
+  slowedSpeed: 12
+  extremeSlowedSpeed: 8
+  maxSpeed: 50
   turnAngleThreshold: 45
   extremeTurnAngleThreshold: 90
   activationRadius: 8
-  acceleration: 1
-  maxSpeed: 22
+  acceleration: 15
   DistanceCheckpoint: 0
   Checkpointpassed: 0
+  baseTurnSpeed: 120
 --- !u!114 &4537172432240772282
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -575,9 +581,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c1aaea7852a4db4b823daeb15b1b5ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TimeLeft: 0
   TimerOn: 0
-  timeDisplay: {fileID: 0}
+  position: 0
 --- !u!1001 &5060752573308141
 PrefabInstance:
   m_ObjectHideFlags: 0
