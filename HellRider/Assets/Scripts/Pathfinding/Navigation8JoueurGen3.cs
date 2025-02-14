@@ -13,6 +13,7 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     public float acceleration = 2.0f;  // Accélération du joueur
     public float maxSpeed = 6.0f;  // Vitesse maximale atteignable par le joueur
     private float currentSpeed = 0f;  // Vitesse actuelle
+    public int speedUI; // Vitesse pour le UI
 
     public GameObject Osc;
     public float RealSpeed;
@@ -46,6 +47,10 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     void Update()
     {
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
+
+
+        // Prend la valeur du private currentSpeed pour l'envoyer au UI
+        speedUI = Mathf.FloorToInt(currentSpeed);
 
         // --- Contrôle de la rotation ---
         // Le joueur tourne à gauche ou à droite via l'input horizontal (touches A/D ou flèches gauche/droite)

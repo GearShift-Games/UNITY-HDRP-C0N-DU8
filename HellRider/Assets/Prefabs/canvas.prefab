@@ -1313,8 +1313,8 @@ MonoBehaviour:
   timerDisplay: {fileID: 293695177975111855}
   player: {fileID: 0}
   placementUI: {fileID: 7646516201433174437}
-  placement: 0
   previousPlacement: 0
+  speedometerUI: {fileID: 5121297707271789895}
 --- !u!1 &2216763014675322246
 GameObject:
   m_ObjectHideFlags: 0
@@ -4459,10 +4459,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 59.1
-  m_fontSizeBase: 36
+  m_fontSize: 59
+  m_fontSizeBase: 59
   m_fontWeight: 400
-  m_enableAutoSizing: 1
+  m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0

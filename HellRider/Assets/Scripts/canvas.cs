@@ -17,6 +17,9 @@ public class canvas : MonoBehaviour
     public TMP_Text placementUI;
     public int previousPlacement;
 
+    // Speed-o-meter
+    public TMP_Text speedometerUI;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,6 +46,8 @@ public class canvas : MonoBehaviour
                 }
             }
             previousPlacement = placement.position;
+            Navigation8JoueurGen3 speed = player.GetComponent<Navigation8JoueurGen3>();
+            speedometerUI.text = string.Format("{0:0} km/h", speed.speedUI);
         }
     }
 
