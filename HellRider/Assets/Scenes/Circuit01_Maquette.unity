@@ -1225,6 +1225,8 @@ MonoBehaviour:
   - {fileID: 1075169301}
   - {fileID: 811639111}
   MainPlayer: {fileID: 1326278084}
+  PlayerBombUI: {fileID: 1086785848}
+  LastPlaceTimer: {fileID: 2135315171}
 --- !u!1001 &620711682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1735,6 +1737,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: velo_fonctionel
       objectReference: {fileID: 0}
+    - target: {fileID: 7363991481111455584, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: LastPlaceTimer
+      value: 
+      objectReference: {fileID: 2135315171}
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: Osc
@@ -2050,6 +2057,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5568744951543452658, guid: f64665302afcc8246bdf97bc2bf1bab3,
     type: 3}
   m_PrefabInstance: {fileID: 2013212627}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1086785848 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1127487204
 GameObject:
@@ -8115,6 +8128,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1131340278166506272, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: player
@@ -8125,10 +8143,20 @@ PrefabInstance:
       propertyPath: m_Name
       value: canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 4643671859521911269, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6350978037288508707, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: minimapCam
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7134255422010699771, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7917642143642160243, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
@@ -8947,6 +8975,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1030503703}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2135315171 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4701682780243167912, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1485569117901333176
 PrefabInstance:
   m_ObjectHideFlags: 0

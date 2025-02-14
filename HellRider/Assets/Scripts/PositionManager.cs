@@ -1,12 +1,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 public class PositionManager : MonoBehaviour
 {
     // Assign your player objects in the Inspector.
     public GameObject[] players;
     public GameObject MainPlayer;
+
+    public GameObject PlayerBombUI;
+    public TMP_Text LastPlaceTimer;
 
     void Update()
     {
@@ -48,14 +52,39 @@ public class PositionManager : MonoBehaviour
             Timer timer = scores[i].Bike.GetComponent<Timer>();
             if (timer != null)
             {
-                timer.TimerOn = false;
                 timer.position = i + 1;
-                // Enable timer for the player in 5th place
+
+                // Enable timer for the player in last place
                 if (i + 1 == scores.Count)
                 {
                     timer.TimerOn = true;
+
+                    if (scores[i].Bike.name == MainPlayer.name)
+                    {
+                        PlayerBombUI.SetActive(true);
+                        updateTimer(timer.TimeLeft);
+
+                    }
+                }
+                else
+                {
+                    if (scores[i].Bike.name == MainPlayer.name)
+                    {
+                        PlayerBombUI.SetActive(false);
+                    }
+                    timer.TimerOn = false;
                 }
             }
         }
+    }
+
+    void updateTimer(float currentTime)
+    {
+        Debug.Log(currentTime);
+        float minutes = Mathf.FloorToInt(currentTime / 60);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+        float milliseconds = (currentTime * 100) % 100;
+
+        LastPlaceTimer.text = string.Format("{0:00} : {1:00}",seconds, milliseconds);
     }
 }
