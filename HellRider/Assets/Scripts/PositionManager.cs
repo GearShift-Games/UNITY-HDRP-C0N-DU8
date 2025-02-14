@@ -43,11 +43,13 @@ public class PositionManager : MonoBehaviour
         // Now, scores[0] is the player in first place, scores[1] second, etc.
         for (int i = 0; i < scores.Count; i++)
         {
+            //Debug.Log($"Place {i + 1}: {scores[i].Bike.name} with score {scores[i].score}");
             // Disable timer for all players
             Timer timer = scores[i].Bike.GetComponent<Timer>();
             if (timer != null)
             {
                 timer.TimerOn = false;
+                timer.position = i + 1;
                 // Enable timer for the player in 5th place
                 if (i + 1 == scores.Count)
                 {
