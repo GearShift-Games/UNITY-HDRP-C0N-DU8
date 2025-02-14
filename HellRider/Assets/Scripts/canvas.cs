@@ -3,25 +3,27 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System;
 
 public class canvas : MonoBehaviour
 {
     public bool TimerOn = true;
     public float Timer;
-    public TextMeshProUGUI timerDisplay;
+    public TMP_Text timerDisplay;
     // Start is called before the first frame update
     void Start()
     {
         TimerOn = true;
-        timerDisplay = GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        Timer += Time.deltaTime;
-        updateTimer(Timer);
-        timerDisplay.text = Timer.ToString();
+        if (TimerOn)
+        {
+            Timer += Time.deltaTime;
+            updateTimer(Timer);
+        }
     }
 
     void updateTimer(float currentTime)
@@ -30,8 +32,8 @@ public class canvas : MonoBehaviour
 
         float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
-        float miliseconds = Mathf.FloorToInt(currentTime % 1000);
+        float milliseconds = (currentTime * 1000) % 1000;
 
-        timerDisplay.text = string.Format("Temps {0:00} : {0:00} : {0:000}", minutes, seconds, miliseconds);
+        timerDisplay.text = string.Format("Temps {0:00} : {1:00} : {2:000}", minutes, seconds, milliseconds);
     }
 }
