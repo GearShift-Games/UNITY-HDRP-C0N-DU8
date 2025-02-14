@@ -8,6 +8,8 @@ public class Timer : MonoBehaviour
 
     public GameObject timeDisplay;
 
+    public int position;
+
     void Start()
     {
         //TimerOn = true; pls dont start the timer of everyone when the game start
