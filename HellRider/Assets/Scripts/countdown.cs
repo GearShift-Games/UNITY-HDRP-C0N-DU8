@@ -51,22 +51,22 @@ public class countdown : MonoBehaviour
 
     void getComponents(bool status)
     {
-        // Activates / Deactivates inputs
+        // Activates / Desactivates inputs
         Navigation8JoueurGen3 playerMovement = Player.GetComponent<Navigation8JoueurGen3>();
         Timer playerTimer = Player.GetComponent<Timer>();
-        NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
+        // NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
         playerMovement.enabled = status;
         playerTimer.enabled = status;
-        PlayerAgent.enabled = status;
+        // PlayerAgent.enabled = status;
 
         foreach (GameObject entity in AI)
         {
             Navigation8 AIMovement = entity.GetComponent<Navigation8>();
             Timer AITimer = entity.GetComponent<Timer>();
-            NavMeshAgent AIagent = entity.GetComponent<NavMeshAgent>();
+            // NavMeshAgent AIagent = entity.GetComponent<NavMeshAgent>();
             AIMovement.enabled = status;
             AITimer.enabled = status;
-            AIagent.enabled = status;
+            // AIagent.enabled = status;
         }
 
     }
