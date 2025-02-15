@@ -1857,8 +1857,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 438.5663, y: 79.44171}
+  m_AnchoredPosition: {x: 59, y: 0}
+  m_SizeDelta: {x: 529.5115, y: 157.2539}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &808190882
 MonoBehaviour:
@@ -1880,18 +1880,18 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Joueur \xC9limin\xE9"
+  m_text: DEFAITE
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: dfcad910f30136c47a5640322cec69d4, type: 2}
-  m_sharedMaterial: {fileID: 4394646272707739137, guid: dfcad910f30136c47a5640322cec69d4,
+  m_fontAsset: {fileID: 11400000, guid: b1d95214f5ffd3c469ef3b4ba3d513e4, type: 2}
+  m_sharedMaterial: {fileID: 907417914980336696, guid: b1d95214f5ffd3c469ef3b4ba3d513e4,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279697418
-  m_fontColor: {r: 0.039215688, g: 0, b: 0.09019608, a: 1}
+    rgba: 4278190266
+  m_fontColor: {r: 0.7294118, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1908,14 +1908,14 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 58.4
-  m_fontSizeBase: 58.4
+  m_fontSize: 330.4
+  m_fontSizeBase: 330.4
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
