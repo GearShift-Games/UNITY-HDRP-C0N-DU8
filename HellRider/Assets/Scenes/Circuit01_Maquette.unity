@@ -424,7 +424,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 61cc8b2bab551184aa491163bc491ba4, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: 7acd59766120afc47be1cfb3e2508e24, type: 2}
   m_BuildHeightMesh: 0
 --- !u!4 &115982454
 Transform:
@@ -456,7 +456,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &179802227
 Transform:
   m_ObjectHideFlags: 0
@@ -2253,6 +2253,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: velo_fonctionel
+      objectReference: {fileID: 0}
+    - target: {fileID: 7075741049465353834, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7363991481111455584, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
@@ -8872,6 +8877,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1961205384622205591, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2995650069160851413, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
