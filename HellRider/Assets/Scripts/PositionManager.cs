@@ -55,7 +55,7 @@ public class PositionManager : MonoBehaviour
                 timer.position = i + 1;
 
                 // Enable timer for the player in last place
-                if (i + 1 == scores.Count)
+                if (i + 1 == scores.Count && scores.Count != 1)
                 {
                     timer.TimerOn = true;
 
@@ -81,7 +81,6 @@ public class PositionManager : MonoBehaviour
     void updateTimer(float currentTime)
     {
         Debug.Log(currentTime);
-        float minutes = Mathf.FloorToInt(currentTime / 60);
         float seconds = Mathf.FloorToInt(currentTime % 60);
         float milliseconds = (currentTime * 100) % 100;
 

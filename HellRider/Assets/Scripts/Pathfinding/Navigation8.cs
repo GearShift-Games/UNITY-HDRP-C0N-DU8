@@ -34,6 +34,10 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     float IPlayerScore.score => score;
     GameObject IPlayerScore.Bike => Bike;
 
+    //players position if we want some rubber banding
+    //public GameObject Mainplayer;
+    //private int MainplayerPosition;
+
     public float baseTurnSpeed = 120f;  // Vitesse de rotation de base (en degrés/seconde)
 
     // Destination actuelle (avec déviation)
@@ -59,6 +63,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void Update()
     {
+        //MainplayerPosition = Mainplayer.GetComponent<Timer>().position;
+
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;

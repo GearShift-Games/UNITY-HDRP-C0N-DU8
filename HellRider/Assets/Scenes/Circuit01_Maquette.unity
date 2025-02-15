@@ -1000,6 +1000,57 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 503275769}
   m_Mesh: {fileID: -462981019419857548, guid: 02b1fd49326bb6b449bb6a9f10f0be9a, type: 3}
+--- !u!1 &509119092
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 509119094}
+  - component: {fileID: 509119093}
+  m_Layer: 0
+  m_Name: WinOrLose
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &509119093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509119092}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53d83ddf4bb3f7a47abf7ea4596168a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MainPlayer: {fileID: 1326278084}
+  Participant:
+  - {fileID: 1224774168}
+  - {fileID: 2094823215}
+  - {fileID: 1075169301}
+  - {fileID: 811639111}
+  - {fileID: 1326278084}
+--- !u!4 &509119094
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509119092}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 365.5, y: 171.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &581871142
 GameObject:
   m_ObjectHideFlags: 0
@@ -2448,6 +2499,39 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1699041442}
   m_PrefabAsset: {fileID: 0}
+--- !u!225 &1086785850
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086785848}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!95 &1086785851
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1086785848}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 88f81e74d1bde7e40aeba4e50ac76f38, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1127487204
 GameObject:
   m_ObjectHideFlags: 0
@@ -8659,6 +8743,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 4701682780243167912, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_fontColor.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4701682780243167912, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4278190266
+      objectReference: {fileID: 0}
     - target: {fileID: 6350978037288508707, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: minimapCam
@@ -8784,7 +8878,15 @@ PrefabInstance:
         type: 3}
       insertIndex: 6
       addedObject: {fileID: 1982957022}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1086785850}
+    - targetCorrespondingSourceObject: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1086785851}
   m_SourcePrefab: {fileID: 100100000, guid: 9d4b1382151645e4a85cdd04f4efe44a, type: 3}
 --- !u!1 &1791846196
 GameObject:
@@ -9868,6 +9970,7 @@ SceneRoots:
   - {fileID: 1305137393}
   - {fileID: 938132850}
   - {fileID: 603420754}
+  - {fileID: 509119094}
   - {fileID: 1269609344}
   - {fileID: 1799781948}
   - {fileID: 1485569117901333176}
