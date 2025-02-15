@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 using TMPro;
 
 public class countdown : MonoBehaviour
 {
     // variables to do the countdown
-    public int countdownTime = 2;
+    public float countdownTime = 2f;
     public bool countingDown;
     public TMP_Text countdownUI;
 
@@ -25,21 +26,26 @@ public class countdown : MonoBehaviour
         {
             if (countdownTime < 0)
             {
-                getComponents(true);
                 countingDown = false;
-                countdownUI.text = string.Format("Pédalez !");
             }
             else
             {
                 getComponents(false);
-                countdownTime -= 1;
-                countdownUI.text = string.Format("{0:0}", countdownTime+1);
+                countdownTime -= Time.deltaTime;
+                countdownUI.text = string.Format("{0:0}", countdownTime+1f);
             }
-            //Debug.Log(this.gameObject + " " + TimeLeft);
         }
         else
         {
-            //deactivate ui
+            getComponents(true);
+            countdownUI.text = string.Format("Pédalez !");
+            countdownTime = 2;
+            countdownTime -= Time.deltaTime;
+            if (countdownTime < 0)
+            {
+                countdownUI.text = string.Format(" ");
+            }
+
         }
     }
 
@@ -48,15 +54,19 @@ public class countdown : MonoBehaviour
         // Activates / Deactivates inputs
         Navigation8JoueurGen3 playerMovement = Player.GetComponent<Navigation8JoueurGen3>();
         Timer playerTimer = Player.GetComponent<Timer>();
+        NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
         playerMovement.enabled = status;
         playerTimer.enabled = status;
+        PlayerAgent.enabled = status;
 
         foreach (GameObject entity in AI)
         {
             Navigation8 AIMovement = entity.GetComponent<Navigation8>();
             Timer AITimer = entity.GetComponent<Timer>();
+            NavMeshAgent AIagent = entity.GetComponent<NavMeshAgent>();
             AIMovement.enabled = status;
             AITimer.enabled = status;
+            AIagent.enabled = status;
         }
 
     }
