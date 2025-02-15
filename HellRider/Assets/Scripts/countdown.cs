@@ -67,6 +67,13 @@ public class countdown : MonoBehaviour
             AIMovement.enabled = status;
             AITimer.enabled = status;
             // AIagent.enabled = status;
+            if (status)
+            {
+                AIMovement.maxSpeed = 50f;
+            } else
+            {
+                AIMovement.maxSpeed = 0f;
+            }
         }
 
     }
