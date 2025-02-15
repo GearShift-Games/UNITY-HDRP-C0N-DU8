@@ -12,6 +12,7 @@ public class WinOrLose : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip LoseSound;  
     public AudioClip WinSound;  
+    public AudioClip BoomSound;  
     void Update()
     {
         if (!MainPlayer.activeInHierarchy) //when you lose
@@ -34,7 +35,10 @@ public class WinOrLose : MonoBehaviour
             SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(WinSound);
         }
+
+
     }
+
 
     void PlaySound(AudioClip clip)
     {
