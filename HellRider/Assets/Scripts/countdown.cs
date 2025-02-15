@@ -24,7 +24,7 @@ public class countdown : MonoBehaviour
     {
         if (countingDown)
         {
-            if (countdownTime < 0)
+            if (countdownTime < 0f)
             {
                 countingDown = false;
             }
@@ -39,9 +39,9 @@ public class countdown : MonoBehaviour
         {
             getComponents(true);
             countdownUI.text = string.Format("Pédalez !");
-            countdownTime = 2;
+            countdownTime = 2f;
             countdownTime -= Time.deltaTime;
-            if (countdownTime < 0)
+            if (countdownTime < 0f)
             {
                 countdownUI.text = string.Format(" ");
             }

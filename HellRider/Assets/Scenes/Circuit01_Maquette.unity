@@ -8828,6 +8828,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 1326278084}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: countingDown
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: AI.Array.data[0]
+      value: 
+      objectReference: {fileID: 1224774168}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: AI.Array.data[1]
+      value: 
+      objectReference: {fileID: 2094823215}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: AI.Array.data[2]
+      value: 
+      objectReference: {fileID: 1075169301}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: AI.Array.data[3]
+      value: 
+      objectReference: {fileID: 811639111}
     - target: {fileID: 1131340278166506272, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: player
@@ -8992,6 +9027,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1086785851}
+    - targetCorrespondingSourceObject: {fileID: 6455898857981033033, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9d4b1382151645e4a85cdd04f4efe44a, type: 3}
 --- !u!1 &1791846196
 GameObject:
