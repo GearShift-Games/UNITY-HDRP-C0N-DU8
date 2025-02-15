@@ -20,15 +20,28 @@ public class canvas : MonoBehaviour
     // Speed-o-meter
     public TMP_Text speedometerUI;
 
+    // doesnt start if the countdown is happening
+    public countdown startScript;
+
     // Start is called before the first frame update
     void Start()
     {
-        TimerOn = true;
+        startScript = GetComponent<countdown>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        // Doesnt start the timer until the countdown is done
+        if (startScript.countingDown)
+        {
+            TimerOn = false;
+        } else
+        {
+            TimerOn = true;
+        }
+
+        // if the timer should be on, be on
         if (TimerOn)
         {
             LiveTimer += Time.deltaTime;
