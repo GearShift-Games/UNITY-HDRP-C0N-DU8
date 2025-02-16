@@ -5,6 +5,7 @@ public class Timer : MonoBehaviour
 {
     public float TimeLeft = 30f;
     public bool TimerOn = false;
+    public float seconds;
 
     public int position;
 
@@ -17,6 +18,7 @@ public class Timer : MonoBehaviour
 
     void Update()
     {
+        //Debug.Log(this.gameObject + " " + TimerOn);
         if (TimerOn)
         {
             if (TimeLeft > 0)
@@ -43,8 +45,9 @@ public class Timer : MonoBehaviour
     {
         currentTime += 1;
         
-        float seconds = Mathf.FloorToInt(currentTime % 60);
+        seconds = Mathf.FloorToInt(currentTime % 60);
         //Debug.Log(this.gameObject + " " + seconds);
+
     }
 
 }

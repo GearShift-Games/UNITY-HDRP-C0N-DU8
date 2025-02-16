@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -7,48 +8,68 @@ public class TestSon : MonoBehaviour
 {
     public int position;
     public GameObject player;
-    public bool TimerOn = true;
+    public bool TimerOn;
+    public int placement;
     public int previousPlacement;
+
     public AudioSource audioSource;
+
     public AudioClip rankUpSound;  // Son quand le joueur monte
     public AudioClip rankDownSound; // Son quand le joueur descend
+    public AudioClip TimerGoDown;
+
+    Timer timer;
     // Start is called before the first frame update
     void Start()
     {
-        TimerOn = true;
+        InvokeRepeating("repeatingSound", 1f, 1f);
+
+        timer = player.GetComponent<Timer>();
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-                if (TimerOn)
+
+        placement = timer.position;
+        TimerOn = timer.TimerOn;
+
+
+        if (placement != previousPlacement)
         {
-            Timer placement = player.GetComponent<Timer>();
-            if (placement.position != previousPlacement)
+            if (placement > previousPlacement)
             {
-                if (placement.position > previousPlacement)
-                {
-                    PlaySound(rankDownSound);
-                   // Debug.Log(placement.position);
-                    //Debug.Log("w" + previousPlacement);
-                    //Debug.Log("Descend");
-                }
-                else if (placement.position < previousPlacement)
-                {
-                    PlaySound(rankUpSound);
-                    //Debug.Log(placement.position);
-                    //Debug.Log("w" + previousPlacement);
-                    //Debug.Log("Monte");
-                }
+                PlaySound(rankDownSound, 1f);
+                // Debug.Log(placement.position);
+                //Debug.Log("w" + previousPlacement);
+                //Debug.Log("Descend");
             }
-            previousPlacement = placement.position;
+            else if (placement < previousPlacement)
+            {
+                PlaySound(rankUpSound, 1f);
+                //Debug.Log(placement.position);
+                //Debug.Log("w" + previousPlacement);
+                //Debug.Log("Monte");
+            }
         }
+        previousPlacement = placement;
+        
     }
-     void PlaySound(AudioClip clip)
+    void PlaySound(AudioClip clip, float volume)
     {
         if (audioSource != null && clip != null)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip, volume);
+        }
+    }
+
+    void repeatingSound()
+    {
+        if(TimerOn == true)
+        {
+            PlaySound(TimerGoDown, 1f);
         }
     }
 }
