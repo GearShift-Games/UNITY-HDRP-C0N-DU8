@@ -15,6 +15,7 @@ public class countdown : MonoBehaviour
     public GameObject Player;
     public GameObject[] AI;
 
+    private bool unlockPlayers = true;
     void Start()
     {
         countingDown = true;
@@ -36,17 +37,9 @@ public class countdown : MonoBehaviour
                 Debug.Log(countdownUI.text);
             }
         }
-        else
+        else if (unlockPlayers)
         {
-            getComponents(true);
-            countdownUI.text = string.Format("Pédalez !");
-            countdownTime = 2f;
-            countdownTime -= Time.deltaTime;
-            if (countdownTime < 0f)
-            {
-                countdownUI.text = string.Format(" ");
-            }
-
+            StartCoroutine("DisableCount");
         }
     }
 
@@ -78,4 +71,16 @@ public class countdown : MonoBehaviour
         }
 
     }
+
+    IEnumerator DisableCount()
+    {
+        unlockPlayers = false;
+        getComponents(true);
+        countdownUI.text = string.Format("Pédalez !");
+        yield return new WaitForSeconds(2f);
+
+        countdownUI.text = string.Format(" ");
+        yield break;
+    }
+
 }
