@@ -80,7 +80,7 @@ public class PositionManager : MonoBehaviour
 
     void updateTimer(float currentTime)
     {
-        Debug.Log(currentTime);
+        //Debug.Log(currentTime);
         float seconds = Mathf.FloorToInt(currentTime % 60);
         float milliseconds = (currentTime * 100) % 100;
 

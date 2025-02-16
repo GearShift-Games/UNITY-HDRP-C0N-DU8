@@ -5,21 +5,31 @@ using UnityEngine.SceneManagement;
 
 public class WinOrLose : MonoBehaviour
 {
-
+    private bool onGoingRace;
     public GameObject MainPlayer;
     public GameObject[] Participant;
     private int LeftAlive;
+
+
     public AudioSource audioSource;
     public AudioClip LoseSound;  
     public AudioClip WinSound;  
-    public AudioClip BoomSound;  
+    public AudioClip BoomSound;
+
+    private void Start()
+    {
+        onGoingRace = true;
+    }
     void Update()
     {
-        if (!MainPlayer.activeInHierarchy) //when you lose
+        if (!MainPlayer.activeInHierarchy && onGoingRace == true) //when you lose
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(LoseSound, 1f);
+
+            onGoingRace = false;
         }
+
 
         LeftAlive = 0;
         for (int i = 0; i < Participant.Length; i++)
@@ -30,10 +40,12 @@ public class WinOrLose : MonoBehaviour
             }
         }
 
-        if (LeftAlive == 1) //you win here 
+        if (LeftAlive == 1 && onGoingRace == true) //you win here 
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(WinSound, 0.5f);
+
+            onGoingRace = false;
         }
 
 

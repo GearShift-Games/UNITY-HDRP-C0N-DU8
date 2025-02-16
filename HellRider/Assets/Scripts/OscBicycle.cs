@@ -218,7 +218,7 @@ public class OscBicycle : MonoBehaviour
     public void RestartGame()
     {
         //SceneManager.LoadScene("TEST-Jay");
-        hasUser = false;
+        /*hasUser = false;
         reset = false;
 
 
@@ -228,7 +228,7 @@ public class OscBicycle : MonoBehaviour
         }
         tutorialNumber = 0;
         tutorialPanel.SetActive(true);
-        tutorialXPositionGameobject.SetActive(true);
+        tutorialXPositionGameobject.SetActive(true);*/
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
@@ -399,12 +399,12 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Debug.Log(value);
+        //Debug.Log(value);
 
         value = ScaleValue(value, -15000,15000,-1,1);
 
         Speed = value;
 
-        Debug.Log(Speed);
+        //Debug.Log(Speed);
     }
 }
