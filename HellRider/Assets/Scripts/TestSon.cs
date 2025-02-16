@@ -35,10 +35,10 @@ public class TestSon : MonoBehaviour
                 }
                 else if (placement.position < previousPlacement)
                 {
-                PlaySound(rankUpSound);
-                //Debug.Log(placement.position);
-                //Debug.Log("w" + previousPlacement);
-                //Debug.Log("Monte");
+                    PlaySound(rankUpSound);
+                    //Debug.Log(placement.position);
+                    //Debug.Log("w" + previousPlacement);
+                    //Debug.Log("Monte");
                 }
             }
             previousPlacement = placement.position;
