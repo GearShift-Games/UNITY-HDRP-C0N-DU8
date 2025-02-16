@@ -9937,6 +9937,78 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 9d4b1382151645e4a85cdd04f4efe44a, type: 3}
+--- !u!1 &1699041443 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 766637940426664028, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1699041444 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1605329371340003343, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1699041443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1699041445 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7705840590179263702, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1699041446 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4185903967439586730, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1699041447 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4134925964579757411, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1699041448 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6888182091037064077, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1699041449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6229981941011132119, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1699041442}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1791846196
 GameObject:
   m_ObjectHideFlags: 0
@@ -11246,6 +11318,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: OSC Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialPanel
+      value: 
+      objectReference: {fileID: 1699041449}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialSlider
+      value: 
+      objectReference: {fileID: 1699041445}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialSetLeft
+      value: 
+      objectReference: {fileID: 1699041447}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialSetRight
+      value: 
+      objectReference: {fileID: 1699041446}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialSetCenter
+      value: 
+      objectReference: {fileID: 1699041448}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialXPosition
+      value: 
+      objectReference: {fileID: 1699041444}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: tutorialXPositionGameobject
+      value: 
+      objectReference: {fileID: 1699041443}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

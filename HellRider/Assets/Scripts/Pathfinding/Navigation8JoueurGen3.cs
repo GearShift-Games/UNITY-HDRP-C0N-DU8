@@ -15,8 +15,10 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     private float currentSpeed = 0f;  // Vitesse actuelle
     public int speedUI; // Vitesse pour le UI
 
+    [Header("Osc Data")]
     public GameObject Osc;
     public float RealSpeed;
+    public float XValue;
 
     public float DistanceCheckpoint = 0f;
     public int Checkpointpassed;
@@ -42,24 +44,26 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
         agent.destination = waypoints[currentWaypointIndex].position;
 
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
+        XValue = Osc.GetComponent<OscBicycle>().X;
     }
 
     void Update()
     {
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
+        XValue = Osc.GetComponent<OscBicycle>().X;
 
         // Prend la valeur du private currentSpeed pour l'envoyer au UI
         speedUI = Mathf.FloorToInt(currentSpeed);
 
         // --- Contrôle de la rotation ---
         // Le joueur tourne à gauche ou à droite via l'input horizontal (touches A/D ou flèches gauche/droite)
-        float horizontalInput = Input.GetAxis("Horizontal");
+        float horizontalInput = XValue; // Input.GetAxis("Horizontal");
         transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
 
         // --- Contrôle de la vitesse ---
         // La vitesse est désormais contrôlée par l'input vertical (touches Z/S ou flèches haut/bas)
         // La valeur obtenue va de -1 (ralenti/frein ou marche arrière) à 1 (accélération)
-        float verticalInput = Input.GetAxis("Vertical"); //RealSpeed;
+        float verticalInput = RealSpeed; //Input.GetAxis("Vertical");
         float targetSpeed = verticalInput * maxSpeed;
         // On fait évoluer progressivement currentSpeed vers targetSpeed pour simuler l'accélération/décélération
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);

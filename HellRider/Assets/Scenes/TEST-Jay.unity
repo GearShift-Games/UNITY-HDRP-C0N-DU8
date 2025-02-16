@@ -1142,9 +1142,9 @@ MonoBehaviour:
   tutorialPanel: {fileID: 1088759385}
   tutorialXPositionGameobject: {fileID: 1974858025}
   tutorialXPosition: {fileID: 1974858028}
-  tutorialCenter: {fileID: 640670952}
-  tutorialLeft: {fileID: 267053083}
-  tutorialRight: {fileID: 1569098043}
+  tutorialSetCenter: {fileID: 640670952}
+  tutorialSetLeft: {fileID: 267053083}
+  tutorialSetRight: {fileID: 1569098043}
   tutorialSlider: {fileID: 1399099936}
   Speed: 0
 --- !u!114 &615454500
@@ -1848,7 +1848,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1088759386
 RectTransform:
   m_ObjectHideFlags: 0
