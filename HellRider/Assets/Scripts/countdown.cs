@@ -33,6 +33,7 @@ public class countdown : MonoBehaviour
                 getComponents(false);
                 countdownTime -= Time.deltaTime;
                 countdownUI.text = string.Format("{0:0}", countdownTime+1f);
+                Debug.Log(countdownUI.text);
             }
         }
         else
