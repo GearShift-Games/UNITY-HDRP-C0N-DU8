@@ -33,7 +33,7 @@ public class WinOrLose : MonoBehaviour
         if (LeftAlive == 1) //you win here 
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
-            PlaySound(WinSound, 1f);
+            PlaySound(WinSound, 0.5f);
         }
 
 
