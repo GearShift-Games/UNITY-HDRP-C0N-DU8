@@ -1296,7 +1296,7 @@ MonoBehaviour:
   - {fileID: 811639111}
   - {fileID: 1326278084}
   audioSource: {fileID: 509119095}
-  LoseSound: {fileID: 8300000, guid: 711207c9634e1824996b8c3e9e5c3a26, type: 3}
+  LoseSound: {fileID: 8300000, guid: 9d2c70855b5ddd94780b6210ef8738d7, type: 3}
   WinSound: {fileID: 8300000, guid: 378746928d5150f43ad93a94ee1d285a, type: 3}
   BoomSound: {fileID: 8300000, guid: 757e883ece01e2f40aa2e96ea722bc85, type: 3}
 --- !u!4 &509119094
@@ -1400,7 +1400,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -3843,8 +3843,8 @@ MonoBehaviour:
   TimerOn: 1
   previousPlacement: 0
   audioSource: {fileID: 1326278091}
-  rankUpSound: {fileID: 8300000, guid: 4df0e09816a87d74f99683d01905883e, type: 3}
-  rankDownSound: {fileID: 8300000, guid: 678977b4fa0f7bc45a9565a4531b9a5a, type: 3}
+  rankUpSound: {fileID: 8300000, guid: 666f55e92c5a3a4459211c84ac989882, type: 3}
+  rankDownSound: {fileID: 8300000, guid: 5b0121cad09b98f4b89f1761bdafc4bc, type: 3}
 --- !u!82 &1326278091
 AudioSource:
   m_ObjectHideFlags: 0
