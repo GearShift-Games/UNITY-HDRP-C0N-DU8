@@ -18,7 +18,7 @@ public class WinOrLose : MonoBehaviour
         if (!MainPlayer.activeInHierarchy) //when you lose
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
-            PlaySound(LoseSound);
+            PlaySound(LoseSound, 1f);
         }
 
         LeftAlive = 0;
@@ -33,18 +33,18 @@ public class WinOrLose : MonoBehaviour
         if (LeftAlive == 1) //you win here 
         {
             SceneManager.LoadScene("Circuit01_Maquette");
-            PlaySound(WinSound);
+            PlaySound(WinSound, 1f);
         }
 
 
     }
 
 
-    void PlaySound(AudioClip clip)
+    void PlaySound(AudioClip clip, float volume)
     {
         if (audioSource != null && clip != null)
         {
-            audioSource.PlayOneShot(clip);
+            audioSource.PlayOneShot(clip, volume);
         }
     }
 }
