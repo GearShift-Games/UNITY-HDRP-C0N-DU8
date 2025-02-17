@@ -91,7 +91,7 @@ public class countdown : MonoBehaviour
     {
         unlockPlayers = false;
         getComponents(true);
-        countdownUI.text = string.Format("P�dalez !");
+        countdownUI.text = string.Format("Pedalez !");
         yield return new WaitForSeconds(2f);
 
         countdownUI.text = string.Format(" ");
