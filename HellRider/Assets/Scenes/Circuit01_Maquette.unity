@@ -4766,11 +4766,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Virtual Camera
       objectReference: {fileID: 0}
-    - target: {fileID: 3148603770481491196, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3842744100828397632, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -4804,7 +4799,7 @@ PrefabInstance:
     - target: {fileID: 3842744100828397632, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17672193
+      value: -0.17672196
       objectReference: {fileID: 0}
     - target: {fileID: 3842744100828397632, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
         type: 3}
@@ -4821,6 +4816,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5178172754193314120, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
+        type: 3}
+      propertyPath: Damping.z
+      value: 0.15
+      objectReference: {fileID: 0}
     - target: {fileID: 6854561266563902179, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
         type: 3}
       propertyPath: m_Follow
@@ -4831,6 +4831,16 @@ PrefabInstance:
       propertyPath: m_LookAt
       value: 
       objectReference: {fileID: 1394776498}
+    - target: {fileID: 7132910821187687275, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
+        type: 3}
+      propertyPath: m_VerticalDamping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7132910821187687275, guid: 18f5f29aeee2d3c46a0d2b7cb60b4638,
+        type: 3}
+      propertyPath: m_HorizontalDamping
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -9728,7 +9738,7 @@ PrefabInstance:
     - target: {fileID: 7183245583700444986, guid: f0d1327a92a985145b256485be6bca40,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.17672193
+      value: -0.17672196
       objectReference: {fileID: 0}
     - target: {fileID: 7183245583700444986, guid: f0d1327a92a985145b256485be6bca40,
         type: 3}
