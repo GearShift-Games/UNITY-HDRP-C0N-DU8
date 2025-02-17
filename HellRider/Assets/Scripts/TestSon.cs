@@ -36,7 +36,9 @@ public class TestSon : MonoBehaviour
 
         placement = timer.position;
         TimerOn = timer.TimerOn;
-
+        if(placement == 5){
+                    lastplace();
+            }
 
         if (placement != previousPlacement)
         {
@@ -66,10 +68,7 @@ public class TestSon : MonoBehaviour
         }
     }
     void lastplace() {
-                if(TimerOn == true)
-        {
             PlaySound(lastPlaceSound, 1f);
-        }
     }
     void repeatingSound()
     {
