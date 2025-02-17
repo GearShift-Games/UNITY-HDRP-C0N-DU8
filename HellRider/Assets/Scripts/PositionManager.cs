@@ -9,8 +9,10 @@ public class PositionManager : MonoBehaviour
     public GameObject[] players;
     public GameObject MainPlayer;
 
+    [Header("UI")]
     public GameObject PlayerBombUI;
     public TMP_Text LastPlaceTimer;
+    public GameObject Canvas;
 
     void Update()
     {
@@ -59,11 +61,14 @@ public class PositionManager : MonoBehaviour
                 {
                     timer.TimerOn = true;
 
-                    if (scores[i].Bike.name == MainPlayer.name)
+                    if (scores[i].Bike.name == MainPlayer.name && Canvas.GetComponent<countdown>().countingDown != true)
                     {
                         PlayerBombUI.SetActive(true);
                         updateTimer(timer.TimeLeft);
-
+                    }
+                    else
+                    {
+                        PlayerBombUI.SetActive(false);
                     }
                 }
                 else
