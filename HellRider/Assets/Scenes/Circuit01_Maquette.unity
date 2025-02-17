@@ -1413,6 +1413,10 @@ MonoBehaviour:
   LoseSound: {fileID: 8300000, guid: 9d2c70855b5ddd94780b6210ef8738d7, type: 3}
   WinSound: {fileID: 8300000, guid: 378746928d5150f43ad93a94ee1d285a, type: 3}
   BoomSound: {fileID: 8300000, guid: 757e883ece01e2f40aa2e96ea722bc85, type: 3}
+  Lose: {fileID: 808190880}
+  Win: {fileID: 1982957021}
+  EndGameMenu: {fileID: 1760264576}
+  RestartCountdown: {fileID: 689337171}
 --- !u!4 &509119094
 Transform:
   m_ObjectHideFlags: 0
@@ -1681,6 +1685,7 @@ MonoBehaviour:
   MainPlayer: {fileID: 1326278084}
   PlayerBombUI: {fileID: 1086785848}
   LastPlaceTimer: {fileID: 2135315171}
+  Canvas: {fileID: 131768702}
 --- !u!1001 &620711682
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1998,7 +2003,7 @@ GameObject:
   - component: {fileID: 689337172}
   - component: {fileID: 689337171}
   m_Layer: 5
-  m_Name: countdown
+  m_Name: RestartCountdown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

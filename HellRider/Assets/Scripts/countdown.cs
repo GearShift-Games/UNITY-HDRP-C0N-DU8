@@ -46,7 +46,7 @@ public class countdown : MonoBehaviour
                 getComponents(false);
                 countdownTime -= Time.deltaTime;
                 countdownUI.text = string.Format("{0:0}", countdownTime+1f);
-                Debug.Log(countdownUI.text);
+                //Debug.Log(countdownUI.text);
                 if(checkedStartSound == true) {
                 PlaySound(raceStartSound, 0.5f);
                 }           
