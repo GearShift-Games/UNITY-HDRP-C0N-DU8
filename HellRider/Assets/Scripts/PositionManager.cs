@@ -57,7 +57,7 @@ public class PositionManager : MonoBehaviour
                 timer.position = i + 1;
 
                 // Enable timer for the player in last place
-                if (i + 1 == scores.Count && scores.Count != 1)
+                if (i + 1 == scores.Count && scores.Count != 1 && Canvas.GetComponent<countdown>().countingDown != true)
                 {
                     timer.TimerOn = true;
 

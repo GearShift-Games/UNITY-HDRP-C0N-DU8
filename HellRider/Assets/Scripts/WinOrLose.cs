@@ -82,7 +82,6 @@ public class WinOrLose : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
 
-
         SceneManager.LoadScene("Circuit01_Maquette");
         yield break;
     }
