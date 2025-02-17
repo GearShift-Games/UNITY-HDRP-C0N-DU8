@@ -5,14 +5,16 @@ using UnityEngine.AI;
 
 public class Navigation8: MonoBehaviour, IPlayerScore
 {
+    [Header("Waypoints and Directions")]
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
 
     // Paramètre pour décaler la destination du waypoint (déviation aléatoire)
-    public float marginOfError = 1.0f;  
+    public float marginOfError = 1.0f;
 
     // Vitesse
+    [Header("Vitesse")]
     public float normalSpeed = 3.5f;            // Vitesse normale (sera modifiée toutes les 5 sec)
     public float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
     public float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
@@ -20,15 +22,21 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private float currentSpeed;               // Vitesse actuelle
 
     // Virage et activation
+    [Header("Virage et activation")]
     public float turnAngleThreshold = 45.0f;  
     public float extremeTurnAngleThreshold = 90.0f;  
     public float activationRadius = 3.0f;  
-    public float acceleration = 2.0f;  
+    public float acceleration = 2.0f;
 
+    [Header("Score and Checkpoints")]
     public float DistanceCheckpoint = 0f;
+    public int Checkpointpassed;
     public float score { get; set; }
     public GameObject Bike { get; set; }
-    public int Checkpointpassed;
+
+    public AudioSource BikeAudioSource;
+    public AudioClip BikeSound;
+
 
     // Propriétés de l'interface
     float IPlayerScore.score => score;
@@ -59,6 +67,9 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
         // Mise à jour de normalSpeed toutes les 3 secondes (random entre 35 et 50)
         InvokeRepeating("ChangeNormalSpeed", 3f, 3f);
+
+        BikeAudioSource.clip = BikeSound;
+        BikeAudioSource.loop = true;
     }
 
     void Update()
@@ -110,6 +121,22 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
         // Application de la vélocité dans la direction actuelle du transform
         agent.velocity = transform.forward * currentSpeed;
+
+        // for the bike wheel sound
+        if (currentSpeed != 0)
+        {
+            if (!BikeAudioSource.isPlaying)
+            {
+                BikeAudioSource.Play();
+            }
+        }
+        else
+        {
+            if (BikeAudioSource.isPlaying)
+            {
+                BikeAudioSource.Stop();
+            }
+        }
     }
 
     // Méthode pour changer la destination d'un waypoint avec une déviation aléatoire dans le plan XZ

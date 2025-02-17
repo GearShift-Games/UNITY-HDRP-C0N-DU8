@@ -28,7 +28,7 @@ public class TestSon : MonoBehaviour
     public AudioClip rankDownSound; // Son quand le joueur descend
     public AudioClip TimerGoDown; //son quand tu es en derniere place
     public AudioClip lastPlaceSound;
-    public AudioClip bikeSound;
+    public AudioClip BikeSound;
 
     [Header("Other Functions")]
     Timer timer;
@@ -42,7 +42,7 @@ public class TestSon : MonoBehaviour
         timer = player.GetComponent<Timer>();
         navigationJoueur = player.GetComponent<Navigation8JoueurGen3>();
 
-        AudioSourceBikeSound.clip = bikeSound;
+        AudioSourceBikeSound.clip = BikeSound;
         AudioSourceBikeSound.loop = true;
     }
 
