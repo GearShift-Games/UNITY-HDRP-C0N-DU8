@@ -78,7 +78,7 @@ public class TestSon : MonoBehaviour
     }
     void repeatingSound()
     {
-        if(TimerOn == true)
+        if(TimerOn == true && this.gameObject.activeInHierarchy)
         {
             PlaySound(TimerGoDown, 0.75f);
         }

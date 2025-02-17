@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class WinOrLose : MonoBehaviour
 {
+    [Header("Win Condition")]
     private bool onGoingRace;
     public GameObject MainPlayer;
     public GameObject[] Participant;
     private int LeftAlive;
 
-
+    [Header("Audio")]
     public AudioSource audioSource;
     public AudioClip LoseSound;  
     public AudioClip WinSound;  
     public AudioClip BoomSound;
+
+    [Header("UI")]
+    public GameObject Lose;
+    public GameObject Win;
+    public GameObject EndGameMenu;
+    public TMP_Text RestartCountdown;
 
     private void Start()
     {
@@ -26,8 +34,11 @@ public class WinOrLose : MonoBehaviour
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(LoseSound, 1f);
-
             onGoingRace = false;
+
+            EndGameMenu.SetActive(true);
+            Lose.SetActive(true);
+            StartCoroutine(Restart());
         }
 
 
@@ -44,8 +55,11 @@ public class WinOrLose : MonoBehaviour
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(WinSound, 0.5f);
-
             onGoingRace = false;
+
+            EndGameMenu.SetActive(true);
+            Win.SetActive(true);
+            StartCoroutine(Restart());
         }
 
 
@@ -58,5 +72,17 @@ public class WinOrLose : MonoBehaviour
         {
             audioSource.PlayOneShot(clip, volume);
         }
+    }
+
+    IEnumerator Restart()
+    {
+        for (int i = 3; i >= 0; i--)
+        {
+            RestartCountdown.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+
+        SceneManager.LoadScene("Circuit01_Maquette");
+        yield break;
     }
 }
