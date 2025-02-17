@@ -20,6 +20,8 @@ public class TestSon : MonoBehaviour
     public AudioClip lastPlaceSound;
 
     Timer timer;
+
+     private bool hasPlayedLastPlaceSound = false; 
     // Start is called before the first frame update
     void Start()
     {
@@ -36,8 +38,12 @@ public class TestSon : MonoBehaviour
 
         placement = timer.position;
         TimerOn = timer.TimerOn;
-        if(placement == 5){
+        if(placement == 5 && !hasPlayedLastPlaceSound){
                     lastplace();
+                    hasPlayedLastPlaceSound = true; 
+            } else if (placement != 5)
+            {
+                hasPlayedLastPlaceSound = false;  // Réinitialiser quand on n'est plus en dernière place
             }
 
         if (placement != previousPlacement)
