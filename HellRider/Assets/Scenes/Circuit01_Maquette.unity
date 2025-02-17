@@ -4022,6 +4022,7 @@ MonoBehaviour:
   rankUpSound: {fileID: 8300000, guid: 666f55e92c5a3a4459211c84ac989882, type: 3}
   rankDownSound: {fileID: 8300000, guid: 5b0121cad09b98f4b89f1761bdafc4bc, type: 3}
   TimerGoDown: {fileID: 8300000, guid: 24ddd1e6b15196e4b8e1b6ae75256f32, type: 3}
+  lastPlaceSound: {fileID: 8300000, guid: e2a1c40651a46dd46a0bb3e0754378ea, type: 3}
 --- !u!82 &1326278091
 AudioSource:
   m_ObjectHideFlags: 0

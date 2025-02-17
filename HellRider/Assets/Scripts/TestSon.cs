@@ -17,6 +17,7 @@ public class TestSon : MonoBehaviour
     public AudioClip rankUpSound;  // Son quand le joueur monte
     public AudioClip rankDownSound; // Son quand le joueur descend
     public AudioClip TimerGoDown;
+    public AudioClip lastPlaceSound;
 
     Timer timer;
     // Start is called before the first frame update
@@ -64,12 +65,17 @@ public class TestSon : MonoBehaviour
             audioSource.PlayOneShot(clip, volume);
         }
     }
-
+    void lastplace() {
+                if(TimerOn == true)
+        {
+            PlaySound(lastPlaceSound, 1f);
+        }
+    }
     void repeatingSound()
     {
         if(TimerOn == true)
         {
-            PlaySound(TimerGoDown, 1f);
+            PlaySound(TimerGoDown, 0.75f);
         }
     }
 }
