@@ -1672,7 +1672,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 603420752}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d2670e71edc65c04b92754027e058f11, type: 3}
   m_Name: 
@@ -1694,6 +1694,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 206489945}
     m_Modifications:
+    - target: {fileID: 1980208880419554872, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: cc9f79fe98af3994a8ba7c750635b126,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1747,6 +1752,11 @@ PrefabInstance:
     - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
         type: 3}
       propertyPath: maxSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6630059549550239842, guid: cc9f79fe98af3994a8ba7c750635b126,
@@ -2851,6 +2861,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7363991481111455584, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7363991481111455584, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
       propertyPath: LastPlaceTimer
       value: 
       objectReference: {fileID: 2135315171}
@@ -2867,7 +2882,7 @@ PrefabInstance:
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
@@ -3396,6 +3411,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137177071385171175, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
       propertyPath: normalSpeed
       value: 40
       objectReference: {fileID: 0}
@@ -3489,6 +3509,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[12]
       value: 
       objectReference: {fileID: 581871143}
+    - target: {fileID: 6384311004619838023, guid: 8de5b7a646023aa469f78047629bfc3d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7075741049465353834, guid: 8de5b7a646023aa469f78047629bfc3d,
         type: 3}
       propertyPath: m_Name
@@ -3806,6 +3831,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
       propertyPath: normalSpeed
       value: 40
       objectReference: {fileID: 0}
@@ -3884,6 +3914,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[12]
       value: 
       objectReference: {fileID: 581871143}
+    - target: {fileID: 557239852777416632, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -10184,6 +10219,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
+      propertyPath: posManage
+      value: 
+      objectReference: {fileID: 603420752}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
       propertyPath: audioSource
       value: 
       objectReference: {fileID: 131768709}
@@ -11242,6 +11282,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 61233439}
     m_Modifications:
+    - target: {fileID: 4537172432240772282, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: f64665302afcc8246bdf97bc2bf1bab3,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11300,6 +11345,11 @@ PrefabInstance:
     - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
         type: 3}
       propertyPath: maxSpeed
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9184430739887197004, guid: f64665302afcc8246bdf97bc2bf1bab3,
