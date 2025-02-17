@@ -4021,7 +4021,7 @@ MonoBehaviour:
   audioSource: {fileID: 1326278091}
   rankUpSound: {fileID: 8300000, guid: 666f55e92c5a3a4459211c84ac989882, type: 3}
   rankDownSound: {fileID: 8300000, guid: 5b0121cad09b98f4b89f1761bdafc4bc, type: 3}
-  TimerGoDown: {fileID: 8300000, guid: aa42c06d601fa5342a3f8e02c2568695, type: 3}
+  TimerGoDown: {fileID: 8300000, guid: 24ddd1e6b15196e4b8e1b6ae75256f32, type: 3}
 --- !u!82 &1326278091
 AudioSource:
   m_ObjectHideFlags: 0
