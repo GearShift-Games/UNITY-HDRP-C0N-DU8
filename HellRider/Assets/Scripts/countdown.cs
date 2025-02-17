@@ -25,6 +25,14 @@ public class countdown : MonoBehaviour
         countingDown = true;
     }
 
+
+    void PlaySound(AudioClip clip, float volume)
+        {
+            if (audioSource != null && clip != null)
+            {
+                audioSource.PlayOneShot(clip, volume);
+            }
+        }
     void Update()
     {
         if (countingDown)
@@ -39,8 +47,8 @@ public class countdown : MonoBehaviour
                 countdownTime -= Time.deltaTime;
                 countdownUI.text = string.Format("{0:0}", countdownTime+1f);
                 Debug.Log(countdownUI.text);
-                if(checkedStartSound = true) {
-                laySound(raceStartSound, 1f);
+                if(checkedStartSound == true) {
+                PlaySound(raceStartSound, 0.5f);
                 }           
             }
         }
