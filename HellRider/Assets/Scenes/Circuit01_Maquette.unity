@@ -2965,6 +2965,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1326278097}
+    - targetCorrespondingSourceObject: {fileID: 7075741049465353834, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1326278102}
   m_SourcePrefab: {fileID: 100100000, guid: c3e20853fd56f4a4da695698e4ad38bc, type: 3}
 --- !u!1 &958049480
 GameObject:
@@ -4241,6 +4245,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 647321234}
   BoomSound: {fileID: 8300000, guid: 757e883ece01e2f40aa2e96ea722bc85, type: 3}
+--- !u!114 &1326278102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326278084}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72685ad225703854da664c8e8ae8f20a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 1326278084}
+  bikeSound: {fileID: 8300000, guid: 834a9d5f5050ec9489bb52ca51509e2f, type: 3}
 --- !u!1 &1385753673
 GameObject:
   m_ObjectHideFlags: 0
