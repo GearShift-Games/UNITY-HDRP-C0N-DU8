@@ -15,6 +15,9 @@ public class countdown : MonoBehaviour
     public GameObject Player;
     public GameObject[] AI;
 
+    // Gets the position manager
+    public GameObject posManage;
+
     private bool unlockPlayers = true;
 
     public AudioSource audioSource;
@@ -67,6 +70,10 @@ public class countdown : MonoBehaviour
         playerMovement.enabled = status;
         playerTimer.enabled = status;
         // PlayerAgent.enabled = status;
+
+        // Activates / Desactivates position Manager
+        PositionManager placementsSwitch = posManage.GetComponent<PositionManager>();
+        placementsSwitch.enabled = status;
 
         foreach (GameObject entity in AI)
         {
