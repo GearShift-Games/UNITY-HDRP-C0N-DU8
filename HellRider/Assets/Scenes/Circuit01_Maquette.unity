@@ -10117,6 +10117,11 @@ PrefabInstance:
       propertyPath: m_fontColor32.rgba
       value: 4278190266
       objectReference: {fileID: 0}
+    - target: {fileID: 5121297707271789895, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_text
+      value: 0 km/h
+      objectReference: {fileID: 0}
     - target: {fileID: 6296107241928261742, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Pivot.x
