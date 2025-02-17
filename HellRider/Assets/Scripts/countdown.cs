@@ -16,6 +16,10 @@ public class countdown : MonoBehaviour
     public GameObject[] AI;
 
     private bool unlockPlayers = true;
+
+    public AudioSource audioSource;
+    public AudioClip raceStartSound;
+    private bool checkedStartSound = false;
     void Start()
     {
         countingDown = true;
@@ -35,6 +39,9 @@ public class countdown : MonoBehaviour
                 countdownTime -= Time.deltaTime;
                 countdownUI.text = string.Format("{0:0}", countdownTime+1f);
                 Debug.Log(countdownUI.text);
+                if(checkedStartSound = true) {
+                laySound(raceStartSound, 1f);
+                }           
             }
         }
         else if (unlockPlayers)
@@ -76,7 +83,7 @@ public class countdown : MonoBehaviour
     {
         unlockPlayers = false;
         getComponents(true);
-        countdownUI.text = string.Format("Pédalez !");
+        countdownUI.text = string.Format("Pï¿½dalez !");
         yield return new WaitForSeconds(2f);
 
         countdownUI.text = string.Format(" ");
