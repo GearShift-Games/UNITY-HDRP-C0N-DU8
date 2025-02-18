@@ -76,7 +76,7 @@ public class WinOrLose : MonoBehaviour
 
     IEnumerator Restart()
     {
-        for (int i = 3; i >= 0; i--)
+        for (int i = 10; i >= 0; i--)
         {
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);

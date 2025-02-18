@@ -10413,7 +10413,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1269949540586127185, guid: f0d1327a92a985145b256485be6bca40,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1817022562}
   m_SourcePrefab: {fileID: 100100000, guid: f0d1327a92a985145b256485be6bca40, type: 3}
 --- !u!1 &1527878298
 GameObject:
@@ -11122,6 +11126,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8344449511452340852, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 15.199951
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 6455898857981033033, guid: 9d4b1382151645e4a85cdd04f4efe44a, type: 3}
@@ -11693,6 +11702,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1808318033}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1817022556 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1269949540586127185, guid: f0d1327a92a985145b256485be6bca40,
+    type: 3}
+  m_PrefabInstance: {fileID: 1456391004}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1817022562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817022556}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45099d624c1e6c14e9514f4e5ea1ed9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _spoutName: Unity
+  _keepAlpha: 0
+  _captureMethod: 2
+  _sourceCamera: {fileID: 0}
+  _sourceTexture: {fileID: 8400000, guid: eebce4c473ac2f9479b4ea38b753946d, type: 2}
+  _resources: {fileID: 11400000, guid: f449ebbe2051c2e4d993eaa773a410de, type: 2}
 --- !u!1 &1897620663
 GameObject:
   m_ObjectHideFlags: 0
@@ -12173,7 +12206,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -23.7, y: 0.0000076293945}
+  m_AnchoredPosition: {x: -23.699997, y: 0.0000076293945}
   m_SizeDelta: {x: 443.4754, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2093681764

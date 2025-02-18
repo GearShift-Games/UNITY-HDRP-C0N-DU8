@@ -338,6 +338,7 @@ public class OscBicycle : MonoBehaviour
                     tutorialPanel.SetActive(false);
                     Debug.Log("tutorial done");
                     InTutorial = false;
+                    SceneManager.LoadScene("Circuit01_Maquette");
                 }
 
             }
