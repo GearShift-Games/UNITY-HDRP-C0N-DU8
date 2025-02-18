@@ -402,7 +402,7 @@ public class OscBicycle : MonoBehaviour
 
         //Debug.Log(value);
 
-        value = ScaleValue(value, -15000,15000,-1,1);
+        value = ScaleValue(value, -20000,20000,-1,1);
 
         Speed = value;
 
