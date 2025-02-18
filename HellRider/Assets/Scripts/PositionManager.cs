@@ -1,8 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 public class PositionManager : MonoBehaviour
 {
@@ -10,26 +9,38 @@ public class PositionManager : MonoBehaviour
     public GameObject[] players;
     public GameObject MainPlayer;
 
+    [Header("UI")]
+    public GameObject PlayerBombUI;
+    public TMP_Text LastPlaceTimer;
+    public GameObject Canvas;
+
     void Update()
     {
         // Create a list of IPlayerScore objects.
         List<IPlayerScore> scores = new List<IPlayerScore>();
 
-        // Add all players that have a component implementing IPlayerScore.
+        // Add all active players that have a component implementing IPlayerScore.
         foreach (GameObject player in players)
         {
-            IPlayerScore playerScore = player.GetComponent<IPlayerScore>();
-            if (playerScore != null)
+            // Check if the player is not null and active in the scene.
+            if (player != null && player.activeInHierarchy)
             {
-                scores.Add(playerScore);
+                IPlayerScore playerScore = player.GetComponent<IPlayerScore>();
+                if (playerScore != null)
+                {
+                    scores.Add(playerScore);
+                }
             }
         }
 
-        // Add the main player.
-        IPlayerScore mainScore = MainPlayer.GetComponent<IPlayerScore>();
-        if (mainScore != null)
+        // Optionally, add the main player if it is active.
+        if (MainPlayer != null && MainPlayer.activeInHierarchy)
         {
-            scores.Add(mainScore);
+            IPlayerScore mainScore = MainPlayer.GetComponent<IPlayerScore>();
+            if (mainScore != null)
+            {
+                scores.Add(mainScore);
+            }
         }
 
         // Sort the list in descending order of score.
@@ -39,11 +50,45 @@ public class PositionManager : MonoBehaviour
         for (int i = 0; i < scores.Count; i++)
         {
             //Debug.Log($"Place {i + 1}: {scores[i].Bike.name} with score {scores[i].score}");
-            scores[i].Bike.GetComponent<Timer>().TimerOn = false;
-            if (i + 1 == 5)
+            // Disable timer for all players
+            Timer timer = scores[i].Bike.GetComponent<Timer>();
+            if (timer != null)
             {
-                scores[i].Bike.GetComponent<Timer>().TimerOn = true;
+                timer.position = i + 1;
+
+                // Enable timer for the player in last place
+                if (i + 1 == scores.Count && scores.Count != 1 && Canvas.GetComponent<countdown>().countingDown != true)
+                {
+                    timer.TimerOn = true;
+
+                    if (scores[i].Bike.name == MainPlayer.name && Canvas.GetComponent<countdown>().countingDown != true)
+                    {
+                        PlayerBombUI.SetActive(true);
+                        updateTimer(timer.TimeLeft);
+                    }
+                    else
+                    {
+                        PlayerBombUI.SetActive(false);
+                    }
+                }
+                else
+                {
+                    if (scores[i].Bike.name == MainPlayer.name)
+                    {
+                        PlayerBombUI.SetActive(false);
+                    }
+                    timer.TimerOn = false;
+                }
             }
         }
+    }
+
+    void updateTimer(float currentTime)
+    {
+        //Debug.Log(currentTime);
+        float seconds = Mathf.FloorToInt(currentTime % 60);
+        float milliseconds = (currentTime * 100) % 100;
+
+        LastPlaceTimer.text = string.Format("{0:00} : {1:00}",seconds, milliseconds);
     }
 }

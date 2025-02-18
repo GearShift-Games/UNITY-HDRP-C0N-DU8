@@ -98,7 +98,17 @@ AudioMixerController:
     - bdb68dea78852bc49b5a882b4784fdd2
     - 33164b0b2bcb29d45a7537691bb69015
     name: View
-  m_CurrentViewIndex: 0
+  - guids:
+    - 894a3f6009e210241899705fd9cad65f
+    - bdb68dea78852bc49b5a882b4784fdd2
+    - 33164b0b2bcb29d45a7537691bb69015
+    name: View - Copy
+  - guids:
+    - 894a3f6009e210241899705fd9cad65f
+    - bdb68dea78852bc49b5a882b4784fdd2
+    - 33164b0b2bcb29d45a7537691bb69015
+    name: View - Copy - Copy
+  m_CurrentViewIndex: 2
   m_TargetSnapshot: {fileID: 24500006}
 --- !u!243 &24300002
 AudioMixerGroupController:
