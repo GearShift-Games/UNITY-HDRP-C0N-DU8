@@ -24,7 +24,7 @@ RenderSettings:
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
-  m_AmbientMode: 0
+  m_AmbientMode: 4
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
   m_SkyboxMaterial: {fileID: 0}
   m_HaloStrength: 0.5
@@ -11559,6 +11559,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2992825870063690194, guid: f0d1327a92a985145b256485be6bca40,
         type: 3}
+      propertyPath: m_TargetTexture
+      value: 
+      objectReference: {fileID: 8400000, guid: eebce4c473ac2f9479b4ea38b753946d, type: 2}
+    - target: {fileID: 2992825870063690194, guid: f0d1327a92a985145b256485be6bca40,
+        type: 3}
       propertyPath: m_CullingMask.m_Bits
       value: 63
       objectReference: {fileID: 0}
@@ -11621,6 +11626,12 @@ PrefabInstance:
       insertIndex: -1
       addedObject: {fileID: 1817022562}
   m_SourcePrefab: {fileID: 100100000, guid: f0d1327a92a985145b256485be6bca40, type: 3}
+--- !u!20 &1456391005 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 2992825870063690194, guid: f0d1327a92a985145b256485be6bca40,
+    type: 3}
+  m_PrefabInstance: {fileID: 1456391004}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1482756037
 GameObject:
   m_ObjectHideFlags: 0
@@ -12370,10 +12381,40 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2426100496912634620, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1456391005}
+    - target: {fileID: 2426100496912634620, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426100496912634620, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426100496912634620, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_PlaneDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2995650069160851413, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Color.a
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346612723264747734, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 118.390015
+      objectReference: {fileID: 0}
+    - target: {fileID: 4346612723264747734, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -79.637024
       objectReference: {fileID: 0}
     - target: {fileID: 4643671859521911269, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
