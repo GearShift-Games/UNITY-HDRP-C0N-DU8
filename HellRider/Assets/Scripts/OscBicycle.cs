@@ -15,6 +15,7 @@ public class OscBicycle : MonoBehaviour
     public extOSC.OSCReceiver oscReceiver;
     public extOSC.OSCTransmitter oscTransmitter;
 
+    [Header("Tutorial Panel")]
     public GameObject[] tutorial;
     public GameObject tutorialPanel;
     private int tutorialNumber = 0;
@@ -25,15 +26,16 @@ public class OscBicycle : MonoBehaviour
     private bool InTutorial = true;
 
     // Tutorial gameobject and such
-    /*public GameObject tutorialXPositionGameobject;
+    [Header("Tutorial Text")]
+    public GameObject tutorialXPositionGameobject;
     public TMP_Text tutorialXPosition;
-    public TMP_Text tutorialCenter;
-    public TMP_Text tutorialLeft;
-    public TMP_Text tutorialRight;
-    public Slider tutorialSlider;*/
+    public TMP_Text tutorialSetCenter;
+    public TMP_Text tutorialSetLeft;
+    public TMP_Text tutorialSetRight;
+    public Slider tutorialSlider;
 
     // Value left and right for turning and for calibration
-    private float X = 0;
+    public float X = 0;
     private float Raw_x = 0;
     private float Left = 0;
     private float Center = 0;
@@ -76,15 +78,15 @@ public class OscBicycle : MonoBehaviour
         //Debug.Log("has user " + hasUser);
         //Debug.Log("in tutorial " + InTutorial);
 
-        /*if (InTutorial == true)
+        if (InTutorial == true)
         {
             tutorialXPosition.text = Raw_x.ToString();
-            tutorialCenter.text = Raw_x.ToString();
-            tutorialLeft.text = Raw_x.ToString();
-            tutorialRight.text = Raw_x.ToString();
+            tutorialSetCenter.text = Raw_x.ToString();
+            tutorialSetLeft.text = Raw_x.ToString();
+            tutorialSetRight.text = Raw_x.ToString();
 
             tutorialSlider.value = X;
-        }*/
+        }
 
         //messageTransmitter("/test", 3);
     }
@@ -216,7 +218,7 @@ public class OscBicycle : MonoBehaviour
     public void RestartGame()
     {
         //SceneManager.LoadScene("TEST-Jay");
-        hasUser = false;
+        /*hasUser = false;
         reset = false;
 
 
@@ -226,7 +228,7 @@ public class OscBicycle : MonoBehaviour
         }
         tutorialNumber = 0;
         tutorialPanel.SetActive(true);
-        //tutorialXPositionGameobject.SetActive(true);
+        tutorialXPositionGameobject.SetActive(true);*/
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
@@ -321,7 +323,7 @@ public class OscBicycle : MonoBehaviour
                         messageTransmitter("/Right", Right);
                         tutorial[tutorialNumber].SetActive(false);
                         tutorialNumber++;
-                        //tutorialXPositionGameobject.SetActive(false);
+                        tutorialXPositionGameobject.SetActive(false);
                     }
                 } else
                 {
@@ -336,6 +338,7 @@ public class OscBicycle : MonoBehaviour
                     tutorialPanel.SetActive(false);
                     Debug.Log("tutorial done");
                     InTutorial = false;
+                    SceneManager.LoadScene("Circuit01_Maquette");
                 }
 
             }
@@ -364,7 +367,7 @@ public class OscBicycle : MonoBehaviour
         Cancel = value;
 
         if (InTutorial == true) {
-            if (value == 1 && tutorialNumber <= 2 && tutorialNumber >= 1) // 3 tuto for now
+            if (value == 1 && tutorialNumber <= 7 && tutorialNumber >= 1) // 3 tuto for now
             {
                 Debug.Log("pause " + value);
                 tutorialNumber--;
@@ -372,7 +375,7 @@ public class OscBicycle : MonoBehaviour
 
                 if (tutorialNumber == 6)
                 {
-                    //tutorialXPositionGameobject.SetActive(true);
+                    tutorialXPositionGameobject.SetActive(true);
                 }
             }
         }
@@ -397,12 +400,12 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Debug.Log(value);
+        //Debug.Log(value);
 
         value = ScaleValue(value, -15000,15000,-1,1);
 
         Speed = value;
 
-        Debug.Log(Speed);
+        //Debug.Log(Speed);
     }
 }

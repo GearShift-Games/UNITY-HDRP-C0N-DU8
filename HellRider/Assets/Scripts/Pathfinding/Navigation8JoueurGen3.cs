@@ -13,9 +13,12 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     public float acceleration = 2.0f;  // Accélération du joueur
     public float maxSpeed = 6.0f;  // Vitesse maximale atteignable par le joueur
     private float currentSpeed = 0f;  // Vitesse actuelle
+    public int speedUI; // Vitesse pour le UI
 
+    [Header("Osc Data")]
     public GameObject Osc;
     public float RealSpeed;
+    public float XValue;
 
     public float DistanceCheckpoint = 0f;
     public int Checkpointpassed;
@@ -41,38 +44,62 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
         agent.destination = waypoints[currentWaypointIndex].position;
 
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
+        XValue = Osc.GetComponent<OscBicycle>().X;
     }
 
     void Update()
     {
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
+        XValue = Osc.GetComponent<OscBicycle>().X;
 
-        // --- Contrôle de la rotation ---
-        // Le joueur tourne à gauche ou à droite via l'input horizontal (touches A/D ou flèches gauche/droite)
-        float horizontalInput = Input.GetAxis("Horizontal");
+        // Prend la valeur du private currentSpeed pour l'envoyer au UI
+        speedUI = Mathf.FloorToInt(currentSpeed);
+
+        // --- Contrôle de la rotation avec limitation ---
+        float horizontalInput = XValue * 1.5f; // Input.GetAxis("Horizontal");
+        Debug.Log(XValue);
+
+        // Détecte l'arête la plus proche sur le NavMesh
+        NavMeshHit hit;
+        if (NavMesh.FindClosestEdge(transform.position, out hit, NavMesh.AllAreas))
+        {
+            float dot = Vector3.Dot(hit.normal, transform.right);
+            float minDistance = 1.0f; // Distance minimale pour autoriser la rotation vers le mur
+
+            if (hit.distance < minDistance)
+            {
+                // Si le mur est sur la gauche du joueur (normal pointe vers la droite : dot positif)
+                // et que l'input est négatif (tournant à gauche), on bloque cet input.
+                if (dot > 0 && horizontalInput < 0)
+                {
+                    horizontalInput = 0;
+                }
+                // Si le mur est sur la droite (normal pointe vers la gauche : dot négatif)
+                // et que l'input est positif (tournant à droite), on bloque cet input.
+                else if (dot < 0 && horizontalInput > 0)
+                {
+                    horizontalInput = 0;
+                }
+            }
+        }
+
+        // Appliquer la rotation
         transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
 
         // --- Contrôle de la vitesse ---
-        // La vitesse est désormais contrôlée par l'input vertical (touches Z/S ou flèches haut/bas)
-        // La valeur obtenue va de -1 (ralenti/frein ou marche arrière) à 1 (accélération)
-        float verticalInput = Input.GetAxis("Vertical"); //RealSpeed;
+        float verticalInput = RealSpeed; // Input.GetAxis("Vertical");
         float targetSpeed = verticalInput * maxSpeed;
-        // On fait évoluer progressivement currentSpeed vers targetSpeed pour simuler l'accélération/décélération
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
-
-        // Mise à jour de la vélocité du NavMeshAgent en fonction de la direction actuelle du joueur
         agent.velocity = transform.forward * currentSpeed;
 
         // --- Gestion des waypoints pour le score ---
         float distanceToWaypoint = Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position);
         DistanceCheckpoint = distanceToWaypoint;
-
-        // Calcul d'une progression (entre 0 et 1) entre le waypoint courant et le suivant
-        float nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
+        float nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position,
+                                          waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
         float betweenCheckpoint = ScaleValue(distanceToWaypoint, nextWaypointDistance, 0, 0, 1);
         score = Checkpointpassed + betweenCheckpoint;
 
-        // Si le joueur est suffisamment proche du waypoint, on passe au suivant
         if (distanceToWaypoint < activationRadius)
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;

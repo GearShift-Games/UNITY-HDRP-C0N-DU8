@@ -28,11 +28,12 @@ public class Navigation12 : MonoBehaviour, IPlayerScore
     public float DistanceCheckpoint = 0f;
     public float score { get; set; }
     public GameObject Bike { get; set; }
-    public int Checkpointpassed;
 
     // Propriétés de l'interface
     float IPlayerScore.score => score;
     GameObject IPlayerScore.Bike => Bike;
+
+    public int Checkpointpassed;
 
     public float baseTurnSpeed = 120f;  // Vitesse de rotation de base (en degrés/seconde)
 
@@ -42,6 +43,8 @@ public class Navigation12 : MonoBehaviour, IPlayerScore
     void Start()
     {
         Bike = this.gameObject;
+
+
         agent = GetComponent<NavMeshAgent>();
         currentSpeed = normalSpeed;
         agent.speed = currentSpeed;
@@ -59,13 +62,17 @@ public class Navigation12 : MonoBehaviour, IPlayerScore
 
     void Update()
     {
+
+
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
         float nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position,
             waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
         float betweenCheckpoint = ScaleValue(distance, nextWaypointDistance, 0, 0, 1);
+
         score = Checkpointpassed + betweenCheckpoint;
+        //Debug.Log("score of " + Bike.name + " : " + score);
 
         // Passage au waypoint suivant si l'on est suffisamment proche de la destination déviée
         if (distance < activationRadius)
