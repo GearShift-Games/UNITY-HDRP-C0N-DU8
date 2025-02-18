@@ -19,7 +19,7 @@ MonoBehaviour:
     newRoadPrefab: {fileID: 5289687580774087140, guid: f69704fd4a700984496212015b3776dc,
       type: 3}
   intersectionSettings:
-    newIntersectionPrefab: {fileID: 1679416186424278633, guid: bd66a132f9c61fa4aa49cc1f3a42d1e6,
+    newIntersectionPrefab: {fileID: 7134958741575336002, guid: 79c4abd5d0361de41b529043971190b9,
       type: 3}
   drawNavigatorDebug: 0
   drawNavigatorDebugPoints: 0
