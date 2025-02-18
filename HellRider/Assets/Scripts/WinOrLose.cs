@@ -24,6 +24,14 @@ public class WinOrLose : MonoBehaviour
     public GameObject EndGameMenu;
     public TMP_Text RestartCountdown;
 
+    void Awake()
+    {
+        // Disable VSync
+        QualitySettings.vSyncCount = 0;
+        // Set target frame rate to 60
+        Application.targetFrameRate = 60;
+    }
+
     private void Start()
     {
         onGoingRace = true;
@@ -76,7 +84,7 @@ public class WinOrLose : MonoBehaviour
 
     IEnumerator Restart()
     {
-        for (int i = 10; i >= 0; i--)
+        for (int i = 5; i >= 0; i--)
         {
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
