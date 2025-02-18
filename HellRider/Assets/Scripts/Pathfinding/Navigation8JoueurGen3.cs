@@ -56,7 +56,7 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
         speedUI = Mathf.FloorToInt(currentSpeed);
 
         // --- Contrôle de la rotation avec limitation ---
-        float horizontalInput = XValue * 1.5f; // Input.GetAxis("Horizontal");
+        float horizontalInput = Input.GetAxis("Horizontal"); //  XValue * 1.5f
         Debug.Log(XValue);
 
         // Détecte l'arête la plus proche sur le NavMesh
@@ -87,7 +87,7 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
         transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
 
         // --- Contrôle de la vitesse ---
-        float verticalInput = RealSpeed; // Input.GetAxis("Vertical");
+        float verticalInput = Input.GetAxis("Vertical"); // RealSpeed
         float targetSpeed = verticalInput * maxSpeed;
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
         agent.velocity = transform.forward * currentSpeed;
