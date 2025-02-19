@@ -1753,8 +1753,6 @@ MonoBehaviour:
   - {fileID: 1075169301}
   - {fileID: 811639111}
   MainPlayer: {fileID: 1185719606}
-  PlayerBombUI: {fileID: 1086785848}
-  LastPlaceTimer: {fileID: 2135315171}
   Canvas: {fileID: 131768702}
 --- !u!1001 &620711682
 PrefabInstance:
@@ -3327,7 +3325,7 @@ PrefabInstance:
         type: 3}
       propertyPath: LastPlaceTimer
       value: 
-      objectReference: {fileID: 2135315171}
+      objectReference: {fileID: 0}
     - target: {fileID: 7798636280842693571, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: Osc
@@ -4080,45 +4078,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!1 &1086785848 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1699041442}
-  m_PrefabAsset: {fileID: 0}
---- !u!225 &1086785850
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086785848}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
---- !u!95 &1086785851
-Animator:
-  serializedVersion: 5
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1086785848}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 88f81e74d1bde7e40aeba4e50ac76f38, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1127487204
 GameObject:
   m_ObjectHideFlags: 0
@@ -10782,6 +10741,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
+      propertyPath: AI.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
       propertyPath: raceStartSound
       value: 
       objectReference: {fileID: 8300000, guid: bc59b7afd4ee31a47bf929d01e893c23, type: 3}
@@ -11061,7 +11025,7 @@ PrefabInstance:
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 6405701648576006571, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
-      insertIndex: 4
+      insertIndex: -1
       addedObject: {fileID: 1760264577}
     - targetCorrespondingSourceObject: {fileID: 6405701648576006571, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
@@ -11076,14 +11040,6 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 131768709}
-    - targetCorrespondingSourceObject: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1086785850}
-    - targetCorrespondingSourceObject: {fileID: 560532978003939731, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1086785851}
   m_SourcePrefab: {fileID: 100100000, guid: 9d4b1382151645e4a85cdd04f4efe44a, type: 3}
 --- !u!1 &1699041443 stripped
 GameObject:
@@ -12793,18 +12749,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2135315171 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 4701682780243167912, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1699041442}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1485569117901333176
 PrefabInstance:
   m_ObjectHideFlags: 0

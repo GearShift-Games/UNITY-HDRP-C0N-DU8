@@ -57,7 +57,7 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
 
         // --- Contrôle de la rotation avec limitation ---
         float horizontalInput = XValue * 1.5f; // Input.GetAxis("Horizontal");
-        Debug.Log(XValue);
+        //Debug.Log(XValue);
 
         // Détecte l'arête la plus proche sur le NavMesh
         NavMeshHit hit;
