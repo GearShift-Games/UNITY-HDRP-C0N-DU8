@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using TMPro;
-using System;
 
 public class canvas : MonoBehaviour
 {
+    // New UI
+
+
+    // O L D   V E R S I O N
+    /*
     // Variables for the timer to work
     public bool TimerOn = true;
     public float LiveTimer;
@@ -74,4 +77,5 @@ public class canvas : MonoBehaviour
 
         timerDisplay.text = string.Format("Temps {0:00} : {1:00} : {2:000}", minutes, seconds, milliseconds);
     }
+    */
 }

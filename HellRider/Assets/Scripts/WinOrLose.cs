@@ -89,8 +89,8 @@ public class WinOrLose : MonoBehaviour
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
-
-        SceneManager.LoadScene("Circuit01_Maquette");
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.name);
         yield break;
     }
 }
