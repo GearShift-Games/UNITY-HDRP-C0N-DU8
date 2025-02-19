@@ -7,8 +7,10 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 {
     [Header("Waypoints and Directions")]
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
+    public Transform[] waypoints2;
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
+    float nextWaypointDistance;
 
     // Paramètre pour décaler la destination du waypoint (déviation aléatoire)
     public float marginOfError = 1.0f;
@@ -37,6 +39,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public AudioSource BikeAudioSource;
     public AudioClip BikeSound;
 
+
+    public bool ChangeTrack = false;
 
     // Propriétés de l'interface
     float IPlayerScore.score => score;
@@ -79,8 +83,15 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
-        float nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position,
-            waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
+        if (ChangeTrack == false)
+        {
+            nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
+        }
+        else if (ChangeTrack == true)
+        {
+            nextWaypointDistance = Vector3.Distance(waypoints2[currentWaypointIndex].position, waypoints2[(currentWaypointIndex + 1) % waypoints2.Length].position);
+        }
+
         float betweenCheckpoint = ScaleValue(distance, nextWaypointDistance, 0, 0, 1);
         score = Checkpointpassed + betweenCheckpoint;
 
