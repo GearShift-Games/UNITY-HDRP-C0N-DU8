@@ -549,6 +549,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   waypoints2: []
+  tempWaypointHolder: []
   marginOfError: 5
   normalSpeed: 40
   slowedSpeed: 12
