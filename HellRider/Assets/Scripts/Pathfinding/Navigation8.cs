@@ -13,6 +13,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
 
+
     // Paramètre pour décaler la destination du waypoint (déviation aléatoire)
     public float marginOfError = 1.0f;
 
@@ -41,7 +42,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public AudioClip BikeSound;
 
 
-    public bool ChangeTrack = false;
+    public int ChangeTrack = 0;
 
     // Propriétés de l'interface
     float IPlayerScore.score => score;
@@ -75,21 +76,32 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
         BikeAudioSource.clip = BikeSound;
         BikeAudioSource.loop = true;
+
+        tempWaypointHolder = waypoints;
     }
 
     void Update()
     {
+
+        
         //MainplayerPosition = Mainplayer.GetComponent<Timer>().position;
 
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
-        if (ChangeTrack == false)
+
+        if (waypoints[(currentWaypointIndex + 1) % waypoints.Length].gameObject.name == "Choice")
+        {
+            ChangeTrack = Random.Range(0, 2);
+            //Debug.Log(ChangeTrack);
+        }
+
+        if (ChangeTrack == 0)
         {
             tempWaypointHolder = waypoints;
             nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
         }
-        else if (ChangeTrack == true)
+        else if (ChangeTrack == 1)
         {
             tempWaypointHolder = waypoints2;
             nextWaypointDistance = Vector3.Distance(waypoints2[currentWaypointIndex].position, waypoints2[(currentWaypointIndex + 1) % waypoints2.Length].position);
@@ -156,10 +168,6 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     // Méthode pour changer la destination d'un waypoint avec une déviation aléatoire dans le plan XZ
     private Vector3 GetWaypointDestination(Transform[] waypoints, int index)
     {
-        if (ChangeTrack == false)
-        {
-
-        }
         Vector3 wp = waypoints[index].position;
         Vector2 randomOffset = Random.insideUnitCircle * marginOfError;
         return new Vector3(wp.x + randomOffset.x, wp.y, wp.z + randomOffset.y);
