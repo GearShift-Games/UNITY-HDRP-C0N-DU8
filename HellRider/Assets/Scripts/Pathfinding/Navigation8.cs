@@ -8,6 +8,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     [Header("Waypoints and Directions")]
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
     public Transform[] waypoints2;
+    public Transform[] tempWaypointHolder;
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
@@ -63,7 +64,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         agent.speed = currentSpeed;
 
         // Calcule la destination initiale avec une déviation aléatoire
-        currentDestination = GetWaypointDestination(currentWaypointIndex);
+        currentDestination = GetWaypointDestination(waypoints,currentWaypointIndex);
         agent.destination = currentDestination;
 
         // Désactive la rotation automatique pour la gérer manuellement
@@ -85,10 +86,12 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         float distance = DistanceCheckpoint;
         if (ChangeTrack == false)
         {
+            tempWaypointHolder = waypoints;
             nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
         }
         else if (ChangeTrack == true)
         {
+            tempWaypointHolder = waypoints2;
             nextWaypointDistance = Vector3.Distance(waypoints2[currentWaypointIndex].position, waypoints2[(currentWaypointIndex + 1) % waypoints2.Length].position);
         }
 
@@ -100,7 +103,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         {
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
             Checkpointpassed++;
-            currentDestination = GetWaypointDestination(currentWaypointIndex);
+            currentDestination = GetWaypointDestination(tempWaypointHolder, currentWaypointIndex);
             agent.destination = currentDestination;
         }
 
@@ -151,8 +154,12 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     }
 
     // Méthode pour changer la destination d'un waypoint avec une déviation aléatoire dans le plan XZ
-    private Vector3 GetWaypointDestination(int index)
+    private Vector3 GetWaypointDestination(Transform[] waypoints, int index)
     {
+        if (ChangeTrack == false)
+        {
+
+        }
         Vector3 wp = waypoints[index].position;
         Vector2 randomOffset = Random.insideUnitCircle * marginOfError;
         return new Vector3(wp.x + randomOffset.x, wp.y, wp.z + randomOffset.y);
@@ -177,6 +184,22 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         if (waypoints != null)
         {
             foreach (var waypoint in waypoints)
+            {
+                // Zone d'activation
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(waypoint.position, activationRadius);
+
+                // Visualisation de la destination déviée (approximative)
+                Vector2 randomOffset = Random.insideUnitCircle * marginOfError;
+                Vector3 randomDestination = waypoint.position + new Vector3(randomOffset.x, 0, randomOffset.y);
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(randomDestination, 0.5f);
+            }
+        }
+
+        if (waypoints2 != null)
+        {
+            foreach (var waypoint in waypoints2)
             {
                 // Zone d'activation
                 Gizmos.color = Color.green;
