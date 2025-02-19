@@ -10,8 +10,8 @@ public class PositionManager : MonoBehaviour
     public GameObject MainPlayer;
 
     [Header("UI")]
-    public GameObject PlayerBombUI;
-    public TMP_Text LastPlaceTimer;
+    // public GameObject PlayerBombUI;
+    // public TMP_Text LastPlaceTimer;
     public GameObject Canvas;
 
     void Update()
@@ -63,19 +63,19 @@ public class PositionManager : MonoBehaviour
 
                     if (scores[i].Bike.name == MainPlayer.name && Canvas.GetComponent<countdown>().countingDown != true)
                     {
-                        PlayerBombUI.SetActive(true);
-                        updateTimer(timer.TimeLeft);
+                        // PlayerBombUI.SetActive(true);
+                        // updateTimer(timer.TimeLeft);
                     }
                     else
                     {
-                        PlayerBombUI.SetActive(false);
+                        // PlayerBombUI.SetActive(false);
                     }
                 }
                 else
                 {
                     if (scores[i].Bike.name == MainPlayer.name)
                     {
-                        PlayerBombUI.SetActive(false);
+                        // PlayerBombUI.SetActive(false);
                     }
                     timer.TimerOn = false;
                 }
@@ -86,9 +86,9 @@ public class PositionManager : MonoBehaviour
     void updateTimer(float currentTime)
     {
         //Debug.Log(currentTime);
-        float seconds = Mathf.FloorToInt(currentTime % 60);
-        float milliseconds = (currentTime * 100) % 100;
+        /// float seconds = Mathf.FloorToInt(currentTime % 60);
+        // float milliseconds = (currentTime * 100) % 100;
 
-        LastPlaceTimer.text = string.Format("{0:00} : {1:00}",seconds, milliseconds);
+        // LastPlaceTimer.text = string.Format("{0:00} : {1:00}",seconds, milliseconds);
     }
 }
