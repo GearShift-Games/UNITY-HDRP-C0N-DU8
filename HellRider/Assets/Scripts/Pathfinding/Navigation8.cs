@@ -8,7 +8,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     [Header("Waypoints and Directions")]
     public Transform[] waypoints;  // Tableau des points de passage (circuit)
     public Transform[] waypoints2;
-    public Transform[] tempWaypointHolder;
+    private Transform[] tempWaypointHolder;
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
