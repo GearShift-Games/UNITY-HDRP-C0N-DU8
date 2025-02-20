@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class JoueurNav2 : MonoBehaviour, IPlayerScore
+public class JoueurNavOriginal : MonoBehaviour, IPlayerScore
 {
     public Transform[] waypoints;
     private NavMeshAgent agent;
@@ -32,9 +32,14 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     [Header("Rotation Settings")]
     // Contr�le la fluidit� de l'interpolation en rotation
     public float rotationSmoothing = 5f;
+
+    // Syst�me de ralentissement au mur
+    public float wallDetectionDistance = 1.5f;
     public float speedReductionDuration = 5.0f;
     private float currentSpeedMultiplier = 1.0f;
-
+    private bool isTouchingWall = false;
+    private float timeTouchingWall = 0f;
+    private float lastSpeedBeforeWall;
 
     [Header("Courbe d'acc�l�ration")]
     public float speedThreshold1 = 60f;
@@ -42,6 +47,10 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public float accelerationLow = 15f;
     public float accelerationMedium = 8f;
     public float accelerationHigh = 4f;
+
+    //public float dampingVal = 1f;
+
+    //public float rotationSpeed = 1.0f;
 
 
     public float lopSmoothingFactor = 5f; // Vitesse du lissage
@@ -78,8 +87,21 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
         // Nouvelle gestion de la rotation : on utilise la v�locit� d�sir�e du NavMeshAgent
         Vector3 desiredVelocity = agent.desiredVelocity;
-   
+        // if (desiredVelocity.sqrMagnitude > 0.1f)
+        //{
         Quaternion targetRotation = Quaternion.LookRotation(desiredVelocity);
+        // Calcul d'un facteur d'interpolation exponentiel pour une transition liss�e et ind�pendante du framerate
+        // float damping = dampingVal - Mathf.Exp(-rotationSmoothing * Time.deltaTime);
+        // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, damping);
+        // var step = rotationSpeed * Time.deltaTime;
+        // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+        // Filtrage passe-bas : on interpole entre la rotation actuelle et la cible
+        //lopSmoothedRotation = Quaternion.Slerp(lopSmoothedRotation, targetRotation, Time.deltaTime * lopSmoothingFactor);
+
+        // Appliquer la rotation liss�e
+        //transform.rotation = lopSmoothedRotation;
+
+        //transform.rotation = SmoothDampQuaternion(transform.rotation, targetRotation,  1f / Sacceleration, SmaxSpeed);
 
         // Calculer l'angle entre la rotation actuelle et la cible
         float angle = Quaternion.Angle(transform.rotation, targetRotation);
@@ -95,6 +117,33 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
         
 
+        // }
+
+        // V�rification des collisions avec un mur
+        /*
+        bool touchingWall = CheckWallCollision();
+        if (touchingWall)
+        {
+            if (!isTouchingWall)
+            {
+                Debug.Log("Mur");
+                lastSpeedBeforeWall = currentSpeed;
+                // R�duction imm�diate de 40 % de la vitesse
+                currentSpeed *= 0.6f;
+                currentSpeedMultiplier = 1.0f;
+                isTouchingWall = true;
+                timeTouchingWall = 0f;
+            }
+            // R�duction progressive des 40 % restants sur speedReductionDuration secondes
+            timeTouchingWall += Time.deltaTime;
+            float reductionFactor = Mathf.Lerp(1.0f, 0.5f, timeTouchingWall / speedReductionDuration);
+            currentSpeedMultiplier = Mathf.Clamp(currentSpeedMultiplier * reductionFactor, 0.2f, 1.0f);
+        }
+        else
+        {
+            isTouchingWall = false;
+        }
+        */
 
         // Gestion de la vitesse avec une courbe d'acc�l�ration
         float verticalInput = Input.GetAxis("Vertical");
@@ -143,6 +192,13 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             return accelerationHigh;
     }
 
+    // D�tection de mur avec Raycast
+    /*bool CheckWallCollision()
+    {
+        RaycastHit hit;
+        Vector3 forward = transform.forward;
+        return Physics.Raycast(transform.position, forward, out hit, wallDetectionDistance);
+    }*/
 
     // Fonction utilitaire pour mettre � l'�chelle une valeur d'un intervalle vers un autre
     public static float ScaleValue(float value, float inputMin, float inputMax, float outputMin, float outputMax)
