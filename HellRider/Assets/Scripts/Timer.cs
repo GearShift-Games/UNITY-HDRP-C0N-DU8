@@ -6,6 +6,7 @@ public class Timer : MonoBehaviour
     public float TimeLeft = 30f;
     public bool TimerOn = false;
     public float seconds;
+    public GameObject playerUIPortrait;
     public GameObject playerUIFrame;
 
     public int position;
@@ -32,7 +33,8 @@ public class Timer : MonoBehaviour
                 //Debug.Log("Time is UP!");
                 TimeLeft = 0;
                 TimerOn = false;
-                playerUIFrame.GetComponent<Image>().color = new Color32(16, 16, 16, 80);
+                playerUIFrame.SetActive(false);
+                playerUIPortrait.GetComponent<Image>().color = new Color32(50, 50, 50, 80);
                 this.gameObject.SetActive(false);
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
