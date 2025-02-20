@@ -11,7 +11,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public float activationRadius = 3.0f;
 
     // Variables de vitesse
-    public float maxSpeed = 6.0f;  // Peut être très élevé (ex. 5000000000)
+    public float maxSpeed = 6.0f;
     private float currentSpeed = 0f;
     public int speedUI;
 
@@ -29,6 +29,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     float IPlayerScore.score => score;
     GameObject IPlayerScore.Bike => Bike;
 
+    [Header("Rotation Settings")]
+    // Contrôle la fluidité de l'interpolation en rotation
     public float rotationSmoothing = 5f;
 
     // Système de ralentissement au mur
@@ -46,6 +48,22 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public float accelerationMedium = 8f;
     public float accelerationHigh = 4f;
 
+    //public float dampingVal = 1f;
+
+    //public float rotationSpeed = 1.0f;
+
+
+    public float lopSmoothingFactor = 5f; // Vitesse du lissage
+
+    private Quaternion lopSmoothedRotation;
+
+
+    public float Sacceleration = 2.0f; // Facteur d’accélération
+    public float SmaxSpeed = 5.0f; // Vitesse maximale de rotation
+    private float ScurretnSpeed;
+    private Quaternion ScurrentVelocity = Quaternion.identity; // Vitesse angulaire actuelle
+
+
     [Header("Drift Settings")]
     public float Drift = 5f; // Facteur d'interpolation en mode drift
 
@@ -53,12 +71,13 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     {
         Bike = this.gameObject;
         agent = GetComponent<NavMeshAgent>();
-        agent.updateRotation = false;
+        agent.updateRotation = false; // On contrôle la rotation nous-mêmes
         agent.destination = waypoints[currentWaypointIndex].position;
 
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
     }
+
 
     void Update()
     {
@@ -66,13 +85,39 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
 
-        // Rotation fluide améliorée
-        Vector3 targetDirection = (agent.steeringTarget - transform.position).normalized;
-        if (targetDirection != Vector3.zero)
-        {
-            Quaternion targetRotation = Quaternion.LookRotation(targetDirection);
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSmoothing * Time.deltaTime);
-        }
+        // Nouvelle gestion de la rotation : on utilise la vélocité désirée du NavMeshAgent
+        Vector3 desiredVelocity = agent.desiredVelocity;
+        // if (desiredVelocity.sqrMagnitude > 0.1f)
+        //{
+        Quaternion targetRotation = Quaternion.LookRotation(desiredVelocity);
+        // Calcul d'un facteur d'interpolation exponentiel pour une transition lissée et indépendante du framerate
+        // float damping = dampingVal - Mathf.Exp(-rotationSmoothing * Time.deltaTime);
+        // transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, damping);
+        // var step = rotationSpeed * Time.deltaTime;
+        // transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, step);
+        // Filtrage passe-bas : on interpole entre la rotation actuelle et la cible
+        //lopSmoothedRotation = Quaternion.Slerp(lopSmoothedRotation, targetRotation, Time.deltaTime * lopSmoothingFactor);
+
+        // Appliquer la rotation lissée
+        //transform.rotation = lopSmoothedRotation;
+
+        //transform.rotation = SmoothDampQuaternion(transform.rotation, targetRotation,  1f / Sacceleration, SmaxSpeed);
+
+        // Calculer l'angle entre la rotation actuelle et la cible
+        float angle = Quaternion.Angle(transform.rotation, targetRotation);
+
+        // Calculer une vitesse dynamique en fonction de l'écart
+        float StargetSpeed = Mathf.Clamp(angle * Sacceleration, 0.1f, SmaxSpeed);
+
+        // Lissage de la vitesse pour une transition fluide (interpolation exponentielle)
+        ScurretnSpeed = Mathf.Lerp(ScurretnSpeed, StargetSpeed, Time.deltaTime * 5f);
+
+        // Interpolation Slerp avec la vitesse ajustée
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
+
+        
+
+        // }
 
         // Vérification des collisions avec un mur
         bool touchingWall = CheckWallCollision();
@@ -81,13 +126,13 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             if (!isTouchingWall)
             {
                 lastSpeedBeforeWall = currentSpeed;
-                // Perte immédiate de 40% de la vitesse
+                // Réduction immédiate de 40 % de la vitesse
                 currentSpeed *= 0.6f;
                 currentSpeedMultiplier = 1.0f;
                 isTouchingWall = true;
                 timeTouchingWall = 0f;
             }
-            // Réduction progressive des 40% restants sur speedReductionDuration secondes
+            // Réduction progressive des 40 % restants sur speedReductionDuration secondes
             timeTouchingWall += Time.deltaTime;
             float reductionFactor = Mathf.Lerp(1.0f, 0.5f, timeTouchingWall / speedReductionDuration);
             currentSpeedMultiplier = Mathf.Clamp(currentSpeedMultiplier * reductionFactor, 0.2f, 1.0f);
@@ -97,17 +142,16 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             isTouchingWall = false;
         }
 
-        // Gestion de la vitesse avec courbe d'accélération
+        // Gestion de la vitesse avec une courbe d'accélération
         float verticalInput = Input.GetAxis("Vertical");
         float targetSpeed = verticalInput * maxSpeed;
         float currentAcc = GetAccelerationForSpeed(currentSpeed);
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, currentAcc * Time.deltaTime);
 
-        // Calcul de la vélocité cible
+        // Calcul de la vélocité cible en fonction de la direction avant (qui est désormais mieux orientée)
         Vector3 targetVelocity = transform.forward * currentSpeed * currentSpeedMultiplier;
 
-        // Utilisation conditionnelle de l'interpolation
-        // Par défaut, on utilise l'assignation directe, sauf si la barre d'espace est pressée (mode drift)
+        // Application de la vélocité avec interpolation en mode drift si la barre d'espace est enfoncée
         if (Input.GetKey(KeyCode.Space))
         {
             agent.velocity = Vector3.Lerp(agent.velocity, targetVelocity, Drift * Time.deltaTime);
