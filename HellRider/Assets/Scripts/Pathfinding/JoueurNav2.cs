@@ -193,12 +193,12 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     }
 
     // Détection de mur avec Raycast
-    bool CheckWallCollision()
+    /*bool CheckWallCollision()
     {
         RaycastHit hit;
         Vector3 forward = transform.forward;
         return Physics.Raycast(transform.position, forward, out hit, wallDetectionDistance);
-    }
+    }*/
 
     // Fonction utilitaire pour mettre à l'échelle une valeur d'un intervalle vers un autre
     public static float ScaleValue(float value, float inputMin, float inputMax, float outputMin, float outputMax)
