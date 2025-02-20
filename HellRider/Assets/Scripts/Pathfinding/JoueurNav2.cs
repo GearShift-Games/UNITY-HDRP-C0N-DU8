@@ -120,11 +120,13 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         // }
 
         // Vérification des collisions avec un mur
+        /*
         bool touchingWall = CheckWallCollision();
         if (touchingWall)
         {
             if (!isTouchingWall)
             {
+                Debug.Log("Mur");
                 lastSpeedBeforeWall = currentSpeed;
                 // Réduction immédiate de 40 % de la vitesse
                 currentSpeed *= 0.6f;
@@ -141,6 +143,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         {
             isTouchingWall = false;
         }
+        */
 
         // Gestion de la vitesse avec une courbe d'accélération
         float verticalInput = Input.GetAxis("Vertical");
