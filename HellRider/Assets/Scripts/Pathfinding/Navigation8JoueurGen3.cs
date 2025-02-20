@@ -23,6 +23,9 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     public float DistanceCheckpoint = 0f;
     public int Checkpointpassed;
 
+    // Sets On or Off the OSC controls
+    public bool isOscOn = false;
+    public float verticalInput = 0f;
     public float score { get; set; }
     public GameObject Bike { get; set; }
 
@@ -87,7 +90,13 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
         transform.Rotate(Vector3.up, horizontalInput * turnSpeed * Time.deltaTime);
 
         // --- Contrôle de la vitesse ---
-        float verticalInput = Input.GetAxis("Vertical"); // Input.GetAxis("Vertical");RealSpeed
+        if (isOscOn)
+        {
+            verticalInput = RealSpeed;
+        } else
+        {
+            verticalInput = Input.GetAxis("Vertical");
+        }
         float targetSpeed = verticalInput * maxSpeed;
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, acceleration * Time.deltaTime);
         agent.velocity = transform.forward * currentSpeed;
