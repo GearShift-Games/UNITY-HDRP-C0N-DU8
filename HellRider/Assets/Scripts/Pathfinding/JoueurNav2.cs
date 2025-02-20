@@ -120,11 +120,13 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         // }
 
         // Vérification des collisions avec un mur
+        /*
         bool touchingWall = CheckWallCollision();
         if (touchingWall)
         {
             if (!isTouchingWall)
             {
+                Debug.Log("Mur");
                 lastSpeedBeforeWall = currentSpeed;
                 // Réduction immédiate de 40 % de la vitesse
                 currentSpeed *= 0.6f;
@@ -141,6 +143,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         {
             isTouchingWall = false;
         }
+        */
 
         // Gestion de la vitesse avec une courbe d'accélération
         float verticalInput = Input.GetAxis("Vertical");
@@ -190,12 +193,12 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     }
 
     // Détection de mur avec Raycast
-    bool CheckWallCollision()
+    /*bool CheckWallCollision()
     {
         RaycastHit hit;
         Vector3 forward = transform.forward;
         return Physics.Raycast(transform.position, forward, out hit, wallDetectionDistance);
-    }
+    }*/
 
     // Fonction utilitaire pour mettre à l'échelle une valeur d'un intervalle vers un autre
     public static float ScaleValue(float value, float inputMin, float inputMax, float outputMin, float outputMax)
