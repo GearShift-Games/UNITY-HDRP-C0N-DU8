@@ -1,8 +1,10 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
+using Random = UnityEngine.Random;
 
 public class Navigation8: MonoBehaviour, IPlayerScore
 {
@@ -10,9 +12,18 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     /*public Transform[] waypoints;  // Tableau des points de passage (circuit)
     public Transform[] waypoints2;
     private Transform[] tempWaypointHolder;*/
+    public Transform[] MainPath; // from start till path division
+    public Transform[] InPath; // Side path 1 from division 1
+    public Transform[] OutPath; // Side path 2 from division 1
+    public Transform[] MainPath2; // if there's 2 side path, starts where the side path combine till division
+    public Transform[] InPath2; // Side path 1 from division 2
+    public Transform[] OutPath2; // Side path 2 from division 2
+    public Transform[] CombinedPath; //the array where the ai store their full loop path
+    public Transform[] EveryWaypoints; //put every waypoint here to render them
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
+
 
 
     // Paramètre pour décaler la destination du waypoint (déviation aléatoire)
@@ -59,12 +70,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private Vector3 currentDestination;
 
     //TEST AREA 
-    public Transform[] MainPath;
-    public Transform[] InPath;
-    public Transform[] OutPath;
 
-    public Transform[] CombinedPath;
-    public Transform[] EveryWaypoints;
 
     void Start()
     {
@@ -258,15 +264,23 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void ChoosePath()
     {
-        ChangeTrack = Random.Range(0, 2);
+        ChangeTrack = Random.Range(0, 4);
 
         if (ChangeTrack == 0)
         {
-            CombinedPath = MainPath.Concat(InPath).ToArray();
+            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(InPath2).ToArray();
         }
         else if (ChangeTrack == 1)
         {
-            CombinedPath = MainPath.Concat(OutPath).ToArray();
+            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(OutPath2).ToArray();
+        }
+        else if (ChangeTrack == 2)
+        {
+            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(OutPath2).ToArray();
+        }
+        else if (ChangeTrack == 3)
+        {
+            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(InPath2).ToArray();
         }
     }
 }
