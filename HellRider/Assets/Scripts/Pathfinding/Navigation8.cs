@@ -1,14 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class Navigation8: MonoBehaviour, IPlayerScore
 {
     [Header("Waypoints and Directions")]
-    public Transform[] waypoints;  // Tableau des points de passage (circuit)
+    /*public Transform[] waypoints;  // Tableau des points de passage (circuit)
     public Transform[] waypoints2;
-    private Transform[] tempWaypointHolder;
+    private Transform[] tempWaypointHolder;*/
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
@@ -57,6 +58,14 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     // Destination actuelle (avec déviation)
     private Vector3 currentDestination;
 
+    //TEST AREA 
+    public Transform[] MainPath;
+    public Transform[] InPath;
+    public Transform[] OutPath;
+
+    public Transform[] CombinedPath;
+    public Transform[] EveryWaypoints;
+
     void Start()
     {
         Bike = this.gameObject;
@@ -64,8 +73,10 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         currentSpeed = normalSpeed;
         agent.speed = currentSpeed;
 
+        ChoosePath();
+
         // Calcule la destination initiale avec une déviation aléatoire
-        currentDestination = GetWaypointDestination(waypoints,currentWaypointIndex);
+        currentDestination = GetWaypointDestination(CombinedPath,currentWaypointIndex);
         agent.destination = currentDestination;
 
         // Désactive la rotation automatique pour la gérer manuellement
@@ -75,9 +86,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         InvokeRepeating("ChangeNormalSpeed", 3f, 3f);
 
         BikeAudioSource.clip = BikeSound;
-        BikeAudioSource.loop = true;
-
-        tempWaypointHolder = waypoints;
+        BikeAudioSource.loop = true; 
     }
 
     void Update()
@@ -90,6 +99,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
 
+        /*
         if (waypoints[(currentWaypointIndex + 1) % waypoints.Length].gameObject.name == "Choice")
         {
             ChangeTrack = Random.Range(0, 2);
@@ -105,7 +115,9 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         {
             tempWaypointHolder = waypoints2;
             nextWaypointDistance = Vector3.Distance(waypoints2[currentWaypointIndex].position, waypoints2[(currentWaypointIndex + 1) % waypoints2.Length].position);
-        }
+        }*/
+
+        nextWaypointDistance = Vector3.Distance(CombinedPath[currentWaypointIndex].position, CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].position);
 
         float betweenCheckpoint = ScaleValue(distance, nextWaypointDistance, 0, 0, 1);
         score = Checkpointpassed + betweenCheckpoint;
@@ -113,9 +125,15 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         // Passage au waypoint suivant si l'on est suffisamment proche de la destination déviée
         if (distance < activationRadius)
         {
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            if (CombinedPath[(currentWaypointIndex) % CombinedPath.Length].gameObject.name == "Start")
+            {
+                ChoosePath();
+                Debug.Log("Turn done"); // TURN DONE HERE
+            }
+
+            currentWaypointIndex = (currentWaypointIndex + 1) % CombinedPath.Length;
             Checkpointpassed++;
-            currentDestination = GetWaypointDestination(tempWaypointHolder, currentWaypointIndex);
+            currentDestination = GetWaypointDestination(CombinedPath, currentWaypointIndex);
             agent.destination = currentDestination;
         }
 
@@ -189,7 +207,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     // Visualisation dans l'éditeur de la zone d'activation et des destinations déviées
     void OnDrawGizmos()
     {
-        if (waypoints != null)
+        /*if (waypoints != null)
         {
             foreach (var waypoint in waypoints)
             {
@@ -219,6 +237,40 @@ public class Navigation8: MonoBehaviour, IPlayerScore
                 Gizmos.color = Color.red;
                 Gizmos.DrawSphere(randomDestination, 0.5f);
             }
+        }*/
+
+        if (EveryWaypoints != null)
+        {
+            foreach (var waypoint in EveryWaypoints)
+            {
+                // Zone d'activation
+                Gizmos.color = Color.green;
+                Gizmos.DrawWireSphere(waypoint.position, activationRadius);
+
+                // Visualisation de la destination déviée (approximative)
+                Vector2 randomOffset = Random.insideUnitCircle * marginOfError;
+                Vector3 randomDestination = waypoint.position + new Vector3(randomOffset.x, 0, randomOffset.y);
+                Gizmos.color = Color.red;
+                Gizmos.DrawSphere(randomDestination, 0.5f);
+            }
+        }
+    }
+
+    void ChoosePath()
+    {
+        ChangeTrack = Random.Range(0, 2);
+
+        if (ChangeTrack == 0)
+        {
+            CombinedPath = MainPath.Concat(InPath).ToArray();
+        }
+        else if (ChangeTrack == 1)
+        {
+            CombinedPath = MainPath.Concat(OutPath).ToArray();
         }
     }
 }
+
+
+
+
