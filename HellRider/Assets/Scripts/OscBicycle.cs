@@ -23,7 +23,7 @@ public class OscBicycle : MonoBehaviour
     // For the handling of resets and restarts
     private bool reset;
     private bool hasUser = true;
-    private bool InTutorial = true;
+    private bool InTutorial;
 
     // Tutorial gameobject and such
     [Header("Tutorial Text")]
@@ -42,8 +42,8 @@ public class OscBicycle : MonoBehaviour
     private float Right = 0; // put some 0 to help prevent major error when something goes wrong
 
     // Buttons control
-    private float Confirm;
-    private float Cancel;
+    public float Confirm;
+    public float Cancel;
 
     //Speed
     public float Speed = 0;
@@ -53,7 +53,6 @@ public class OscBicycle : MonoBehaviour
     {
         // From Touchdesigner
         oscReceiver.Bind("/X", TraiterXOSC); // left right value of the player
-        oscReceiver.Bind("/X_RAW", TraiterXRAWOSC); // RAW left right value of the player for the tutorial only
         oscReceiver.Bind("/Reset", TraiterResetOSC); // if no value change for 5 seconds (not possible if still on the bike)
         oscReceiver.Bind("/Intro", TraiterIntroOSC); // starts the tutorial for new player when acitvated
 
@@ -61,11 +60,16 @@ public class OscBicycle : MonoBehaviour
         oscReceiver.Bind("/Affirm", TraiterConfirmOSC); // starts the tutorial for new player when acitvated
         oscReceiver.Bind("/Tease", TraiterPauseOSC); // starts the tutorial for new player when acitvated
         oscReceiver.Bind("/Raw", TraiterRawOSC); // starts the tutorial for new player when acitvated
+
+        if (tutorialPanel != null)
+        {
+            oscReceiver.Bind("/X_RAW", TraiterXRAWOSC); // RAW left right value of the player for the tutorial only
+            InTutorial = true;
+        }
     }
 
     private void Update()
     {
-
         if (hasUser == false)
         {
             // show leader board and stuff
@@ -81,14 +85,12 @@ public class OscBicycle : MonoBehaviour
         if (InTutorial == true)
         {
             tutorialXPosition.text = Raw_x.ToString();
-            tutorialSetCenter.text = Raw_x.ToString();
-            tutorialSetLeft.text = Raw_x.ToString();
-            tutorialSetRight.text = Raw_x.ToString();
+
+
+
 
             tutorialSlider.value = X;
         }
-
-        //messageTransmitter("/test", 3);
     }
 
     private void messageTransmitter(string id, float value)
@@ -217,7 +219,7 @@ public class OscBicycle : MonoBehaviour
 
     public void RestartGame()
     {
-        //SceneManager.LoadScene("TEST-Jay");
+        //SceneManager.LoadScene("TUTORIAL");
         /*hasUser = false;
         reset = false;
 
@@ -275,9 +277,6 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Confirm = value;
-
-
         /* Tuto order
          * 
          * 1 - explication basique du jeu
@@ -297,6 +296,7 @@ public class OscBicycle : MonoBehaviour
                     if (Raw_x < 0.1 && Raw_x > -0.1)
                     {
                         Center = Raw_x;
+                        tutorialSetCenter.text = Center.ToString();
                         Debug.Log("center");
                         messageTransmitter("/Center", Center);
                         tutorial[tutorialNumber].SetActive(false);
@@ -308,6 +308,7 @@ public class OscBicycle : MonoBehaviour
                     if (Raw_x < Center - 0.05)
                     {
                         Left = Raw_x;
+                        tutorialSetLeft.text = Left.ToString();
                         Debug.Log("left");
                         messageTransmitter("/Left", Left);
                         tutorial[tutorialNumber].SetActive(false);
@@ -319,6 +320,7 @@ public class OscBicycle : MonoBehaviour
                     if (Raw_x > Center + 0.05)
                     {
                         Right = Raw_x;
+                        tutorialSetRight.text = Right.ToString();
                         Debug.Log("right");
                         messageTransmitter("/Right", Right);
                         tutorial[tutorialNumber].SetActive(false);
@@ -343,6 +345,10 @@ public class OscBicycle : MonoBehaviour
 
             }
         }
+        else
+        {
+            Confirm = value;
+        }
     }
 
     void TraiterPauseOSC(OSCMessage oscMessage)
@@ -364,8 +370,6 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Cancel = value;
-
         if (InTutorial == true) {
             if (value == 1 && tutorialNumber <= 7 && tutorialNumber >= 1) // 3 tuto for now
             {
@@ -378,6 +382,10 @@ public class OscBicycle : MonoBehaviour
                     tutorialXPositionGameobject.SetActive(true);
                 }
             }
+        }
+        else
+        {
+            Cancel = value;
         }
     }
 

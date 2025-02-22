@@ -19,6 +19,8 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     public GameObject Osc;
     public float RealSpeed;
     public float XValue;
+    private float Boost; // right button
+    private float Pause; // left button
 
     public float DistanceCheckpoint = 0f;
     public int Checkpointpassed;
@@ -54,6 +56,8 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     {
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
+        Boost = Osc.GetComponent<OscBicycle>().Confirm;
+        Pause = Osc.GetComponent<OscBicycle>().Cancel;
 
         // Prend la valeur du private currentSpeed pour l'envoyer au UI
         speedUI = Mathf.FloorToInt(currentSpeed);
