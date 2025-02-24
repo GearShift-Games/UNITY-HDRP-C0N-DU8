@@ -38,9 +38,12 @@ public class Timer : MonoBehaviour
                 this.gameObject.SetActive(false);
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
+
+            //play fuse animation
         }
         else
         {
+            //stop fuse animation
             //deactivate ui
         }
     }
