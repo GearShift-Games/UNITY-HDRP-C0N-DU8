@@ -14,6 +14,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public float maxSpeed = 6.0f;
     private float currentSpeed = 0f;
     public int speedUI;
+    public bool isOscOn = false;
 
     [Header("Osc Data")]
     public GameObject Osc;
@@ -37,6 +38,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
 
     [Header("Courbe d'acc�l�ration")]
+    public float verticalInput = 0f;
     public float speedThreshold1 = 60f;
     public float speedThreshold2 = 80f;
     public float accelerationLow = 15f;
@@ -93,11 +95,19 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         // Interpolation Slerp avec la vitesse ajust�e
         transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
 
-        
+
 
 
         // Gestion de la vitesse avec une courbe d'acc�l�ration
-        float verticalInput = Input.GetAxis("Vertical");
+        //float verticalInput = Input.GetAxis("Vertical");
+        if (isOscOn)
+        {
+            verticalInput = RealSpeed;
+        }
+        else
+        {
+            verticalInput = Input.GetAxis("Vertical");
+        }
         float targetSpeed = verticalInput * maxSpeed;
         float currentAcc = GetAccelerationForSpeed(currentSpeed);
         currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, currentAcc * Time.deltaTime);
