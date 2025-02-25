@@ -535,21 +535,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49ba89aabbae00f4a8b68bf4c97752a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  waypoints2: []
-  tempWaypointHolder: []
+  MainPath: []
+  InPath: []
+  OutPath: []
+  MainPath2: []
+  InPath2: []
+  OutPath2: []
+  CombinedPath: []
+  EveryWaypoints: []
   marginOfError: 5
   normalSpeed: 40
   slowedSpeed: 12
@@ -580,6 +573,7 @@ MonoBehaviour:
   TimeLeft: 30
   TimerOn: 0
   seconds: 0
+  playerUIPortrait: {fileID: 0}
   playerUIFrame: {fileID: 0}
   position: 0
 --- !u!1 &7993974050447381155
@@ -1612,6 +1606,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: perso_export
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 30ba538ca0d0d5043885931c80c15c17,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3043645487049729166, guid: 30ba538ca0d0d5043885931c80c15c17,
         type: 3}
