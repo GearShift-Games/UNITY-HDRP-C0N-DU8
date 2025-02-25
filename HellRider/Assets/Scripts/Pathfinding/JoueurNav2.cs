@@ -49,6 +49,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     [Header("Courbe d'accélération")]
     public float verticalInput = 0f;
+    public float horizontalInput = 0f;
     public float speedThreshold1 = 60f;
     public float speedThreshold2 = 80f;
     public float accelerationLow = 15f;
@@ -108,10 +109,12 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             if (isOscOn)
             {
                 verticalInput = RealSpeed;
+                horizontalInput = XValue;
             }
             else
             {
                 verticalInput = Input.GetAxis("Vertical");
+                horizontalInput = Input.GetAxis("Horizontal");
             }
             float targetSpeed = verticalInput * maxSpeed;
             float currentAcc = GetAccelerationForSpeed(currentSpeed);
