@@ -1,12 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
+    [Header("Waypoints and Directions")]
     public Transform[] waypoints;
     private NavMeshAgent agent;
+    public Transform[] MainPath; // from start till path division
+    public Transform[] InPath; // Side path 1 from division 1
+    public Transform[] OutPath; // Side path 2 from division 1
+    public Transform[] MainPath2; // if there's 2 side path, starts where the side path combine till division
+    public Transform[] InPath2; // Side path 1 from division 2
+    public Transform[] OutPath2; // Side path 2 from division 2
+    public Transform[] CombinedPath; //the array where the ai store their full loop path
+    public Transform[] EveryWaypoints; //put every waypoint here to render them
+
     private int currentWaypointIndex = 0;
     public float activationRadius = 3.0f;
 
@@ -136,6 +147,10 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
         if (distanceToWaypoint < activationRadius)
         {
+            if (waypoints[currentWaypointIndex + 1])
+            {
+
+            }
             currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
             Checkpointpassed++;
             agent.destination = waypoints[currentWaypointIndex].position;
@@ -193,13 +208,33 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     // Visualisation des waypoints
     void OnDrawGizmos()
     {
-        if (waypoints != null)
+        if (EveryWaypoints != null)
         {
             Gizmos.color = Color.green;
-            foreach (var waypoint in waypoints)
+            foreach (var waypoint in EveryWaypoints)
             {
                 Gizmos.DrawWireSphere(waypoint.position, activationRadius);
             }
+        }
+    }
+
+    void ChoosePath(int track)
+    {
+        if (track == 0)
+        {
+            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(InPath2).ToArray();
+        }
+        else if (track == 1)
+        {
+            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(OutPath2).ToArray();
+        }
+        else if (track == 2)
+        {
+            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(OutPath2).ToArray();
+        }
+        else if (track == 3)
+        {
+            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(InPath2).ToArray();
         }
     }
 }
