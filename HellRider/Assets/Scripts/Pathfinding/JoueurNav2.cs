@@ -64,6 +64,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     private float ScurretnSpeed;
     private Quaternion ScurrentVelocity = Quaternion.identity;
 
+    public float PedaleMaxSpeed = 250f;
+
     [Header("Drift Settings")]
     public float Drift = 5f;
 
@@ -106,6 +108,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         // On met à jour currentSpeed selon l'entrée quand l'agent est sur la piste
         if (agent.isOnNavMesh)
         {
+            /*
             if (isOscOn)
             {
                 verticalInput = RealSpeed;
@@ -116,9 +119,20 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
                 verticalInput = Input.GetAxis("Vertical");
                 horizontalInput = Input.GetAxis("Horizontal");
             }
-            float targetSpeed = verticalInput * maxSpeed;
-            float currentAcc = GetAccelerationForSpeed(currentSpeed);
-            currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, currentAcc * Time.deltaTime);
+            */
+            //verticalInput = RealSpeed + Input.GetAxis("Vertical");
+            horizontalInput = XValue + Input.GetAxis("Horizontal");
+
+            float targetSpeed =  (Input.GetAxis("Vertical") * maxSpeed); // CLAVIER
+          
+
+            //float currentAcc = GetAccelerationForSpeed(currentSpeed);
+           // currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, currentAcc * Time.deltaTime);
+             
+            currentSpeed =  RealSpeed * PedaleMaxSpeed;  // PEDALES
+
+
+            Debug.Log(currentSpeed);
         }
         // Sinon, on ne modifie pas currentSpeed pour conserver la dernière vitesse obtenue
 

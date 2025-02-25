@@ -410,9 +410,10 @@ public class OscBicycle : MonoBehaviour
 
         //Debug.Log(value);
 
-        value = ScaleValue(value, -15000,15000,-1,1);
+        //value = ScaleValue(value, -15000,15000,-1,1);
 
-        Speed = value;
+        Speed = value/30000f;
+        Speed = Speed * Speed * Speed;
 
         //Debug.Log(Speed);
     }
