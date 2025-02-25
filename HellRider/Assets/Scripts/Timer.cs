@@ -19,6 +19,7 @@ public class Timer : MonoBehaviour
         // >:) you can tell me what to do
         // yep i sure can =^D
         animator = playerUIFrame.GetComponent<Animator>();
+        animator.Play("UIpink");
     }
 
     void Update()
@@ -43,7 +44,7 @@ public class Timer : MonoBehaviour
             //Debug.Log(this.gameObject + " " + TimeLeft);
 
             //play fuse animation
-            animator.Play("UIpink");
+            animator.speed = 1;
         }
         else
         {
