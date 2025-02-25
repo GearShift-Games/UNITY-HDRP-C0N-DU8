@@ -64,7 +64,7 @@ public class countdown : MonoBehaviour
     void getComponents(bool status)
     {
         // Activates / Desactivates inputs
-        Navigation8JoueurGen3 playerMovement = Player.GetComponent<Navigation8JoueurGen3>();
+        JoueurNav2 playerMovement = Player.GetComponent<JoueurNav2>();
         Timer playerTimer = Player.GetComponent<Timer>();
         // NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
         playerMovement.enabled = status;

@@ -32,7 +32,7 @@ public class TestSon : MonoBehaviour
 
     [Header("Other Functions")]
     Timer timer;
-    Navigation8JoueurGen3 navigationJoueur;
+    JoueurNav2 navigationJoueur;
 
     // Start is called before the first frame update
     void Start()
@@ -40,7 +40,7 @@ public class TestSon : MonoBehaviour
         InvokeRepeating("repeatingSound", 1f, 1f);
 
         timer = player.GetComponent<Timer>();
-        navigationJoueur = player.GetComponent<Navigation8JoueurGen3>();
+        navigationJoueur = player.GetComponent<JoueurNav2>();
 
         AudioSourceBikeSound.clip = BikeSound;
         AudioSourceBikeSound.loop = true;
