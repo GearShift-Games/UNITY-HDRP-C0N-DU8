@@ -140,6 +140,35 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             Checkpointpassed++;
             agent.destination = waypoints[currentWaypointIndex].position;
         }
+
+        /* TO TEST, FOR TURN ANIMATION
+        Vector3 desiredDirection = agent.desiredVelocity;
+
+        // Only process if the desired direction has a significant magnitude
+        if (desiredDirection.sqrMagnitude > 0.01f)
+        {
+            // Calculate the signed angle between current forward and desired direction using the up axis.
+            float turnAngle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+
+            // Optional: Define a threshold to filter out small, unintentional movements.
+            float turnThreshold = 5f;
+
+            if (turnAngle > turnThreshold)
+            {
+                Debug.Log("Turning Right");
+                // Add your logic for turning right here.
+            }
+            else if (turnAngle < -turnThreshold)
+            {
+                Debug.Log("Turning Left");
+                // Add your logic for turning left here.
+            }
+            else
+            {
+                Debug.Log("Going Straight");
+            }
+        }
+        */
     }
 
     // Renvoie le taux d'acc�l�ration en fonction de la vitesse actuelle
