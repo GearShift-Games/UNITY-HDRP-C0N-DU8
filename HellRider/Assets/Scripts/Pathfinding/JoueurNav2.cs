@@ -77,7 +77,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         Bike = this.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
-        agent.destination = waypoints[currentWaypointIndex].position;
+        ChoosePath(0);
+        agent.destination = CombinedPath[currentWaypointIndex].position;
 
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
@@ -149,23 +150,27 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         }
 
         // --- Gestion des waypoints pour le score ---
-        float distanceToWaypoint = Vector3.Distance(transform.position, waypoints[currentWaypointIndex].position);
+        float distanceToWaypoint = Vector3.Distance(transform.position, CombinedPath[currentWaypointIndex].position);
         DistanceCheckpoint = distanceToWaypoint;
         float nextWaypointDistance = Vector3.Distance(
-            waypoints[currentWaypointIndex].position,
-            waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
+            CombinedPath[currentWaypointIndex].position,
+            CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].position);
         float betweenCheckpoint = ScaleValue(distanceToWaypoint, nextWaypointDistance, 0, 0, 1);
         score = Checkpointpassed + betweenCheckpoint;
 
         if (distanceToWaypoint < activationRadius)
         {
-            if (waypoints[currentWaypointIndex + 1])
+            if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice")
             {
 
             }
-            currentWaypointIndex = (currentWaypointIndex + 1) % waypoints.Length;
+            else if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice2")
+            {
+
+            }
+            currentWaypointIndex = (currentWaypointIndex + 1) % CombinedPath.Length;
             Checkpointpassed++;
-            agent.destination = waypoints[currentWaypointIndex].position;
+            agent.destination = CombinedPath[currentWaypointIndex].position;
         }
     }
 
