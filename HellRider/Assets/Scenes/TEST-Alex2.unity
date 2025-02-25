@@ -3083,7 +3083,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 761277897}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5cdfd96ae35d24c4b9f9bbd66e59b2cd, type: 3}
   m_Name: 
@@ -3135,6 +3135,7 @@ MonoBehaviour:
   rotationSmoothing: 5
   speedReductionDuration: 5
   verticalInput: 0
+  horizontalInput: 0
   speedThreshold1: 60
   speedThreshold2: 80
   accelerationLow: 15
@@ -10509,12 +10510,6 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1456391005}
-    - target: {fileID: 7909831422522702260, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: -1463903502, guid: da76ef7e33466614595f3b525271e54c,
-        type: 3}
     - target: {fileID: 7917642143642160243, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -10614,6 +10609,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8374135431693928548, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_text
+      value: ' '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
