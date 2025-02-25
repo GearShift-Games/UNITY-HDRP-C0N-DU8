@@ -1,4 +1,4 @@
-using System.Collections;
+/*using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
@@ -143,7 +143,7 @@ public class JoueurNavOriginal : MonoBehaviour, IPlayerScore
         {
             isTouchingWall = false;
         }
-        */
+        
 
         // Gestion de la vitesse avec une courbe d'acc�l�ration
         float verticalInput = Input.GetAxis("Vertical");
@@ -198,7 +198,7 @@ public class JoueurNavOriginal : MonoBehaviour, IPlayerScore
         RaycastHit hit;
         Vector3 forward = transform.forward;
         return Physics.Raycast(transform.position, forward, out hit, wallDetectionDistance);
-    }*/
+    }
 
     // Fonction utilitaire pour mettre � l'�chelle une valeur d'un intervalle vers un autre
     public static float ScaleValue(float value, float inputMin, float inputMax, float outputMin, float outputMax)
@@ -220,3 +220,4 @@ public class JoueurNavOriginal : MonoBehaviour, IPlayerScore
         }
     }
 }
+*/
