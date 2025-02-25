@@ -11,11 +11,14 @@ public class Timer : MonoBehaviour
 
     public int position;
 
+    private Animator animator;
+
     void Start()
     {
         //TimerOn = true; pls dont start the timer of everyone when the game start
         // >:) you can tell me what to do
         // yep i sure can =^D
+        animator = playerUIFrame.GetComponent<Animator>();
     }
 
     void Update()
@@ -40,11 +43,13 @@ public class Timer : MonoBehaviour
             //Debug.Log(this.gameObject + " " + TimeLeft);
 
             //play fuse animation
+            animator.Play("UIpink");
         }
         else
         {
             //stop fuse animation
             //deactivate ui
+            animator.speed = 0;
         }
     }
 
