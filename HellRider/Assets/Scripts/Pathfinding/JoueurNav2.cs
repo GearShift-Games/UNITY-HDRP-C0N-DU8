@@ -179,7 +179,14 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         {
             if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice")
             {
-
+                if (horizontalInput < 0)
+                {
+                    ChoosePath(1);
+                }
+                else if (horizontalInput > 0)
+                {
+                    ChoosePath(0);
+                }
             }
             else if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice2")
             {
