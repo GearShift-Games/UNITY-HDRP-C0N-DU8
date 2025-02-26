@@ -156,6 +156,12 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
 
 
+
+
+
+
+
+
         //
         //      HANDLING THE ROTATION OF Z SO THEY TILT
         //
@@ -251,37 +257,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     // Visualisation dans l'éditeur de la zone d'activation et des destinations déviées
     void OnDrawGizmos()
     {
-        /*if (waypoints != null)
-        {
-            foreach (var waypoint in waypoints)
-            {
-                // Zone d'activation
-                Gizmos.color = Color.green;
-                Gizmos.DrawWireSphere(waypoint.position, activationRadius);
-
-                // Visualisation de la destination déviée (approximative)
-                Vector2 randomOffset = Random.insideUnitCircle * marginOfError;
-                Vector3 randomDestination = waypoint.position + new Vector3(randomOffset.x, 0, randomOffset.y);
-                Gizmos.color = Color.red;
-                Gizmos.DrawSphere(randomDestination, 0.5f);
-            }
-        }
-
-        if (waypoints2 != null)
-        {
-            foreach (var waypoint in waypoints2)
-            {
-                // Zone d'activation
-                Gizmos.color = Color.green;
-                Gizmos.DrawWireSphere(waypoint.position, activationRadius);
-
-                // Visualisation de la destination déviée (approximative)
-                Vector2 randomOffset = Random.insideUnitCircle * marginOfError;
-                Vector3 randomDestination = waypoint.position + new Vector3(randomOffset.x, 0, randomOffset.y);
-                Gizmos.color = Color.red;
-                Gizmos.DrawSphere(randomDestination, 0.5f);
-            }
-        }*/
+       
 
         if (EveryWaypoints != null)
         {
