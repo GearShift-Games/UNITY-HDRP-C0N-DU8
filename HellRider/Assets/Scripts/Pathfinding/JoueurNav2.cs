@@ -6,6 +6,8 @@ using UnityEngine.AI;
 
 public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
+
+    public GameObject trail;
     [Header("Waypoints and Directions")]
     public Transform[] waypoints;
     private NavMeshAgent agent;
@@ -132,6 +134,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
         }
 
+
+
         //
         //      HANDLING THE ROTATION OF Z SO THEY TILT
         //
@@ -160,9 +164,22 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         float currentPivotAngle = currentEuler.x;
         if (currentPivotAngle > 180f)
             currentPivotAngle -= 360f;
-        float targetPivotAngle = (currentSpeed > 100f) ? -45f : 0f;
+        //float targetPivotAngle = (currentSpeed > 100f) ? -45f : 0f;
+        float targetPivotAngle;
+        if (currentSpeed > 10f)
+        {
+            targetPivotAngle = -45f;
+            trail.SetActive(true);
+        }
+        else
+        {
+            targetPivotAngle = 0f;
+            trail.SetActive(false);
+        }
         float smoothPivotAngle = Mathf.SmoothDampAngle(currentPivotAngle, targetPivotAngle, ref pivotAngleVelocity, pivotRotationSmoothTime);
         Pivot.transform.rotation = Quaternion.Euler(smoothPivotAngle, currentEuler.y, currentBank);
+
+
 
         // --- Gestion de l'accélération ---
         if (agent.isOnNavMesh)
