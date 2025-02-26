@@ -3144,6 +3144,7 @@ MonoBehaviour:
   lopSmoothingFactor: 5
   Sacceleration: 2
   SmaxSpeed: 5
+  PedaleMaxSpeed: 250
   Drift: 5
   edgeSlowdownThreshold: 1
   slowDownFactorAtEdge: 0.1
