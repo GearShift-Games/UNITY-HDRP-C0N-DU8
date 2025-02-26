@@ -13,11 +13,11 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public Transform[] waypoints2;
     private Transform[] tempWaypointHolder;*/
     public Transform[] MainPath; // from start till path division
-    public Transform[] InPath; // Side path 1 from division 1
-    public Transform[] OutPath; // Side path 2 from division 1
+    public Transform[] LeftPath; // Side path 1 from division 1
+    public Transform[] RightPath; // Side path 2 from division 1
     public Transform[] MainPath2; // if there's 2 side path, starts where the side path combine till division
-    public Transform[] InPath2; // Side path 1 from division 2
-    public Transform[] OutPath2; // Side path 2 from division 2
+    public Transform[] LeftPath2; // Side path 1 from division 2
+    public Transform[] RightPath2; // Side path 2 from division 2
     public Transform[] CombinedPath; //the array where the ai store their full loop path
     public Transform[] EveryWaypoints; //put every waypoint here to render them
     private NavMeshAgent agent;
@@ -282,19 +282,19 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
         if (ChangeTrack == 0)
         {
-            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(InPath2).ToArray();
+            CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
         }
         else if (ChangeTrack == 1)
         {
-            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(OutPath2).ToArray();
+            CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(RightPath2).ToArray();
         }
         else if (ChangeTrack == 2)
         {
-            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(OutPath2).ToArray();
+            CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(RightPath2).ToArray();
         }
         else if (ChangeTrack == 3)
         {
-            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(InPath2).ToArray();
+            CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
         }
     }
 }
