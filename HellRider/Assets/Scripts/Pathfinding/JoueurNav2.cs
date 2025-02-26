@@ -131,7 +131,6 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
 
 
-
         //
         //      HANDLING THE ROTATION OF Z SO THEY TILT
         //
@@ -163,6 +162,14 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         Pivot.transform.rotation = Quaternion.Euler(currentEuler.x, currentEuler.y, currentBank);
 
 
+        if (currentSpeed > 500)
+        {
+            Pivot.transform.rotation = Quaternion.Euler(-45f, currentEuler.y, currentEuler.z);
+        }
+        else
+        {
+            Pivot.transform.rotation = Quaternion.Euler(0f, currentEuler.y, currentEuler.z);
+        }
 
 
         // --- Gestion de l'accélération ---
