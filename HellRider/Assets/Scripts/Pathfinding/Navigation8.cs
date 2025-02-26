@@ -35,7 +35,9 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
     public float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
     public float maxSpeed = 6.0f;               // Vitesse maximale que l'ennemi peut atteindre
-    private float currentSpeed;               // Vitesse actuelle
+    private float currentSpeed;
+    public float RubberBanding = 1.2f;          // Max speed * rubberbanding
+        // Vitesse actuelle
 
     // Virage et activation
     [Header("Virage et activation")]
@@ -61,8 +63,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     GameObject IPlayerScore.Bike => Bike;
 
     //players position if we want some rubber banding
-    //public GameObject Mainplayer;
-    //private int MainplayerPosition;
+    public GameObject Mainplayer;
 
     public float baseTurnSpeed = 120f;  // Vitesse de rotation de base (en degrés/seconde)
 
@@ -98,30 +99,18 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     void Update()
     {
 
-        
-        //MainplayerPosition = Mainplayer.GetComponent<Timer>().position;
-
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
 
-        /*
-        if (waypoints[(currentWaypointIndex + 1) % waypoints.Length].gameObject.name == "Choice")
+        if (Mainplayer.GetComponent<Timer>().position == 1)
         {
-            ChangeTrack = Random.Range(0, 2);
-            //Debug.Log(ChangeTrack);
+            maxSpeed = 50 * RubberBanding;
         }
-
-        if (ChangeTrack == 0)
+        else
         {
-            tempWaypointHolder = waypoints;
-            nextWaypointDistance = Vector3.Distance(waypoints[currentWaypointIndex].position, waypoints[(currentWaypointIndex + 1) % waypoints.Length].position);
+            maxSpeed = 50;
         }
-        else if (ChangeTrack == 1)
-        {
-            tempWaypointHolder = waypoints2;
-            nextWaypointDistance = Vector3.Distance(waypoints2[currentWaypointIndex].position, waypoints2[(currentWaypointIndex + 1) % waypoints2.Length].position);
-        }*/
 
         nextWaypointDistance = Vector3.Distance(CombinedPath[currentWaypointIndex].position, CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].position);
 
@@ -155,6 +144,31 @@ public class Navigation8: MonoBehaviour, IPlayerScore
             currentSpeed = Mathf.MoveTowards(currentSpeed, slowedSpeed, acceleration * Time.deltaTime);
         else
             currentSpeed = Mathf.MoveTowards(currentSpeed, normalSpeed, acceleration * Time.deltaTime);
+
+        Vector3 desiredDirection = agent.desiredVelocity;
+
+        // Only process if the desired direction has a significant magnitude
+        if (desiredDirection.sqrMagnitude > 0.01f)
+        {
+            // Calculate the signed angle between current forward and desired direction using the up axis.
+            float turnAngle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+
+            // Optional: Define a threshold to filter out small, unintentional movements.
+            float turnThreshold = 5f;
+
+            if (turnAngle > turnThreshold)
+            {
+                Debug.Log(this.gameObject.name + "Turning Right");
+            }
+            else if (turnAngle < -turnThreshold)
+            {
+                Debug.Log(this.gameObject.name + "Turning Left");
+            }
+            else
+            {
+                Debug.Log(this.gameObject.name + "Going Straight");
+            }
+        }
 
         // Plafonnement de la vitesse
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);

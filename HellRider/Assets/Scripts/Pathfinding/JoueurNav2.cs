@@ -104,6 +104,31 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
         }
 
+        Vector3 desiredDirection = agent.desiredVelocity;
+
+        // Only process if the desired direction has a significant magnitude
+        if (desiredDirection.sqrMagnitude > 0.01f)
+        {
+            // Calculate the signed angle between current forward and desired direction using the up axis.
+            float turnAngle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+
+            // Optional: Define a threshold to filter out small, unintentional movements.
+            float turnThreshold = 5f;
+
+            if (turnAngle > turnThreshold)
+            {
+                Debug.Log(this.gameObject.name + "Turning Right");
+            }
+            else if (turnAngle < -turnThreshold)
+            {
+                Debug.Log(this.gameObject.name + "Turning Left");
+            }
+            else
+            {
+                Debug.Log(this.gameObject.name + "Going Straight");
+            }
+        }
+
         // --- Gestion de l'accélération ---
         // On met à jour currentSpeed selon l'entrée quand l'agent est sur la piste
         if (agent.isOnNavMesh)
@@ -132,7 +157,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             currentSpeed =  RealSpeed * PedaleMaxSpeed;  // PEDALES
 
 
-            Debug.Log(currentSpeed);
+            //Debug.Log(currentSpeed);
         }
         // Sinon, on ne modifie pas currentSpeed pour conserver la dernière vitesse obtenue
 
