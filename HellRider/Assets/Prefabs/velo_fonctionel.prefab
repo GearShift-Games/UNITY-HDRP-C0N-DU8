@@ -241,6 +241,7 @@ GameObject:
   - component: {fileID: 7351073052252669790}
   - component: {fileID: 1906410610322376004}
   - component: {fileID: 4360240913180433851}
+  - component: {fileID: 8897767470145424034}
   m_Layer: 0
   m_Name: velo_fonctionel
   m_TagString: Untagged
@@ -343,6 +344,8 @@ MonoBehaviour:
   XValue: 0
   DistanceCheckpoint: 0
   Checkpointpassed: 0
+  isOscOn: 0
+  verticalInput: 0
   turnSpeed: 100
 --- !u!114 &4360240913180433851
 MonoBehaviour:
@@ -359,7 +362,30 @@ MonoBehaviour:
   TimeLeft: 30
   TimerOn: 0
   seconds: 0
+  playerUIPortrait: {fileID: 0}
+  playerUIFrame: {fileID: 0}
   position: 0
+--- !u!95 &8897767470145424034
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5696872868754244729}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 050a944eceee92a438b0ccda8b7fa7be, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5906420443787357009
 GameObject:
   m_ObjectHideFlags: 0
@@ -1829,7 +1855,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: c095eacc9f70f574ab4da110b5123525,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.233
+      value: -14.19
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: c095eacc9f70f574ab4da110b5123525,
         type: 3}
@@ -1885,6 +1911,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: frame_velo (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: c095eacc9f70f574ab4da110b5123525,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
