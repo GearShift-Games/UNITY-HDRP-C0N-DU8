@@ -1276,11 +1276,11 @@ MonoBehaviour:
   timerYellow: {fileID: 0}
   UiGreen: {fileID: 203595465991385388}
   timerGreen: {fileID: 0}
-  firstPosition: {x: -715, y: 325}
-  secondPosition: {x: -715, y: 137}
+  firstPosition: {x: -715, y: 400}
+  secondPosition: {x: -715, y: 200}
   thirdPosition: {x: -715, y: 0}
-  fourthPosition: {x: -715, y: -137}
-  fivePosition: {x: -715, y: -325}
+  fourthPosition: {x: -715, y: -200}
+  fivePosition: {x: -715, y: -400}
 --- !u!114 &573346257527605654
 MonoBehaviour:
   m_ObjectHideFlags: 0
