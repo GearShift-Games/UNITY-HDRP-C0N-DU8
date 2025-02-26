@@ -239,7 +239,6 @@ GameObject:
   - component: {fileID: 4919209646479646403}
   - component: {fileID: 8445476484738491248}
   - component: {fileID: 7351073052252669790}
-  - component: {fileID: 1906410610322376004}
   - component: {fileID: 4360240913180433851}
   - component: {fileID: 8897767470145424034}
   m_Layer: 0
@@ -311,43 +310,6 @@ NavMeshAgent:
   m_BaseOffset: 0.55
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &1906410610322376004
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5696872868754244729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bef145389df48a34c9637f21a0210b2b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  waypoints:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  activationRadius: 8
-  acceleration: 30
-  maxSpeed: 50
-  speedUI: 0
-  Osc: {fileID: 0}
-  RealSpeed: 0
-  XValue: 0
-  DistanceCheckpoint: 0
-  Checkpointpassed: 0
-  isOscOn: 0
-  verticalInput: 0
-  turnSpeed: 100
 --- !u!114 &4360240913180433851
 MonoBehaviour:
   m_ObjectHideFlags: 0

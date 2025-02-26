@@ -26,9 +26,11 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     private float currentSpeed = 0f;
     public int speedUI;
     public bool isOscOn = false;
+
     [Header("Turbo")]
     public float TurboMult = 3f;
     public float TurboDure = 2f;
+
     [Header("Osc Data")]
     public GameObject Osc;
     public float RealSpeed;
@@ -77,19 +79,23 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     [Tooltip("Multiplicateur appliqué quand le joueur est exactement sur la bordure (ex: 0.1 pour 10% de la vitesse normale)")]
     public float slowDownFactorAtEdge = 0.1f;
 
-
-    //TEST ZONE
+    // TEST ZONE
     public GameObject Pivot;
-    //TEST AREA 
-    // Reference to the AI's NavMeshAgent.
+    // TEST AREA 
+    // Référence au NavMeshAgent de l'IA.
 
     // Maximum bank (tilt) angle in degrees.
     public float maxBankAngle = 15f;
-    // Speed (degrees per second) at which the bank effect changes.
+    // Vitesse (degrés par seconde) à laquelle l'effet de bank change.
     public float bankSpeed = 1000f;
 
-    // Internal state tracking the current bank (tilt) around the z axis.
+    // État interne suivant l'inclinaison courante (bank) autour de l'axe z.
     private float currentBank = 0f;
+
+    // Variables pour la rotation verticale du pivot avec easing
+    private float pivotAngleVelocity = 0f;
+    public float pivotRotationSmoothTime = 0.5f;
+
     // Variables pour le turbo
     private bool isTurboActive = false;
 
@@ -107,11 +113,9 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     void Update()
     {
+        // TEST ZONE
 
-        //TEST ZONE
-
-        //TEST ZONE
-
+        // TEST ZONE
 
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
@@ -128,42 +132,37 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
         }
 
-
-
-
-
         //
         //      HANDLING THE ROTATION OF Z SO THEY TILT
         //
         Vector3 desiredDirection = agent.desiredVelocity;
-        float targetBank = 0f;  // This will be our desired z rotation (bank).
+        float targetBank = 0f;  // Cet angle sera notre rotation z désirée (bank).
 
-        // Process only if the agent is moving significantly.
+        // Processus seulement si l'agent se déplace significativement.
         if (desiredDirection.sqrMagnitude > 0.01f)
         {
-            // Determine how much the AI is turning.
+            // Détermine l'ampleur du virage de l'IA.
             float turnAngle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
-            float turnThreshold = 1f; // Ignore tiny variations.
+            float turnThreshold = 1f; // Ignorer les variations minimes.
 
             if (Mathf.Abs(turnAngle) > turnThreshold)
             {
-                // Invert the turn angle to get the desired bank:
-                // For example, a positive turnAngle (turning right) results in a negative bank (tilt to the right).
-                // Optionally, you could scale the effect if you want less aggressive tilting.
+                // Inverse l'angle pour obtenir le bank désiré :
                 targetBank = Mathf.Clamp(-turnAngle, -maxBankAngle, maxBankAngle);
             }
         }
 
-        // Smoothly interpolate the current bank angle towards the target bank.
+        // Interpolation douce du bank courant vers le bank cible.
         currentBank = Mathf.MoveTowardsAngle(currentBank, targetBank, bankSpeed * Time.deltaTime);
 
-        // Apply the bank rotation.
-        // Preserve the current x and y rotations and update the z rotation to create the tilt effect.
+        // Application de la rotation du pivot avec easing pour la rotation verticale (x)
         Vector3 currentEuler = Pivot.transform.eulerAngles;
-        Pivot.transform.rotation = Quaternion.Euler(currentEuler.x, currentEuler.y, currentBank);
-
-
-
+        float currentPivotAngle = currentEuler.x;
+        if (currentPivotAngle > 180f)
+            currentPivotAngle -= 360f;
+        float targetPivotAngle = (currentSpeed > 100f) ? -45f : 0f;
+        float smoothPivotAngle = Mathf.SmoothDampAngle(currentPivotAngle, targetPivotAngle, ref pivotAngleVelocity, pivotRotationSmoothTime);
+        Pivot.transform.rotation = Quaternion.Euler(smoothPivotAngle, currentEuler.y, currentBank);
 
         // --- Gestion de l'accélération ---
         if (agent.isOnNavMesh)
@@ -279,7 +278,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     private IEnumerator ActivateTurbo()
     {
         isTurboActive = true;
-        currentSpeedMultiplier = TurboMult;  // Double la vitesse
+        currentSpeedMultiplier = TurboMult;  // Applique le multiplicateur turbo
         yield return new WaitForSeconds(TurboDure);
         currentSpeedMultiplier = 1f;  // Retour à la vitesse normale
         isTurboActive = false;

@@ -23,7 +23,7 @@ public class OscBicycle : MonoBehaviour
     // For the handling of resets and restarts
     private bool reset;
     private bool hasUser = true;
-    private bool InTutorial;
+    private bool InTutorial = false;
 
     // Tutorial gameobject and such
     [Header("Tutorial Text")]
@@ -255,7 +255,7 @@ public class OscBicycle : MonoBehaviour
         //Debug.Log(value);
 
         hasUser = true;
-        InTutorial = true;
+        //InTutorial = true;
     }
 
     void TraiterConfirmOSC(OSCMessage oscMessage)
