@@ -6,6 +6,7 @@ TagManager:
   tags:
   - MyTag
   - OtherTag
+  - OBJ
   layers:
   - Default
   - TransparentFX
