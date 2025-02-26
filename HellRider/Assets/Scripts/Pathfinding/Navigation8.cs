@@ -72,7 +72,15 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private Vector3 currentDestination;
 
     //TEST AREA 
+    // Reference to the AI's NavMeshAgent.
 
+    // Maximum bank (tilt) angle in degrees.
+    public float maxBankAngle = 15f;
+    // Speed (degrees per second) at which the bank effect changes.
+    public float bankSpeed = 1000f;
+
+    // Internal state tracking the current bank (tilt) around the z axis.
+    private float currentBank = 0f;
 
     void Start()
     {
@@ -99,7 +107,6 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void Update()
     {
-
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
@@ -146,30 +153,46 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         else
             currentSpeed = Mathf.MoveTowards(currentSpeed, normalSpeed, acceleration * Time.deltaTime);
 
-        Vector3 desiredDirection = agent.desiredVelocity;
 
-        // Only process if the desired direction has a significant magnitude
+
+
+        //
+        //      HANDLING THE ROTATION OF Z SO THEY TILT
+        //
+        Vector3 desiredDirection = agent.desiredVelocity;
+        float targetBank = 0f;  // This will be our desired z rotation (bank).
+
+        // Process only if the agent is moving significantly.
         if (desiredDirection.sqrMagnitude > 0.01f)
         {
-            // Calculate the signed angle between current forward and desired direction using the up axis.
+            // Determine how much the AI is turning.
             float turnAngle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+            float turnThreshold = 1f; // Ignore tiny variations.
 
-            // Optional: Define a threshold to filter out small, unintentional movements.
-            float turnThreshold = 5f;
-
-            if (turnAngle > turnThreshold)
+            if (Mathf.Abs(turnAngle) > turnThreshold)
             {
-                Debug.Log(this.gameObject.name + "Turning Right");
-            }
-            else if (turnAngle < -turnThreshold)
-            {
-                Debug.Log(this.gameObject.name + "Turning Left");
-            }
-            else
-            {
-                Debug.Log(this.gameObject.name + "Going Straight");
+                // Invert the turn angle to get the desired bank:
+                // For example, a positive turnAngle (turning right) results in a negative bank (tilt to the right).
+                // Optionally, you could scale the effect if you want less aggressive tilting.
+                targetBank = Mathf.Clamp(-turnAngle, -maxBankAngle, maxBankAngle);
             }
         }
+
+        // Smoothly interpolate the current bank angle towards the target bank.
+        currentBank = Mathf.MoveTowardsAngle(currentBank, targetBank, bankSpeed * Time.deltaTime);
+
+        // Apply the bank rotation.
+        // Preserve the current x and y rotations and update the z rotation to create the tilt effect.
+        Vector3 currentEuler = Pivot.transform.eulerAngles;
+        Pivot.transform.rotation = Quaternion.Euler(currentEuler.x, currentEuler.y, currentBank);
+
+
+
+
+
+
+
+
 
         // Plafonnement de la vitesse
         currentSpeed = Mathf.Min(currentSpeed, maxSpeed);

@@ -15,8 +15,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public Transform[] MainPath2; // if there's 2 side path, starts where the side path combine till division
     public Transform[] InPath2; // Side path 1 from division 2
     public Transform[] OutPath2; // Side path 2 from division 2
-    public Transform[] CombinedPath; //the array where the ai store their full loop path
-    public Transform[] EveryWaypoints; //put every waypoint here to render them
+    public Transform[] CombinedPath; // the array where the AI store their full loop path
+    public Transform[] EveryWaypoints; // put every waypoint here to render them
 
     private int currentWaypointIndex = 0;
     public float activationRadius = 3.0f;
@@ -26,7 +26,9 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     private float currentSpeed = 0f;
     public int speedUI;
     public bool isOscOn = false;
-
+    [Header("Turbo")]
+    public float TurboMult = 3f;
+    public float TurboDure = 2f;
     [Header("Osc Data")]
     public GameObject Osc;
     public float RealSpeed;
@@ -66,14 +68,30 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     public float PedaleMaxSpeed = 250f;
 
-    [Header("Drift Settings")]
-    public float Drift = 5f;
+    // [Header("Drift Settings")]
+    // La gestion du drift a été supprimée.
 
     [Header("NavMesh Edge Slowdown Settings")]
     [Tooltip("Distance à partir de laquelle le ralentissement commence (ex: 1 mètre)")]
     public float edgeSlowdownThreshold = 1f;
     [Tooltip("Multiplicateur appliqué quand le joueur est exactement sur la bordure (ex: 0.1 pour 10% de la vitesse normale)")]
     public float slowDownFactorAtEdge = 0.1f;
+
+
+    //TEST ZONE
+    public GameObject Pivot;
+    //TEST AREA 
+    // Reference to the AI's NavMeshAgent.
+
+    // Maximum bank (tilt) angle in degrees.
+    public float maxBankAngle = 15f;
+    // Speed (degrees per second) at which the bank effect changes.
+    public float bankSpeed = 1000f;
+
+    // Internal state tracking the current bank (tilt) around the z axis.
+    private float currentBank = 0f;
+    // Variables pour le turbo
+    private bool isTurboActive = false;
 
     void Start()
     {
@@ -89,6 +107,12 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     void Update()
     {
+
+        //TEST ZONE
+
+        //TEST ZONE
+
+
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
@@ -104,65 +128,52 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
         }
 
-        Vector3 desiredDirection = agent.desiredVelocity;
 
-        // Only process if the desired direction has a significant magnitude
+
+
+
+        //
+        //      HANDLING THE ROTATION OF Z SO THEY TILT
+        //
+        Vector3 desiredDirection = agent.desiredVelocity;
+        float targetBank = 0f;  // This will be our desired z rotation (bank).
+
+        // Process only if the agent is moving significantly.
         if (desiredDirection.sqrMagnitude > 0.01f)
         {
-            // Calculate the signed angle between current forward and desired direction using the up axis.
+            // Determine how much the AI is turning.
             float turnAngle = Vector3.SignedAngle(transform.forward, desiredDirection, Vector3.up);
+            float turnThreshold = 1f; // Ignore tiny variations.
 
-            // Optional: Define a threshold to filter out small, unintentional movements.
-            float turnThreshold = 5f;
-
-            if (turnAngle > turnThreshold)
+            if (Mathf.Abs(turnAngle) > turnThreshold)
             {
-                Debug.Log(this.gameObject.name + "Turning Right");
-            }
-            else if (turnAngle < -turnThreshold)
-            {
-                Debug.Log(this.gameObject.name + "Turning Left");
-            }
-            else
-            {
-                Debug.Log(this.gameObject.name + "Going Straight");
+                // Invert the turn angle to get the desired bank:
+                // For example, a positive turnAngle (turning right) results in a negative bank (tilt to the right).
+                // Optionally, you could scale the effect if you want less aggressive tilting.
+                targetBank = Mathf.Clamp(-turnAngle, -maxBankAngle, maxBankAngle);
             }
         }
+
+        // Smoothly interpolate the current bank angle towards the target bank.
+        currentBank = Mathf.MoveTowardsAngle(currentBank, targetBank, bankSpeed * Time.deltaTime);
+
+        // Apply the bank rotation.
+        // Preserve the current x and y rotations and update the z rotation to create the tilt effect.
+        Vector3 currentEuler = Pivot.transform.eulerAngles;
+        Pivot.transform.rotation = Quaternion.Euler(currentEuler.x, currentEuler.y, currentBank);
+
+
+
 
         // --- Gestion de l'accélération ---
-        // On met à jour currentSpeed selon l'entrée quand l'agent est sur la piste
         if (agent.isOnNavMesh)
         {
-            /*
-            if (isOscOn)
-            {
-                verticalInput = RealSpeed;
-                horizontalInput = XValue;
-            }
-            else
-            {
-                verticalInput = Input.GetAxis("Vertical");
-                horizontalInput = Input.GetAxis("Horizontal");
-            }
-            */
-            //verticalInput = RealSpeed + Input.GetAxis("Vertical");
             horizontalInput = XValue + Input.GetAxis("Horizontal");
-
-            float targetSpeed =  (Input.GetAxis("Vertical") * maxSpeed); // CLAVIER
-          
-
-            //float currentAcc = GetAccelerationForSpeed(currentSpeed);
-           // currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, currentAcc * Time.deltaTime);
-             
-            currentSpeed =  RealSpeed * PedaleMaxSpeed;  // PEDALES
-
-
-            //Debug.Log(currentSpeed);
+            float targetSpeed = Input.GetAxis("Vertical") * maxSpeed; // CLAVIER
+            // currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, GetAccelerationForSpeed(currentSpeed) * Time.deltaTime);
+            currentSpeed = RealSpeed * PedaleMaxSpeed;  // PEDALES
         }
-        // Sinon, on ne modifie pas currentSpeed pour conserver la dernière vitesse obtenue
 
-        // --- Détection de la proximité de la bordure du NavMesh ---
-        // --- Détection de la proximité de la bordure du NavMesh ---
         // --- Détection de la proximité de la bordure du NavMesh ---
         NavMeshHit edgeHit;
         if (NavMesh.FindClosestEdge(transform.position, out edgeHit, NavMesh.AllAreas))
@@ -170,26 +181,20 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             float distanceToEdge = edgeHit.distance;
             if (distanceToEdge < edgeSlowdownThreshold)
             {
-                // Appliquer une réduction de vitesse en une seule fois lorsqu'on touche le bord
                 float slowFactor = Mathf.Lerp(slowDownFactorAtEdge, 1f, distanceToEdge / edgeSlowdownThreshold);
-
-                // Réduction unique de la vitesse, mais sans descendre trop bas
-                currentSpeed = Mathf.Max(currentSpeed * slowFactor, 25.0f); // 2.0f = vitesse minimale après ralentissement
+                currentSpeed = Mathf.Max(currentSpeed * slowFactor, 25.0f);
             }
         }
 
+        // --- Activation du turbo (prioritaire sur les autres commandes) ---
+        if (Input.GetKeyDown(KeyCode.Space) && !isTurboActive)
+        {
+            StartCoroutine(ActivateTurbo());
+        }
 
-
-        // --- Application de la vitesse ---
+        // --- Application de la vitesse avec le multiplicateur (turbo inclus) ---
         Vector3 targetVelocity = transform.forward * currentSpeed * currentSpeedMultiplier;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            agent.velocity = Vector3.Lerp(agent.velocity, targetVelocity, Drift * Time.deltaTime);
-        }
-        else
-        {
-            agent.velocity = targetVelocity;
-        }
+        agent.velocity = targetVelocity;
 
         // --- Gestion des waypoints pour le score ---
         float distanceToWaypoint = Vector3.Distance(transform.position, CombinedPath[currentWaypointIndex].position);
@@ -215,7 +220,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             }
             else if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice2")
             {
-
+                // Traitement pour "Choice2" si nécessaire
             }
             currentWaypointIndex = (currentWaypointIndex + 1) % CombinedPath.Length;
             Checkpointpassed++;
@@ -269,5 +274,14 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         {
             CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(InPath2).ToArray();
         }
+    }
+
+    private IEnumerator ActivateTurbo()
+    {
+        isTurboActive = true;
+        currentSpeedMultiplier = TurboMult;  // Double la vitesse
+        yield return new WaitForSeconds(TurboDure);
+        currentSpeedMultiplier = 1f;  // Retour à la vitesse normale
+        isTurboActive = false;
     }
 }
