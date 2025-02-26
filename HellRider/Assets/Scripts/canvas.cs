@@ -26,11 +26,11 @@ public class canvas : MonoBehaviour
     public Timer timerGreen;
 
     // positions dans le ui
-    public Vector2 firstPosition = new Vector2(-715, 325);
-    public Vector2 secondPosition = new Vector2(-715, 137);
+    public Vector2 firstPosition = new Vector2(-715, 400);
+    public Vector2 secondPosition = new Vector2(-715, 200);
     public Vector2 thirdPosition = new Vector2(-715, 0);
-    public Vector2 fourthPosition = new Vector2(-715, -137);
-    public Vector2 fivePosition = new Vector2(-715, -325);
+    public Vector2 fourthPosition = new Vector2(-715, -200);
+    public Vector2 fivePosition = new Vector2(-715, -400);
 
 
     void Update()
