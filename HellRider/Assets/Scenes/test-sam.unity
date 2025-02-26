@@ -344,6 +344,74 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
+--- !u!1001 &31215620
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.1850939
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -10.262985
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -7.1860204
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8993927945498960205, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9122212476876734147, guid: 78399f28541792c44a142d97fa599c34,
+        type: 3}
+      propertyPath: m_Name
+      value: flock_of_die
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 78399f28541792c44a142d97fa599c34, type: 3}
 --- !u!1001 &66118661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9076,3 +9144,4 @@ SceneRoots:
   - {fileID: 774404370}
   - {fileID: 66118661}
   - {fileID: 1999862073}
+  - {fileID: 31215620}
