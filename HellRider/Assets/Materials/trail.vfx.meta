@@ -1,6 +1,12 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:HellRider/Assets/Materials/trail.vfx.meta
 guid: 6c7958a7279c3424d87dcddcd3cc08a7
 VisualEffectImporter:
+========
+guid: 194fb2b4bf06cc943ad1a4bd3fcb5764
+folderAsset: yes
+DefaultImporter:
+>>>>>>>> 92ebfa468da6f4c1a9fc99416955ed56c7105b41:HellRider/Assets/Audio/game_sound_effetcs/acceleration_variants.meta
   externalObjects: {}
   userData: 
   assetBundleName: 
