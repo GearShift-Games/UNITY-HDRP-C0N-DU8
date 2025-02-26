@@ -795,6 +795,7 @@ Transform:
   - {fileID: 7080277959756774997}
   - {fileID: 4789839192452218636}
   - {fileID: 2850430821572190014}
+  - {fileID: 3712910511303689770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!195 &592252746070330153
@@ -853,11 +854,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MainPath: []
-  InPath: []
-  OutPath: []
+  LeftPath: []
+  RightPath: []
   MainPath2: []
-  InPath2: []
-  OutPath2: []
+  LeftPath2: []
+  RightPath2: []
   CombinedPath: []
   EveryWaypoints: []
   marginOfError: 5
@@ -865,15 +866,18 @@ MonoBehaviour:
   slowedSpeed: 12
   extremeSlowedSpeed: 8
   maxSpeed: 50
+  RubberBanding: 1.2
   turnAngleThreshold: 45
   extremeTurnAngleThreshold: 90
   activationRadius: 8
   acceleration: 15
+  Pivot: {fileID: 0}
   DistanceCheckpoint: 0
   Checkpointpassed: 0
   BikeAudioSource: {fileID: 0}
   BikeSound: {fileID: 0}
   ChangeTrack: 0
+  Mainplayer: {fileID: 0}
   baseTurnSpeed: 120
 --- !u!114 &1980208880419554872
 MonoBehaviour:
@@ -1060,6 +1064,37 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0.000000059604645, y: 0, z: -0.00000008940697}
+--- !u!1 &8979808040647361588
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3712910511303689770}
+  m_Layer: 0
+  m_Name: Pivot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3712910511303689770
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8979808040647361588}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5568744951543452658}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5060752573308141
 PrefabInstance:
   m_ObjectHideFlags: 0

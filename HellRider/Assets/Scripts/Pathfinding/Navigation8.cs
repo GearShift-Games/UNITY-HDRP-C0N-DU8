@@ -45,6 +45,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public float extremeTurnAngleThreshold = 90.0f;  
     public float activationRadius = 3.0f;  
     public float acceleration = 2.0f;
+    public Transform Pivot;
 
     [Header("Score and Checkpoints")]
     public float DistanceCheckpoint = 0f;
