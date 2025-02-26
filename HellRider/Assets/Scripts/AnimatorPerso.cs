@@ -7,6 +7,7 @@ public class AnimatorPerso : MonoBehaviour
     public Animator animator; // L'Animator du joueur
     JoueurNav2 navigationJoueur;
     public GameObject player;
+    public float PedalModif = 10f;
 
     void Start()
     {
@@ -16,7 +17,7 @@ public class AnimatorPerso : MonoBehaviour
     void Update()
     {
         // Utilise les données OSC pour ajuster la vitesse de l'animation de pédalage
-        float PedalSpeed = navigationJoueur.RealSpeed * 10f; // Ajustez ce multiplicateur selon vos besoins
+        float PedalSpeed = navigationJoueur.RealSpeed * PedalModif; // Ajustez ce multiplicateur selon vos besoins
         animator.SetFloat("PedalSpeed", PedalSpeed);
     }
 }
