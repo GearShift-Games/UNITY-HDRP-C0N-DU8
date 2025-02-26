@@ -160,12 +160,10 @@ public class Navigation8: MonoBehaviour, IPlayerScore
             if (turnAngle > turnThreshold)
             {
                 Debug.Log(this.gameObject.name + "Turning Right");
-                this.gameObject.transform.RotateAround(Pivot.position, Pivot.position, 50);
             }
             else if (turnAngle < -turnThreshold)
             {
                 Debug.Log(this.gameObject.name + "Turning Left");
-                this.gameObject.transform.RotateAround(Pivot.position, Pivot.position, -50);
             }
             else
             {
