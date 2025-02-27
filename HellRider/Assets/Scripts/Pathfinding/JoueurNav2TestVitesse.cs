@@ -125,7 +125,7 @@ public class JoueurNav2TestVitesse : MonoBehaviour, IPlayerScore
             Quaternion baseTargetRotation = Quaternion.LookRotation(desiredVelocity);
 
             // Calcul d'un offset basé sur l'input horizontal (priorité secondaire)
-            float extraAngle = Mathf.Clamp(horizontalInput, -1f, 1f) * rotationOffsetMaxAngle;
+            float extraAngle = Mathf.Clamp(horizontalInput, -0.5f, 0.5f) * rotationOffsetMaxAngle;
             Quaternion offsetRotation = Quaternion.Euler(0, extraAngle, 0);
 
             // Combinaison des rotations (la direction du NavMesh a la priorité)

@@ -6,7 +6,6 @@ using UnityEngine.AI;
 
 public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
-
     public GameObject trail;
     [Header("Waypoints and Directions")]
     public Transform[] waypoints;
@@ -53,6 +52,9 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     // Le multiplicateur sera appliqué à la vitesse
     private float currentSpeedMultiplier = 1.0f;
 
+    // Ajout d'un paramètre pour l'offset de rotation dû à l'input horizontal
+    public float rotationOffsetMaxAngle = 10f;  // en degrés, ajustable dans l'inspecteur
+
     [Header("Courbe d'accélération")]
     public float verticalInput = 0f;
     public float horizontalInput = 0f;
@@ -72,9 +74,6 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     public float PedaleMaxSpeed = 250f;
 
-    // [Header("Drift Settings")]
-    // La gestion du drift a été supprimée.
-
     [Header("NavMesh Edge Slowdown Settings")]
     [Tooltip("Distance à partir de laquelle le ralentissement commence (ex: 1 mètre)")]
     public float edgeSlowdownThreshold = 1f;
@@ -83,9 +82,6 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     // TEST ZONE
     public GameObject Pivot;
-    // TEST AREA 
-    // Référence au NavMeshAgent de l'IA.
-
     // Maximum bank (tilt) angle in degrees.
     public float maxBankAngle = 15f;
     // Vitesse (degrés par seconde) à laquelle l'effet de bank change.
@@ -115,26 +111,31 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     void Update()
     {
-        // TEST ZONE
-
-        // TEST ZONE
-
-        RealSpeed = 0.09f; // Osc.GetComponent<OscBicycle>().Speed;
+        // Récupération des données OSC et du clavier
+        RealSpeed = Osc.GetComponent<OscBicycle>().Speed; // 
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
+        horizontalInput = XValue + Input.GetAxis("Horizontal");
 
-        // --- Gestion de la rotation ---
+        // --- Gestion de la rotation : Direction du NavMesh + offset horizontal ---
         Vector3 desiredVelocity = agent.desiredVelocity;
         if (desiredVelocity.sqrMagnitude > 0.001f)
         {
-            Quaternion targetRotation = Quaternion.LookRotation(desiredVelocity);
+            // Rotation de base pour suivre le chemin du NavMesh.
+            Quaternion baseTargetRotation = Quaternion.LookRotation(desiredVelocity);
+
+            // Calcul d'un offset basé sur l'input horizontal (priorité secondaire)
+            float extraAngle = Mathf.Clamp(horizontalInput, -0.5f, 0.5f) * rotationOffsetMaxAngle;
+            Quaternion offsetRotation = Quaternion.Euler(0, extraAngle, 0);
+
+            // Combinaison des rotations (la direction du NavMesh a la priorité)
+            Quaternion targetRotation = baseTargetRotation * offsetRotation;
+
             float angle = Quaternion.Angle(transform.rotation, targetRotation);
             float StargetSpeed = Mathf.Clamp(angle * Sacceleration, 0.1f, SmaxSpeed);
             ScurretnSpeed = Mathf.Lerp(ScurretnSpeed, StargetSpeed, Time.deltaTime * 5f);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * ScurretnSpeed);
         }
-
-
 
         //
         //      HANDLING THE ROTATION OF Z SO THEY TILT
@@ -164,7 +165,6 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         float currentPivotAngle = currentEuler.x;
         if (currentPivotAngle > 180f)
             currentPivotAngle -= 360f;
-        //float targetPivotAngle = (currentSpeed > 100f) ? -45f : 0f;
         float targetPivotAngle;
         if (currentSpeed > 100f)
         {
@@ -179,14 +179,10 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         float smoothPivotAngle = Mathf.SmoothDampAngle(currentPivotAngle, targetPivotAngle, ref pivotAngleVelocity, pivotRotationSmoothTime);
         Pivot.transform.rotation = Quaternion.Euler(smoothPivotAngle, currentEuler.y, currentBank);
 
-
-
         // --- Gestion de l'accélération ---
         if (agent.isOnNavMesh)
         {
-            horizontalInput = XValue + Input.GetAxis("Horizontal");
             float targetSpeed = Input.GetAxis("Vertical") * maxSpeed; // CLAVIER
-            // currentSpeed = Mathf.MoveTowards(currentSpeed, targetSpeed, GetAccelerationForSpeed(currentSpeed) * Time.deltaTime);
             currentSpeed = RealSpeed * PedaleMaxSpeed;  // PEDALES
         }
 
