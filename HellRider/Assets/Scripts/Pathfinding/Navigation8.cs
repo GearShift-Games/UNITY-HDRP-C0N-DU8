@@ -114,12 +114,18 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
         if (Mainplayer.GetComponent<Timer>().position == 1)
         {
-            maxSpeed = 50 * (RubberBanding * DistanceFromPlayer);
+            normalSpeed = 3.5f * (RubberBanding * DistanceFromPlayer);
+            slowedSpeed = 1.5f * (RubberBanding * DistanceFromPlayer);
+            extremeSlowedSpeed = 1.0f * (RubberBanding * DistanceFromPlayer);
+            maxSpeed = 6.0f * (RubberBanding * DistanceFromPlayer);
             Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
         }
         else
         {
-            maxSpeed = 50;
+            normalSpeed = 3.5f;
+            slowedSpeed = 1.5f;
+            extremeSlowedSpeed = 1.0f;
+            maxSpeed = 6.0f;
         }
 
         nextWaypointDistance = Vector3.Distance(CombinedPath[currentWaypointIndex].position, CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].position);
