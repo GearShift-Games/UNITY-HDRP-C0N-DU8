@@ -119,7 +119,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
         // TEST ZONE
 
-        RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
+        RealSpeed = 0.09f; // Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
 
@@ -166,7 +166,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             currentPivotAngle -= 360f;
         //float targetPivotAngle = (currentSpeed > 100f) ? -45f : 0f;
         float targetPivotAngle;
-        if (currentSpeed > 10f)
+        if (currentSpeed > 100f)
         {
             targetPivotAngle = -45f;
             trail.SetActive(true);

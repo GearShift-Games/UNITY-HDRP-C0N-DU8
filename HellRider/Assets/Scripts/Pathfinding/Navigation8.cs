@@ -107,13 +107,15 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void Update()
     {
+        int DistanceFromPlayer = Mainplayer.GetComponent<JoueurNav2>().Checkpointpassed - Checkpointpassed;
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
 
         if (Mainplayer.GetComponent<Timer>().position == 1)
         {
-            maxSpeed = 50 * RubberBanding;
+            maxSpeed = 50 * (RubberBanding * DistanceFromPlayer);
+            Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
         }
         else
         {
