@@ -23,8 +23,12 @@ public class countdown : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip raceStartSound;
     private bool checkedStartSound = false;
+
+    private float AIMaxSpeed;
     void Start()
     {
+        AIMaxSpeed = AI[1].GetComponent<Navigation8>().maxSpeed;
+        Debug.Log(AIMaxSpeed);
         countingDown = true;
     }
 
@@ -50,8 +54,9 @@ public class countdown : MonoBehaviour
                 countdownTime -= Time.deltaTime;
                 countdownUI.text = string.Format("{0:0}", countdownTime+1f);
                 //Debug.Log(countdownUI.text);
-                if(checkedStartSound == true) {
-                PlaySound(raceStartSound, 0.5f);
+                if(checkedStartSound == true) 
+                {
+                    PlaySound(raceStartSound, 0.5f);
                 }           
             }
         }
@@ -85,7 +90,7 @@ public class countdown : MonoBehaviour
             // AIagent.enabled = status;
             if (status)
             {
-                AIMovement.maxSpeed = 50f;
+                AIMovement.maxSpeed = AIMaxSpeed;
             } else
             {
                 AIMovement.maxSpeed = 0f;
@@ -98,6 +103,7 @@ public class countdown : MonoBehaviour
     {
         unlockPlayers = false;
         getComponents(true);
+        Debug.Log("You should only see this message once ever per race.");
         countdownUI.text = string.Format("PEDALEZ !");
         yield return new WaitForSeconds(2f);
 
