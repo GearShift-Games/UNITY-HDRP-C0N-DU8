@@ -107,7 +107,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void Update()
     {
-        int DistanceFromPlayer = Mainplayer.GetComponent<JoueurNav2>().Checkpointpassed - Checkpointpassed;
+        int DistanceFromPlayer = (Mainplayer.GetComponent<JoueurNav2>().Checkpointpassed - Checkpointpassed) + 1;
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
@@ -115,18 +115,18 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         if (Mainplayer.GetComponent<Timer>().position == 1)
         {
             // EXTREME BUG RN, THE AI COMPLETELY STOP WHEN AT THE SAME CHECKPOINT OF THE PLAYER
-            /*normalSpeed = 3.5f * (RubberBanding * DistanceFromPlayer);
+            normalSpeed = 3.5f * (RubberBanding * DistanceFromPlayer);
             slowedSpeed = 1.5f * (RubberBanding * DistanceFromPlayer);
             extremeSlowedSpeed = 1.0f * (RubberBanding * DistanceFromPlayer);
-            maxSpeed = 6.0f * (RubberBanding * DistanceFromPlayer);*/
+            maxSpeed = 6.0f * (RubberBanding * DistanceFromPlayer);
             Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
         }
         else
         {
-            /*normalSpeed = 3.5f;
+            normalSpeed = 3.5f;
             slowedSpeed = 1.5f;
             extremeSlowedSpeed = 1.0f;
-            maxSpeed = 6.0f;*/
+            maxSpeed = 6.0f;
         }
 
         nextWaypointDistance = Vector3.Distance(CombinedPath[currentWaypointIndex].position, CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].position);
