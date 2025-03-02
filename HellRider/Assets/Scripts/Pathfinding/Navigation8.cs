@@ -31,12 +31,12 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     // Vitesse
     [Header("Vitesse")]
-    public float normalSpeed = 3.5f;            // Vitesse normale (sera modifiée toutes les 5 sec)
-    public float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
-    public float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
     public float maxSpeed = 6.0f;               // Vitesse maximale que l'ennemi peut atteindre
-    private float currentSpeed;
-    public float RubberBanding = 1.2f;          // Max speed * rubberbanding
+    public float currentSpeed;
+    private float normalSpeed = 3.5f;            // Vitesse normale (sera modifiée toutes les 5 sec)
+    private float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
+    private float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
+    private float RubberBanding = 1.5f;          // Max speed * rubberbanding
         // Vitesse actuelle
 
     // Virage et activation
@@ -55,7 +55,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     public AudioSource BikeAudioSource;
     public AudioClip BikeSound;
-
+    private int DistanceFromPlayer;
 
     public int ChangeTrack = 0;
 
@@ -98,8 +98,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         // Désactive la rotation automatique pour la gérer manuellement
         agent.updateRotation = false;
 
-        // Mise à jour de normalSpeed toutes les 3 secondes (random entre 35 et 50)
-        InvokeRepeating("ChangeNormalSpeed", 3f, 3f);
+        // Mise à jour de normalSpeed toutes les 1 secondes (random entre 35 et 50)
+        InvokeRepeating("ChangeNormalSpeed", 1f, 1f);
 
         BikeAudioSource.clip = BikeSound;
         BikeAudioSource.loop = true; 
@@ -107,27 +107,14 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void Update()
     {
-        int DistanceFromPlayer = (Mainplayer.GetComponent<JoueurNav2>().Checkpointpassed - Checkpointpassed) + 1;
+        
         // Calcul de la distance jusqu'à la destination déviée
         DistanceCheckpoint = Vector3.Distance(transform.position, currentDestination);
         float distance = DistanceCheckpoint;
 
-        if (Mainplayer.GetComponent<Timer>().position == 1)
-        {
-            // EXTREME BUG RN, THE AI COMPLETELY STOP WHEN AT THE SAME CHECKPOINT OF THE PLAYER
-            normalSpeed = 3.5f * (RubberBanding * DistanceFromPlayer);
-            slowedSpeed = 1.5f * (RubberBanding * DistanceFromPlayer);
-            extremeSlowedSpeed = 1.0f * (RubberBanding * DistanceFromPlayer);
-            maxSpeed = 6.0f * (RubberBanding * DistanceFromPlayer);
-            Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
-        }
-        else
-        {
-            normalSpeed = 3.5f;
-            slowedSpeed = 1.5f;
-            extremeSlowedSpeed = 1.0f;
-            maxSpeed = 6.0f;
-        }
+        DistanceFromPlayer = (Mainplayer.GetComponent<JoueurNav2>().Checkpointpassed - Checkpointpassed) + 1;
+
+
 
         nextWaypointDistance = Vector3.Distance(CombinedPath[currentWaypointIndex].position, CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].position);
 
@@ -253,7 +240,19 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     // Méthode appelée toutes les 5 secondes pour changer la normalSpeed
     void ChangeNormalSpeed()
     {
-        normalSpeed = Random.Range(40f, 50f);
+        if (Mainplayer.GetComponent<Timer>().position == 1)
+        {
+            maxSpeed = Random.Range(40f, 60f) * (RubberBanding * DistanceFromPlayer);
+            normalSpeed = maxSpeed;
+            Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
+        }
+        else
+        {
+            normalSpeed = Random.Range(40f, 60f);
+            maxSpeed = 60f;
+        }
+
+
         //Debug.Log("Nouvelle normalSpeed: " + normalSpeed);
     }
 
