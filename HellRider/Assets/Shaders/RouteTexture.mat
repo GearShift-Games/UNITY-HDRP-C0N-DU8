@@ -30,7 +30,6 @@ Material:
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords:
   - USE_BIG_SCANLINE
-  - USE_COLLISION_RIPPLES
   - USE_EDGE_GLOW
   - USE_HEXAGON_GLOW
   - USE_INTERSECTION
@@ -161,7 +160,7 @@ Material:
     m_Ints: []
     m_Floats:
     - USE_BIG_SCANLINE: 1
-    - USE_COLLISION_RIPPLES: 1
+    - USE_COLLISION_RIPPLES: 0
     - USE_EDGE_GLOW: 1
     - USE_HEXAGON_GLOW: 1
     - USE_INTERSECTION: 1
@@ -183,7 +182,7 @@ Material:
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
     - _Big_Scanline_Speed: 0.15
-    - _Big_Scanline_Strenght: 0.4
+    - _Big_Scanline_Strenght: 0
     - _Big_Scanline_Thickness: 0.025
     - _BlendMode: 0
     - _CoatMask: 0
@@ -214,8 +213,8 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _ExcludeFromTUAndAA: 0
-    - _Glow_Noise_Scale: 1
-    - _Glow_Speed: 4
+    - _Glow_Noise_Scale: 5.63
+    - _Glow_Speed: 4.03
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
@@ -226,7 +225,7 @@ Material:
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
-    - _Intersection_Strenght: 1
+    - _Intersection_Strenght: 0.103
     - _Intersection_Thickness: 0.05
     - _InvTilingScale: 1
     - _Ior: 1.5
@@ -253,7 +252,7 @@ Material:
     - _RefractionModel: 0
     - _RenderQueueType: 1
     - _RequireSplitLighting: 0
-    - _Ripple_Speed: 2.5
+    - _Ripple_Speed: 6.22
     - _Ripple_Thickness: 0.05
     - _Ripple_Time: 2
     - _Scanline_Strenght: 0.02
@@ -305,7 +304,7 @@ Material:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _Edge_Glow_Thickness: {r: 0.02, g: 0.04, b: 0, a: 0}
+    - _Edge_Glow_Thickness: {r: 0.37, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
     - _Emission_Color: {r: 1.6100578, g: 1.8365858, b: 28.24664, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
@@ -314,7 +313,7 @@ Material:
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _Ripple_Origin: {r: 0.25, g: 0.5, b: 0, a: 0}
-    - _Scroll_Velocity: {r: 0, g: 0.1, b: 0, a: 0}
+    - _Scroll_Velocity: {r: 0, g: 0.5, b: 0, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
