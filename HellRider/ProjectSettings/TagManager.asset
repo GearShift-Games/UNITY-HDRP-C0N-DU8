@@ -8,6 +8,7 @@ TagManager:
   - OtherTag
   - OBJ
   - AI
+  - ItemBox
   layers:
   - Default
   - TransparentFX
