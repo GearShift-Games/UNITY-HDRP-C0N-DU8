@@ -1,119 +1,126 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using System.IO;
 using UnityEditor;
 using UnityEngine;
 
-namespace Barmetler.RoadSystem
+namespace Barmetler.RoadSystem.Settings
 {
-	[CreateAssetMenu(fileName = "RoadSystemSettings", menuName = "Barmetler/RoadSystemSettings")]
-	public class RoadSystemSettings : ScriptableObject
-	{
-		[System.Serializable]
-		class RoadSettings
-		{
-			[Tooltip("Draw bounding boxes around bezier segments?")]
-			public bool drawBoundingBoxes = false;
-			[Tooltip("When extending the road, whether to place it at the intersection of the mouse with the scene's geometry.")]
-			public bool useRayCast = true;
-			[Tooltip("If useRayCast is enabled, should the new road segment copy the surface normal of the intersection?")]
-			public bool copyHitNormal = false;
-
-			[Tooltip("The Prefab to use when creating a new road.")]
-			public GameObject newRoadPrefab;
-		}
-
-		[System.Serializable]
-		class IntersectionSettings
+    [CreateAssetMenu(fileName = "RoadSystemSettings", menuName = "Barmetler/RoadSystemSettings")]
+    public class RoadSystemSettings : ScriptableObject
+    {
+        [Serializable]
+        private class RoadSettings
         {
-			[Tooltip("The Prefab to use when creating a new intersection.")]
-			public GameObject newIntersectionPrefab;
-		}
+            [Tooltip("Draw bounding boxes around bezier segments?")]
+            public bool drawBoundingBoxes;
 
-		[SerializeField]
-		RoadSettings roadSettings = new RoadSettings();
-		[SerializeField]
-		IntersectionSettings intersectionSettings = new IntersectionSettings();
+            [Tooltip(
+                "When extending the road, whether to place it at the intersection of the mouse with the scene's geometry.")]
+            public bool useRayCast = true;
 
-		[SerializeField]
-		bool drawNavigatorDebug = false;
-		[SerializeField]
-		bool drawNavigatorDebugPoints = false;
-		[SerializeField]
-		bool autoCalculateNavigator = false;
+            [Tooltip(
+                "If useRayCast is enabled, should the new road segment copy the surface normal of the intersection?")]
+            public bool copyHitNormal;
 
-		public bool DrawBoundingBoxes => roadSettings.drawBoundingBoxes;
-		public bool UseRayCast => roadSettings.useRayCast;
-		public bool CopyHitNormal => roadSettings.copyHitNormal;
+            [Tooltip("The Prefab to use when creating a new road.")]
+            public GameObject newRoadPrefab;
+        }
 
-		public GameObject NewRoadPrefab
-		{
-			get => roadSettings.newRoadPrefab;
-			set
-			{
-				roadSettings.newRoadPrefab = value;
-				EditorUtility.SetDirty(this);
-			}
-		}
+        [Serializable]
+        private class IntersectionSettings
+        {
+            [Tooltip("The Prefab to use when creating a new intersection.")]
+            public GameObject newIntersectionPrefab;
+        }
 
-		public GameObject NewIntersectionPrefab
-		{
-			get => intersectionSettings.newIntersectionPrefab;
-			set
-			{
-				intersectionSettings.newIntersectionPrefab = value;
-				EditorUtility.SetDirty(this);
-			}
-		}
+        [SerializeField]
+        private RoadSettings roadSettings = new RoadSettings();
 
-		public bool DrawNavigatorDebug
-		{
-			get => drawNavigatorDebug;
-			set
-			{
-				drawNavigatorDebug = value;
-				EditorUtility.SetDirty(this);
-			}
-		}
+        [SerializeField]
+        private IntersectionSettings intersectionSettings = new IntersectionSettings();
 
-		public bool DrawNavigatorDebugPoints
-		{
-			get => drawNavigatorDebugPoints;
-			set
-			{
-				drawNavigatorDebugPoints = value;
-				EditorUtility.SetDirty(this);
-			}
-		}
+        [SerializeField]
+        private bool drawNavigatorDebug;
 
-		public bool AutoCalculateNavigator
-		{
-			get => autoCalculateNavigator;
-			set
-			{
-				autoCalculateNavigator = value;
-				EditorUtility.SetDirty(this);
-			}
-		}
+        [SerializeField]
+        private bool drawNavigatorDebugPoints;
 
-		private const string settingsPath = "Assets/Settings/Editor/RoadSystemSettings.asset";
+        [SerializeField]
+        private bool autoCalculateNavigator;
 
-		private static RoadSystemSettings instance = null;
-		public static RoadSystemSettings Instance
-		{
-			get
-			{
-				if (instance == null)
-					instance = AssetDatabase.LoadAssetAtPath<RoadSystemSettings>(settingsPath);
-				if (instance != null) return instance;
-				instance = CreateInstance<RoadSystemSettings>();
-				Directory.CreateDirectory("Assets/Settings/Editor");
-				AssetDatabase.CreateAsset(instance, settingsPath);
-				AssetDatabase.SaveAssets();
-				return instance;
-			}
-		}
+        public bool DrawBoundingBoxes => roadSettings.drawBoundingBoxes;
+        public bool UseRayCast => roadSettings.useRayCast;
+        public bool CopyHitNormal => roadSettings.copyHitNormal;
 
-		internal static SerializedObject SerializedInstance => new SerializedObject(Instance);
-	}
+        public GameObject NewRoadPrefab
+        {
+            get => roadSettings.newRoadPrefab;
+            set
+            {
+                roadSettings.newRoadPrefab = value;
+                EditorUtility.SetDirty(this);
+            }
+        }
+
+        public GameObject NewIntersectionPrefab
+        {
+            get => intersectionSettings.newIntersectionPrefab;
+            set
+            {
+                intersectionSettings.newIntersectionPrefab = value;
+                EditorUtility.SetDirty(this);
+            }
+        }
+
+        public bool DrawNavigatorDebug
+        {
+            get => drawNavigatorDebug;
+            set
+            {
+                drawNavigatorDebug = value;
+                EditorUtility.SetDirty(this);
+            }
+        }
+
+        public bool DrawNavigatorDebugPoints
+        {
+            get => drawNavigatorDebugPoints;
+            set
+            {
+                drawNavigatorDebugPoints = value;
+                EditorUtility.SetDirty(this);
+            }
+        }
+
+        public bool AutoCalculateNavigator
+        {
+            get => autoCalculateNavigator;
+            set
+            {
+                autoCalculateNavigator = value;
+                EditorUtility.SetDirty(this);
+            }
+        }
+
+        private const string SettingsPath = "Assets/Settings/Editor/RoadSystemSettings.asset";
+
+        private static RoadSystemSettings _instance;
+
+        public static RoadSystemSettings Instance
+        {
+            get
+            {
+                if (_instance == null)
+                    _instance = AssetDatabase.LoadAssetAtPath<RoadSystemSettings>(SettingsPath);
+                if (_instance != null) return _instance;
+                _instance = CreateInstance<RoadSystemSettings>();
+                Directory.CreateDirectory("Assets/Settings/Editor");
+                AssetDatabase.CreateAsset(_instance, SettingsPath);
+                AssetDatabase.SaveAssets();
+                return _instance;
+            }
+        }
+
+        internal static SerializedObject SerializedInstance => new SerializedObject(Instance);
+    }
 }

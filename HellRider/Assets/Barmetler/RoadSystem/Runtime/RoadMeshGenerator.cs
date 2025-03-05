@@ -1,386 +1,663 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
+using System.Diagnostics.CodeAnalysis;
 using System.Linq;
+using System.Runtime.InteropServices;
+using Barmetler.RoadSystem.Util;
+using Unity.Burst;
+using Unity.Collections;
+using Unity.Collections.LowLevel.Unsafe;
+using Unity.Jobs;
+using Unity.Mathematics;
+using Unity.Profiling;
+using UnityEngine;
+using UnityEngine.Rendering;
+using static Unity.Mathematics.math;
 
 namespace Barmetler.RoadSystem
 {
-	[RequireComponent(typeof(Road)), RequireComponent(typeof(MeshFilter))]
-	public class RoadMeshGenerator : MonoBehaviour
-	{
-		[System.Serializable]
-		public class RoadMeshSettings
-		{
-			[Tooltip("Orientation of the Source Mesh")]
-			public MeshConversion.MeshOrientation SourceOrientation = MeshConversion.MeshOrientation.Presets["BLENDER"];
-			[Tooltip("By how much to displace uvs every time the mesh tiles")]
-			public Vector2 uvOffset = Vector2.up;
-		}
-		[Tooltip("Settings regarding mesh generation")]
-		public RoadMeshSettings settings;
+    [RequireComponent(typeof(Road)), RequireComponent(typeof(MeshFilter))]
+    public class RoadMeshGenerator : MonoBehaviour
+    {
+        [Serializable]
+        public class RoadMeshSettings
+        {
+            [Tooltip("Orientation of the Source Mesh")]
+            public MeshConversion.MeshOrientation SourceOrientation = MeshConversion.MeshOrientation.Presets["BLENDER"];
 
-		public bool AutoGenerate
-		{
-			get => autoGenerate;
-			set
-			{
-				if (value)
-					GenerateRoadMesh();
-				autoGenerate = value;
-			}
-		}
-		[SerializeField, HideInInspector]
-		bool autoGenerate;
+            [Tooltip("By how much to displace uvs every time the mesh tiles")]
+            public Vector2 uvOffset = Vector2.up;
+        }
 
-		[Tooltip("Drag the model to be used for mesh generation into this slot")]
-		public MeshFilter SourceMesh;
+        [Tooltip("Settings regarding mesh generation")]
+        public RoadMeshSettings settings;
 
-		public bool Valid { private set; get; }
+        public bool AutoGenerate
+        {
+            get => autoGenerate;
+            set
+            {
+                if (value)
+                    GenerateRoadMesh();
+                autoGenerate = value;
+            }
+        }
 
-		private Road road;
-		private MeshFilter mf;
+        [SerializeField, HideInInspector]
+        private bool autoGenerate;
 
-		private void OnValidate()
-		{
-			road = GetComponent<Road>();
-			mf = GetComponent<MeshFilter>();
-		}
+        [Tooltip("Drag the model to be used for mesh generation into this slot")]
+        public MeshFilter SourceMesh;
 
-		/// <summary>
-		/// Generate the mesh based on the curve described in the Road component.
-		/// </summary>
-		public void GenerateRoadMesh()
-		{
-			OnValidate();
+        public bool Valid { private set; get; }
 
-			if (!road) road = GetComponent<Road>();
-			if (!road) return;
-			if (!SourceMesh) return;
+        private Road _road;
+        private MeshFilter _mf;
 
-			float stepSize = 1;
+        private void OnValidate()
+        {
+            _road = GetComponent<Road>();
+            _mf = GetComponent<MeshFilter>();
+        }
 
-			var points = road.GetEvenlySpacedPoints(stepSize, 1);
+        private static ProfilerMarker _extractResultsMarker = new ProfilerMarker("Extract Results");
+        private static ProfilerMarker _disposeMarker = new ProfilerMarker("Dispose");
+        private static ProfilerMarker _setVerticesMarker = new ProfilerMarker("Set Vertices");
+        private static ProfilerMarker _setIndicesMarker = new ProfilerMarker("Set Indices");
+        private static ProfilerMarker _setUVsMarker = new ProfilerMarker("Set UVs");
+        private static ProfilerMarker _recalculateNormalsMarker = new ProfilerMarker("Recalculate Normals");
+        private static ProfilerMarker _recalculateTangentsMarker = new ProfilerMarker("Recalculate Tangents");
+        private static ProfilerMarker _recalculateBoundsMarker = new ProfilerMarker("Recalculate Bounds");
 
-			Mesh oldMesh = MeshConversion.CopyMesh(SourceMesh.sharedMesh);
-			MeshConversion.TransformMesh(oldMesh, settings.SourceOrientation);
-			Mesh newMesh = new Mesh();
+        /// <summary>
+        ///
+        /// </summary>
+        /// <param name="stepSize">
+        /// distance between evenly spaced points for the spline.
+        /// A bigger value results in straight sections of road.
+        /// </param>
+        public void GenerateRoadMesh(float stepSize = 1)
+        {
+            if (!_road) _road = GetComponent<Road>();
+            if (!_mf) _mf = GetComponent<MeshFilter>();
+            if (!_road || !_mf) return;
+            if (!SourceMesh) return;
 
-			float meshLength = oldMesh.bounds.size.z;
-			{
-				float meshOffset = -oldMesh.bounds.min.z;
-				oldMesh.SetVertices(oldMesh.vertices.Select(v => v + meshOffset * Vector3.forward).ToArray());
-			}
+            var points = _road
+                .GetEvenlySpacedPoints(stepSize)
+                .Select(p => new GenerateRoadMeshV2Job.OrientedPoint
+                {
+                    Position = p.position,
+                    Forward = p.forward,
+                    Normal = p.normal
+                })
+                .ToArray();
 
-			// The last point is repositioned to the end of the bezier
-			float bezierLength = stepSize * (points.Length - 2) +
-				(points[points.Length - 2].position - points[points.Length - 1].position).magnitude;
+            var sourceMesh = SourceMesh.sharedMesh;
+            var vertexAttributeEnumValues = (VertexAttribute[])Enum.GetValues(typeof(VertexAttribute));
+            // contains a mapping from VertexAttribute to VertexAttributeDescriptor.
+            // because the amount of VertexAttributes is small, we can use a NativeArray, functioning as a map.
+            var sourceAttributes =
+                new NativeArray<VertexAttributeDescriptor>(vertexAttributeEnumValues.Length, Allocator.TempJob);
+            foreach (var attributeDescriptor in sourceMesh.GetVertexAttributes())
+                sourceAttributes[(int)attributeDescriptor.attribute] = attributeDescriptor;
+            using var sourceMeshDataArray = Mesh.AcquireReadOnlyMeshData(sourceMesh);
+            var sourceBounds = sourceMesh.bounds;
 
-			int completeCopies = Mathf.FloorToInt(bezierLength / meshLength);
+            var resultMeshData = Mesh.AllocateWritableMeshData(1);
+            using var resultBounds = new NativeArray<float3>(2, Allocator.TempJob);
 
-			int submeshCount = oldMesh.subMeshCount;
+            new GenerateRoadMeshV2Job
+            {
+                StepSize = stepSize,
+                UVOffset = settings.uvOffset,
+                Points = new NativeArray<GenerateRoadMeshV2Job.OrientedPoint>(points, Allocator.TempJob),
+                SourceOrientation = settings.SourceOrientation,
+                SourceMeshData = sourceMeshDataArray[0],
+                SourceVertexAttributes = sourceAttributes,
+                SourceBounds = sourceBounds,
+                ResultMeshData = resultMeshData[0],
+                ResultBounds = resultBounds
+            }.Run();
 
-			var oldVertices = new List<Vector3>();
-			oldMesh.GetVertices(oldVertices);
-			var oldIndices = Enumerable.Range(0, submeshCount).Select(i => new List<int>(oldMesh.GetIndices(i))).ToArray();
-			var oldUVs = Enumerable.Range(0, 8)
-				.Select(channel =>
-				{
-					var x = new List<Vector2>();
-					oldMesh.GetUVs(channel, x);
-					return x;
-				})
-				.ToArray();
+            var resultMesh = new Mesh
+            {
+                name = "Road Mesh"
+            };
+            Mesh.ApplyAndDisposeWritableMeshData(resultMeshData, resultMesh);
+            resultMesh.bounds = new Bounds { min = resultBounds[0], max = resultBounds[1] };
+            _mf.mesh = resultMesh;
+            if (GetComponent<MeshCollider>().Let(out var coll))
+                coll.sharedMesh = _mf.sharedMesh;
 
-			var newVertices = new List<Vector3>();
-			var newIndices = Enumerable.Range(0, submeshCount).Select(_ => new List<int>()).ToArray();
-			var newUVs = Enumerable.Range(0, 8).Select(_ => new List<Vector2>()).ToArray();
+            Valid = true;
+        }
 
-			int vertexCount = oldVertices.Count;
-			int[] indexCounts = oldIndices.Select(e => e.Count).ToArray();
+        [BurstCompile(CompileSynchronously = true)]
+        private struct GenerateRoadMeshV2Job : IJob
+        {
+            public struct OrientedPoint
+            {
+                public float3 Position, Forward, Normal;
+            }
 
-			for (int z = 0; z < completeCopies; ++z)
-			{
-				float yOffset = z * meshLength;
+            [ReadOnly]
+            public float StepSize;
 
-				for (int v = 0; v < vertexCount; ++v)
-				{
-					Vector3 pos = oldVertices[v] + Vector3.forward * (yOffset);
-					// transform from blender to unity coordinate system
-					pos = new Vector3(pos.x, pos.y, pos.z);
+            [ReadOnly]
+            public float2 UVOffset;
 
-					newVertices.Add(pos);
-				}
+            [ReadOnly]
+            [DeallocateOnJobCompletion]
+            public NativeArray<OrientedPoint> Points;
 
-				for (int submesh = 0; submesh < submeshCount; ++submesh)
-				{
-					for (int i = 0; i < indexCounts[submesh] / 3; ++i)
-					{
-						// transform from blender to unity coordinate system
-						newIndices[submesh].Add(oldIndices[submesh][3 * i] + z * vertexCount);
-						newIndices[submesh].Add(oldIndices[submesh][3 * i + 1] + z * vertexCount);
-						newIndices[submesh].Add(oldIndices[submesh][3 * i + 2] + z * vertexCount);
-					}
-				}
+            [ReadOnly]
+            public MeshConversion.MeshOrientation SourceOrientation;
 
-				for (int channel = 0; channel < 8; ++channel)
-					for (int uv = 0; uv < oldUVs[channel].Count; ++uv)
-						newUVs[channel].Add(oldUVs[channel][uv] + Vector2.up * settings.uvOffset * z);
-			}
+            [ReadOnly]
+            public Mesh.MeshData SourceMeshData;
 
-			float remainder = bezierLength - completeCopies * meshLength;
-			var remainderVertices = oldVertices.ToList();
-			var remainderIndices = oldIndices.Select(e => e.ToList()).ToArray();
-			var remainderUVs = oldUVs.Select(e => e.ToList()).ToArray();
-			for (int i = 0; i < submeshCount; ++i)
-				ClipMeshZ(ref remainderVertices, ref remainderIndices[i], ref remainderUVs, remainder);
+            [ReadOnly]
+            [DeallocateOnJobCompletion]
+            public NativeArray<VertexAttributeDescriptor> SourceVertexAttributes;
 
-			remainderVertices = remainderVertices.Select(p =>
-			{
-				Vector3 pos = p + Vector3.forward * (meshLength * completeCopies);
-				pos = new Vector3(pos.x, pos.y, pos.z);
-				return pos;
-			}).ToList();
+            [ReadOnly]
+            public Bounds SourceBounds;
 
-			remainderIndices = remainderIndices.Select(e => e.Select(i => i + newVertices.Count).ToList()).ToArray();
+            public Mesh.MeshData ResultMeshData;
 
-			remainderUVs = remainderUVs.Select(e => e.Select(uv => uv + settings.uvOffset * completeCopies).ToList()).ToArray();
+            [WriteOnly]
+            public NativeArray<float3> ResultBounds;
 
-			newVertices.AddRange(remainderVertices);
-			for (int i = 0; i < submeshCount; ++i)
-				newIndices[i].AddRange(remainderIndices[i]);
-			for (int i = 0; i < 8; ++i)
-				newUVs[i].AddRange(remainderUVs[i]);
+            [SuppressMessage("ReSharper", "ForCanBeConvertedToForeach")]
+            public void Execute()
+            {
+                using var sourceAttributeData = new VertexAttributeData(SourceMeshData, SourceVertexAttributes);
 
-			// bend along bezier
-			for (int v = 0; v < newVertices.Count; ++v)
-			{
-				Vector3 pos = newVertices[v];
+                // The last point is repositioned to the end of the bezier, so the length of the line is the
+                // amount of segments - 1 + the length of the last segment.
+                var bezierLength = Points.Length > 1
+                    ? StepSize * (Points.Length - 2) +
+                      length(Points[Points.Length - 2].Position - Points[Points.Length - 1].Position)
+                    : 0;
 
-				int pointIndex = Mathf.Clamp(Mathf.FloorToInt(pos.z / stepSize), 0, points.Length - 2);
-				float weight = pos.z / stepSize - pointIndex;
-				if (pointIndex == points.Length - 2)
-				{
-					weight = (pos.z - stepSize * pointIndex) /
-						(points[points.Length - 1].position - points[points.Length - 2].position).magnitude;
-				}
-				Vector3 centerPos;
-				Vector3 forward;
-				Vector3 normal;
-				if (pointIndex < points.Length - 1)
-				{
-					centerPos = Vector3.Lerp(points[pointIndex].position, points[pointIndex + 1].position, weight);
-					forward = Vector3.Lerp(points[pointIndex].forward, points[pointIndex + 1].forward, weight).normalized;
-					if (weight < 1e-6)
-						normal = points[pointIndex].normal;
-					else if (weight > 1 - 1e-6)
-						normal = points[pointIndex + 1].normal;
-					else
-						normal = Vector3.Lerp(points[pointIndex].normal, points[pointIndex + 1].normal, weight);
-				}
-				else // Should not happen, except if the z coordinate is EXACTLY at the end of the bezier
-				{
-					centerPos = points[pointIndex].position;
-					forward = points[pointIndex].forward;
-					normal = points[pointIndex].normal;
-				}
-				Vector3 right = Vector3.Cross(normal, forward).normalized;
+                var meshLength = SourceOrientation.forward switch
+                {
+                    MeshConversion.MeshOrientation.AxisDirection.X_POSITIVE => SourceBounds.size.x,
+                    MeshConversion.MeshOrientation.AxisDirection.X_NEGATIVE => SourceBounds.size.x,
+                    MeshConversion.MeshOrientation.AxisDirection.Y_POSITIVE => SourceBounds.size.y,
+                    MeshConversion.MeshOrientation.AxisDirection.Y_NEGATIVE => SourceBounds.size.y,
+                    MeshConversion.MeshOrientation.AxisDirection.Z_POSITIVE => SourceBounds.size.z,
+                    MeshConversion.MeshOrientation.AxisDirection.Z_NEGATIVE => SourceBounds.size.z,
+                    _ => throw new ArgumentOutOfRangeException()
+                };
 
-				pos = centerPos + right * pos.x + normal * pos.y;
+                var meshMinZ = SourceOrientation.forward switch
+                {
+                    MeshConversion.MeshOrientation.AxisDirection.X_POSITIVE => SourceBounds.min.x,
+                    MeshConversion.MeshOrientation.AxisDirection.X_NEGATIVE => SourceBounds.max.x,
+                    MeshConversion.MeshOrientation.AxisDirection.Y_POSITIVE => SourceBounds.min.y,
+                    MeshConversion.MeshOrientation.AxisDirection.Y_NEGATIVE => SourceBounds.max.y,
+                    MeshConversion.MeshOrientation.AxisDirection.Z_POSITIVE => SourceBounds.min.z,
+                    MeshConversion.MeshOrientation.AxisDirection.Z_NEGATIVE => SourceBounds.max.z,
+                    _ => throw new ArgumentOutOfRangeException()
+                };
 
-				newVertices[v] = pos;
-			}
+                var copyCount = (int)ceil(bezierLength / meshLength);
+                var sourceVertexCount = SourceMeshData.vertexCount;
+                var subMeshCount = SourceMeshData.subMeshCount;
+                var guessedResultVertexCount = copyCount * sourceVertexCount;
 
-			newMesh.subMeshCount = submeshCount;
-			newMesh.SetVertices(newVertices);
-			for (int i = 0; i < submeshCount; ++i)
-				newMesh.SetIndices(newIndices[i].ToArray(), oldMesh.GetTopology(i), i);
-			for (int i = 0; i < 8; ++i)
-				newMesh.SetUVs(i, newUVs[i].ToArray());
-			newMesh.RecalculateNormals();
-			newMesh.RecalculateTangents();
-			newMesh.RecalculateBounds();
+                var sourceIndices = new IndexLists<ushort>(subMeshCount, Allocator.Temp);
+                for (var subMeshIndex = 0; subMeshIndex < subMeshCount; ++subMeshIndex)
+                {
+                    var subMesh = SourceMeshData.GetSubMesh(subMeshIndex);
+                    ref var sourceSubMeshIndices = ref sourceIndices[subMeshIndex];
+                    sourceSubMeshIndices.ResizeUninitialized(subMesh.indexCount);
+                    SourceMeshData.GetIndices(sourceSubMeshIndices.AsArray(), subMeshIndex);
+                    if (SourceOrientation.isRightHanded)
+                    {
+                        for (var i = 0; i < sourceSubMeshIndices.Length; i += 3)
+                        {
+                            (sourceSubMeshIndices[i], sourceSubMeshIndices[i + 2]) =
+                                (sourceSubMeshIndices[i + 2], sourceSubMeshIndices[i]);
+                        }
+                    }
+                }
 
-			mf.mesh = newMesh;
-			if (GetComponent<MeshCollider>() != null)
-				GetComponent<MeshCollider>().sharedMesh = newMesh;
+                var positions = new NativeList<float3>(Allocator.Temp);
+                positions.ResizeUninitialized(guessedResultVertexCount);
+                var normals = new NativeList<float3>(Allocator.Temp);
+                normals.ResizeUninitialized(guessedResultVertexCount);
+                var tangents = new NativeList<float4>(Allocator.Temp);
+                tangents.ResizeUninitialized(guessedResultVertexCount);
+                var uvs = new NativeList<float2>(Allocator.Temp);
+                uvs.ResizeUninitialized(guessedResultVertexCount * sourceAttributeData.UVChannelCount);
 
-			Valid = true;
-		}
+                var indices = new IndexLists<ushort>(subMeshCount, Allocator.Temp);
 
-		void ClipMeshZ(ref List<Vector3> verticesRef, ref List<int> indicesRef, ref List<Vector2>[] uvsRef, float maxZ)
-		{
-			var reuseVertices = true;
+                var sourceForward = SourceOrientation.forward.ToFloat3();
+                var sourceUp = SourceOrientation.up.ToFloat3();
+                var sourceRight = SourceOrientation.isRightHanded
+                    ? cross(sourceForward, sourceUp)
+                    : cross(sourceUp, sourceForward);
 
-			var vertices = verticesRef;
-			var indices = indicesRef;
-			var uvs = uvsRef;
+                for (var z = 0; z < copyCount; ++z)
+                {
+                    var zOffset = z * meshLength;
+                    for (var sourceIndex = 0; sourceIndex < sourceVertexCount; ++sourceIndex)
+                    {
+                        var resultIndex = z * sourceVertexCount + sourceIndex;
+                        sourceAttributeData.GetFloat3(sourceIndex, VertexAttribute.Position, out var position);
+                        position = float3(dot(sourceRight, position), dot(sourceUp, position),
+                            dot(sourceForward, position) - meshMinZ + zOffset);
+                        sourceAttributeData.GetFloat3(sourceIndex, VertexAttribute.Normal, out var normal);
+                        normal = float3(dot(sourceRight, normal), dot(sourceUp, normal), dot(sourceForward, normal));
+                        sourceAttributeData.GetFloat4(sourceIndex, VertexAttribute.Tangent, out var tangent);
+                        tangent = float4(dot(sourceRight, tangent.xyz), dot(sourceUp, tangent.xyz),
+                            dot(sourceForward, tangent.xyz), tangent.w);
 
-			var newVertices = vertices.ToList();
-			var newIndices = new List<int>();
-			var newUVs = uvs.Select(e => e.ToList()).ToArray();
+                        positions[resultIndex] = position;
+                        normals[resultIndex] = normal;
+                        tangents[resultIndex] = tangent;
 
-			var intersectedIndices = new Dictionary<(int a, int b), int>();
+                        for (var channel = 0; channel < sourceAttributeData.UVChannelCount; ++channel)
+                        {
+                            sourceAttributeData.GetFloat2(sourceIndex, VertexAttribute.TexCoord0 + channel,
+                                out var uv);
+                            uvs[resultIndex * sourceAttributeData.UVChannelCount + channel] = uv + UVOffset * z;
+                        }
+                    }
 
-			for (int tri = 0; tri + 3 <= indices.Count; tri += 3)
-			{
-				switch (new int[] { tri, tri + 1, tri + 2 }.Where(i => vertices[indices[i]].z <= maxZ).Count())
-				{
-					case 3:
-						{
-							newIndices.Add(indices[tri]);
-							newIndices.Add(indices[tri + 1]);
-							newIndices.Add(indices[tri + 2]);
-							break;
-						}
-					case 2:
-						{
-							var a = indices[tri];
-							var b = indices[tri + 1];
-							var c = indices[tri + 2];
-							// shuffle to make a and b inside
-							if (vertices[a].z > maxZ)
-							{
-								var t = a;
-								a = b;
-								b = c;
-								c = t;
-							}
-							else if (vertices[b].z > maxZ)
-							{
-								var t = b;
-								b = a;
-								a = c;
-								c = t;
-							}
-							var ac = vertices[c] - vertices[a];
-							var bc = vertices[c] - vertices[b];
-							if ((vertices[c].z - vertices[a].z) < 1e-6 || (vertices[c].z - vertices[b].z) < 1e-6) break;
-							var va = vertices[a] + ac * (maxZ - vertices[a].z) / (vertices[c].z - vertices[a].z);
-							var vb = vertices[b] + bc * (maxZ - vertices[b].z) / (vertices[c].z - vertices[b].z);
+                    // copy indices
+                    // the last set of triangles is not copied for now, but added and potentially clipped later
+                    if (z == copyCount - 1) continue;
 
-							var insertedA = false;
-							int ia;
-							if (!reuseVertices || !intersectedIndices.ContainsKey((a, c)))
-							{
-								newVertices.Add(va);
-								ia = newVertices.Count - 1;
-								intersectedIndices[(a, c)] = ia;
-								insertedA = true;
-							}
-							else ia = intersectedIndices[(a, c)];
-							var insertedB = false;
-							int ib;
-							if (!reuseVertices || !intersectedIndices.ContainsKey((b, c)))
-							{
-								newVertices.Add(vb);
-								ib = newVertices.Count - 1;
-								intersectedIndices[(b, c)] = ib;
-								insertedB = true;
-							}
-							else ib = intersectedIndices[(b, c)];
+                    for (var subMeshIndex = 0; subMeshIndex < subMeshCount; ++subMeshIndex)
+                    {
+                        var src = sourceIndices[subMeshIndex];
+                        var dst = indices[subMeshIndex];
+                        dst.ResizeUninitialized(dst.Length + src.Length);
+                        for (var i = 0; i < src.Length; ++i)
+                            dst[dst.Length - src.Length + i] = (ushort)(z * sourceVertexCount + src[i]);
+                    }
+                }
 
-							var weightA = (va - vertices[c]).magnitude / ac.magnitude;
-							var weightB = (vb - vertices[c]).magnitude / bc.magnitude;
-							for (int channel = 0; channel < 8; ++channel)
-							{
-								if (newUVs[channel].Count > 0)
-								{
-									if (insertedA)
-										newUVs[channel].Add(
-											weightA * uvs[channel][a] + (1 - weightA) * uvs[channel][c]);
-									if (insertedB)
-										newUVs[channel].Add(
-											weightB * uvs[channel][b] + (1 - weightB) * uvs[channel][c]);
-								}
-							}
-							newIndices.AddRange(new[] {
-								a, b, ib,
-								a, ib, ia
-							});
-							break;
-						}
-					case 1:
-						{
-							var a = indices[tri];
-							var b = indices[tri + 1];
-							var c = indices[tri + 2];
-							// shuffle to make a and b inside
-							if (vertices[a].z <= maxZ)
-							{
-								var t = a;
-								a = b;
-								b = c;
-								c = t;
-							}
-							else if (vertices[b].z <= maxZ)
-							{
-								var t = b;
-								b = a;
-								a = c;
-								c = t;
-							}
-							var ca = vertices[a] - vertices[c];
-							var cb = vertices[b] - vertices[c];
-							if ((vertices[a].z - vertices[c].z) < 1e-6 || (vertices[b].z - vertices[c].z) < 1e-6) break;
-							var va = vertices[c] + ca * (maxZ - vertices[c].z) / (vertices[a].z - vertices[c].z);
-							var vb = vertices[c] + cb * (maxZ - vertices[c].z) / (vertices[b].z - vertices[c].z);
+                if (copyCount >= 1)
+                {
+#if NATIVE_HASHSET_PARALLEL
+                    var intersectedIndices = new NativeParallelHashMap<int2, ushort>(128, Allocator.Temp);
+#else
+                    var intersectedIndices = new NativeHashMap<int2, ushort>(128, Allocator.Temp);
+#endif
 
-							var insertedA = false;
-							int ia;
-							if (!reuseVertices || !intersectedIndices.ContainsKey((c, a)))
-							{
-								newVertices.Add(va);
-								ia = newVertices.Count - 1;
-								intersectedIndices[(c, a)] = ia;
-								insertedA = true;
-							}
-							else ia = intersectedIndices[(c, a)];
-							var insertedB = false;
-							int ib;
-							if (!reuseVertices || !intersectedIndices.ContainsKey((c, b)))
-							{
-								newVertices.Add(vb);
-								ib = newVertices.Count - 1;
-								intersectedIndices[(c, b)] = ib;
-								insertedB = true;
-							}
-							else ib = intersectedIndices[(c, b)];
+                    for (var subMeshIndex = 0; subMeshIndex < subMeshCount; ++subMeshIndex)
+                    {
+                        var src = sourceIndices[subMeshIndex];
+                        var dst = indices[subMeshIndex];
+                        var vertexOffset = (ushort)((copyCount - 1) * sourceVertexCount);
+                        for (var i = 0; i + 2 < src.Length; i += 3)
+                        {
+                            var ia = (ushort)(src[i] + vertexOffset);
+                            var ib = (ushort)(src[i + 1] + vertexOffset);
+                            var ic = (ushort)(src[i + 2] + vertexOffset);
+                            var a = positions[ia];
+                            var b = positions[ib];
+                            var c = positions[ic];
+                            var insideCount = 0;
+                            if (a.z <= bezierLength) ++insideCount;
+                            if (b.z <= bezierLength) ++insideCount;
+                            if (c.z <= bezierLength) ++insideCount;
+                            switch (insideCount)
+                            {
+                                case 3:
+                                    dst.Add(ia);
+                                    dst.Add(ib);
+                                    dst.Add(ic);
+                                    break;
+                                case 2:
+                                {
+                                    // shuffle to make a and b inside
+                                    if (a.z > bezierLength)
+                                    {
+                                        (ia, ib, ic) = (ib, ic, ia);
+                                        (a, b, c) = (b, c, a);
+                                    }
+                                    else if (b.z > bezierLength)
+                                    {
+                                        (ia, ib, ic) = (ic, ia, ib);
+                                        (a, b, c) = (c, a, b);
+                                    }
 
-							var weightA = (va - vertices[c]).magnitude / ca.magnitude;
-							var weightB = (vb - vertices[c]).magnitude / cb.magnitude;
-							for (int channel = 0; channel < 8; ++channel)
-							{
-								if (newUVs[channel].Count > 0)
-								{
-									if (insertedA)
-										newUVs[channel].Add(
-											weightA * uvs[channel][a] + (1 - weightA) * uvs[channel][c]);
-									if (insertedB)
-										newUVs[channel].Add(
-											weightB * uvs[channel][b] + (1 - weightB) * uvs[channel][c]);
-								}
-							}
-							newIndices.AddRange(new[] {
-								ia, ib, c
-							});
-							break;
-						}
-				}
-			}
+                                    // between a and c on the clipping plane
+                                    AddBetween(
+                                        positions, normals, tangents, uvs, sourceAttributeData.UVChannelCount,
+                                        ia, ic, (bezierLength - a.z) / (c.z - a.z),
+                                        intersectedIndices, out var iac
+                                    );
+                                    // between b and c on the clipping plane
+                                    AddBetween(
+                                        positions, normals, tangents, uvs, sourceAttributeData.UVChannelCount,
+                                        ib, ic, (bezierLength - b.z) / (c.z - b.z),
+                                        intersectedIndices, out var ibc
+                                    );
 
-			verticesRef = newVertices;
-			indicesRef = newIndices;
-			uvsRef = newUVs;
-		}
+                                    dst.Add(ia);
+                                    dst.Add(ib);
+                                    dst.Add(iac);
+                                    dst.Add(iac);
+                                    dst.Add(ib);
+                                    dst.Add(ibc);
 
-		/// <summary>
-		/// To be called whenever the road shape changes. Will regenerate the mesh if AutoGenerate is true.
-		/// </summary>
-		/// <param name="update">- whether to regenerate the mesh at all.</param>
-		public void Invalidate(bool update = true)
-		{
-			Valid = false;
-			if (AutoGenerate && update) GenerateRoadMesh();
-		}
-	}
+                                    break;
+                                }
+                                case 1:
+                                {
+                                    // shuffle to make b and c outside
+                                    if (b.z <= bezierLength)
+                                    {
+                                        (ia, ib, ic) = (ib, ic, ia);
+                                        (a, b, c) = (b, c, a);
+                                    }
+                                    else if (c.z <= bezierLength)
+                                    {
+                                        (ia, ib, ic) = (ic, ia, ib);
+                                        (a, b, c) = (c, a, b);
+                                    }
+
+                                    // between a and b on the clipping plane
+                                    AddBetween(
+                                        positions, normals, tangents, uvs, sourceAttributeData.UVChannelCount,
+                                        ia, ib, (bezierLength - a.z) / (b.z - a.z),
+                                        intersectedIndices, out var iab
+                                    );
+                                    // between a and c on the clipping plane
+                                    AddBetween(
+                                        positions, normals, tangents, uvs, sourceAttributeData.UVChannelCount,
+                                        ia, ic, (bezierLength - a.z) / (c.z - a.z),
+                                        intersectedIndices, out var iac
+                                    );
+
+                                    dst.Add(ia);
+                                    dst.Add(iab);
+                                    dst.Add(iac);
+
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // bend along bezier
+                var resultVertexCount = positions.Length;
+                for (var i = 0; i < resultVertexCount; ++i)
+                {
+                    var pos = positions[i];
+                    var pointIndex = clamp((int)floor(pos.z / StepSize), 0, Points.Length - 2);
+                    var weight = clamp(
+                        pointIndex < Points.Length - 2
+                            ? pos.z / StepSize - pointIndex
+                            : (pos.z - StepSize * pointIndex) /
+                              distance(Points[Points.Length - 1].Position, Points[Points.Length - 2].Position),
+                        0, 1);
+                    var centerPos = lerp(Points[pointIndex].Position, Points[pointIndex + 1].Position, weight);
+                    var forward = normalize(lerp(Points[pointIndex].Forward, Points[pointIndex + 1].Forward, weight));
+                    var up = normalize(lerp(Points[pointIndex].Normal, Points[pointIndex + 1].Normal, weight));
+                    var right = cross(up, forward);
+
+                    positions[i] = centerPos + right * pos.x + up * pos.y;
+                    normals[i] = right * normals[i].x + up * normals[i].y + forward * normals[i].z;
+                    tangents[i] = float4(
+                        right * tangents[i].x + up * tangents[i].y + forward * tangents[i].z, tangents[i].w);
+                }
+
+                var vertexAttributes = new NativeArray<VertexAttributeDescriptor>(
+                    3 + sourceAttributeData.UVChannelCount,
+                    Allocator.Temp, NativeArrayOptions.UninitializedMemory);
+                vertexAttributes[0] = new VertexAttributeDescriptor(
+                    attribute: VertexAttribute.Position, format: VertexAttributeFormat.Float32, dimension: 3,
+                    stream: 0);
+                vertexAttributes[1] = new VertexAttributeDescriptor(
+                    attribute: VertexAttribute.Normal, format: VertexAttributeFormat.Float32, dimension: 3, stream: 1);
+                vertexAttributes[2] = new VertexAttributeDescriptor(
+                    attribute: VertexAttribute.Tangent, format: VertexAttributeFormat.Float32, dimension: 4, stream: 2);
+                for (var i = 0; i < sourceAttributeData.UVChannelCount; i++)
+                {
+                    var attr = SourceVertexAttributes[(int)(VertexAttribute.TexCoord0 + i)];
+                    attr.stream = 3;
+                    vertexAttributes[3 + i] = attr;
+                }
+
+                ResultMeshData.SetVertexBufferParams(resultVertexCount, vertexAttributes);
+                vertexAttributes.Dispose();
+
+                var resultPositions = ResultMeshData.GetVertexData<float3>(stream: 0);
+                var resultNormals = ResultMeshData.GetVertexData<float3>(stream: 1);
+                var resultTangents = ResultMeshData.GetVertexData<float4>(stream: 2);
+                var resultUVs = ResultMeshData.GetVertexData<float2>(stream: 3);
+
+                resultPositions.CopyFrom(positions.AsArray());
+                resultNormals.CopyFrom(normals.AsArray());
+                resultTangents.CopyFrom(tangents.AsArray());
+                resultUVs.CopyFrom(uvs.AsArray());
+
+                var boundsMin = new float3(float.MaxValue);
+                var boundsMax = new float3(float.MinValue);
+
+                foreach (var position in positions)
+                {
+                    boundsMin = min(boundsMin, position);
+                    boundsMax = max(boundsMax, position);
+                }
+
+                if (positions.Length == 0)
+                {
+                    boundsMin = boundsMax = 0;
+                }
+
+                ResultBounds[0] = boundsMin;
+                ResultBounds[1] = boundsMax;
+
+                ResultMeshData.SetIndexBufferParams(indices.TotalIndexCount, IndexFormat.UInt16);
+                ResultMeshData.subMeshCount = subMeshCount;
+                var indexData = ResultMeshData.GetIndexData<ushort>();
+                var indexOffset = 0;
+                for (var subMeshIndex = 0; subMeshIndex < subMeshCount; ++subMeshIndex)
+                {
+                    var subMesh = SourceMeshData.GetSubMesh(subMeshIndex);
+                    var subMeshIndices = indices[subMeshIndex];
+                    indexData.GetSubArray(indexOffset, subMeshIndices.Length).CopyFrom(subMeshIndices);
+
+                    boundsMin = new float3(float.MaxValue);
+                    boundsMax = new float3(float.MinValue);
+                    var minIndex = int.MaxValue;
+#if NATIVE_HASHSET_PARALLEL
+                    using var usedIndices = new NativeParallelHashSet<int>(subMeshIndices.Length, Allocator.Temp);
+#else
+                    using var usedIndices = new NativeHashSet<int>(subMeshIndices.Length, Allocator.Temp);
+#endif
+
+                    for (var i = 0; i < subMeshIndices.Length; ++i)
+                    {
+                        var index = subMeshIndices[i];
+                        boundsMin = min(boundsMin, positions[index]);
+                        boundsMax = max(boundsMax, positions[index]);
+                        minIndex = min(minIndex, index);
+                        usedIndices.Add(index);
+                    }
+
+                    ResultMeshData.SetSubMesh(subMeshIndex, new SubMeshDescriptor
+                    {
+                        bounds = new Bounds { min = boundsMin, max = boundsMax },
+                        topology = subMesh.topology,
+                        indexStart = indexOffset,
+                        indexCount = subMeshIndices.Length,
+                        firstVertex = minIndex,
+#if NATIVE_HASHSET_COUNT_FUN
+                        vertexCount = usedIndices.Count()
+#else
+                        vertexCount = usedIndices.Count
+#endif
+                    }, MeshUpdateFlags.DontRecalculateBounds);
+                    indexOffset += subMeshIndices.Length;
+                }
+
+                positions.Dispose();
+                normals.Dispose();
+                tangents.Dispose();
+                uvs.Dispose();
+                sourceIndices.Dispose();
+                indices.Dispose();
+            }
+
+            private static void AddBetween(
+                NativeList<float3> positions,
+                NativeList<float3> normals,
+                NativeList<float4> tangents,
+                NativeList<float2> uvs,
+                int uvChannelCount,
+                ushort ia,
+                ushort ib,
+                float t,
+                NativeHashMap<int2, ushort> intersectedIndices,
+                out ushort resultIndex
+            )
+            {
+                if (intersectedIndices.TryGetValue(new int2(ia, ib), out var index))
+                {
+                    resultIndex = index;
+                    return;
+                }
+
+                positions.Add(lerp(positions[ia], positions[ib], t));
+                normals.Add(normalize(lerp(normals[ia], normals[ib], t)));
+                tangents.Add(float4(normalize(lerp(tangents[ia].xyz, tangents[ib].xyz, t)), 1));
+                for (var channel = 0; channel < uvChannelCount; ++channel)
+                    uvs.Add(lerp(uvs[ia * uvChannelCount + channel], uvs[ib * uvChannelCount + channel], t));
+                intersectedIndices[new int2(ia, ib)] = resultIndex = (ushort)(positions.Length - 1);
+            }
+
+            [StructLayout(LayoutKind.Sequential)]
+            [SuppressMessage("ReSharper", "UnusedMember.Local")]
+            private struct IndexLists<T> : IDisposable where T : unmanaged
+            {
+                public NativeList<T>
+                    SubMesh0,
+                    SubMesh1,
+                    SubMesh2,
+                    SubMesh3,
+                    SubMesh4,
+                    SubMesh5,
+                    SubMesh6,
+                    SubMesh7,
+                    SubMesh8,
+                    SubMesh9,
+                    SubMesh10,
+                    SubMesh11,
+                    SubMesh12,
+                    SubMesh13,
+                    SubMesh14,
+                    SubMesh15,
+                    SubMesh16,
+                    SubMesh17,
+                    SubMesh18,
+                    SubMesh19,
+                    SubMesh20,
+                    SubMesh21,
+                    SubMesh22,
+                    SubMesh23,
+                    SubMesh24,
+                    SubMesh25,
+                    SubMesh26,
+                    SubMesh27,
+                    SubMesh28,
+                    SubMesh29,
+                    SubMesh30,
+                    SubMesh31;
+
+                public Allocator Allocator;
+
+                private int _subMeshCount;
+
+                public IndexLists(Allocator allocator)
+                {
+                    this = default;
+                    Allocator = allocator;
+                }
+
+                public IndexLists(int subMeshCount, Allocator allocator)
+                {
+                    this = default;
+                    Allocator = allocator;
+                    Resize(subMeshCount);
+                }
+
+                private unsafe ref NativeList<T> GetUnchecked(int index) =>
+                    ref UnsafeUtility.ArrayElementAsRef<NativeList<T>>(
+                        UnsafeUtility.AddressOf(ref SubMesh0), index);
+
+                public ref NativeList<T> this[int index]
+                {
+                    get
+                    {
+                        if (index < 0 || index >= _subMeshCount)
+                            throw new IndexOutOfRangeException();
+                        return ref GetUnchecked(index);
+                    }
+                }
+
+                public void Resize(int subMeshCount)
+                {
+                    if (subMeshCount < 0 || subMeshCount > 32)
+                        throw new ArgumentOutOfRangeException();
+                    if (subMeshCount == _subMeshCount) return;
+                    if (subMeshCount < _subMeshCount)
+                    {
+                        for (var i = subMeshCount; i < _subMeshCount; ++i)
+                            GetUnchecked(i).Dispose();
+                    }
+                    else
+                    {
+                        for (var i = _subMeshCount; i < subMeshCount; ++i)
+                            GetUnchecked(i) = new NativeList<T>(Allocator);
+                    }
+
+                    _subMeshCount = subMeshCount;
+                }
+
+                public int SubMeshCount
+                {
+                    get => _subMeshCount;
+                    set => Resize(value);
+                }
+
+                public int TotalIndexCount
+                {
+                    get
+                    {
+                        var sum = 0;
+                        for (var i = 0; i < _subMeshCount; ++i)
+                            sum += this[i].Length;
+                        return sum;
+                    }
+                }
+
+                public void Dispose()
+                {
+                    for (var i = 0; i < _subMeshCount; ++i)
+                        this[i].Dispose();
+                }
+            }
+        }
+
+        /// <summary>
+        /// To be called whenever the road shape changes. Will regenerate the mesh if AutoGenerate is true.
+        /// </summary>
+        /// <param name="update">- whether to regenerate the mesh at all.</param>
+        public void Invalidate(bool update = true)
+        {
+            Valid = false;
+            if (AutoGenerate && update) GenerateRoadMesh();
+        }
+    }
 }

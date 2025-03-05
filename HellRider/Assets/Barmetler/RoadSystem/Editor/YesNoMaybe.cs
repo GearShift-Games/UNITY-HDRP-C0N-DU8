@@ -1,11 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
-namespace Barmetler
+namespace Barmetler.RoadSystem
 {
-	public enum YesNoMaybe
-	{
-		YES, NO, MAYBE
-	}
+    public enum YesNoMaybe
+    {
+        YES,
+        NO,
+        MAYBE
+    }
 }
