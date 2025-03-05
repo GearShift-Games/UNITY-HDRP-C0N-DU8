@@ -1,7 +1,9 @@
-using System.Collections;
+using System;
 using System.Collections.Generic;
-using UnityEngine;
+using Barmetler.RoadSystem.Settings;
+using Barmetler.RoadSystem.Util;
 using UnityEditor;
+using UnityEngine;
 
 namespace Barmetler.RoadSystem
 {
@@ -9,36 +11,39 @@ namespace Barmetler.RoadSystem
     {
         [MenuItem("Tools/RoadSystem/Show Editor")]
         [MenuItem("Window/Road System Editor")]
-        static void ShowWindow()
+        private static void ShowWindow()
         {
             GetWindow(typeof(RoadEditorWindow));
         }
 
-        struct Button
+        private struct Button
         {
             public enum ESymbol
             {
-                NONE, PLUS, MINUS, LINK
+                NONE,
+                PLUS,
+                MINUS,
+                LINK
             }
 
             public string Name; // unused for now, but can be used as identification.
             public string DisplayName;
             public string ToolTip;
             public ESymbol Symbol;
-            public System.Action OnClick;
-            public System.Action OnClickAlt;
-            public System.Func<bool> IsEnabled;
-            public Texture icon;
+            public Action OnClick;
+            public Action OnClickAlt;
+            public Func<bool> IsEnabled;
+            public Texture Icon;
         }
 
-        List<Button> Actions = new List<Button>();
+        private List<Button> _actions = new List<Button>();
 
-        const float BUTTON_SIZE = 48;
-        const float BUTTON_GAP = 4;
+        private const float ButtonSize = 48;
+        private const float ButtonGap = 4;
 
         private void OnEnable()
         {
-            Actions = new List<Button>
+            _actions = new List<Button>
             {
                 new Button
                 {
@@ -48,14 +53,16 @@ namespace Barmetler.RoadSystem
                     Symbol = Button.ESymbol.PLUS,
                     OnClick = RoadMenu.CreateRoadSystem,
                 },
-                new Button {
+                new Button
+                {
                     Name = "new_intersection",
                     DisplayName = "New Intersection",
                     ToolTip = "Create a new Intersection",
                     Symbol = Button.ESymbol.PLUS,
                     OnClick = RoadMenu.CreateIntersection,
                     OnClickAlt = NewIntersectionWizard.CreateWizard,
-                    icon = EditorGUIUtility.Load("Assets/Barmetler/Road System/Resources/Icons/Intersection.png") as Texture,
+                    Icon = EditorGUIUtility.Load(
+                        "Packages/com.barmetler.roadsystem/Assets/Resources/Icons/Intersection.png") as Texture,
                 },
                 new Button
                 {
@@ -65,7 +72,9 @@ namespace Barmetler.RoadSystem
                     Symbol = Button.ESymbol.PLUS,
                     OnClick = RoadMenu.CreateRoad,
                     OnClickAlt = NewRoadWizard.CreateWizard,
-                    icon = EditorGUIUtility.Load("Assets/Barmetler/Road System/Resources/Icons/Road.png") as Texture,
+                    Icon =
+                        EditorGUIUtility.Load("Packages/com.barmetler.roadsystem/Assets/Resources/Icons/Road.png") as
+                            Texture,
                 },
                 new Button
                 {
@@ -75,7 +84,8 @@ namespace Barmetler.RoadSystem
                     Symbol = Button.ESymbol.MINUS,
                     OnClick = RoadMenu.MenuRemove,
                     IsEnabled = RoadMenu.MenuPointIsSelected,
-                    icon = EditorGUIUtility.Load("Assets/Barmetler/Road System/Resources/Icons/RemovePoint.png") as Texture,
+                    Icon = EditorGUIUtility.Load(
+                        "Packages/com.barmetler.roadsystem/Assets/Resources/Icons/RemovePoint.png") as Texture,
                 },
                 new Button
                 {
@@ -85,16 +95,21 @@ namespace Barmetler.RoadSystem
                     Symbol = Button.ESymbol.PLUS,
                     OnClick = RoadMenu.MenuExtrude,
                     IsEnabled = RoadMenu.MenuEndPointIsSelectedAndNotConnected,
-                    icon = EditorGUIUtility.Load("Assets/Barmetler/Road System/Resources/Icons/Extrude.png") as Texture,
+                    Icon =
+                        EditorGUIUtility.Load("Packages/com.barmetler.roadsystem/Assets/Resources/Icons/Extrude.png") as
+                            Texture,
                 },
                 new Button
                 {
                     Name = "link",
                     DisplayName = "Link Points",
-                    ToolTip = "Enables the linking Tool.\n\n- Click a point to select\n- Shift-Click another to link\n- Shift-Ctrl-Click to link AND extend the road\n   (instead of moving the endpoint)\n- Ctrl-Click to disconnect.",
+                    ToolTip =
+                        "Enables the linking Tool.\n\n- Click a point to select\n- Shift-Click another to link\n- Shift-Ctrl-Click to link AND extend the road\n   (instead of moving the endpoint)\n- Ctrl-Click to disconnect.",
                     Symbol = Button.ESymbol.LINK,
                     OnClick = RoadMenu.MenuLink,
-                    icon = EditorGUIUtility.Load("Assets/Barmetler/Road System/Resources/Icons/Road.png") as Texture,
+                    Icon =
+                        EditorGUIUtility.Load("Packages/com.barmetler.roadsystem/Assets/Resources/Icons/Road.png") as
+                            Texture,
                 }
             };
             titleContent = new GUIContent("Road System Editor");
@@ -121,25 +136,26 @@ namespace Barmetler.RoadSystem
             buttonStyle.fontSize = 24;
             buttonStyle.fontStyle = FontStyle.Bold;
 
-            int rowWidth = Mathf.Max(1, (int)((EditorGUIUtility.currentViewWidth - BUTTON_GAP) / (BUTTON_SIZE + BUTTON_GAP)));
+            int rowWidth = Mathf.Max(1,
+                (int)((EditorGUIUtility.currentViewWidth - ButtonGap) / (ButtonSize + ButtonGap)));
 
             int x = 0;
-            foreach (var action in Actions)
+            foreach (var action in _actions)
             {
                 if (x == 0)
                     GUILayout.BeginHorizontal();
 
-                var ToolTip = action.ToolTip;
+                var toolTip = action.ToolTip;
                 if (action.OnClickAlt != null)
-                    ToolTip += "\n\n(ALT-Click for more Settings)";
+                    toolTip += "\n\n(ALT-Click for more Settings)";
 
-                var content = action.icon ?
-                    new GUIContent(action.icon, $"[{action.DisplayName}]: {ToolTip}") :
-                    new GUIContent(GetInitials(action.DisplayName), ToolTip);
+                var content = action.Icon
+                    ? new GUIContent(action.Icon, $"[{action.DisplayName}]: {toolTip}")
+                    : new GUIContent(GetInitials(action.DisplayName), toolTip);
 
                 GUI.enabled = action.OnClick != null && (action.IsEnabled?.Invoke() ?? true);
                 if (GUILayout.Button(content, buttonStyle,
-                    GUILayout.Width(50), GUILayout.Height(50)))
+                        GUILayout.Width(50), GUILayout.Height(50)))
                 {
                     if (action.OnClickAlt != null && Event.current.alt)
                         action.OnClickAlt();
@@ -171,12 +187,13 @@ namespace Barmetler.RoadSystem
                     GUILayout.EndHorizontal();
                 x = (x + 1) % rowWidth;
             }
+
             GUI.enabled = true;
             if (x != 0)
                 GUILayout.EndHorizontal();
         }
 
-        static string GetInitials(string str)
+        private static string GetInitials(string str)
         {
             if (str == null) return "";
             str = str.ToLower();
