@@ -8,7 +8,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
     public GameObject trail;
     [Header("Waypoints and Directions")]
-    public Transform[] waypoints;
+    public Transform[] waypoints; //we can remove that
     private NavMeshAgent agent;
     public Transform[] MainPath; // from start till path division
     public Transform[] InPath; // Side path 1 from division 1
@@ -50,7 +50,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public float rotationSmoothing = 5f;
     public float speedReductionDuration = 5.0f; // Durée pour récupérer le multiplicateur
     // Le multiplicateur sera appliqué à la vitesse
-    private float currentSpeedMultiplier = 1.0f;
+    public float currentSpeedMultiplier = 1.0f; //public so the otem script can access it
 
     // Ajout d'un paramètre pour l'offset de rotation dû à l'input horizontal
     public float rotationOffsetMaxAngle = 10f;  // en degrés, ajustable dans l'inspecteur

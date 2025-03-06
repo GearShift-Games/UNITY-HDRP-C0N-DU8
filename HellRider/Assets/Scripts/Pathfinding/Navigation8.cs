@@ -244,7 +244,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         {
             maxSpeed = Random.Range(40f, 60f) * (RubberBanding * DistanceFromPlayer);
             normalSpeed = maxSpeed;
-            Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
+            //Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
         }
         else
         {
