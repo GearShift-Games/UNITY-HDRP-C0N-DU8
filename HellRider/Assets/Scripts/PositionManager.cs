@@ -46,15 +46,19 @@ public class PositionManager : MonoBehaviour
         // Sort the list in descending order of score.
         scores.Sort((a, b) => b.score.CompareTo(a.score));
 
+
         // Now, scores[0] is the player in first place, scores[1] second, etc.
         for (int i = 0; i < scores.Count; i++)
         {
             //Debug.Log($"Place {i + 1}: {scores[i].Bike.name} with score {scores[i].score}");
             // Disable timer for all players
+            PowerUps powerup = scores[i].Bike.GetComponent<PowerUps>();
             Timer timer = scores[i].Bike.GetComponent<Timer>();
             if (timer != null)
             {
                 timer.position = i + 1;
+                powerup.position = i + 1;
+                powerup.PlayersAlive = scores.Count;
 
                 // Enable timer for the player in last place
                 if (i + 1 == scores.Count && scores.Count != 1 && Canvas.GetComponent<countdown>().countingDown != true)

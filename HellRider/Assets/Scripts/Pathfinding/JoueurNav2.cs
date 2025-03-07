@@ -30,7 +30,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     [Header("Turbo")]
     public float TurboMult = 3f;
-    public float TurboDure = 2f;
+    public float TurboDure = 20f;
 
     [Header("Osc Data")]
     public GameObject Osc;
