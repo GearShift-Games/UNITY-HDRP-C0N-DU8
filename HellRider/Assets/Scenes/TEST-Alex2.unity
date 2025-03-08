@@ -10582,26 +10582,6 @@ PrefabInstance:
       propertyPath: timerYellow
       value: 
       objectReference: {fileID: 2013212628}
-    - target: {fileID: 1131340278166506272, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      propertyPath: fivePosition.y
-      value: -400
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131340278166506272, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      propertyPath: firstPosition.y
-      value: 400
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131340278166506272, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      propertyPath: fourthPosition.y
-      value: -200
-      objectReference: {fileID: 0}
-    - target: {fileID: 1131340278166506272, guid: 9d4b1382151645e4a85cdd04f4efe44a,
-        type: 3}
-      propertyPath: secondPosition.y
-      value: 200
-      objectReference: {fileID: 0}
     - target: {fileID: 1961205384622205591, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Name
