@@ -23,7 +23,7 @@ public class ObjectCubeRespawn : MonoBehaviour
         if (other.CompareTag("Player") || other.CompareTag("AI"))
         {
             StartCoroutine(DisableAndRespawn());
-            Debug.Log("CubeWorks");
+            //Debug.Log("CubeWorks");
         }
     }
 
