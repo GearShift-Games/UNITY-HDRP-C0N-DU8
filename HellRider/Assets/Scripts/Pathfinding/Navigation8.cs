@@ -23,6 +23,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private NavMeshAgent agent;
     private int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
+    public int CurrentPathNumber = 1;
 
 
 
@@ -127,8 +128,14 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         {
             if (CombinedPath[(currentWaypointIndex) % CombinedPath.Length].gameObject.name == "Start")
             {
+                
+                //Debug.Log("Turn done"); // TURN DONE HERE
+            }
+
+            if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice")
+            {
                 ChoosePath();
-                Debug.Log("Turn done"); // TURN DONE HERE
+                //Debug.Log("Chose path");
             }
 
             currentWaypointIndex = (currentWaypointIndex + 1) % CombinedPath.Length;
@@ -287,23 +294,17 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     void ChoosePath()
     {
-        ChangeTrack = Random.Range(0, 4);
+        ChangeTrack = Random.Range(0, 2);
 
         if (ChangeTrack == 0)
         {
             CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
+            CurrentPathNumber = 1;
         }
         else if (ChangeTrack == 1)
         {
             CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(RightPath2).ToArray();
-        }
-        else if (ChangeTrack == 2)
-        {
-            CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(RightPath2).ToArray();
-        }
-        else if (ChangeTrack == 3)
-        {
-            CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
+            CurrentPathNumber = 2;
         }
     }
 }

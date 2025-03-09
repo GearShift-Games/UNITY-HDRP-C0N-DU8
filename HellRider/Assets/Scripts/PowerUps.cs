@@ -6,6 +6,7 @@ using UnityEngine;
 public class PowerUps : MonoBehaviour
 {
 
+    public GameObject[] otherPlayers;
 
     [Header("Position")]
     public int PlayersAlive;

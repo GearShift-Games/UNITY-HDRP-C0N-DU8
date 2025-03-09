@@ -11,13 +11,14 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public Transform[] waypoints; //we can remove that
     private NavMeshAgent agent;
     public Transform[] MainPath; // from start till path division
-    public Transform[] InPath; // Side path 1 from division 1
-    public Transform[] OutPath; // Side path 2 from division 1
+    public Transform[] LeftPath; // Side path 1 from division 1
+    public Transform[] RightPath; // Side path 2 from division 1
     public Transform[] MainPath2; // if there's 2 side path, starts where the side path combine till division
-    public Transform[] InPath2; // Side path 1 from division 2
-    public Transform[] OutPath2; // Side path 2 from division 2
+    public Transform[] LeftPath2; // Side path 1 from division 2
+    public Transform[] RightPath2; // Side path 2 from division 2
     public Transform[] CombinedPath; // the array where the AI store their full loop path
     public Transform[] EveryWaypoints; // put every waypoint here to render them
+    public int CurrentPathNumber = 1;
 
     private int currentWaypointIndex = 0;
     public float activationRadius = 3.0f;
@@ -102,7 +103,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         Bike = this.gameObject;
         agent = GetComponent<NavMeshAgent>();
         agent.updateRotation = false;
-        ChoosePath(0);
+        ChoosePath(1);
         agent.destination = CombinedPath[currentWaypointIndex].position;
 
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
@@ -223,11 +224,11 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             {
                 if (horizontalInput < 0)
                 {
-                    ChoosePath(1);
+                    ChoosePath(0);
                 }
                 else if (horizontalInput > 0)
                 {
-                    ChoosePath(0);
+                    ChoosePath(1);
                 }
             }
             else if (CombinedPath[(currentWaypointIndex + 1) % CombinedPath.Length].gameObject.name == "Choice2")
@@ -268,23 +269,18 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         }
     }
 
+
     void ChoosePath(int track)
     {
         if (track == 0)
         {
-            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(InPath2).ToArray();
+            CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
+            CurrentPathNumber = 1;
         }
         else if (track == 1)
         {
-            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(OutPath2).ToArray();
-        }
-        else if (track == 2)
-        {
-            CombinedPath = MainPath.Concat(InPath).Concat(MainPath2).Concat(OutPath2).ToArray();
-        }
-        else if (track == 3)
-        {
-            CombinedPath = MainPath.Concat(OutPath).Concat(MainPath2).Concat(InPath2).ToArray();
+            CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(RightPath2).ToArray();
+            CurrentPathNumber = 2;
         }
     }
 
