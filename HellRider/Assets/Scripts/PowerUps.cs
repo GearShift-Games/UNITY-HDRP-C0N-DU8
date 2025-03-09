@@ -64,7 +64,6 @@ public class PowerUps : MonoBehaviour
     JoueurNav2 Joueur;
     Navigation8 AI;
 
-
     // Start is called before the first frame update
     void Start()
     {

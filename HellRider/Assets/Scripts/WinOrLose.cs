@@ -24,6 +24,8 @@ public class WinOrLose : MonoBehaviour
     public GameObject EndGameMenu;
     public TMP_Text RestartCountdown;
 
+    public float timespeed = 1f;
+
     void Awake()
     {
         // Disable VSync
@@ -38,6 +40,8 @@ public class WinOrLose : MonoBehaviour
     }
     void Update()
     {
+        Time.timeScale = timespeed;
+
         if (!MainPlayer.activeInHierarchy && onGoingRace == true) //when you lose
         {
             //SceneManager.LoadScene("Circuit01_Maquette");
