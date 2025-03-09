@@ -24,7 +24,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: RouteMurTexture 4
-  m_Shader: {fileID: -6465566751694194690, guid: d84fc7d2559ab29418c47b3d8a7c67a7,
+  m_Shader: {fileID: -6465566751694194690, guid: dc9407222abd5814bb6daaf4252ce287,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
@@ -185,9 +185,9 @@ Material:
     - _AlphaRemapMin: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
-    - _Big_Scanline_Speed: 0.15
+    - _Big_Scanline_Speed: 0.05
     - _Big_Scanline_Strenght: 0
-    - _Big_Scanline_Thickness: 0.025
+    - _Big_Scanline_Thickness: 37.1
     - _BlendMode: 0
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0

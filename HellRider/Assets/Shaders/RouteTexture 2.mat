@@ -183,7 +183,7 @@ Material:
     - _Anisotropy: 0
     - _Big_Scanline_Speed: 0.15
     - _Big_Scanline_Strenght: 0
-    - _Big_Scanline_Thickness: 0.025
+    - _Big_Scanline_Thickness: 23.84
     - _BlendMode: 0
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0
