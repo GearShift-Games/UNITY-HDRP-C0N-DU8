@@ -33,6 +33,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     [Header("Vitesse")]
     public float maxSpeed = 6.0f;               // Vitesse maximale que l'ennemi peut atteindre
     public float currentSpeed;
+    public float currentSpeedMultiplier = 1.0f;
     private float normalSpeed = 3.5f;            // Vitesse normale (sera modifiée toutes les 5 sec)
     private float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
     private float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
@@ -210,7 +211,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, dynamicTurnSpeed * Time.deltaTime);
 
         // Application de la vélocité dans la direction actuelle du transform
-        agent.velocity = transform.forward * currentSpeed;
+        agent.velocity = transform.forward * currentSpeed * currentSpeedMultiplier;
 
         // for the bike wheel sound
         if (currentSpeed != 0)

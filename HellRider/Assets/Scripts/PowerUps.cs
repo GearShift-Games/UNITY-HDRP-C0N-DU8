@@ -60,16 +60,22 @@ public class PowerUps : MonoBehaviour
 
     private string PowerGotten;
 
+    JoueurNav2 Joueur;
+    Navigation8 AI;
+
+
     // Start is called before the first frame update
     void Start()
     {
         if (this.gameObject.tag == "AI")
         {
             //Debug.Log("AI's will take over the world!");
+            AI = this.gameObject.GetComponent<Navigation8>();
         }
         else if (this.gameObject.tag == "Player")
         {
             //Debug.Log("They'll never take us down! Humanity shall thrive!");
+            Joueur = this.gameObject.GetComponent<JoueurNav2>();
         }
     }
 
@@ -86,12 +92,13 @@ public class PowerUps : MonoBehaviour
         {
             //Debug.Log(this.gameObject.name + " boxed Player");
             PowerChooser(position, PlayersAlive);
-
+            //StartCoroutine("Turbo");
         }
         else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
         {
             //Debug.Log(this.gameObject.name + " boxed AI");
             PowerChooser(position, PlayersAlive);
+            //StartCoroutine("Turbo");
         }
     }
 
@@ -174,14 +181,28 @@ public class PowerUps : MonoBehaviour
     // we'll need to activate it here most likely, dunno how to do it for the ai yet tho
     private IEnumerator Turbo()
     {
-        /*
-        this.gameObject.GetComponent<JoueurNav2>().currentSpeedMultiplier = 2;
+        if (this.gameObject.tag == "AI")
+        {
+            AI.currentSpeedMultiplier = 3;
+        }
+        else if (this.gameObject.tag == "Player")
+        {
+            Joueur.currentSpeedMultiplier = 3;
+        }
+
         Debug.Log(this.gameObject.name + " Boostah ON!");
-        yield return new WaitForSeconds(3f);
-        this.gameObject.GetComponent<JoueurNav2>().currentSpeedMultiplier = 1;
-        Debug.Log(this.gameObject.name + " Boostah OFF!");
-        */
-        Debug.Log(this.gameObject.name + " Turbo");
+        yield return new WaitForSeconds(5f);
+
+        if (this.gameObject.tag == "AI")
+        {
+            AI.currentSpeedMultiplier = 1;
+        }
+        else if (this.gameObject.tag == "Player")
+        {
+            Joueur.currentSpeedMultiplier = 1;
+        }
+
+        //Debug.Log(this.gameObject.name + " Boostah OFF!");
         yield break;
     }
 

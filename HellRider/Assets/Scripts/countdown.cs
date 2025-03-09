@@ -28,7 +28,7 @@ public class countdown : MonoBehaviour
     void Start()
     {
         AIMaxSpeed = AI[1].GetComponent<Navigation8>().maxSpeed;
-        Debug.Log(AIMaxSpeed);
+        //Debug.Log(AIMaxSpeed);
         countingDown = true;
     }
 
