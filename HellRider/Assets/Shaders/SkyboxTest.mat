@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-100296213605378241
+--- !u!114 &-3506005558177576056
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
@@ -23,30 +23,21 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Mur2
-  m_Shader: {fileID: -6465566751694194690, guid: ec02700b76c1d9248babd1337a1bc878,
+  m_Name: SkyboxTest
+  m_Shader: {fileID: -6465566751694194690, guid: b5c53b622764e1a479ce019708167552,
     type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords:
-  - USE_BIG_SCANLINE
-  - USE_COLLISION_RIPPLES
-  - USE_EDGE_GLOW
-  - USE_HEXAGON_GLOW
-  - USE_INTERSECTION
-  - USE_SCANLINES
-  - _DISABLE_SSR_TRANSPARENT
-  - _ENABLE_FOG_ON_TRANSPARENT
-  - _SURFACE_TYPE_TRANSPARENT
+  m_ValidKeywords: []
   m_InvalidKeywords:
+  - _DISABLE_SSR_TRANSPARENT
   - _NORMALMAP_TANGENT_SPACE
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3000
+  m_CustomRenderQueue: 2000
   stringTagMap:
     MotionVector: User
-    RenderType: Transparent
   disabledShaderPasses:
   - TransparentDepthPrepass
   - TransparentDepthPostpass
@@ -89,10 +80,6 @@ Material:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
-    - _Hexagon_Texture:
-        m_Texture: {fileID: 2800000, guid: 3d5c3b6e09eebb04798ef3144ee13a57, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _IridescenceMaskMap:
         m_Texture: {fileID: 0}
         m_Scale: {x: 1, y: 1}
@@ -115,10 +102,6 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _NormalMapOS:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - _Scanline_Texture:
-        m_Texture: {fileID: 2800000, guid: 8842baca7da1b4844a233f518e8cbc16, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _SpecularColorMap:
@@ -163,15 +146,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - USE_BIG_SCANLINE: 1
-    - USE_COLLISION_RIPPLES: 1
-    - USE_EDGE_GLOW: 1
-    - USE_HEXAGON_GLOW: 1
-    - USE_INTERSECTION: 1
-    - USE_SCANLINES: 1
     - _AORemapMax: 1
     - _AORemapMin: 0
-    - _ASpect_Ration: 0.5
     - _ATDistance: 1
     - _AddPrecomputedVelocity: 0
     - _AlbedoAffectEmissive: 0
@@ -180,14 +156,11 @@ Material:
     - _AlphaCutoffPostpass: 0.5
     - _AlphaCutoffPrepass: 0.5
     - _AlphaCutoffShadow: 0.5
-    - _AlphaDstBlend: 10
+    - _AlphaDstBlend: 0
     - _AlphaRemapMax: 1
     - _AlphaRemapMin: 0
     - _AlphaSrcBlend: 1
     - _Anisotropy: 0
-    - _Big_Scanline_Speed: 1
-    - _Big_Scanline_Strenght: 0.5
-    - _Big_Scanline_Thickness: 0.05
     - _BlendMode: 0
     - _CoatMask: 0
     - _ConservativeDepthOffsetEnable: 0
@@ -206,8 +179,7 @@ Material:
     - _DoubleSidedEnable: 0
     - _DoubleSidedGIMode: 0
     - _DoubleSidedNormalMode: 1
-    - _DstBlend: 10
-    - _Edge_Glow_Strenght: 1
+    - _DstBlend: 0
     - _EmissiveColorMode: 1
     - _EmissiveExposureWeight: 1
     - _EmissiveIntensity: 1
@@ -217,24 +189,21 @@ Material:
     - _EnableGeometricSpecularAA: 0
     - _EnergyConservingSpecularColor: 1
     - _ExcludeFromTUAndAA: 0
-    - _Glow_Noise_Scale: 1
-    - _Glow_Speed: 4
+    - _GridSize: 5
     - _HeightAmplitude: 0.02
     - _HeightCenter: 0.5
     - _HeightMapParametrization: 0
-    - _HeightMap_Strenght: 0.01
     - _HeightMax: 1
     - _HeightMin: -1
     - _HeightOffset: 0
     - _HeightPoMAmplitude: 2
     - _HeightTessAmplitude: 2
     - _HeightTessCenter: 0.5
-    - _Intersection_Strenght: 1
-    - _Intersection_Thickness: 0.1
     - _InvTilingScale: 1
     - _Ior: 1.5
     - _IridescenceMask: 1
     - _IridescenceThickness: 1
+    - _LineThickness: 0.1
     - _LinkDetailsWithBase: 1
     - _MaterialID: 1
     - _Metallic: 0
@@ -254,12 +223,7 @@ Material:
     - _ReceivesSSR: 1
     - _ReceivesSSRTransparent: 0
     - _RefractionModel: 0
-    - _RenderQueueType: 4
-    - _RequireSplitLighting: 0
-    - _Ripple_Speed: 1
-    - _Ripple_Thickness: 0.05
-    - _Ripple_Time: 0.44
-    - _Scanline_Strenght: 0.5
+    - _RenderQueueType: 1
     - _Smoothness: 0.5
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -268,18 +232,18 @@ Material:
     - _SpecularOcclusionMode: 1
     - _SrcBlend: 1
     - _StencilRef: 0
-    - _StencilRefDepth: 0
+    - _StencilRefDepth: 1
     - _StencilRefDistortionVec: 4
-    - _StencilRefGBuffer: 2
-    - _StencilRefMV: 32
+    - _StencilRefGBuffer: 10
+    - _StencilRefMV: 33
     - _StencilWriteMask: 6
     - _StencilWriteMaskDepth: 9
     - _StencilWriteMaskDistortionVec: 4
     - _StencilWriteMaskGBuffer: 15
-    - _StencilWriteMaskMV: 41
+    - _StencilWriteMaskMV: 43
     - _SubsurfaceMask: 1
     - _SupportDecals: 1
-    - _SurfaceType: 1
+    - _SurfaceType: 0
     - _TexWorldScale: 1
     - _TexWorldScaleEmissive: 1
     - _Thickness: 1
@@ -297,27 +261,22 @@ Material:
     - _UVEmissive: 0
     - _UseEmissiveIntensity: 0
     - _UseShadowThreshold: 0
-    - _ZTestDepthEqualForOpaque: 4
+    - _ZTestDepthEqualForOpaque: 3
     - _ZTestGBuffer: 4
     - _ZTestTransparent: 4
-    - _ZWrite: 0
+    - _ZWrite: 1
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Base_Color: {r: 0, g: 0.0857253, b: 1, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
-    - _Edge_Glow_Thickness: {r: 0.02, g: 0.01, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 256, g: 0, b: 0, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
-    - _Glow_Strenght_Min_Max: {r: 0, g: 0.25, b: 0, a: 0}
     - _InvPrimScale: {r: 1, g: 1, b: 0, a: 0}
     - _IridescenceThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
-    - _Ripple_Origin: {r: 0.49, g: 0.43, b: 0, a: 0}
-    - _Scroll_Velocity: {r: 0, g: 0.1, b: 0, a: 0}
+    - _Neon: {r: 19.46857, g: 0, b: 16.87317, a: 0}
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _ThicknessRemap: {r: 0, g: 1, b: 0, a: 0}
     - _TransmittanceColor: {r: 1, g: 1, b: 1, a: 1}
