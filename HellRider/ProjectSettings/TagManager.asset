@@ -9,6 +9,7 @@ TagManager:
   - OBJ
   - AI
   - ItemBox
+  - TutoProgress
   layers:
   - Default
   - TransparentFX

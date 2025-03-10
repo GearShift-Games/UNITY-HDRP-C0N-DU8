@@ -1,18 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class TutoStep2 : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    // Animator for scene changes
+    public Animator transition;
+
+    private void OnTriggerEnter(Collider other)
     {
-        
+        //Debug.Log(healthPoints);
+        if (other.tag == "TutoProgress")
+        {
+            StartCoroutine(TutoStep1Over());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    private IEnumerator TutoStep1Over()
     {
-        
+        // Death sequence here
+        transition.Play("uiFadeOUT");
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene("00b_tutorial_turn");
+        yield break;
     }
 }
