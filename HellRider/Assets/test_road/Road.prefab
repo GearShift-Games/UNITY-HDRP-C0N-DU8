@@ -93,7 +93,7 @@ MonoBehaviour:
       isRightHanded: 1
     uvOffset: {x: 0, y: 1}
   autoGenerate: 0
-  SourceMesh: {fileID: -5754084199372789682, guid: dfc494763396cd9449d33203196d7f02,
+  SourceMesh: {fileID: -5754084199372789682, guid: 2579051bf4b5d44479a7b5539abd7d7b,
     type: 3}
 --- !u!23 &512038862165345915
 MeshRenderer:
@@ -115,7 +115,8 @@ MeshRenderer:
   m_RenderingLayerMask: 257
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 9116a522a655b7644a7e19d04d64c05c, type: 2}
+  - {fileID: 2100000, guid: dbc39d714af33a94f8177f7f1608522b, type: 2}
+  - {fileID: 2100000, guid: dbc39d714af33a94f8177f7f1608522b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
