@@ -306,7 +306,7 @@ Material:
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Edge_Glow_Thickness: {r: 0.37, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 0, g: 78.76133, b: 24.329422, a: 0}
+    - _Emission_Color: {r: 17.819315, g: 74.20199, b: 14.980401, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _Glow_Strenght_Min_Max: {r: 0, g: 0.25, b: 0, a: 0}
