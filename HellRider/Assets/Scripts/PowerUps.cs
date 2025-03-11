@@ -100,6 +100,15 @@ public class PowerUps : MonoBehaviour
             PowerChooser(position, PlayersAlive);
             //StartCoroutine("Turbo");
         }
+
+        if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("Player"))
+        {
+            StartCoroutine("Turbo");
+        }
+        else if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("AI"))
+        {
+            StartCoroutine("Turbo");
+        }
     }
 
     void PowerChooser(int Position, int playersAlive)

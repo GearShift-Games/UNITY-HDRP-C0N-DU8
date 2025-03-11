@@ -10,6 +10,7 @@ TagManager:
   - AI
   - ItemBox
   - TutoProgress
+  - Boostpad
   layers:
   - Default
   - TransparentFX
