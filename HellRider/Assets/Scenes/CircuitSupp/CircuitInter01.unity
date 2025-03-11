@@ -15985,7 +15985,7 @@ GameObject:
   - component: {fileID: 1530222043}
   m_Layer: 0
   m_Name: route_test_mur
-  m_TagString: Untagged
+  m_TagString: Boostpad
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
