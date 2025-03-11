@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,6 +9,8 @@ public class Timer : MonoBehaviour
     public float seconds;
     public GameObject playerUIPortrait;
     public GameObject playerUIFrame;
+
+    private bool StillAlive = true;
 
     public int position;
 
@@ -32,14 +35,14 @@ public class Timer : MonoBehaviour
                 TimeLeft -= Time.deltaTime;
                 updateTimer(TimeLeft);
             }
-            else
+            else if (StillAlive == true)
             {
                 //Debug.Log("Time is UP!");
                 TimeLeft = 0;
                 TimerOn = false;
                 playerUIFrame.SetActive(false);
                 playerUIPortrait.GetComponent<Image>().color = new Color32(50, 50, 50, 80);
-                this.gameObject.SetActive(false);
+                StartCoroutine(DiesWithLoves());
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
 
@@ -61,6 +64,14 @@ public class Timer : MonoBehaviour
         seconds = Mathf.FloorToInt(currentTime % 60);
         //Debug.Log(this.gameObject + " " + seconds);
 
+    }
+
+    private IEnumerator DiesWithLoves()
+    {
+        StillAlive = false; // so it only gets started once
+        Time.timeScale = 0.5f ;
+        yield return new WaitForSeconds(0.5f);
+        this.gameObject.SetActive(false);
     }
 
 }

@@ -9,6 +9,8 @@ TagManager:
   - OBJ
   - AI
   - ItemBox
+  - TutoProgress
+  - Boostpad
   layers:
   - Default
   - TransparentFX
