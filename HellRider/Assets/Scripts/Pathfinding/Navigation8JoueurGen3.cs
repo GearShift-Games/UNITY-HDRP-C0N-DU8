@@ -56,8 +56,6 @@ public class Navigation8JoueurGen3 : MonoBehaviour, IPlayerScore
     {
         RealSpeed = Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
-        Boost = Osc.GetComponent<OscBicycle>().Confirm;
-        Pause = Osc.GetComponent<OscBicycle>().Cancel;
 
         // Prend la valeur du private currentSpeed pour l'envoyer au UI
         speedUI = Mathf.FloorToInt(currentSpeed);
