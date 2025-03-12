@@ -9,6 +9,7 @@ public class Timer : MonoBehaviour
     public float seconds;
     public GameObject playerUIPortrait;
     public GameObject playerUIFrame;
+    public Animator sparksUI;
 
     private bool StillAlive = true;
 
@@ -23,6 +24,8 @@ public class Timer : MonoBehaviour
         // yep i sure can =^D
         animator = playerUIFrame.GetComponent<Animator>();
         animator.Play("UIpink");
+        sparksUI.Play("uiSparks");
+        sparksUI.Play("sparkPosition");
     }
 
     void Update()
