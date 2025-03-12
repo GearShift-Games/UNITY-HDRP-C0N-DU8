@@ -9,7 +9,8 @@ public class Timer : MonoBehaviour
     public float seconds;
     public GameObject playerUIPortrait;
     public GameObject playerUIFrame;
-    public Animator sparksUI;
+    public Animator sparkAnimationUI;
+    public Animator sparksPositionUI;
 
     private bool StillAlive = true;
 
@@ -24,8 +25,8 @@ public class Timer : MonoBehaviour
         // yep i sure can =^D
         animator = playerUIFrame.GetComponent<Animator>();
         animator.Play("UIpink");
-        sparksUI.Play("uiSparks");
-        sparksUI.Play("sparkPosition");
+        sparkAnimationUI.Play("sparkling");
+        sparksPositionUI.Play("sparkPosition");
     }
 
     void Update()
@@ -51,12 +52,14 @@ public class Timer : MonoBehaviour
 
             //play fuse animation
             animator.speed = 1;
+            sparksPositionUI.speed = 1;
         }
         else
         {
             //stop fuse animation
             //deactivate ui
             animator.speed = 0;
+            sparksPositionUI.speed = 0;
         }
     }
 
