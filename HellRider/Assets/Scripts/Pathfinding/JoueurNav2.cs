@@ -6,6 +6,7 @@ using UnityEngine.AI;
 
 public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
+    public float testVitesse = 0.09f;
     public GameObject trail;
     [Header("Waypoints and Directions")]
     private NavMeshAgent agent;
@@ -97,6 +98,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     // Variables pour le turbo
     private bool isTurboActive = false;
 
+
+
     void Start()
     {
         Bike = this.gameObject;
@@ -111,8 +114,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 
     void Update()
     {
-        // Récupération des données OSC et du clavier
-        RealSpeed = Osc.GetComponent<OscBicycle>().Speed; // 0.09f
+        // Récupération des données OSC et du clavier 
+        RealSpeed = testVitesse; // 0.09f   Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
         horizontalInput = XValue + Input.GetAxis("Horizontal");
@@ -238,6 +241,8 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
             Checkpointpassed++;
             agent.destination = CombinedPath[currentWaypointIndex].position;
         }
+
+
     }
 
     private float GetAccelerationForSpeed(float speed)

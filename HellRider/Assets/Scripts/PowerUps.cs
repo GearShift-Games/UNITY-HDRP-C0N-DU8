@@ -6,7 +6,7 @@ using UnityEngine;
 public class PowerUps : MonoBehaviour
 {
     public AudioSource audioSource;
-    public AudioClip TurboSound;
+    public AudioClip[] TurboSound;
     public GameObject[] otherPlayers;
 
     [Header("Position")]
@@ -199,7 +199,10 @@ public class PowerUps : MonoBehaviour
         {
             Joueur.currentSpeedMultiplier = 3;
             // Rajouter son ici
-            audioSource.PlayOneShot(TurboSound);
+            
+            int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
+            audioSource.PlayOneShot(TurboSound[randomIndex], 1f);
+
         }
 
         Debug.Log(this.gameObject.name + " Boostah ON!");
