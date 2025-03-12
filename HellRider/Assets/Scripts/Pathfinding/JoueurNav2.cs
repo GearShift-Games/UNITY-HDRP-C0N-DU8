@@ -8,7 +8,6 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
     public GameObject trail;
     [Header("Waypoints and Directions")]
-    public Transform[] waypoints; //we can remove that
     private NavMeshAgent agent;
     public Transform[] MainPath; // from start till path division
     public Transform[] LeftPath; // Side path 1 from division 1
