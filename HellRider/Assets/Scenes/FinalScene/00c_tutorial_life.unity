@@ -576,6 +576,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ennemi_red
       objectReference: {fileID: 0}
+    - target: {fileID: 7075741049465353834, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8066115598560417655, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: m_Speed
