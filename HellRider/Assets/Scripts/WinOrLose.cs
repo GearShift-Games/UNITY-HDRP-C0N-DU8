@@ -26,10 +26,13 @@ public class WinOrLose : MonoBehaviour
 
     public float timespeed = 1f;
 
-    Scene scene = SceneManager.GetActiveScene();
+    Scene scene;
+    private bool Lost;
+    private bool Won;
 
     void Awake()
     {
+        scene = SceneManager.GetActiveScene();
         // Disable VSync
         QualitySettings.vSyncCount = 0;
         // Set target frame rate to 60
@@ -48,7 +51,7 @@ public class WinOrLose : MonoBehaviour
         {
             PlaySound(LoseSound, 1f);
             onGoingRace = false;
-
+            Lost = true;
             EndGameMenu.SetActive(true);
             Lose.SetActive(true);
             StartCoroutine(Restart());
@@ -69,7 +72,7 @@ public class WinOrLose : MonoBehaviour
             //SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(WinSound, 0.5f);
             onGoingRace = false;
-
+            Won = true;
             EndGameMenu.SetActive(true);
             Win.SetActive(true);
             StartCoroutine(Restart());
@@ -94,8 +97,37 @@ public class WinOrLose : MonoBehaviour
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
+
+        if (Won == true)
+        {
+            if (scene.name == "Circuit1")
+            {
+                SceneManager.LoadScene("Circuit2");
+            }
+            else if (scene.name == "Circuit2")
+            {
+                SceneManager.LoadScene("Circuit3");
+            }
+            else if (scene.name == "Circuit3")
+            {
+                SceneManager.LoadScene(0);
+            }
+        }
+        else if (Lost == true)
+        {
+             if (scene.name == "Circuit1" || scene.name == "Circuit2" || scene.name == "Circuit3")
+            {
+                SceneManager.LoadScene("Circuit1");
+            }
+             else
+            {
+                SceneManager.LoadScene(scene.name);
+            }
+        }
+
+
         
-        SceneManager.LoadScene(scene.name);
+
         yield break;
     }
 }
