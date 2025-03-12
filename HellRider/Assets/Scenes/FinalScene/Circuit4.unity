@@ -2590,7 +2590,7 @@ MonoBehaviour:
   - {x: 24.968187, y: -0.12999979, z: 12.309219}
   - {x: 23.112535, y: -0.12999979, z: 15.050448}
   - {x: 20.608192, y: -0.12999979, z: 18.74995}
-  - {x: 7.464427, y: 0.089, z: 13.451485}
+  - {x: 7.4644275, y: 0.089, z: 13.451485}
   - {x: 3.4639916, y: 0.089, z: 12.027284}
   normals:
   - {x: 0, y: 1, z: 0}
@@ -4443,7 +4443,7 @@ MonoBehaviour:
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
   m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 23800000, guid: 0eaaaa15e9018764da895620f1c828bd, type: 2}
+  m_NavMeshData: {fileID: 23800000, guid: ef83d506dc88a9643be3b46977de6397, type: 2}
   m_BuildHeightMesh: 1
 --- !u!4 &1259889092
 Transform:
