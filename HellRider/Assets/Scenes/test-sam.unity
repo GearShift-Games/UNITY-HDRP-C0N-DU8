@@ -6271,7 +6271,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: ccb1b8601047a8b4f8a15dafe6042136,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.4585457
+      value: -6.7154
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: ccb1b8601047a8b4f8a15dafe6042136,
         type: 3}
@@ -7480,6 +7480,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: keve_object_blender
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 05b0279f44c48514f81214ce1e69732c,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
