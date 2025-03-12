@@ -94,8 +94,7 @@ public class WinOrLose : MonoBehaviour
             yield return new WaitForSeconds(1f);
         }
         Scene scene = SceneManager.GetActiveScene();
-        //SceneManager.LoadScene(scene.name);
-        SceneManager.LoadScene(3);
+        SceneManager.LoadScene(scene.name);
         yield break;
     }
 }
