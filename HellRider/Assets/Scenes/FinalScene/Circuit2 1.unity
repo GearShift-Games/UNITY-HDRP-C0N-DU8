@@ -3141,6 +3141,16 @@ PrefabInstance:
       propertyPath: playerUIPortrait
       value: 
       objectReference: {fileID: 910160732}
+    - target: {fileID: 2986174329917179886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 364303793}
+    - target: {fileID: 2986174329917179886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 364303792}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: Pivot
@@ -3154,32 +3164,32 @@ PrefabInstance:
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: LeftPath.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: MainPath.Array.size
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: LeftPath2.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: MainPath2.Array.size
-      value: 19
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: RightPath.Array.size
-      value: 9
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: RightPath2.Array.size
-      value: 5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -3479,7 +3489,7 @@ PrefabInstance:
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: EveryWaypoints.Array.size
-      value: 59
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -3786,6 +3796,16 @@ PrefabInstance:
       propertyPath: playerUIPortrait
       value: 
       objectReference: {fileID: 1559256547}
+    - target: {fileID: 3446201962185244441, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 364303795}
+    - target: {fileID: 3446201962185244441, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 364303794}
     - target: {fileID: 3936978444930439165, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: m_IsActive
@@ -4451,6 +4471,16 @@ PrefabInstance:
       propertyPath: playerUIPortrait
       value: 
       objectReference: {fileID: 1124313703}
+    - target: {fileID: 6942143831248067742, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 364303791}
+    - target: {fileID: 6942143831248067742, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 364303790}
     - target: {fileID: 8679717155981627322, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: m_IsActive
@@ -4466,6 +4496,16 @@ PrefabInstance:
       propertyPath: playerUIPortrait
       value: 
       objectReference: {fileID: 277945339}
+    - target: {fileID: 8853864096520108280, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 364303789}
+    - target: {fileID: 8853864096520108280, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 364303788}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5257,6 +5297,66 @@ MeshFilter:
 --- !u!1 &362604831 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7228188958186794281, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303788 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1332526421338833909, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303789 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3205268738525724157, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303790 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9095459519783856825, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303791 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7028731432184113171, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303792 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1219226174412145410, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303793 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8739381835433719197, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303794 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8843427346065637900, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303795 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1698070938536064575, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303796 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2343548585417738228, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1771189708}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &364303797 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7604127102284476335, guid: 9d4b1382151645e4a85cdd04f4efe44a,
     type: 3}
   m_PrefabInstance: {fileID: 1771189708}
   m_PrefabAsset: {fileID: 0}
@@ -9426,6 +9526,16 @@ PrefabInstance:
       propertyPath: playerUIPortrait
       value: 
       objectReference: {fileID: 178454487}
+    - target: {fileID: 4360240913180433851, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 364303797}
+    - target: {fileID: 4360240913180433851, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 364303796}
     - target: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_LocalPosition.x
