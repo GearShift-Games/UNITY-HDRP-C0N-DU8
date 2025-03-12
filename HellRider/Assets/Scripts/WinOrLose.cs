@@ -26,6 +26,8 @@ public class WinOrLose : MonoBehaviour
 
     public float timespeed = 1f;
 
+    Scene scene = SceneManager.GetActiveScene();
+
     void Awake()
     {
         // Disable VSync
@@ -44,7 +46,6 @@ public class WinOrLose : MonoBehaviour
 
         if (!MainPlayer.activeInHierarchy && onGoingRace == true) //when you lose
         {
-            //SceneManager.LoadScene("Circuit01_Maquette");
             PlaySound(LoseSound, 1f);
             onGoingRace = false;
 
@@ -93,7 +94,7 @@ public class WinOrLose : MonoBehaviour
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
-        Scene scene = SceneManager.GetActiveScene();
+        
         SceneManager.LoadScene(scene.name);
         yield break;
     }
