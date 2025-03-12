@@ -26,6 +26,8 @@ public class WinOrLose : MonoBehaviour
 
     public float timespeed = 1f;
 
+    public Animator transition;
+
     Scene scene;
     private bool Lost;
     private bool Won;
@@ -97,10 +99,16 @@ public class WinOrLose : MonoBehaviour
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
+        transition.Play("uiFadeOUT");
+        yield return new WaitForSeconds(2);
 
         if (Won == true)
         {
-            if (scene.name == "Circuit1")
+            if (scene.name == "00c_tutorial_life")
+            {
+                SceneManager.LoadScene("Circuit1");
+            }
+            else if (scene.name == "Circuit1")
             {
                 SceneManager.LoadScene("Circuit2");
             }
