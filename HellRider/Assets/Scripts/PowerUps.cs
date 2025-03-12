@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class PowerUps : MonoBehaviour
 {
-
+    public AudioSource audioSource;
+    public AudioClip TurboSound;
     public GameObject[] otherPlayers;
 
     [Header("Position")]
@@ -197,6 +198,8 @@ public class PowerUps : MonoBehaviour
         else if (this.gameObject.tag == "Player")
         {
             Joueur.currentSpeedMultiplier = 3;
+            // Rajouter son ici
+            audioSource.PlayOneShot(TurboSound);
         }
 
         Debug.Log(this.gameObject.name + " Boostah ON!");
