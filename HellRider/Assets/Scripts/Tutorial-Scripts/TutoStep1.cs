@@ -19,6 +19,7 @@ public class TutoStep1 : MonoBehaviour
 
     private IEnumerator TutoStep1Over()
     {
+        Debug.Log("uh?");
         // Death sequence here
         transition.Play("uiFadeOUT");
         yield return new WaitForSeconds(2);
