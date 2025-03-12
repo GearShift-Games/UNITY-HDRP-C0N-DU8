@@ -489,7 +489,7 @@ PrefabInstance:
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: Checkpointpassed
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
@@ -534,7 +534,7 @@ PrefabInstance:
     - target: {fileID: 5568744951543452658, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1011
+      value: 1064
       objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
@@ -2621,6 +2621,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504699485982993428, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504699485982993428, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 350
+      objectReference: {fileID: 0}
+    - target: {fileID: 6504699485982993428, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -250
       objectReference: {fileID: 0}
     - target: {fileID: 7917642143642160243, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
