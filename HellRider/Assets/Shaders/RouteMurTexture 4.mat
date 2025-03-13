@@ -304,13 +304,13 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Base_Color: {r: 0, g: 0.16666651, b: 1, a: 0.2627451}
+    - _Base_Color: {r: 0, g: 0.16666648, b: 1, a: 0.4862745}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Edge_Glow_Thickness: {r: 0.37, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 1.8532039, g: 52.62534, b: 117.987526, a: 0}
+    - _Emission_Color: {r: 12.047038, g: 342.09912, b: 766.9961, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _Glow_Strenght_Min_Max: {r: 0, g: 0.25, b: 0, a: 0}

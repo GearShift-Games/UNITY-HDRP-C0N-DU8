@@ -23,7 +23,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Route 3
+  m_Name: Route 4
   m_Shader: {fileID: -6465566751694194690, guid: d84fc7d2559ab29418c47b3d8a7c67a7,
     type: 3}
   m_Parent: {fileID: 0}
@@ -255,7 +255,7 @@ Material:
     - _Ripple_Speed: 6.22
     - _Ripple_Thickness: 0.05
     - _Ripple_Time: 2
-    - _Scanline_Strenght: 0.02
+    - _Scanline_Strenght: 0.07
     - _Smoothness: 0
     - _SmoothnessRemapMax: 1
     - _SmoothnessRemapMin: 0
@@ -300,13 +300,13 @@ Material:
     m_Colors:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _BaseColorMap_MipInfo: {r: 0, g: 0, b: 0, a: 0}
-    - _Base_Color: {r: 1, g: 0, b: 0.008527756, a: 1}
+    - _Base_Color: {r: 0.9808713, g: 1, b: 0, a: 0.5764706}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _DiffusionProfileAsset: {r: 0, g: 0, b: 0, a: 0}
     - _DoubleSidedConstants: {r: 1, g: 1, b: -1, a: 0}
     - _Edge_Glow_Thickness: {r: 0.37, g: 0, b: 0, a: 0}
     - _EmissionColor: {r: 1, g: 1, b: 1, a: 1}
-    - _Emission_Color: {r: 766.9961, g: 0, b: 8.03148, a: 0}
+    - _Emission_Color: {r: 101.66222, g: 4.795375, b: 5.2023983, a: 0}
     - _EmissiveColor: {r: 0, g: 0, b: 0, a: 1}
     - _EmissiveColorLDR: {r: 0, g: 0, b: 0, a: 1}
     - _Glow_Strenght_Min_Max: {r: 0, g: 0.25, b: 0, a: 0}
