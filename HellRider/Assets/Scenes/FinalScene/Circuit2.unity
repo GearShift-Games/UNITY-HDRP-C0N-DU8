@@ -4404,6 +4404,11 @@ MonoBehaviour:
   - {fileID: 246969126}
   - {fileID: 246969122}
   - {fileID: 246969120}
+  MagneticFPlayer: {fileID: 0}
+  MagneticFAi1: {fileID: 0}
+  MagneticFAi2: {fileID: 0}
+  MagneticFAi3: {fileID: 0}
+  MagneticFAi4: {fileID: 0}
   PlayersAlive: 0
   position: 0
 --- !u!114 &246969137
@@ -4426,6 +4431,11 @@ MonoBehaviour:
   - {fileID: 246969126}
   - {fileID: 246969124}
   - {fileID: 246969120}
+  MagneticFPlayer: {fileID: 0}
+  MagneticFAi1: {fileID: 0}
+  MagneticFAi2: {fileID: 0}
+  MagneticFAi3: {fileID: 0}
+  MagneticFAi4: {fileID: 0}
   PlayersAlive: 0
   position: 0
 --- !u!1 &248358949
@@ -6189,6 +6199,11 @@ MonoBehaviour:
   - {fileID: 246969126}
   - {fileID: 246969124}
   - {fileID: 246969122}
+  MagneticFPlayer: {fileID: 0}
+  MagneticFAi1: {fileID: 0}
+  MagneticFAi2: {fileID: 0}
+  MagneticFAi3: {fileID: 0}
+  MagneticFAi4: {fileID: 0}
   PlayersAlive: 0
   position: 0
 --- !u!1 &433565225
@@ -7260,7 +7275,17 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 99598e0f23294724fac8191e773522d5, type: 3}
   TimerGoDown: {fileID: 0}
   lastPlaceSound: {fileID: 0}
-  bikeSounds: []
+  bikeSounds:
+  - {fileID: 8300000, guid: 45903f61a64f0254eb16a077d516451e, type: 3}
+  - {fileID: 8300000, guid: dd518a884fa08e243b0e054d4855b32d, type: 3}
+  - {fileID: 8300000, guid: 08286f59b02af194e80a7080506d4808, type: 3}
+  - {fileID: 8300000, guid: 30be2e192470bb743b27555fa22663e3, type: 3}
+  - {fileID: 8300000, guid: af26f200b4284eb4590d07d3a21815c9, type: 3}
+  - {fileID: 8300000, guid: ba6dff77fdfeb3d4d82dd76e311b680d, type: 3}
+  - {fileID: 8300000, guid: 787c8ef0e06e662469bdbbf916093a9b, type: 3}
+  - {fileID: 8300000, guid: 366551fe5650d7e4da3a65f0f816a126, type: 3}
+  - {fileID: 8300000, guid: b3f0e679e437aa7419f9b02e170e3bec, type: 3}
+  - {fileID: 8300000, guid: ca6492c8a5e8f14438458b16115389a7, type: 3}
   AccelerationSounds:
   - {fileID: 8300000, guid: 133d8321721e1f6478c2213f30eafa3a, type: 3}
   - {fileID: 8300000, guid: 77aea49b6ce8d5b4a9309f20be90cb45, type: 3}
@@ -10755,6 +10780,11 @@ MonoBehaviour:
   - {fileID: 246969124}
   - {fileID: 246969122}
   - {fileID: 246969120}
+  MagneticFPlayer: {fileID: 0}
+  MagneticFAi1: {fileID: 0}
+  MagneticFAi2: {fileID: 0}
+  MagneticFAi3: {fileID: 0}
+  MagneticFAi4: {fileID: 0}
   PlayersAlive: 0
   position: 0
 --- !u!1 &982944056
@@ -16587,6 +16617,11 @@ MonoBehaviour:
   - {fileID: 246969124}
   - {fileID: 246969122}
   - {fileID: 246969120}
+  MagneticFPlayer: {fileID: 0}
+  MagneticFAi1: {fileID: 0}
+  MagneticFAi2: {fileID: 0}
+  MagneticFAi3: {fileID: 0}
+  MagneticFAi4: {fileID: 0}
   PlayersAlive: 0
   position: 0
 --- !u!1 &1853623456

@@ -8,6 +8,11 @@ public class PowerUps : MonoBehaviour
     public AudioSource audioSource;
     public AudioClip[] TurboSound;
     public GameObject[] otherPlayers;
+    public GameObject MagneticFPlayer;
+    public GameObject MagneticFAi1;
+    public GameObject MagneticFAi2;
+    public GameObject MagneticFAi3;
+    public GameObject MagneticFAi4;
 
     [Header("Position")]
     public int PlayersAlive;
@@ -52,12 +57,12 @@ public class PowerUps : MonoBehaviour
      *  Power Up Description
      *  
      *  Turbo: Boost temporaire de la vitesse (2e a 5e place)
-     *  TP: Téléporte avec un joueur aléatoire (2e a 5e place)
+     *  TP: Téléporte avec un joueur aléatoire (2e a 5e place)**
      *  Recharge: Recharge de fusible 50% max(3e a 5e place et peut pas aller plus haut que 100%) 
-     *  Laser: Ralenti tous les joueurs touché
-     *  Blue Chipmuncks: Le premier joueur freine
+     *  //Laser: Ralenti tous les joueurs touché
+     *  Blue Chipmuncks: Le premier joueur freine**
      *  Consolation: Donne 2 objets aléatoires a la suite(derniere place uniquement)
-     *  Shield: Ne peut être affecter par un malus, utiliser une seule fois
+     *  Shield: Ne peut être affecter par un malus, utiliser une seule fois**
      */
 
     string[] FIRSTPLACE = { "Laser", "MagneticField", "FullHand", "Obstacle"};
@@ -242,6 +247,110 @@ public class PowerUps : MonoBehaviour
     {
         Debug.Log(this.gameObject.name + " DiePortal");
         yield break;
+        ////////////////////////// Code tp de chatGpt /////////////////////////////////
+        /*private IEnumerator DiePortal()
+        {
+            // Crée une liste des cibles éligibles (joueurs/IA mieux classés que nous)
+            List<GameObject> eligibleTargets = new List<GameObject>();
+            foreach (GameObject target in otherPlayers)
+            {
+                // On ne veut pas se comparer à soi-même
+                if (target == gameObject) continue;
+
+                PowerUps targetPU = target.GetComponent<PowerUps>();
+                if (targetPU != null && targetPU.position < this.position)
+                {
+                    eligibleTargets.Add(target);
+                }
+            }
+
+            if (eligibleTargets.Count == 0)
+            {
+                Debug.Log("Aucun joueur/IA éligible pour le téléportation.");
+                yield break;
+            }
+
+            // Sélection aléatoire d'une cible parmi les éligibles
+            int randomIndex = Random.Range(0, eligibleTargets.Count);
+            GameObject targetToSwap = eligibleTargets[randomIndex];
+
+            // Sauvegarde des positions actuelles
+            Vector3 myPosition = transform.position;
+            Vector3 targetPosition = targetToSwap.transform.position;
+
+            // Échange des positions dans la scène
+            transform.position = targetPosition;
+            targetToSwap.transform.position = myPosition;
+
+            // Sauvegarde des checkpoints passés pour chacun
+            int myCheckpoints = 0;
+            int targetCheckpoints = 0;
+
+            // Pour le joueur
+            if (gameObject.CompareTag("Player"))
+            {
+                JoueurNav2 myScript = GetComponent<JoueurNav2>();
+                if (myScript != null)
+                    myCheckpoints = myScript.checkpointsPassed;
+            }
+            else if (gameObject.CompareTag("AI"))
+            {
+                Navigation8 myScript = GetComponent<Navigation8>();
+                if (myScript != null)
+                    myCheckpoints = myScript.checkpointsPassed;
+            }
+
+            // Pour la cible sélectionnée
+            if (targetToSwap.CompareTag("Player"))
+            {
+                JoueurNav2 targetScript = targetToSwap.GetComponent<JoueurNav2>();
+                if (targetScript != null)
+                    targetCheckpoints = targetScript.checkpointsPassed;
+            }
+            else if (targetToSwap.CompareTag("AI"))
+            {
+                Navigation8 targetScript = targetToSwap.GetComponent<Navigation8>();
+                if (targetScript != null)
+                    targetCheckpoints = targetScript.checkpointsPassed;
+            }
+
+            // Échange des checkpoints
+            if (gameObject.CompareTag("Player"))
+            {
+                JoueurNav2 myScript = GetComponent<JoueurNav2>();
+                if (myScript != null)
+                    myScript.checkpointsPassed = targetCheckpoints;
+            }
+            else if (gameObject.CompareTag("AI"))
+            {
+                Navigation8 myScript = GetComponent<Navigation8>();
+                if (myScript != null)
+                    myScript.checkpointsPassed = targetCheckpoints;
+            }
+
+            if (targetToSwap.CompareTag("Player"))
+            {
+                JoueurNav2 targetScript = targetToSwap.GetComponent<JoueurNav2>();
+                if (targetScript != null)
+                    targetScript.checkpointsPassed = myCheckpoints;
+            }
+            else if (targetToSwap.CompareTag("AI"))
+            {
+                Navigation8 targetScript = targetToSwap.GetComponent<Navigation8>();
+                if (targetScript != null)
+                    targetScript.checkpointsPassed = myCheckpoints;
+            }
+
+            // (Optionnel) Échange du classement en inversant la variable 'position'
+            int tempPos = this.position;
+            this.position = targetToSwap.GetComponent<PowerUps>().position;
+            targetToSwap.GetComponent<PowerUps>().position = tempPos;
+
+            Debug.Log("Téléportation effectuée entre " + gameObject.name + " et " + targetToSwap.name);
+
+            yield break;
+        }
+        */
     }
 
     private IEnumerator NewFuse()
@@ -253,6 +362,116 @@ public class PowerUps : MonoBehaviour
     private IEnumerator MagneticField()
     {
         Debug.Log(this.gameObject.name + " MagneticField");
+        /////////// ChatGpt a cook sa pour le Magnetic field, je l'ai pas essayé c surtout pour donné une idée
+        /*private IEnumerator MagneticField()
+        {
+            // Choix du GameObject à activer selon que ce soit le joueur ou l'IA
+            GameObject magneticFieldObj = null;
+            if (gameObject.CompareTag("Player"))
+            {
+                magneticFieldObj = MagneticFPlayer;
+            }
+            else if (gameObject.CompareTag("AI"))
+            {
+                // Ici, vous pouvez choisir dynamiquement lequel utiliser en fonction de l'IA.
+                // Pour cet exemple, nous utilisons le premier.
+                magneticFieldObj = MagneticFAi1;
+            }
+
+            if (magneticFieldObj == null)
+            {
+                Debug.LogWarning("Aucun objet magneticField n'a été assigné pour " + gameObject.name);
+                yield break;
+            }
+
+            // Active le champ magnétique
+            magneticFieldObj.SetActive(true);
+
+            // On attend un frame pour être sûr que le collider est actif
+            yield return null;
+
+            // Récupère le collider du champ magnétique
+            Collider fieldCollider = magneticFieldObj.GetComponent<Collider>();
+            if (fieldCollider == null)
+            {
+                Debug.LogWarning("Aucun collider trouvé sur " + magneticFieldObj.name);
+                yield break;
+            }
+
+            // Utilise OverlapBox pour récupérer tous les objets dans le volume du collider.
+            // (Si le collider est sphérique, vous pouvez utiliser Physics.OverlapSphere)
+            Collider[] affectedColliders = Physics.OverlapBox(
+                fieldCollider.bounds.center,
+                fieldCollider.bounds.extents,
+                Quaternion.identity
+            );
+
+            // Liste pour stocker les objets affectés (pour leur retirer le ralentissement après)
+            List<GameObject> affectedObjects = new List<GameObject>();
+
+            // Applique le ralentissement de 20 % à chaque joueur ou IA présent
+            foreach (Collider col in affectedColliders)
+            {
+                // On vérifie si le tag est "Player" ou "AI"
+                if (col.gameObject.CompareTag("Player") || col.gameObject.CompareTag("AI"))
+                {
+                    // Pour éviter de s'appliquer son propre effet si besoin
+                    // if(col.gameObject == this.gameObject) continue;
+
+                    // Applique le ralentissement si le composant de contrôle existe
+                    if (col.gameObject.CompareTag("Player"))
+                    {
+                        JoueurNav2 joueurScript = col.gameObject.GetComponent<JoueurNav2>();
+                        if (joueurScript != null)
+                        {
+                            // Multiplie la vitesse par 0.8 (ralentissement de 20 %)
+                            joueurScript.currentSpeedMultiplier *= 0.8f;
+                            affectedObjects.Add(col.gameObject);
+                        }
+                    }
+                    else if (col.gameObject.CompareTag("AI"))
+                    {
+                        Navigation8 aiScript = col.gameObject.GetComponent<Navigation8>();
+                        if (aiScript != null)
+                        {
+                            aiScript.currentSpeedMultiplier *= 0.8f;
+                            affectedObjects.Add(col.gameObject);
+                        }
+                    }
+                }
+            }
+
+            // Le powerup dure 2 secondes
+            yield return new WaitForSeconds(2f);
+
+            // Restaure la vitesse d'origine en retirant le ralentissement appliqué
+            foreach (GameObject obj in affectedObjects)
+            {
+                if (obj.CompareTag("Player"))
+                {
+                    JoueurNav2 joueurScript = obj.GetComponent<JoueurNav2>();
+                    if (joueurScript != null)
+                    {
+                        // Inverse l'effet précédent
+                        joueurScript.currentSpeedMultiplier /= 0.8f;
+                    }
+                }
+                else if (obj.CompareTag("AI"))
+                {
+                    Navigation8 aiScript = obj.GetComponent<Navigation8>();
+                    if (aiScript != null)
+                    {
+                        aiScript.currentSpeedMultiplier /= 0.8f;
+                    }
+                }
+            }
+
+            // Désactive le champ magnétique
+            magneticFieldObj.SetActive(false);
+
+            yield break;
+        }*/
+
         yield break;
     }
 
