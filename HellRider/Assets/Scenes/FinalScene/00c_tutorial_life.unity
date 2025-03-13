@@ -919,6 +919,8 @@ MonoBehaviour:
   seconds: 0
   playerUIPortrait: {fileID: 2017093246}
   playerUIFrame: {fileID: 2017093245}
+  sparkAnimationUI: {fileID: 1102744231}
+  sparksPositionUI: {fileID: 1102744230}
   isAI: 1
   position: 0
 --- !u!1 &323390481
@@ -2229,8 +2231,34 @@ MonoBehaviour:
   seconds: 0
   playerUIPortrait: {fileID: 2017093248}
   playerUIFrame: {fileID: 2017093247}
+  sparkAnimationUI: {fileID: 1102744233}
+  sparksPositionUI: {fileID: 1102744232}
   isAI: 0
   position: 0
+--- !u!95 &1102744230 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8843427346065637900, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017093244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1102744231 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1698070938536064575, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017093244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1102744232 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2343548585417738228, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017093244}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1102744233 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7604127102284476335, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2017093244}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1131302293
 PrefabInstance:
   m_ObjectHideFlags: 0
