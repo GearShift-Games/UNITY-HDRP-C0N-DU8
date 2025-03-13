@@ -82,6 +82,23 @@ public class OscBicycle : MonoBehaviour
         */
     }
 
+    public void Calibrator()
+    {
+        if (scene.name == "00a_tutorial_speed")
+        {
+            messageTransmitter("/Center", X);
+        }
+        else if (scene.name == "00b_tutorial_turn")
+        {
+            messageTransmitter("/Calibrate", 1);
+        }
+        else
+        {
+            messageTransmitter("/Calibrate", 0);
+            messageTransmitter("/Reset", 0);
+        }
+    }
+
     private void Update()
     {
         if (hasUser == false)
@@ -107,8 +124,8 @@ public class OscBicycle : MonoBehaviour
         }
         */
 
-        messageTransmitter("/Center", Center);
-        messageTransmitter("/Calibrate", 1);
+        
+        
     }
 
     private void messageTransmitter(string id, float value)
@@ -239,7 +256,8 @@ public class OscBicycle : MonoBehaviour
 
     public void RestartGame()
     {
-        SceneManager.LoadScene("00a_tutorial_speed");
+        messageTransmitter("/Reset", 1);
+
         hasUser = false;
         reset = false;
 
@@ -251,6 +269,8 @@ public class OscBicycle : MonoBehaviour
         tutorialNumber = 0;
         tutorialPanel.SetActive(true);
         tutorialXPositionGameobject.SetActive(true);*/
+
+        SceneManager.LoadScene(0);
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
