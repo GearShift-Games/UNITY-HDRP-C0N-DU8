@@ -2045,11 +2045,6 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  MagneticFPlayer: {fileID: 0}
-  MagneticFAi1: {fileID: 0}
-  MagneticFAi2: {fileID: 0}
-  MagneticFAi3: {fileID: 0}
-  MagneticFAi4: {fileID: 0}
   PlayersAlive: 0
   position: 0
 --- !u!114 &978662207
@@ -2067,6 +2062,7 @@ MonoBehaviour:
   transition: {fileID: 1673553588}
   checkmark: {fileID: 724863181}
   bigBike: {fileID: 1571462424}
+  Osc: {fileID: 1255105467}
 --- !u!1 &1255105467 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6382962783937567277, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,

@@ -80,6 +80,11 @@ public class OscBicycle : MonoBehaviour
             InTutorial = true;
         }
         */
+        
+        if (scene.name != "INTRO")
+        {
+            hasUser = true;
+        }
     }
 
     public void Calibrator()
@@ -295,7 +300,7 @@ public class OscBicycle : MonoBehaviour
 
         //Debug.Log(value);
 
-        hasUser = true;
+        
         //InTutorial = true;
         SceneManager.LoadScene(1);
     }
@@ -453,7 +458,7 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Debug.Log(value);
+        //Debug.Log(value);
 
         //value = ScaleValue(value, -15000,15000,-1,1);
 

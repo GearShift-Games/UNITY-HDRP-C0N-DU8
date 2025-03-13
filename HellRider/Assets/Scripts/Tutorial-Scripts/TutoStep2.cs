@@ -15,11 +15,12 @@ public class TutoStep2 : MonoBehaviour
     public int directionCount = 0;
 
     // The calibration that makes thing work
-    public OscBicycle bigBike;
-    
+    private OscBicycle bigBike;
+    public GameObject Osc;
+
     void Start()
     {
-        bigBike = GetComponent<OscBicycle>();
+        bigBike = Osc.GetComponent<OscBicycle>();
         bigBike.Calibrator();
     }
 

@@ -6,11 +6,12 @@ using UnityEngine.SceneManagement;
 public class TutoStep3 : MonoBehaviour
 {
     // The work that calibration thing makes
-    public OscBicycle bigBike;
+    private OscBicycle bigBike;
+    public GameObject Osc;
 
     void Start()
     {
-        bigBike = GetComponent<OscBicycle>();
+        bigBike = Osc.GetComponent<OscBicycle>();
         bigBike.Calibrator();
     }
 }

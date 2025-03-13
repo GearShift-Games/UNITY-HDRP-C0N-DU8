@@ -12,11 +12,12 @@ public class TutoStep1 : MonoBehaviour
     public Animator checkmark;
 
     // The thing that makes calibration work
-    public OscBicycle bigBike;
+    private OscBicycle bigBike;
+    public GameObject Osc;
 
     void Start()
     {
-        bigBike = GetComponent<OscBicycle>();
+        bigBike = Osc.GetComponent<OscBicycle>();
     }
 
     private void OnTriggerEnter(Collider other)
