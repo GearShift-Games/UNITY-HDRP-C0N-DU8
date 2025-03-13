@@ -76,11 +76,11 @@ public class OscBicycle : MonoBehaviour
     {
         if (hasUser == false)
         {
-            // show leader board and stuff
+            // show video
         }
         else
         {
-            // hide leaderboard
+            // hide video
         }
 
         //Debug.Log("has user " + hasUser);
@@ -226,11 +226,11 @@ public class OscBicycle : MonoBehaviour
 
     public void RestartGame()
     {
-        //SceneManager.LoadScene("TUTORIAL");
-        /*hasUser = false;
+        SceneManager.LoadScene("00a_tutorial_speed");
+        hasUser = false;
         reset = false;
 
-
+        /*
         for (int i = 0; i < tutorial.Length; i++)
         {
             tutorial[i].SetActive(true);
