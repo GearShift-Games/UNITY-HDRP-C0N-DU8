@@ -12,8 +12,7 @@ using UnityEngine.UI;
 
 public class OscBicycle : MonoBehaviour
 {
-    public extOSC.OSCReceiver oscReceiver;
-    public extOSC.OSCTransmitter oscTransmitter;
+
     /*
     [Header("Tutorial Panel")]
     public GameObject[] tutorial;
@@ -21,9 +20,7 @@ public class OscBicycle : MonoBehaviour
     private int tutorialNumber = 0;
     */
     // For the handling of resets and restarts
-    private bool reset;
-    private bool hasUser = true;
-    private bool InTutorial = false;
+
     /*
     // Tutorial gameobject and such
     [Header("Tutorial Text")]
@@ -38,7 +35,7 @@ public class OscBicycle : MonoBehaviour
     
     private float Raw_x = 0;
     private float Left = 0;
-    private float Center = 0;
+    
     private float Right = 0; // put some 0 to help prevent major error when something goes wrong
 
     // Buttons control
@@ -47,10 +44,23 @@ public class OscBicycle : MonoBehaviour
     */
     //Speed
 
+    public extOSC.OSCReceiver oscReceiver;
+    public extOSC.OSCTransmitter oscTransmitter;
+
+    private bool reset;
+    private bool hasUser = true;
+    public bool InTutorial;
+
     public float Speed = 0;
     public float X = 0;
+    private float Center = 0;
 
+    Scene scene;
 
+    private void Awake()
+    {
+        scene = SceneManager.GetActiveScene();
+    }
 
     private void Start()
     {
@@ -96,6 +106,9 @@ public class OscBicycle : MonoBehaviour
             tutorialSlider.value = X;
         }
         */
+
+        messageTransmitter("/Center", Center);
+        messageTransmitter("/Calibrate", 1);
     }
 
     private void messageTransmitter(string id, float value)
@@ -306,7 +319,7 @@ public class OscBicycle : MonoBehaviour
                             Center = Raw_x;
                             tutorialSetCenter.text = Center.ToString();
                             Debug.Log("center");
-                            messageTransmitter("/Center", Center);
+                            
                             tutorial[tutorialNumber].SetActive(false);
                             tutorialNumber++;
                         }
