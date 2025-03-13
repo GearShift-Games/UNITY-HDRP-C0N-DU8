@@ -1791,6 +1791,126 @@ Transform:
   m_Children: []
   m_Father: {fileID: 773440170}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &509178362 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1332526421338833909, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178363 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 3205268738525724157, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178364 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2623380067855665181, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178365 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4691155765813318114, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178366 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 9095459519783856825, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178367 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7028731432184113171, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178368 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1504467863277406808, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178369 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3743169354465503329, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178370 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1219226174412145410, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178371 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8739381835433719197, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178372 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7933545313043550253, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178373 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6691486164584616387, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178374 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 8843427346065637900, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178375 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1698070938536064575, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178376 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7228188958186794281, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178377 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2410285974630319052, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178378 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2343548585417738228, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &509178379 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 7604127102284476335, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178380 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5044761013974569975, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &509178381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7126458739810352356, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1595367786}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &544335298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2173,7 +2293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &645411694
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2829,7 +2949,7 @@ MonoBehaviour:
   - {x: 24.968187, y: -0.12999979, z: 12.309219}
   - {x: 23.112535, y: -0.12999979, z: 15.050448}
   - {x: 20.608192, y: -0.12999979, z: 18.74995}
-  - {x: 7.4644294, y: 0.089, z: 13.451486}
+  - {x: 7.46443, y: 0.089, z: 13.451486}
   - {x: 3.4639916, y: 0.089, z: 12.027284}
   normals:
   - {x: 0, y: 1, z: 0}
@@ -3476,12 +3596,22 @@ PrefabInstance:
         type: 3}
       propertyPath: playerUIFrame
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 509178380}
     - target: {fileID: 4360240913180433851, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: playerUIPortrait
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 509178381}
+    - target: {fileID: 4360240913180433851, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 509178379}
+    - target: {fileID: 4360240913180433851, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 509178378}
     - target: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -5598,6 +5728,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 6916892290848385918, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7917642143642160243, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Pivot.x
@@ -6015,11 +6150,51 @@ PrefabInstance:
       propertyPath: Mainplayer
       value: 
       objectReference: {fileID: 978662193}
+    - target: {fileID: 2986174329917179886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIFrame
+      value: 
+      objectReference: {fileID: 509178372}
+    - target: {fileID: 2986174329917179886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIPortrait
+      value: 
+      objectReference: {fileID: 509178373}
+    - target: {fileID: 2986174329917179886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 509178371}
+    - target: {fileID: 2986174329917179886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 509178370}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: Mainplayer
       value: 
       objectReference: {fileID: 978662193}
+    - target: {fileID: 3446201962185244441, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIFrame
+      value: 
+      objectReference: {fileID: 509178376}
+    - target: {fileID: 3446201962185244441, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIPortrait
+      value: 
+      objectReference: {fileID: 509178377}
+    - target: {fileID: 3446201962185244441, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 509178375}
+    - target: {fileID: 3446201962185244441, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 509178374}
     - target: {fileID: 4248482999754739313, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: m_Name
@@ -6085,6 +6260,46 @@ PrefabInstance:
       propertyPath: BoomSounds.Array.data[9]
       value: 
       objectReference: {fileID: 8300000, guid: 1be8c6e6fbcd64a43923793fbf817b80, type: 3}
+    - target: {fileID: 6942143831248067742, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIFrame
+      value: 
+      objectReference: {fileID: 509178368}
+    - target: {fileID: 6942143831248067742, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIPortrait
+      value: 
+      objectReference: {fileID: 509178369}
+    - target: {fileID: 6942143831248067742, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 509178367}
+    - target: {fileID: 6942143831248067742, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 509178366}
+    - target: {fileID: 8853864096520108280, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIFrame
+      value: 
+      objectReference: {fileID: 509178364}
+    - target: {fileID: 8853864096520108280, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: playerUIPortrait
+      value: 
+      objectReference: {fileID: 509178365}
+    - target: {fileID: 8853864096520108280, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparkAnimationUI
+      value: 
+      objectReference: {fileID: 509178363}
+    - target: {fileID: 8853864096520108280, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: sparksPositionUI
+      value: 
+      objectReference: {fileID: 509178362}
     - target: {fileID: 9018395274458052569, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: BoomSounds.Array.size
