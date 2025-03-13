@@ -5,24 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class TutoStep3 : MonoBehaviour
 {
-    // Animator for scene changes
-    public Animator transition;
+    // The work that calibration thing makes
+    public OscBicycle bigBike;
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        //Debug.Log(healthPoints);
-        if (other.tag == "TutoProgress")
-        {
-            StartCoroutine(TutoStep3Over());
-        }
-    }
-
-    private IEnumerator TutoStep3Over()
-    {
-        // Death sequence here
-        transition.Play("uiFadeOUT");
-        yield return new WaitForSeconds(2);
-        SceneManager.LoadScene("Circuit1");
-        yield break;
+        bigBike = GetComponent<OscBicycle>();
+        bigBike.Calibrator();
     }
 }

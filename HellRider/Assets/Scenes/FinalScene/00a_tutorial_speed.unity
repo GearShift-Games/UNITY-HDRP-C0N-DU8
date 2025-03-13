@@ -2051,6 +2051,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   transition: {fileID: 1673553588}
   checkmark: {fileID: 724863181}
+  bigBike: {fileID: 1571462424}
 --- !u!1 &1255105467 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6382962783937567277, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
@@ -2505,6 +2506,18 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7, type: 3}
+--- !u!114 &1571462424 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1571462423}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1255105467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0eff54a0b951cc408776a06a01a0f32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1673553587
 PrefabInstance:
   m_ObjectHideFlags: 0

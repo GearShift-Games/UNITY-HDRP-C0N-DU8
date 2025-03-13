@@ -14,6 +14,15 @@ public class TutoStep2 : MonoBehaviour
     // To account both directions
     public int directionCount = 0;
 
+    // The calibration that makes thing work
+    public OscBicycle bigBike;
+    
+    void Start()
+    {
+        bigBike = GetComponent<OscBicycle>();
+        bigBike.Calibrator();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(healthPoints);

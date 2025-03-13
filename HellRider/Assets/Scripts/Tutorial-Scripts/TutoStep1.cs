@@ -30,7 +30,7 @@ public class TutoStep1 : MonoBehaviour
 
     private IEnumerator TutoStep1Over()
     {
-        bigBike
+        bigBike.Calibrator();
         checkmark.Play("TUTO_checkmark");
         yield return new WaitForSeconds(1.5f);
         // Mods, turn off the lights
