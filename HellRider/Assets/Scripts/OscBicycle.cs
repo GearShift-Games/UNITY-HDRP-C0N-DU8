@@ -296,6 +296,7 @@ public class OscBicycle : MonoBehaviour
 
         hasUser = true;
         //InTutorial = true;
+        SceneManager.LoadScene(1);
     }
 
     /* 
@@ -451,7 +452,7 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        //Debug.Log(value);
+        Debug.Log(value);
 
         //value = ScaleValue(value, -15000,15000,-1,1);
 

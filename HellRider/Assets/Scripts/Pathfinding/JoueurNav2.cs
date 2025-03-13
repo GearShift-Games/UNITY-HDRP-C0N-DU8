@@ -115,7 +115,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     void Update()
     {
         // Récupération des données OSC et du clavier 
-        RealSpeed = testVitesse; // 0.09f   Osc.GetComponent<OscBicycle>().Speed;
+        RealSpeed = Osc.GetComponent<OscBicycle>().Speed; // 0.09f   testVitesse;
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
         horizontalInput = XValue + Input.GetAxis("Horizontal");
