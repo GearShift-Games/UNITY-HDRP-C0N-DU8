@@ -1677,7 +1677,7 @@ MonoBehaviour:
   priority: 0
   blendDistance: 0
   weight: 1
-  sharedProfile: {fileID: 11400000, guid: 8ba92e2dd7f884a0f88b98fa2d235fe7, type: 2}
+  sharedProfile: {fileID: 11400000, guid: 86c4888ea0fce5f49990df3d0887ada2, type: 2}
 --- !u!4 &236574958
 Transform:
   m_ObjectHideFlags: 0
@@ -8908,7 +8908,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 99598e0f23294724fac8191e773522d5, type: 3}
   TimerGoDown: {fileID: 0}
   lastPlaceSound: {fileID: 0}
-  BikeSound: {fileID: 8300000, guid: 834a9d5f5050ec9489bb52ca51509e2f, type: 3}
+  bikeSounds: []
   AccelerationSounds:
   - {fileID: 8300000, guid: 133d8321721e1f6478c2213f30eafa3a, type: 3}
   - {fileID: 8300000, guid: 77aea49b6ce8d5b4a9309f20be90cb45, type: 3}

@@ -28,7 +28,7 @@ public class TestSon : MonoBehaviour
     public AudioClip[] rankDownSound; // Son quand le joueur monte
     public AudioClip TimerGoDown; //son quand tu es en derniere place
     public AudioClip lastPlaceSound;
-    public AudioClip BikeSound;
+    public AudioClip[] bikeSounds;
 
     [Header("Acceleration Sound Settings")]
     public AudioClip[] AccelerationSounds;
@@ -63,7 +63,7 @@ public class TestSon : MonoBehaviour
         timer = player.GetComponent<Timer>();
         navigationJoueur = player.GetComponent<JoueurNav2>();
 
-        AudioSourceBikeSound.clip = BikeSound;
+       
         AudioSourceBikeSound.loop = true;
     }
 
@@ -107,7 +107,31 @@ public class TestSon : MonoBehaviour
 
 
         // for the bike wheel sound
-        if (speed != 0)
+        // Pour le son de la roue du vélo avec une vitesse (pitch) proportionnelle à la vitesse du joueur
+        if (speed > 0)
+        {
+            if (!AudioSourceBikeSound.isPlaying)
+            {
+                // Sélection aléatoire d'un son parmi les 10
+                int randomIndex = Random.Range(0, bikeSounds.Length);
+                AudioSourceBikeSound.clip = bikeSounds[randomIndex];
+                AudioSourceBikeSound.loop = true;
+                AudioSourceBikeSound.Play();
+            }
+            // Modification du pitch en fonction de la vitesse (si vous souhaitez garder cette fonctionnalité)
+            AudioSourceBikeSound.pitch = Mathf.Clamp((speed / 500f) * 2.5f, 0f, 2.5f);
+        }
+        else
+        {
+            if (AudioSourceBikeSound.isPlaying)
+            {
+                AudioSourceBikeSound.Stop();
+            }
+        }
+
+
+        // Bike sound original
+        /*if (speed != 0)
         {
             if (!AudioSourceBikeSound.isPlaying)
             {
@@ -121,6 +145,8 @@ public class TestSon : MonoBehaviour
                 AudioSourceBikeSound.Stop();
             }
         }
+        */
+        //
         if (speed < 1f)
         {
             hasPlayedAccelSound = false;
