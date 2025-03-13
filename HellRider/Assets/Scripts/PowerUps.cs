@@ -47,6 +47,17 @@ public class PowerUps : MonoBehaviour
      *  6 : LASTTWOFIRST
      *  7 : LASTTWOLAST
      *  
+     *  
+     *  
+     *  Power Up Description
+     *  
+     *  Turbo: Boost temporaire de la vitesse (2e a 5e place)
+     *  TP: Téléporte avec un joueur aléatoire (2e a 5e place)
+     *  Recharge: Recharge de fusible 50% max(3e a 5e place et peut pas aller plus haut que 100%) 
+     *  Laser: Ralenti tous les joueurs touché
+     *  Blue Chipmuncks: Le premier joueur freine
+     *  Consolation: Donne 2 objets aléatoires a la suite(derniere place uniquement)
+     *  Shield: Ne peut être affecter par un malus, utiliser une seule fois
      */
 
     string[] FIRSTPLACE = { "Laser", "MagneticField", "FullHand", "Obstacle"};
