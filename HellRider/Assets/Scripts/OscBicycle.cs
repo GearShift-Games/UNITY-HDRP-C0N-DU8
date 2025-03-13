@@ -48,7 +48,7 @@ public class OscBicycle : MonoBehaviour
     public extOSC.OSCTransmitter oscTransmitter;
 
     private bool reset;
-    private bool hasUser = true;
+    private bool hasUser;
     public bool InTutorial;
 
     public float Speed = 0;
@@ -84,6 +84,7 @@ public class OscBicycle : MonoBehaviour
 
     public void Calibrator()
     {
+        Debug.Log("calibrate");
         if (scene.name == "00a_tutorial_speed")
         {
             messageTransmitter("/Center", X);
