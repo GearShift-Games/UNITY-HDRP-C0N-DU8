@@ -557,6 +557,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 128527516}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &128778567 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5338664663579613258, guid: 0c74920cc6490d24bb78c82d556c7333,
+    type: 3}
+  m_PrefabInstance: {fileID: 264963242}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &160746435
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,6 +684,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: Pivot
+      value: 
+      objectReference: {fileID: 128778567}
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: maxSpeed
@@ -1481,11 +1492,19 @@ MonoBehaviour:
   previousPlacement: 0
   audioSource: {fileID: 645411695}
   AudioSourceBikeSound: {fileID: 645411695}
-  rankUpSound: {fileID: 8300000, guid: 4df0e09816a87d74f99683d01905883e, type: 3}
-  rankDownSound: {fileID: 8300000, guid: 678977b4fa0f7bc45a9565a4531b9a5a, type: 3}
+  rankUpSound:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  rankDownSound:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   TimerGoDown: {fileID: 0}
   lastPlaceSound: {fileID: 0}
   BikeSound: {fileID: 8300000, guid: 834a9d5f5050ec9489bb52ca51509e2f, type: 3}
+  AccelerationSounds: []
+  decelerationClip: []
 --- !u!82 &645411695
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1608,7 +1627,6 @@ GameObject:
   m_Component:
   - component: {fileID: 963971362}
   - component: {fileID: 963971361}
-  - component: {fileID: 963971360}
   - component: {fileID: 963971359}
   m_Layer: 0
   m_Name: TestRouteCam
@@ -1746,14 +1764,6 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
---- !u!81 &963971360
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 963971358}
-  m_Enabled: 1
 --- !u!20 &963971361
 Camera:
   m_ObjectHideFlags: 0
@@ -2087,6 +2097,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cdfd96ae35d24c4b9f9bbd66e59b2cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  testVitesse: 0.09
   trail: {fileID: 2000432636}
   MainPath:
   - {fileID: 1547070854}
@@ -2176,6 +2187,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 085ccc8a95a23544aab1525bee90d878, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSource: {fileID: 0}
+  TurboSound: []
   otherPlayers:
   - {fileID: 264963243}
   PlayersAlive: 0
@@ -2391,6 +2404,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1202429197}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1244936831 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4204147259062537955, guid: 2d9892b95dd1a454e8ef2a6d440807c1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3132567}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1259889090
 GameObject:
   m_ObjectHideFlags: 0
@@ -3020,6 +3039,11 @@ PrefabInstance:
       propertyPath: Player
       value: 
       objectReference: {fileID: 978662193}
+    - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: posManage
+      value: 
+      objectReference: {fileID: 1244936831}
     - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: AI.Array.size
