@@ -8,6 +8,9 @@ public class TutoStep1 : MonoBehaviour
     // Animator for scene changes
     public Animator transition;
 
+    // the thing that animates the thing that it should animate
+    public Animator checkmark;
+
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(healthPoints);
@@ -19,10 +22,11 @@ public class TutoStep1 : MonoBehaviour
 
     private IEnumerator TutoStep1Over()
     {
-        Debug.Log("uh?");
-        // Death sequence here
+        checkmark.Play("TUTO_checkmark");
+        yield return new WaitForSeconds(1.5f);
+        // Mods, turn off the lights
         transition.Play("uiFadeOUT");
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(2f);
         SceneManager.LoadScene("00b_tutorial_turn");
         yield break;
     }

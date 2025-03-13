@@ -8,6 +8,9 @@ public class TutoStep2 : MonoBehaviour
     // Animator for scene changes
     public Animator transition;
 
+    // "Congratulation, you did it" animator
+    public Animator checkmark;
+
     // To account both directions
     public int directionCount = 0;
 
@@ -27,7 +30,9 @@ public class TutoStep2 : MonoBehaviour
 
     private IEnumerator TutoStep2Over()
     {
-        // Death sequence here
+        checkmark.Play("TUTO_checkmark");
+        yield return new WaitForSeconds(1.5f);
+        // Sam wasnt here, the code works
         transition.Play("uiFadeOUT");
         yield return new WaitForSeconds(2);
         SceneManager.LoadScene("00c_tutorial_life");
