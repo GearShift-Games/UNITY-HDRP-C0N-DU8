@@ -15,7 +15,7 @@ public class TutoCanvas : MonoBehaviour
 
     // positions dans le ui
     public Vector2 firstPosition = new Vector2(-300, 300);
-    public Vector2 secondPosition = new Vector2(300, 300);
+    public Vector2 secondPosition = new Vector2(400, 300);
 
 
     void Update()

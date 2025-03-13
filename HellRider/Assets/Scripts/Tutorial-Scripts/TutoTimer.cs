@@ -10,6 +10,8 @@ public class TutoTimer : MonoBehaviour
     public float seconds;
     public GameObject playerUIPortrait;
     public GameObject playerUIFrame;
+    public Animator sparkAnimationUI;
+    public Animator sparksPositionUI;
 
     private bool StillAlive = true;
 
@@ -28,10 +30,13 @@ public class TutoTimer : MonoBehaviour
         if (isAI)
         {
             animator.Play("UIpink", 0, 24.0f);
+            sparksPositionUI.Play("sparkPosition", 0, 24.0f);
         } else
         {
             animator.Play("UIpink");
+            sparksPositionUI.Play("sparkPosition");
         }
+        sparkAnimationUI.Play("sparkling");
     }
 
     void Update()
@@ -59,6 +64,7 @@ public class TutoTimer : MonoBehaviour
             if (isAI)
             {
                 animator.speed = 2;
+                sparksPositionUI.speed = 2;
             } else
             {
                 animator.speed = 1;
@@ -69,6 +75,7 @@ public class TutoTimer : MonoBehaviour
             //stop fuse animation
             //deactivate ui
             animator.speed = 0;
+            sparksPositionUI.speed = 0;
         }
     }
 
