@@ -11,6 +11,14 @@ public class TutoStep1 : MonoBehaviour
     // the thing that animates the thing that it should animate
     public Animator checkmark;
 
+    // The thing that makes calibration work
+    public OscBicycle bigBike;
+
+    void Start()
+    {
+        bigBike = GetComponent<OscBicycle>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(healthPoints);
@@ -22,6 +30,7 @@ public class TutoStep1 : MonoBehaviour
 
     private IEnumerator TutoStep1Over()
     {
+        bigBike
         checkmark.Play("TUTO_checkmark");
         yield return new WaitForSeconds(1.5f);
         // Mods, turn off the lights

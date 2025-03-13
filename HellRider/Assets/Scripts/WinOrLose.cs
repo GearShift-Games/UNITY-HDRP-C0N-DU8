@@ -118,7 +118,7 @@ public class WinOrLose : MonoBehaviour
             }
             else if (scene.name == "Circuit3")
             {
-                SceneManager.LoadScene(0);
+                SceneManager.LoadScene(1);
             }
         }
         else if (Lost == true)
