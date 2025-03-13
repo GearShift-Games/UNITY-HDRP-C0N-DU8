@@ -12,6 +12,9 @@ public class Timer : MonoBehaviour
     public Animator sparkAnimationUI;
     public Animator sparksPositionUI;
 
+    // For when they die
+    public GameObject explosion;
+
     private bool StillAlive = true;
 
     public int position;
@@ -75,6 +78,7 @@ public class Timer : MonoBehaviour
     private IEnumerator DiesWithLoves()
     {
         StillAlive = false; // so it only gets started once
+        explosion.SetActive(true);
         Time.timeScale = 0.5f ;
         yield return new WaitForSeconds(0.5f);
         this.gameObject.SetActive(false);
