@@ -20,6 +20,9 @@ public class countdown : MonoBehaviour
 
     private bool unlockPlayers = true;
 
+    // If its the intro
+    public bool isIntro = false;
+
     public AudioSource audioSource;
     public AudioClip raceStartSound;
     private bool checkedStartSound = false;
@@ -68,13 +71,16 @@ public class countdown : MonoBehaviour
 
     void getComponents(bool status)
     {
-        // Activates / Desactivates inputs
-        JoueurNav2 playerMovement = Player.GetComponent<JoueurNav2>();
-        Timer playerTimer = Player.GetComponent<Timer>();
-        // NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
-        playerMovement.enabled = status;
-        playerTimer.enabled = status;
-        // PlayerAgent.enabled = status;
+        if (isIntro == false)
+        {
+            // Activates / Desactivates inputs
+            JoueurNav2 playerMovement = Player.GetComponent<JoueurNav2>();
+            Timer playerTimer = Player.GetComponent<Timer>();
+            // NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
+            playerMovement.enabled = status;
+            playerTimer.enabled = status;
+            // PlayerAgent.enabled = status;
+        }
 
         // Activates / Desactivates position Manager
         PositionManager placementsSwitch = posManage.GetComponent<PositionManager>();
