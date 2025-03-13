@@ -89,20 +89,23 @@ public class OscBicycle : MonoBehaviour
 
     public void Calibrator()
     {
-        Debug.Log("calibrate");
         if (scene.name == "00a_tutorial_speed")
         {
+            Debug.Log("set center");
             messageTransmitter("/Center", X);
         }
         else if (scene.name == "00b_tutorial_turn")
         {
+            Debug.Log("calibrating");
             messageTransmitter("/Calibrate", 1);
         }
         else
         {
+            Debug.Log("stop calibrating");
             messageTransmitter("/Calibrate", 0);
             messageTransmitter("/Reset", 0);
         }
+        Debug.Log("end of calibrator");
     }
 
     private void Update()
