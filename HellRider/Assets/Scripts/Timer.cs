@@ -15,6 +15,9 @@ public class Timer : MonoBehaviour
     // For when they die
     public GameObject explosion;
 
+    // UI when someone dies
+    private Animator uiDies;
+
     private bool StillAlive = true;
 
     public int position;
@@ -30,6 +33,7 @@ public class Timer : MonoBehaviour
         animator.Play("UIpink");
         sparkAnimationUI.Play("sparkling");
         sparksPositionUI.Play("sparkPosition");
+        uiDies = playerUIPortrait.GetComponent<Animator>();
     }
 
     void Update()
@@ -48,7 +52,7 @@ public class Timer : MonoBehaviour
                 TimeLeft = 0;
                 TimerOn = false;
                 playerUIFrame.SetActive(false);
-                playerUIPortrait.GetComponent<Image>().color = new Color32(50, 50, 50, 80);
+                uiDies.Play("ui_dying");
                 StartCoroutine(DiesWithLoves());
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
