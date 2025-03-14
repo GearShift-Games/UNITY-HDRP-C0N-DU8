@@ -103,8 +103,9 @@ public class OscBicycle : MonoBehaviour
         {
             Debug.Log("stop calibrating");
             messageTransmitter("/Calibrate", 0);
-            messageTransmitter("/Reset", 0);
         }
+
+        messageTransmitter("/Reset", 0);
         Debug.Log("end of calibrator");
     }
 
@@ -266,6 +267,7 @@ public class OscBicycle : MonoBehaviour
     public void RestartGame()
     {
         messageTransmitter("/Reset", 1);
+        messageTransmitter("/Calibrate", 0);
 
         hasUser = false;
         reset = false;

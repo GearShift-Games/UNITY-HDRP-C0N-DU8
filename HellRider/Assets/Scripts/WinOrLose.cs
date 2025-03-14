@@ -44,45 +44,47 @@ public class WinOrLose : MonoBehaviour
     private void Start()
     {
         onGoingRace = true;
+
+        if (scene.name == "Outro")
+        {
+            StartCoroutine(SetWinAfterDelay(10f));
+        }
     }
     void Update()
     {
         Time.timeScale = timespeed;
 
-        if (!MainPlayer.activeInHierarchy && onGoingRace == true) //when you lose
+        if (scene.name != "Outro")
         {
-            PlaySound(LoseSound, 1f);
-            onGoingRace = false;
-            Lost = true;
-            EndGameMenu.SetActive(true);
-            Lose.SetActive(true);
-            StartCoroutine(Restart());
-        }
-
-
-        LeftAlive = 0;
-        for (int i = 0; i < Participant.Length; i++)
-        {
-            if (Participant[i].activeInHierarchy)
+            if (!MainPlayer.activeInHierarchy && onGoingRace == true) //when you lose
             {
-                LeftAlive++;
+                PlaySound(LoseSound, 1f);
+                onGoingRace = false;
+                Lost = true;
+                EndGameMenu.SetActive(true);
+                Lose.SetActive(true);
+                StartCoroutine(Restart());
             }
-        }
 
-        if (LeftAlive == 1 && onGoingRace == true) //you win here 
-        {
-            //SceneManager.LoadScene("Circuit01_Maquette");
-            PlaySound(WinSound, 0.5f);
-            onGoingRace = false;
-            Won = true;
-            EndGameMenu.SetActive(true);
-            Win.SetActive(true);
-            StartCoroutine(Restart());
-        }
 
-        if (scene.name == "Outro")
-        {
-            StartCoroutine(SetWinAfterDelay(10f));
+            LeftAlive = 0;
+            for (int i = 0; i < Participant.Length; i++)
+            {
+                if (Participant[i].activeInHierarchy)
+                {
+                    LeftAlive++;
+                }
+            }
+
+            if (LeftAlive == 1 && onGoingRace == true) //you win here 
+            {
+                PlaySound(WinSound, 0.5f);
+                onGoingRace = false;
+                Won = true;
+                EndGameMenu.SetActive(true);
+                Win.SetActive(true);
+                StartCoroutine(Restart());
+            }
         }
 
     }
@@ -99,11 +101,12 @@ public class WinOrLose : MonoBehaviour
     IEnumerator Restart()
     {
 
-        for (int i = 6; i >= 0; i--)
+        for (int i = 5; i >= 0; i--)
         {
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
         }
+
         transition.Play("uiFadeOUT");
         yield return new WaitForSeconds(2);
 
@@ -182,5 +185,7 @@ public class WinOrLose : MonoBehaviour
         yield return new WaitForSeconds(delay);
         Won = true;
         Debug.Log("Win = " + Won);
+        StartCoroutine(Restart());
+        yield break;
     }
 }
