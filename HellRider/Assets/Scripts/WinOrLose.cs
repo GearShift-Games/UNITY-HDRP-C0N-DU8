@@ -94,7 +94,8 @@ public class WinOrLose : MonoBehaviour
 
     IEnumerator Restart()
     {
-        for (int i = 5; i >= 0; i--)
+
+        for (int i = 6; i >= 0; i--)
         {
             RestartCountdown.text = i.ToString();
             yield return new WaitForSeconds(1f);
@@ -118,9 +119,42 @@ public class WinOrLose : MonoBehaviour
             }
             else if (scene.name == "Circuit3")
             {
+                SceneManager.LoadScene("Outro");
+            }
+            else if (scene.name == "Outro")
+            {
                 SceneManager.LoadScene(1);
             }
         }
+        /*for (int i = 5; i >= 0; i--)
+        {
+            RestartCountdown.text = i.ToString();
+            yield return new WaitForSeconds(1f);
+        }
+        transition.Play("uiFadeOUT");
+        yield return new WaitForSeconds(2);
+
+
+
+        if (Won == true)
+        {
+            if (scene.name == "00c_tutorial_life")
+            {
+                SceneManager.LoadScene("Circuit1");
+            }
+            else if (scene.name == "Circuit1")
+            {
+                SceneManager.LoadScene("Circuit2");
+            }
+            else if (scene.name == "Circuit2")
+            {
+                SceneManager.LoadScene("Circuit3");
+            }
+            else if (scene.name == "Circuit3")
+            {
+                SceneManager.LoadScene(1);
+            }
+        }*/
         else if (Lost == true)
         {
              if (scene.name == "Circuit1" || scene.name == "Circuit2" || scene.name == "Circuit3")
