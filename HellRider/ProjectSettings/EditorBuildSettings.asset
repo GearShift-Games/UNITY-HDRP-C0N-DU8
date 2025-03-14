@@ -29,4 +29,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FinalScene/Circuit4.unity
     guid: c12a8c4091c73c74ba1033ad7c74dd20
+  - enabled: 1
+    path: Assets/Scenes/FinalScene/Outro.unity
+    guid: 57dd5cba49a209c4db1ab248a9965058
   m_configObjects: {}

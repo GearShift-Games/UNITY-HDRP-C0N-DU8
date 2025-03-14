@@ -80,6 +80,10 @@ public class WinOrLose : MonoBehaviour
             StartCoroutine(Restart());
         }
 
+        if (scene.name == "Outro")
+        {
+            StartCoroutine(SetWinAfterDelay(10f));
+        }
 
     }
 
@@ -123,7 +127,7 @@ public class WinOrLose : MonoBehaviour
             }
             else if (scene.name == "Outro")
             {
-                SceneManager.LoadScene(1);
+                SceneManager.LoadScene(4);
             }
         }
         /*for (int i = 5; i >= 0; i--)
@@ -171,5 +175,12 @@ public class WinOrLose : MonoBehaviour
         
 
         yield break;
+
+    }
+    IEnumerator SetWinAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        Won = true;
+        Debug.Log("Win = " + Won);
     }
 }
