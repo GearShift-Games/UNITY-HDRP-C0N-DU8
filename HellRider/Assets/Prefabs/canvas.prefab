@@ -2141,6 +2141,7 @@ GameObject:
   - component: {fileID: 9041394524046245998}
   - component: {fileID: 3911603172932192122}
   - component: {fileID: 5640404633407485111}
+  - component: {fileID: 8785060304097552361}
   m_Layer: 5
   m_Name: iconRed
   m_TagString: Untagged
@@ -2205,6 +2206,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8785060304097552361
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2410285974630319052}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c087355855bd9b4d8625cfca94d04a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &2512727037791646046
 GameObject:
   m_ObjectHideFlags: 0
@@ -2771,6 +2793,7 @@ GameObject:
   - component: {fileID: 6973659748543150068}
   - component: {fileID: 4633611057678894269}
   - component: {fileID: 6597076296857910370}
+  - component: {fileID: 8287262675535324597}
   m_Layer: 5
   m_Name: iconYellow
   m_TagString: Untagged
@@ -2835,6 +2858,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8287262675535324597
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3743169354465503329}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c087355855bd9b4d8625cfca94d04a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4036709973898564797
 GameObject:
   m_ObjectHideFlags: 0
@@ -3466,6 +3510,7 @@ GameObject:
   - component: {fileID: 6395599644868109035}
   - component: {fileID: 5681604091056082921}
   - component: {fileID: 6090716619592785727}
+  - component: {fileID: 8456255573782407015}
   m_Layer: 5
   m_Name: iconGreen
   m_TagString: Untagged
@@ -3530,6 +3575,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8456255573782407015
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691155765813318114}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c087355855bd9b4d8625cfca94d04a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &4845758212982271246
 GameObject:
   m_ObjectHideFlags: 0
@@ -5463,6 +5529,7 @@ GameObject:
   - component: {fileID: 6013625670848512345}
   - component: {fileID: 1731193511823583833}
   - component: {fileID: 6031313345049974510}
+  - component: {fileID: 4531307179119783829}
   m_Layer: 5
   m_Name: iconBlue
   m_TagString: Untagged
@@ -5527,6 +5594,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &4531307179119783829
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6691486164584616387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c087355855bd9b4d8625cfca94d04a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6916892290848385918
 GameObject:
   m_ObjectHideFlags: 0
@@ -5850,6 +5938,7 @@ GameObject:
   - component: {fileID: 5088081074544478820}
   - component: {fileID: 6632010581846007173}
   - component: {fileID: 6367877352499200115}
+  - component: {fileID: 8583066816993196983}
   m_Layer: 5
   m_Name: iconPink
   m_TagString: Untagged
@@ -5914,6 +6003,27 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!95 &8583066816993196983
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7126458739810352356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3c087355855bd9b4d8625cfca94d04a8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7228188958186794281
 GameObject:
   m_ObjectHideFlags: 0
