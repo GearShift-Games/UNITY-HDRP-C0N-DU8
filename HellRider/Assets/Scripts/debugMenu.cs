@@ -46,7 +46,7 @@ public class debugMenu : MonoBehaviour
                 SceneManager.LoadScene(6);
             } else if (Input.GetKeyDown(KeyCode.F8))
             {
-                SceneManager.LoadScene(7);
+                SceneManager.LoadScene(8);
             }
         }
     }
