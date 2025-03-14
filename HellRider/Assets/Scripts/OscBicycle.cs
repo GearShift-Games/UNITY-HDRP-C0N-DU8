@@ -53,7 +53,7 @@ public class OscBicycle : MonoBehaviour
 
     public float Speed = 0;
     public float X = 0;
-    private float Center = 0;
+    //private float Center = 0;
 
     Scene scene;
 
