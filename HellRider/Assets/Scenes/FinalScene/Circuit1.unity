@@ -1727,6 +1727,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9d4b1382151645e4a85cdd04f4efe44a, type: 3}
+--- !u!95 &79667440 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2351932799584983783, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+    type: 3}
+  m_PrefabInstance: {fileID: 79667439}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &81159946
 Mesh:
   m_ObjectHideFlags: 0
@@ -37164,6 +37170,11 @@ PrefabInstance:
       propertyPath: MainPlayer
       value: 
       objectReference: {fileID: 978662193}
+    - target: {fileID: 4579122958443511426, guid: 30c717182b2ad4c4ba22809cd23c28dc,
+        type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 79667440}
     - target: {fileID: 4579122958443511426, guid: 30c717182b2ad4c4ba22809cd23c28dc,
         type: 3}
       propertyPath: EndGameMenu
