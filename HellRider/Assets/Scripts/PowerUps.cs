@@ -52,12 +52,13 @@ public class PowerUps : MonoBehaviour
      *  Power Up Description
      *  
      *  Turbo: Boost temporaire de la vitesse (2e a 5e place)
-     *  TP: Téléporte avec un joueur aléatoire (2e a 5e place)
-     *  Recharge: Recharge de fusible 50% max(3e a 5e place et peut pas aller plus haut que 100%) 
+     *  dieportal: Téléporte avec un joueur aléatoire (last and before last place when more than 2/3 player)
+     *  Recharge: Recharge de fuse 6 seconde (3e a 5e place et peut pas aller plus haut que 100%) 
      *  Laser: Ralenti tous les joueurs touché
-     *  Blue Chipmuncks: Le premier joueur freine
-     *  Consolation: Donne 2 objets aléatoires a la suite(derniere place uniquement)
+     *  Hacking: Le premier joueur freine
      *  Shield: Ne peut être affecter par un malus, utiliser une seule fois
+     *  
+     *  
      */
 
     string[] FIRSTPLACE = { "Laser", "MagneticField", "FullHand", "Obstacle"};
@@ -75,6 +76,22 @@ public class PowerUps : MonoBehaviour
 
     JoueurNav2 Joueur;
     Navigation8 AI;
+
+
+
+    //to store their values
+    float theirScore;
+    int theirPath;
+    int theirwaypointIndex;
+    UnityEngine.Vector3 their3DPosition;
+
+    //to store our values
+    float thisScore;
+    int thisPath;
+    int thiswaypointIndex;
+    UnityEngine.Vector3 this3DPosition;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -94,7 +111,7 @@ public class PowerUps : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        //Debug.Log(this.gameObject.name + " " + this.gameObject.transform.position);
     }
 
 
@@ -103,16 +120,17 @@ public class PowerUps : MonoBehaviour
         if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player"))
         {
             //Debug.Log(this.gameObject.name + " boxed Player");
-            PowerChooser(position, PlayersAlive);
-            //StartCoroutine("Turbo");
+            //PowerChooser(position, PlayersAlive);
+            StartCoroutine("DiePortal");
         }
         else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
         {
             //Debug.Log(this.gameObject.name + " boxed AI");
-            PowerChooser(position, PlayersAlive);
-            //StartCoroutine("Turbo");
+            //PowerChooser(position, PlayersAlive);
+            StartCoroutine("DiePortal");
         }
 
+        /*
         if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("Player"))
         {
             StartCoroutine("Turbo");
@@ -121,11 +139,12 @@ public class PowerUps : MonoBehaviour
         {
             StartCoroutine("Turbo");
         }
+        */
     }
 
     void PowerChooser(int Position, int playersAlive)
     {
-        Debug.Log("position : " + Position + ", PlayersAlive : " + playersAlive);
+        //Debug.Log("position : " + Position + ", PlayersAlive : " + playersAlive);
         if (playersAlive == 2)
         {
             if (Position == 1)
@@ -202,13 +221,13 @@ public class PowerUps : MonoBehaviour
     // we'll need to activate it here most likely, dunno how to do it for the ai yet tho
     private IEnumerator Turbo()
     {
-        if (this.gameObject.tag == "AI")
+        if (this.gameObject.CompareTag("AI"))
         {
-            AI.currentSpeedMultiplier = 3;
+            AI.currentSpeedMultiplier = 2;
         }
-        else if (this.gameObject.tag == "Player")
+        else if (this.gameObject.CompareTag("Player"))
         {
-            Joueur.currentSpeedMultiplier = 3;
+            Joueur.currentSpeedMultiplier = 2;
             // Rajouter son ici
             
             int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
@@ -217,13 +236,13 @@ public class PowerUps : MonoBehaviour
         }
 
         Debug.Log(this.gameObject.name + " Boostah ON!");
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(3f);
 
-        if (this.gameObject.tag == "AI")
+        if (this.gameObject.CompareTag("AI"))
         {
             AI.currentSpeedMultiplier = 1;
         }
-        else if (this.gameObject.tag == "Player")
+        else if (this.gameObject.CompareTag("Player"))
         {
             Joueur.currentSpeedMultiplier = 1;
         }
@@ -240,7 +259,84 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator DiePortal()
     {
-        Debug.Log(this.gameObject.name + " DiePortal");
+
+
+        //Debug.Log(this.gameObject.name + " DiePortal");
+
+        int randomIndex = Random.Range(0, otherPlayers.Length);
+
+        //make sure the one picked isnt already dead
+        while (!otherPlayers[randomIndex].activeInHierarchy)
+        {
+            randomIndex = Random.Range(0, otherPlayers.Length);
+        }
+
+        //Debug.Log(this.gameObject.name + " switch " + otherPlayers[randomIndex].name);
+
+        //getting this gameobject value
+        if (this.gameObject.CompareTag("AI"))
+        {
+            thisScore = AI.score;
+            thisPath = AI.CurrentPathNumber;
+            thiswaypointIndex = AI.currentWaypointIndex;
+        }
+        else if (this.gameObject.CompareTag("Player"))
+        {
+            thisScore = Joueur.score;
+            thisPath = Joueur.CurrentPathNumber;
+            thiswaypointIndex = Joueur.currentWaypointIndex;
+        }
+
+
+        if (otherPlayers[randomIndex].gameObject.CompareTag("AI"))
+        {
+            //get their values
+            theirScore = otherPlayers[randomIndex].GetComponent<Navigation8>().score;
+            theirPath = otherPlayers[randomIndex].GetComponent<Navigation8>().CurrentPathNumber;
+            theirwaypointIndex = otherPlayers[randomIndex].GetComponent<Navigation8>().currentWaypointIndex;
+
+            otherPlayers[randomIndex].GetComponent<Navigation8>().score = thisScore;
+            otherPlayers[randomIndex].GetComponent<Navigation8>().CurrentPathNumber = thisPath;
+            otherPlayers[randomIndex].GetComponent<Navigation8>().currentWaypointIndex = thiswaypointIndex;
+            otherPlayers[randomIndex].GetComponent<Navigation8>().changeRoutePortal();
+        }
+        else if (otherPlayers[randomIndex].gameObject.CompareTag("Player"))
+        {
+            //get their values
+            theirScore = otherPlayers[randomIndex].GetComponent<JoueurNav2>().score;
+            theirPath = otherPlayers[randomIndex].GetComponent<JoueurNav2>().CurrentPathNumber;
+            theirwaypointIndex = otherPlayers[randomIndex].GetComponent<JoueurNav2>().currentWaypointIndex;
+
+            otherPlayers[randomIndex].GetComponent<JoueurNav2>().score = thisScore;
+            otherPlayers[randomIndex].GetComponent<JoueurNav2>().CurrentPathNumber = thisPath;
+            otherPlayers[randomIndex].GetComponent<JoueurNav2>().currentWaypointIndex = thiswaypointIndex;
+            otherPlayers[randomIndex].GetComponent<JoueurNav2>().changeRoutePortal();
+        }
+
+
+
+        if (this.gameObject.CompareTag("AI"))
+        {
+            AI.score = theirScore;
+            AI.CurrentPathNumber = theirPath;
+            AI.currentWaypointIndex = theirwaypointIndex;
+            AI.GetComponent<Navigation8>().changeRoutePortal();
+
+        }
+        else if (this.gameObject.CompareTag("Player"))
+        {
+            Joueur.score = theirScore;
+            Joueur.CurrentPathNumber = theirPath;
+            Joueur.currentWaypointIndex = theirwaypointIndex;
+            Joueur.GetComponent<JoueurNav2>().changeRoutePortal();
+        }
+
+        their3DPosition = otherPlayers[randomIndex].transform.position;
+        this3DPosition = this.gameObject.transform.position;
+
+        this.gameObject.transform.position = their3DPosition;
+        otherPlayers[randomIndex].transform.position = this3DPosition;
+
         yield break;
     }
 

@@ -21,7 +21,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public Transform[] CombinedPath; //the array where the ai store their full loop path
     public Transform[] EveryWaypoints; //put every waypoint here to render them
     private NavMeshAgent agent;
-    private int currentWaypointIndex = 0;  // Index du waypoint actuel
+    public int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
     public int CurrentPathNumber = 1;
 
@@ -306,6 +306,21 @@ public class Navigation8: MonoBehaviour, IPlayerScore
             CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(RightPath2).ToArray();
             CurrentPathNumber = 2;
         }
+    }
+
+    public void changeRoutePortal()
+    {
+        if (CurrentPathNumber == 1)
+        {
+            CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
+        }
+        else if (CurrentPathNumber == 2)
+        {
+            CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(RightPath2).ToArray();
+        }
+
+        currentDestination = GetWaypointDestination(CombinedPath, currentWaypointIndex);
+        agent.destination = currentDestination;
     }
 }
 

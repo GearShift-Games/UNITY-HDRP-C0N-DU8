@@ -20,7 +20,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     public Transform[] EveryWaypoints; // put every waypoint here to render them
     public int CurrentPathNumber = 1;
 
-    private int currentWaypointIndex = 0;
+    public int currentWaypointIndex = 0;
     public float activationRadius = 3.0f;
 
     // Variables de vitesse
@@ -115,7 +115,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     void Update()
     {
         // Récupération des données OSC et du clavier 
-        RealSpeed = Osc.GetComponent<OscBicycle>().Speed; // 0.09f   testVitesse;
+        RealSpeed = testVitesse; // 0.09f   Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
         horizontalInput = XValue + Input.GetAxis("Horizontal");
@@ -295,5 +295,19 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
         yield return new WaitForSeconds(TurboDure);
         currentSpeedMultiplier = 1f;  // Retour à la vitesse normale
         isTurboActive = false;
+    }
+
+    public void changeRoutePortal()
+    {
+        if (CurrentPathNumber == 1)
+        {
+            CombinedPath = MainPath.Concat(LeftPath).Concat(MainPath2).Concat(LeftPath2).ToArray();
+        }
+        else if (CurrentPathNumber == 2)
+        {
+            CombinedPath = MainPath.Concat(RightPath).Concat(MainPath2).Concat(RightPath2).ToArray();
+        }
+
+        agent.destination = CombinedPath[currentWaypointIndex].position;
     }
 }
