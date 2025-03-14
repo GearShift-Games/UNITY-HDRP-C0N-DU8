@@ -20,6 +20,8 @@ public class Timer : MonoBehaviour
 
     private bool StillAlive = true;
 
+    public bool isTuto = false;
+
     public int position;
 
     private Animator animator;
@@ -30,9 +32,17 @@ public class Timer : MonoBehaviour
         // >:) you can tell me what to do
         // yep i sure can =^D
         animator = playerUIFrame.GetComponent<Animator>();
-        animator.Play("UIpink");
+        if (isTuto)
+        {
+            animator.Play("UIpink", 0, 26.0f);
+            sparksPositionUI.Play("sparkPosition", 0, 26.0f);
+        }
+        else
+        {
+            animator.Play("UIpink");
+            sparksPositionUI.Play("sparkPosition");
+        }
         sparkAnimationUI.Play("sparkling");
-        sparksPositionUI.Play("sparkPosition");
         uiDies = playerUIPortrait.GetComponent<Animator>();
     }
 
@@ -56,10 +66,9 @@ public class Timer : MonoBehaviour
                 StartCoroutine(DiesWithLoves());
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
-
+             animator.speed = 1;
+             sparksPositionUI.speed = 1;
             //play fuse animation
-            animator.speed = 1;
-            sparksPositionUI.speed = 1;
         }
         else
         {

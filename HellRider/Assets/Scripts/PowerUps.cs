@@ -121,16 +121,16 @@ public class PowerUps : MonoBehaviour
         {
             //Debug.Log(this.gameObject.name + " boxed Player");
             //PowerChooser(position, PlayersAlive);
-            StartCoroutine("DiePortal");
+            //StartCoroutine("DiePortal");
         }
         else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
         {
             //Debug.Log(this.gameObject.name + " boxed AI");
             //PowerChooser(position, PlayersAlive);
-            StartCoroutine("DiePortal");
+            //StartCoroutine("DiePortal");
         }
 
-        /*
+        
         if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("Player"))
         {
             StartCoroutine("Turbo");
@@ -139,7 +139,7 @@ public class PowerUps : MonoBehaviour
         {
             StartCoroutine("Turbo");
         }
-        */
+        
     }
 
     void PowerChooser(int Position, int playersAlive)

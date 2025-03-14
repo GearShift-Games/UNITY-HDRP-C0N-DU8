@@ -56,7 +56,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public GameObject Bike { get; set; }
 
     public AudioSource BikeAudioSource;
-    public AudioClip BikeSound;
+    public AudioClip[] BikeSoundAi;
     private int DistanceFromPlayer;
 
     public int ChangeTrack = 0;
@@ -103,7 +103,10 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         // Mise à jour de normalSpeed toutes les 1 secondes (random entre 35 et 50)
         InvokeRepeating("ChangeNormalSpeed", 1f, 1f);
 
-        BikeAudioSource.clip = BikeSound;
+
+        int randomIndex = Random.Range(0, BikeSoundAi.Length);
+        BikeAudioSource.clip = BikeSoundAi[randomIndex];
+        //BikeAudioSource.clip = BikeSound;
         BikeAudioSource.loop = true; 
     }
 

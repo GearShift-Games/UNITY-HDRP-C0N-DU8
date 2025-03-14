@@ -23,6 +23,8 @@ public class countdown : MonoBehaviour
     // If its the intro
     public bool isIntro = false;
 
+    public bool isTuto = false;
+
     public AudioSource audioSource;
     public AudioClip raceStartSound;
     private bool checkedStartSound = false;
@@ -30,7 +32,7 @@ public class countdown : MonoBehaviour
     private float AIMaxSpeed;
     void Start()
     {
-        AIMaxSpeed = AI[1].GetComponent<Navigation8>().maxSpeed;
+        AIMaxSpeed = AI[0].GetComponent<Navigation8>().maxSpeed;
         //Debug.Log(AIMaxSpeed);
         countingDown = true;
     }
@@ -75,10 +77,17 @@ public class countdown : MonoBehaviour
         {
             // Activates / Desactivates inputs
             JoueurNav2 playerMovement = Player.GetComponent<JoueurNav2>();
-            Timer playerTimer = Player.GetComponent<Timer>();
+            if (isTuto)
+            {
+                TutoTimer playerTutoTimer = Player.GetComponent<TutoTimer>();
+                playerTutoTimer.enabled = status;
+            } else
+            {
+                Timer playerTimer = Player.GetComponent<Timer>();
+                playerTimer.enabled = status;
+            }
             // NavMeshAgent PlayerAgent = Player.GetComponent<NavMeshAgent>();
             playerMovement.enabled = status;
-            playerTimer.enabled = status;
             // PlayerAgent.enabled = status;
         }
 
@@ -89,10 +98,17 @@ public class countdown : MonoBehaviour
         foreach (GameObject entity in AI)
         {
             Navigation8 AIMovement = entity.GetComponent<Navigation8>();
-            Timer AITimer = entity.GetComponent<Timer>();
+            if (isTuto)
+            {
+                TutoTimer aiTutoTimer = entity.GetComponent<TutoTimer>();
+                aiTutoTimer.enabled = status;
+            } else
+            {
+                Timer AITimer = entity.GetComponent<Timer>();
+                AITimer.enabled = status;
+            }
             // NavMeshAgent AIagent = entity.GetComponent<NavMeshAgent>();
             AIMovement.enabled = status;
-            AITimer.enabled = status;
             // AIagent.enabled = status;
             if (status)
             {
