@@ -1805,6 +1805,11 @@ PrefabInstance:
       objectReference: {fileID: 978662193}
     - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
+      propertyPath: BikeAudioSource
+      value: 
+      objectReference: {fileID: 1638771615}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
       propertyPath: LeftPath.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -1832,6 +1837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: RightPath2.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -2128,6 +2138,56 @@ PrefabInstance:
       propertyPath: RightPath2.Array.data[4]
       value: 
       objectReference: {fileID: 1425766408}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45903f61a64f0254eb16a077d516451e, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd518a884fa08e243b0e054d4855b32d, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08286f59b02af194e80a7080506d4808, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30be2e192470bb743b27555fa22663e3, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: af26f200b4284eb4590d07d3a21815c9, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba6dff77fdfeb3d4d82dd76e311b680d, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 787c8ef0e06e662469bdbbf916093a9b, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 366551fe5650d7e4da3a65f0f816a126, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: b3f0e679e437aa7419f9b02e170e3bec, type: 3}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: ca6492c8a5e8f14438458b16115389a7, type: 3}
     - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: EveryWaypoints.Array.size
@@ -2440,6 +2500,11 @@ PrefabInstance:
       objectReference: {fileID: 978662193}
     - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
+      propertyPath: BikeAudioSource
+      value: 
+      objectReference: {fileID: 761953252}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
       propertyPath: LeftPath.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -2467,6 +2532,11 @@ PrefabInstance:
         type: 3}
       propertyPath: RightPath2.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -2763,6 +2833,56 @@ PrefabInstance:
       propertyPath: RightPath2.Array.data[4]
       value: 
       objectReference: {fileID: 1425766408}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45903f61a64f0254eb16a077d516451e, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd518a884fa08e243b0e054d4855b32d, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08286f59b02af194e80a7080506d4808, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30be2e192470bb743b27555fa22663e3, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: af26f200b4284eb4590d07d3a21815c9, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba6dff77fdfeb3d4d82dd76e311b680d, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 787c8ef0e06e662469bdbbf916093a9b, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 366551fe5650d7e4da3a65f0f816a126, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: b3f0e679e437aa7419f9b02e170e3bec, type: 3}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: ca6492c8a5e8f14438458b16115389a7, type: 3}
     - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: EveryWaypoints.Array.size
@@ -3095,6 +3215,11 @@ PrefabInstance:
       objectReference: {fileID: 978662193}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
+      propertyPath: BikeAudioSource
+      value: 
+      objectReference: {fileID: 775362011}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
       propertyPath: LeftPath.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -3122,6 +3247,11 @@ PrefabInstance:
         type: 3}
       propertyPath: RightPath2.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -3418,6 +3548,56 @@ PrefabInstance:
       propertyPath: RightPath2.Array.data[4]
       value: 
       objectReference: {fileID: 1425766408}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45903f61a64f0254eb16a077d516451e, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd518a884fa08e243b0e054d4855b32d, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08286f59b02af194e80a7080506d4808, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30be2e192470bb743b27555fa22663e3, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: af26f200b4284eb4590d07d3a21815c9, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba6dff77fdfeb3d4d82dd76e311b680d, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 787c8ef0e06e662469bdbbf916093a9b, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 366551fe5650d7e4da3a65f0f816a126, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: b3f0e679e437aa7419f9b02e170e3bec, type: 3}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: ca6492c8a5e8f14438458b16115389a7, type: 3}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: EveryWaypoints.Array.size
@@ -3775,6 +3955,11 @@ PrefabInstance:
       objectReference: {fileID: 978662193}
     - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
+      propertyPath: BikeAudioSource
+      value: 
+      objectReference: {fileID: 583709380}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
       propertyPath: LeftPath.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -3802,6 +3987,11 @@ PrefabInstance:
         type: 3}
       propertyPath: RightPath2.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -4098,6 +4288,56 @@ PrefabInstance:
       propertyPath: RightPath2.Array.data[4]
       value: 
       objectReference: {fileID: 1425766408}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45903f61a64f0254eb16a077d516451e, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd518a884fa08e243b0e054d4855b32d, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08286f59b02af194e80a7080506d4808, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30be2e192470bb743b27555fa22663e3, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: af26f200b4284eb4590d07d3a21815c9, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba6dff77fdfeb3d4d82dd76e311b680d, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 787c8ef0e06e662469bdbbf916093a9b, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 366551fe5650d7e4da3a65f0f816a126, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: b3f0e679e437aa7419f9b02e170e3bec, type: 3}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: ca6492c8a5e8f14438458b16115389a7, type: 3}
     - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: EveryWaypoints.Array.size
@@ -4585,18 +4825,34 @@ PrefabInstance:
         type: 3}
       insertIndex: 1
       addedObject: {fileID: 269544941}
+    - targetCorrespondingSourceObject: {fileID: 8512658891272881070, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 775362012}
     - targetCorrespondingSourceObject: {fileID: 7287036248115137363, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1085625129}
+    - targetCorrespondingSourceObject: {fileID: 8569277411088145522, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 761953253}
     - targetCorrespondingSourceObject: {fileID: 4368646344758150747, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 855231072}
+    - targetCorrespondingSourceObject: {fileID: 3812035984397040352, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1638771614}
     - targetCorrespondingSourceObject: {fileID: 1434428668811316182, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 968890121}
+    - targetCorrespondingSourceObject: {fileID: 4105064290612871699, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 583709379}
     - targetCorrespondingSourceObject: {fileID: 3236974357698735410, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       insertIndex: -1
@@ -5116,6 +5372,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1386422622}
+  - {fileID: 977778723}
   m_Father: {fileID: 666790106}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!82 &269544942
@@ -7609,6 +7866,134 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 573061623}
   m_Mesh: {fileID: -462981019419857548, guid: 2579051bf4b5d44479a7b5539abd7d7b, type: 3}
+--- !u!1 &583709378
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 583709379}
+  - component: {fileID: 583709380}
+  m_Layer: 0
+  m_Name: SonVelo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &583709379
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583709378}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.004403349, z: -0, w: 0.99999034}
+  m_LocalPosition: {x: -1478.4183, y: -7.438, z: 1980.457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043840289}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &583709380
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 583709378}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &593555659
 GameObject:
   m_ObjectHideFlags: 0
@@ -8878,6 +9263,134 @@ Transform:
   m_Children: []
   m_Father: {fileID: 351518189}
   m_LocalEulerAnglesHint: {x: 0, y: -0.523, z: 0}
+--- !u!1 &761953251
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 761953253}
+  - component: {fileID: 761953252}
+  m_Layer: 0
+  m_Name: SonVelo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &761953252
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761953251}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &761953253
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 761953251}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.004403349, z: -0, w: 0.99999034}
+  m_LocalPosition: {x: -1478.4183, y: -7.314, z: 1980.457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043840291}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &769497951
 GameObject:
   m_ObjectHideFlags: 0
@@ -9218,6 +9731,134 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1432310090}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &775362010
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 775362012}
+  - component: {fileID: 775362011}
+  m_Layer: 0
+  m_Name: SonVelo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &775362011
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775362010}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &775362012
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 775362010}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.004403349, z: -0, w: 0.99999034}
+  m_LocalPosition: {x: -1478.4183, y: -7.258, z: 1980.457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043840292}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!43 &779978353
 Mesh:
@@ -11266,6 +11907,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   road: {fileID: 0}
   isStart: 0
+--- !u!1 &977778721
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 977778723}
+  - component: {fileID: 977778722}
+  m_Layer: 0
+  m_Name: SonVelo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!82 &977778722
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977778721}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!4 &977778723
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 977778721}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.004403349, z: -0, w: 0.99999034}
+  m_LocalPosition: {x: -1476.7983, y: -7.19, z: 1980.457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 269544941}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &978662192
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12015,6 +12784,30 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1015372354}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!4 &1043840289 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4105064290612871699, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 246969119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1043840290 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3812035984397040352, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 246969119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1043840291 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8569277411088145522, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 246969119}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1043840292 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8512658891272881070, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+    type: 3}
+  m_PrefabInstance: {fileID: 246969119}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1045334245
 GameObject:
   m_ObjectHideFlags: 0
@@ -15273,7 +16066,7 @@ PrefabInstance:
         type: 3}
       propertyPath: BikeAudioSource
       value: 
-      objectReference: {fileID: 1386422628}
+      objectReference: {fileID: 977778722}
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: activationRadius
@@ -15338,6 +16131,11 @@ PrefabInstance:
         type: 3}
       propertyPath: waypoints2.Array.size
       value: 13
+      objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.size
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
@@ -15749,6 +16547,56 @@ PrefabInstance:
       propertyPath: waypoints2.Array.data[9]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[0]
+      value: 
+      objectReference: {fileID: 8300000, guid: 45903f61a64f0254eb16a077d516451e, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[1]
+      value: 
+      objectReference: {fileID: 8300000, guid: dd518a884fa08e243b0e054d4855b32d, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[2]
+      value: 
+      objectReference: {fileID: 8300000, guid: 08286f59b02af194e80a7080506d4808, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[3]
+      value: 
+      objectReference: {fileID: 8300000, guid: 30be2e192470bb743b27555fa22663e3, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[4]
+      value: 
+      objectReference: {fileID: 8300000, guid: af26f200b4284eb4590d07d3a21815c9, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[5]
+      value: 
+      objectReference: {fileID: 8300000, guid: ba6dff77fdfeb3d4d82dd76e311b680d, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[6]
+      value: 
+      objectReference: {fileID: 8300000, guid: 787c8ef0e06e662469bdbbf916093a9b, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[7]
+      value: 
+      objectReference: {fileID: 8300000, guid: 366551fe5650d7e4da3a65f0f816a126, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[8]
+      value: 
+      objectReference: {fileID: 8300000, guid: b3f0e679e437aa7419f9b02e170e3bec, type: 3}
+    - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
+        type: 3}
+      propertyPath: BikeSoundAi.Array.data[9]
+      value: 
+      objectReference: {fileID: 8300000, guid: ca6492c8a5e8f14438458b16115389a7, type: 3}
     - target: {fileID: 252061887070579204, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: EveryWaypoints.Array.size
@@ -18266,6 +19114,134 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   road: {fileID: 1280051689}
   isStart: 0
+--- !u!1 &1638771613
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1638771614}
+  - component: {fileID: 1638771615}
+  m_Layer: 0
+  m_Name: SonVelo (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1638771614
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638771613}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0.004403349, z: -0, w: 0.99999034}
+  m_LocalPosition: {x: -1478.4183, y: -7.389, z: 1980.457}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1043840290}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &1638771615
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1638771613}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &1655723524
 GameObject:
   m_ObjectHideFlags: 0

@@ -279,7 +279,7 @@ public class OscBicycle : MonoBehaviour
         tutorialPanel.SetActive(true);
         tutorialXPositionGameobject.SetActive(true);*/
 
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)

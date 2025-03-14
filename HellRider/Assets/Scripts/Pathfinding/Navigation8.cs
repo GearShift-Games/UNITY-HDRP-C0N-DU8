@@ -104,8 +104,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         InvokeRepeating("ChangeNormalSpeed", 1f, 1f);
 
 
-        int randomIndex = Random.Range(0, BikeSoundAi.Length);
-        BikeAudioSource.clip = BikeSoundAi[randomIndex];
+      
         //BikeAudioSource.clip = BikeSound;
         BikeAudioSource.loop = true; 
     }
@@ -164,10 +163,18 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
 
 
-
-
-
-
+        if (!BikeAudioSource.isPlaying)
+        {
+            int randomIndex = Random.Range(0, BikeSoundAi.Length);
+        BikeAudioSource.clip = BikeSoundAi[randomIndex];
+        }
+        else
+        {
+            if (BikeAudioSource.isPlaying)
+            {
+                BikeAudioSource.Stop();
+            }
+        }
 
         //
         //      HANDLING THE ROTATION OF Z SO THEY TILT
