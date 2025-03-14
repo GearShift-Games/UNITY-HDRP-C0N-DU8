@@ -16,7 +16,7 @@ public class debugMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F9))
+        if (Input.GetKeyDown(KeyCode.F10))
         {
             debugOn = !debugOn;
             debugText.SetActive(debugOn);
@@ -47,6 +47,9 @@ public class debugMenu : MonoBehaviour
             } else if (Input.GetKeyDown(KeyCode.F8))
             {
                 SceneManager.LoadScene(7);
+            } else if (Input.GetKeyDown(KeyCode.F9))
+            {
+                SceneManager.LoadScene(8);
             }
         }
     }
