@@ -2066,6 +2066,7 @@ MonoBehaviour:
   - {fileID: 128527517}
   - {fileID: 1202429198}
   CurrentPathNumber: 1
+  currentWaypointIndex: 0
   activationRadius: 8
   maxSpeed: 500000000
   speedUI: 0
@@ -3276,6 +3277,11 @@ PrefabInstance:
       propertyPath: timerPink
       value: 
       objectReference: {fileID: 127981351}
+    - target: {fileID: 1294370081265923948, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1961205384622205591, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Name
@@ -3505,6 +3511,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058827001586642642, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_text
+      value: "\xC9liminez\nl'adversaire"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

@@ -2095,6 +2095,7 @@ MonoBehaviour:
   - {fileID: 128527517}
   - {fileID: 9978603}
   CurrentPathNumber: 1
+  currentWaypointIndex: 0
   activationRadius: 8
   maxSpeed: 500000000
   speedUI: 0
@@ -2836,6 +2837,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9058827001586642642, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_text
+      value: "P\xE9dalez"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
