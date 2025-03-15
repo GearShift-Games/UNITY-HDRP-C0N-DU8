@@ -13,37 +13,7 @@ using UnityEngine.UI;
 public class OscBicycle : MonoBehaviour
 {
 
-    /*
-    [Header("Tutorial Panel")]
-    public GameObject[] tutorial;
-    public GameObject tutorialPanel;
-    private int tutorialNumber = 0;
-    */
-    // For the handling of resets and restarts
-
-    /*
-    // Tutorial gameobject and such
-    [Header("Tutorial Text")]
-    public GameObject tutorialXPositionGameobject;
-    public TMP_Text tutorialXPosition;
-    public TMP_Text tutorialSetCenter;
-    public TMP_Text tutorialSetLeft;
-    public TMP_Text tutorialSetRight;
-    public Slider tutorialSlider;
-    
-    // Value left and right for turning and for calibration
-    
-    private float Raw_x = 0;
-    private float Left = 0;
-    
-    private float Right = 0; // put some 0 to help prevent major error when something goes wrong
-
-    // Buttons control
-    public float Confirm;
-    public float Cancel;
-    */
     //Speed
-
     public extOSC.OSCReceiver oscReceiver;
     public extOSC.OSCTransmitter oscTransmitter;
 
@@ -70,16 +40,8 @@ public class OscBicycle : MonoBehaviour
         oscReceiver.Bind("/Intro", TraiterIntroOSC); // starts the tutorial for new player when acitvated
 
         // From Arduino
-        // oscReceiver.Bind("/Affirm", TraiterConfirmOSC); // starts the tutorial for new player when acitvated
-        // oscReceiver.Bind("/Tease", TraiterPauseOSC); // starts the tutorial for new player when acitvated
         oscReceiver.Bind("/Raw", TraiterRawOSC); // starts the tutorial for new player when acitvated
-        /*
-        if (tutorialPanel != null)
-        {
-            oscReceiver.Bind("/X_RAW", TraiterXRAWOSC); // RAW left right value of the player for the tutorial only
-            InTutorial = true;
-        }
-        */
+
         
         if (scene.name != "INTRO")
         {
@@ -122,17 +84,7 @@ public class OscBicycle : MonoBehaviour
 
         //Debug.Log("has user " + hasUser);
         //Debug.Log("in tutorial " + InTutorial);
-        /*
-        if (InTutorial == true)
-        {
-            tutorialXPosition.text = Raw_x.ToString();
 
-
-
-
-            tutorialSlider.value = X;
-        }
-        */
 
         
         
@@ -205,35 +157,6 @@ public class OscBicycle : MonoBehaviour
         //Debug.Log(value);
     }
 
-    /*
-    void TraiterXRAWOSC(OSCMessage oscMessage)
-    {
-        if (InTutorial == true)
-        {
-            // Récupérer une valeur numérique en tant que float
-            // même si elle est de type float ou int :
-            float value;
-            if (oscMessage.Values[0].Type == OSCValueType.Int)
-            {
-                value = oscMessage.Values[0].IntValue;
-            }
-            else if (oscMessage.Values[0].Type == OSCValueType.Float)
-            {
-                value = oscMessage.Values[0].FloatValue;
-            }
-            else
-            {
-                // Si la valeur n'est ni un float ou int, on quitte la méthode :
-                return;
-            }
-
-            Raw_x = value;
-
-            //Debug.Log(Raw_x);
-        }
-        return;
-    }
-    */
 
     void TraiterResetOSC(OSCMessage oscMessage)
     {
@@ -269,19 +192,8 @@ public class OscBicycle : MonoBehaviour
         messageTransmitter("/Reset", 1);
         messageTransmitter("/Calibrate", 0);
 
-        hasUser = false;
-        reset = false;
 
-        /*
-        for (int i = 0; i < tutorial.Length; i++)
-        {
-            tutorial[i].SetActive(true);
-        }
-        tutorialNumber = 0;
-        tutorialPanel.SetActive(true);
-        tutorialXPositionGameobject.SetActive(true);*/
-
-        SceneManager.LoadScene(0);
+        //SceneManager.LoadScene(0);
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
@@ -310,140 +222,6 @@ public class OscBicycle : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
-    /* 
-        void TraiterConfirmOSC(OSCMessage oscMessage)
-        {
-            // Récupérer une valeur numérique en tant que float
-            // même si elle est de type float ou int :
-            float value;
-            if (oscMessage.Values[0].Type == OSCValueType.Int)
-            {
-                value = oscMessage.Values[0].IntValue;
-            }
-            else if (oscMessage.Values[0].Type == OSCValueType.Float)
-            {
-                value = oscMessage.Values[0].FloatValue;
-            }
-            else
-            {
-                // Si la valeur n'est ni un float ou int, on quitte la méthode :
-                return;
-            }
-
-            Tuto order
-             * 
-             * 1 - explication basique du jeu
-             * 2 - explication pedale
-             * 3 - expliquer calibration
-             * 4 - calibration milieu
-             * 5 - calibration gauche
-             * 6 - calibration droite
-             * 7 - test calibration pour le joueur
-             * 8 - appuyer de nouveau pour confirmer les calibration et commencer le jeu
-
-            if (InTutorial == true) {
-                if (value == 1 && tutorialNumber <= tutorial.Length - 1 && tutorialNumber >= 0)
-                {
-                    if (tutorialNumber == 3)
-                    {
-                        if (Raw_x < 0.1 && Raw_x > -0.1)
-                        {
-                            Center = Raw_x;
-                            tutorialSetCenter.text = Center.ToString();
-                            Debug.Log("center");
-                            
-                            tutorial[tutorialNumber].SetActive(false);
-                            tutorialNumber++;
-                        }
-                    }
-                    else if (tutorialNumber == 4)
-                    {
-                        if (Raw_x < Center - 0.05)
-                        {
-                            Left = Raw_x;
-                            tutorialSetLeft.text = Left.ToString();
-                            Debug.Log("left");
-                            messageTransmitter("/Left", Left);
-                            tutorial[tutorialNumber].SetActive(false);
-                            tutorialNumber++;
-                        }
-                    }
-                    else if (tutorialNumber == 5)
-                    {
-                        if (Raw_x > Center + 0.05)
-                        {
-                            Right = Raw_x;
-                            tutorialSetRight.text = Right.ToString();
-                            Debug.Log("right");
-                            messageTransmitter("/Right", Right);
-                            tutorial[tutorialNumber].SetActive(false);
-                            tutorialNumber++;
-                            tutorialXPositionGameobject.SetActive(false);
-                        }
-                    } else
-                    {
-                        tutorial[tutorialNumber].SetActive(false);
-                        tutorialNumber++;
-                    }
-
-                    Debug.Log(tutorialNumber);
-
-                    if (tutorialNumber == tutorial.Length)
-                    {
-                        tutorialPanel.SetActive(false);
-                        Debug.Log("tutorial done");
-                        InTutorial = false;
-                        SceneManager.LoadScene("Circuit01_Maquette");
-                    }
-
-                }
-
-            }
-            else
-            {
-                Confirm = value;
-            }
-
-        }
-
-        void TraiterPauseOSC(OSCMessage oscMessage)
-        {
-            // Récupérer une valeur numérique en tant que float
-            // même si elle est de type float ou int :
-            float value;
-            if (oscMessage.Values[0].Type == OSCValueType.Int)
-            {
-                value = oscMessage.Values[0].IntValue;
-            }
-            else if (oscMessage.Values[0].Type == OSCValueType.Float)
-            {
-                value = oscMessage.Values[0].FloatValue;
-            }
-            else
-            {
-                // Si la valeur n'est ni un float ou int, on quitte la méthode :
-                return;
-            }
-
-            if (InTutorial == true) {
-                if (value == 1 && tutorialNumber <= 7 && tutorialNumber >= 1) // 3 tuto for now
-                {
-                    Debug.Log("pause " + value);
-                    tutorialNumber--;
-                    tutorial[tutorialNumber].SetActive(true);
-
-                    if (tutorialNumber == 6)
-                    {
-                        tutorialXPositionGameobject.SetActive(true);
-                    }
-                }
-            }
-            else
-            {
-                Cancel = value;
-            }
-        }
-    */
     void TraiterRawOSC(OSCMessage oscMessage)
     {
         // Récupérer une valeur numérique en tant que float
