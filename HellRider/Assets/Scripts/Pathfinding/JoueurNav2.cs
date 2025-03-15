@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
-    public float testVitesse = 0.4f;
+    public float testVitesse = 1f;
     public GameObject trail;
     [Header("Waypoints and Directions")]
     private NavMeshAgent agent;

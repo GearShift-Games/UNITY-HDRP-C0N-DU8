@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using UnityEngine.AI;
 using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PowerUps : MonoBehaviour
@@ -185,13 +186,13 @@ public class PowerUps : MonoBehaviour
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
                 //PowerChooser(position, PlayersAlive);
-                //StartCoroutine("DiePortal");
+                StartCoroutine("DiePortal");
             }
             else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
             {
                 //Debug.Log(this.gameObject.name + " boxed AI");
                 //PowerChooser(position, PlayersAlive);
-                //StartCoroutine("DiePortal");
+                StartCoroutine("DiePortal");
             }
         }
 
@@ -343,7 +344,7 @@ public class PowerUps : MonoBehaviour
             randomIndex = Random.Range(0, otherPlayers.Length);
         }
 
-        Debug.Log(this.gameObject.name + " switch " + otherPlayers[randomIndex].name);
+        
 
 
         if (otherPlayers[randomIndex].gameObject.CompareTag("AI"))
@@ -363,7 +364,15 @@ public class PowerUps : MonoBehaviour
 
         their3DPosition = otherPlayers[randomIndex].transform.position;
 
-        yield return new WaitForSeconds(2f);
+        Debug.Log(this.gameObject.name + " will go to " + otherPlayers[randomIndex].name);
+        yield return new WaitForSeconds(1f);
+
+        //this.gameObject.transform.position = their3DPosition;
+
+        NavMeshAgent agent = GetComponent<NavMeshAgent>();
+        agent.Warp(their3DPosition);
+
+        Debug.Log(this.gameObject.name + " went to " + otherPlayers[randomIndex].name);
 
         if (this.gameObject.CompareTag("AI"))
         {
@@ -380,7 +389,7 @@ public class PowerUps : MonoBehaviour
             Joueur.GetComponent<JoueurNav2>().changeRoutePortal();
         }
 
-        this.gameObject.transform.position = their3DPosition;
+        
 
         yield break;
     }
