@@ -185,14 +185,14 @@ public class PowerUps : MonoBehaviour
             if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player"))
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
-                //PowerChooser(position, PlayersAlive);
-                StartCoroutine("Reload");
+                PowerChooser(position, PlayersAlive);
+                //StartCoroutine("Shield");
             }
             else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
             {
                 //Debug.Log(this.gameObject.name + " boxed AI");
-                //PowerChooser(position, PlayersAlive);
-                StartCoroutine("Reload");
+                PowerChooser(position, PlayersAlive);
+                //StartCoroutine("Hacking");
             }
         }
 
@@ -283,7 +283,9 @@ public class PowerUps : MonoBehaviour
         }
 
         PowerGotten = TempArray[Random.Range(0, TempArray.Length)];
-        StartCoroutine(PowerGotten);
+        StartCoroutine(PowerGotten); // PowerGotten is a string 
+
+        StartCoroutine(RecentItem());
     }
 
     // we'll need to activate it here most likely, dunno how to do it for the ai yet tho
@@ -323,11 +325,11 @@ public class PowerUps : MonoBehaviour
     {
         Debug.Log(this.gameObject.name + " Laser");
 
-        laserEffect.SetActive(true);
+        //laserEffect.SetActive(true);
 
         yield return new WaitForSeconds(2f);
 
-        laserEffect.SetActive(false);
+        //laserEffect.SetActive(false);
 
         yield break;
     }
@@ -446,6 +448,7 @@ public class PowerUps : MonoBehaviour
             isShielded = false;
             StopCoroutine("Shield"); // stops the coroutine to prevent further bugs
             //shieldEffect.SetActive(false);
+            Debug.Log("shielded that lmao");
         }
 
     }
