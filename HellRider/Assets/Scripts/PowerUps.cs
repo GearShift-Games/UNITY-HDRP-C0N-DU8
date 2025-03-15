@@ -186,13 +186,13 @@ public class PowerUps : MonoBehaviour
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
                 //PowerChooser(position, PlayersAlive);
-                StartCoroutine("DiePortal");
+                StartCoroutine("Reload");
             }
             else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
             {
                 //Debug.Log(this.gameObject.name + " boxed AI");
                 //PowerChooser(position, PlayersAlive);
-                StartCoroutine("DiePortal");
+                StartCoroutine("Reload");
             }
         }
 
@@ -411,15 +411,12 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator Reload()
     {
-        Debug.Log(this.gameObject.name + " Reload");
-
-        this.gameObject.GetComponent<Timer>().playingWithTime(timeAdded);
-
         if (timeAdded > 0)
         {
+            Debug.Log(this.gameObject.name + " Reload this much : " + timeAdded);
+            this.gameObject.GetComponent<Timer>().playingWithTime(timeAdded);
             timeAdded--;
         }
-
         yield break;
     }
 

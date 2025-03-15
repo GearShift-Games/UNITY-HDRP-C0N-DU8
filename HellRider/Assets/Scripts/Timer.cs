@@ -101,17 +101,15 @@ public class Timer : MonoBehaviour
     {
         TimeLeft += timeAdded;
 
-        if (TimeLeft < 30f)
+        if (TimeLeft > 30f)
         {
             TimeLeft = 30f;
         }
 
-        /*
         float mathTime = 30 - TimeLeft; // imma need alex's help for this thing
 
-        animator.Play("UIpink", 0, 26.0f);
-        sparksPositionUI.Play("sparkPosition", 0, 26.0f);
-        */
+        animator.Play("UIpink", 0, mathTime);
+        sparksPositionUI.Play("sparkPosition", 0, mathTime);
 
         /*
         0 = 30
