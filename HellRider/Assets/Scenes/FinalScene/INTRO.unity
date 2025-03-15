@@ -4969,6 +4969,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!114 &246969137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4991,6 +4998,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &248358949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7063,6 +7077,13 @@ MonoBehaviour:
   - {fileID: 246969122}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &433173575
 GameObject:
   m_ObjectHideFlags: 0
@@ -7734,7 +7755,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &559561496
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7744,7 +7765,7 @@ RectTransform:
   m_GameObject: {fileID: 559561495}
   m_LocalRotation: {x: -0.0007646334, y: 0.98479825, z: -0.17364648, w: 0.0043364526}
   m_LocalPosition: {x: 0, y: 0, z: -2239349}
-  m_LocalScale: {x: 1039.2302, y: 1039.2307, z: 1039.23}
+  m_LocalScale: {x: 0, y: 0, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 893243640}
@@ -12528,6 +12549,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &982944056
 GameObject:
   m_ObjectHideFlags: 0
@@ -17267,6 +17295,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!82 &1386422628
 AudioSource:
   m_ObjectHideFlags: 0
@@ -21391,6 +21426,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &1853623456
 GameObject:
   m_ObjectHideFlags: 0
