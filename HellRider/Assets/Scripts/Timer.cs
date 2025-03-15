@@ -101,6 +101,11 @@ public class Timer : MonoBehaviour
     {
         TimeLeft += timeAdded;
 
+        if (TimeLeft < 30f)
+        {
+            TimeLeft = 30f;
+        }
+
         /*
         float mathTime = 30 - TimeLeft; // imma need alex's help for this thing
 

@@ -135,6 +135,7 @@ public class PowerUps : MonoBehaviour
     float theirScore;
     int theirPath;
     int theirwaypointIndex;
+    int theirCheckpointPassed;
     UnityEngine.Vector3 their3DPosition;
 
     //to store our values
@@ -320,14 +321,18 @@ public class PowerUps : MonoBehaviour
     private IEnumerator Laser()
     {
         Debug.Log(this.gameObject.name + " Laser");
+
+        laserEffect.SetActive(true);
+
+        yield return new WaitForSeconds(2f);
+
+        laserEffect.SetActive(false);
+
         yield break;
     }
 
-    
     private IEnumerator DiePortal()
     {
-
-
         //Debug.Log(this.gameObject.name + " DiePortal");
 
         int randomIndex = Random.Range(0, otherPlayers.Length);
@@ -338,71 +343,44 @@ public class PowerUps : MonoBehaviour
             randomIndex = Random.Range(0, otherPlayers.Length);
         }
 
-        //Debug.Log(this.gameObject.name + " switch " + otherPlayers[randomIndex].name);
-
-        //getting this gameobject value
-        if (this.gameObject.CompareTag("AI"))
-        {
-            thisScore = AI.score;
-            thisPath = AI.CurrentPathNumber;
-            thiswaypointIndex = AI.currentWaypointIndex;
-        }
-        else if (this.gameObject.CompareTag("Player"))
-        {
-            thisScore = Joueur.score;
-            thisPath = Joueur.CurrentPathNumber;
-            thiswaypointIndex = Joueur.currentWaypointIndex;
-        }
+        Debug.Log(this.gameObject.name + " switch " + otherPlayers[randomIndex].name);
 
 
         if (otherPlayers[randomIndex].gameObject.CompareTag("AI"))
         {
             //get their values
-            theirScore = otherPlayers[randomIndex].GetComponent<Navigation8>().score;
             theirPath = otherPlayers[randomIndex].GetComponent<Navigation8>().CurrentPathNumber;
             theirwaypointIndex = otherPlayers[randomIndex].GetComponent<Navigation8>().currentWaypointIndex;
-
-            otherPlayers[randomIndex].GetComponent<Navigation8>().score = thisScore;
-            otherPlayers[randomIndex].GetComponent<Navigation8>().CurrentPathNumber = thisPath;
-            otherPlayers[randomIndex].GetComponent<Navigation8>().currentWaypointIndex = thiswaypointIndex;
-            otherPlayers[randomIndex].GetComponent<Navigation8>().changeRoutePortal();
+            theirCheckpointPassed = otherPlayers[randomIndex].GetComponent<Navigation8>().Checkpointpassed;
         }
         else if (otherPlayers[randomIndex].gameObject.CompareTag("Player"))
         {
             //get their values
-            theirScore = otherPlayers[randomIndex].GetComponent<JoueurNav2>().score;
             theirPath = otherPlayers[randomIndex].GetComponent<JoueurNav2>().CurrentPathNumber;
             theirwaypointIndex = otherPlayers[randomIndex].GetComponent<JoueurNav2>().currentWaypointIndex;
-
-            otherPlayers[randomIndex].GetComponent<JoueurNav2>().score = thisScore;
-            otherPlayers[randomIndex].GetComponent<JoueurNav2>().CurrentPathNumber = thisPath;
-            otherPlayers[randomIndex].GetComponent<JoueurNav2>().currentWaypointIndex = thiswaypointIndex;
-            otherPlayers[randomIndex].GetComponent<JoueurNav2>().changeRoutePortal();
-        }
-
-
-
-        if (this.gameObject.CompareTag("AI"))
-        {
-            AI.score = theirScore;
-            AI.CurrentPathNumber = theirPath;
-            AI.currentWaypointIndex = theirwaypointIndex;
-            AI.GetComponent<Navigation8>().changeRoutePortal();
-
-        }
-        else if (this.gameObject.CompareTag("Player"))
-        {
-            Joueur.score = theirScore;
-            Joueur.CurrentPathNumber = theirPath;
-            Joueur.currentWaypointIndex = theirwaypointIndex;
-            Joueur.GetComponent<JoueurNav2>().changeRoutePortal();
+            theirCheckpointPassed = otherPlayers[randomIndex].GetComponent<JoueurNav2>().Checkpointpassed;
         }
 
         their3DPosition = otherPlayers[randomIndex].transform.position;
-        this3DPosition = this.gameObject.transform.position;
+
+        yield return new WaitForSeconds(2f);
+
+        if (this.gameObject.CompareTag("AI"))
+        {
+            AI.CurrentPathNumber = theirPath;
+            AI.currentWaypointIndex = theirwaypointIndex;
+            AI.Checkpointpassed = theirCheckpointPassed;
+            AI.GetComponent<Navigation8>().changeRoutePortal();
+        }
+        else if (this.gameObject.CompareTag("Player"))
+        {
+            Joueur.CurrentPathNumber = theirPath;
+            Joueur.currentWaypointIndex = theirwaypointIndex;
+            Joueur.Checkpointpassed = theirCheckpointPassed;
+            Joueur.GetComponent<JoueurNav2>().changeRoutePortal();
+        }
 
         this.gameObject.transform.position = their3DPosition;
-        otherPlayers[randomIndex].transform.position = this3DPosition;
 
         yield break;
     }
