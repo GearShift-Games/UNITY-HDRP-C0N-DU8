@@ -6,7 +6,7 @@ using UnityEngine.AI;
 
 public class JoueurNav2 : MonoBehaviour, IPlayerScore
 {
-    public float testVitesse = 0.09f;
+    public float testVitesse = 0.4f;
     public GameObject trail;
     [Header("Waypoints and Directions")]
     private NavMeshAgent agent;
@@ -115,7 +115,7 @@ public class JoueurNav2 : MonoBehaviour, IPlayerScore
     void Update()
     {
         // Récupération des données OSC et du clavier 
-        RealSpeed = Osc.GetComponent<OscBicycle>().Speed; // 0.09f   testVitesse;
+        RealSpeed = testVitesse;// 0.09f   Osc.GetComponent<OscBicycle>().Speed;
         XValue = Osc.GetComponent<OscBicycle>().X;
         speedUI = Mathf.FloorToInt(currentSpeed);
         horizontalInput = XValue + Input.GetAxis("Horizontal");

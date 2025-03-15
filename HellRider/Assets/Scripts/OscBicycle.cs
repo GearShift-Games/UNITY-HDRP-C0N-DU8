@@ -47,6 +47,7 @@ public class OscBicycle : MonoBehaviour
         {
             hasUser = true;
         }
+
     }
 
     public void Calibrator()
@@ -54,7 +55,7 @@ public class OscBicycle : MonoBehaviour
         if (scene.name == "00a_tutorial_speed")
         {
             Debug.Log("set center");
-            messageTransmitter("/Center", X);
+            messageTransmitter("/Center", 0);
         }
         else if (scene.name == "00b_tutorial_turn")
         {
@@ -177,7 +178,7 @@ public class OscBicycle : MonoBehaviour
             return;
         }
 
-        Debug.Log("Reset armed");
+        //Debug.Log("Reset armed");
 
         reset = true;
 
@@ -189,11 +190,12 @@ public class OscBicycle : MonoBehaviour
 
     public void RestartGame()
     {
+        
         messageTransmitter("/Reset", 1);
         messageTransmitter("/Calibrate", 0);
 
-
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
+        
     }
 
     void TraiterIntroOSC(OSCMessage oscMessage)
