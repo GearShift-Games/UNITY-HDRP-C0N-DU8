@@ -102,6 +102,9 @@ public class countdown : MonoBehaviour
             {
                 TutoTimer aiTutoTimer = entity.GetComponent<TutoTimer>();
                 aiTutoTimer.enabled = status;
+            } else if (isIntro)
+            {
+
             } else
             {
                 Timer AITimer = entity.GetComponent<Timer>();
