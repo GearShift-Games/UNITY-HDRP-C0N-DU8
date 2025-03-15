@@ -38,8 +38,9 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private float normalSpeed = 3.5f;            // Vitesse normale (sera modifiée toutes les 5 sec)
     private float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
     private float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
+    public int DifficultySlider = 1;
     private float RubberBanding = 1.5f;          // Max speed * rubberbanding
-        // Vitesse actuelle
+                                                 // Vitesse actuelle
 
     // Virage et activation
     [Header("Virage et activation")]
@@ -90,6 +91,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         agent = GetComponent<NavMeshAgent>();
         currentSpeed = normalSpeed;
         agent.speed = currentSpeed;
+
+        RubberBanding = RubberBanding * DifficultySlider;
 
         ChoosePath();
 
