@@ -58,17 +58,50 @@ public class PowerUps : MonoBehaviour
      *  Hacking: Le premier joueur freine
      *  Shield: Ne peut être affecter par un malus, utiliser une seule fois
      *  
+     *  NEW WORLD ORDER :
      *  
+     * ARRAYS POGGERS
+     * 5 PLAYER
+     *  1ST : TURBO - SHIELD                                        1
+     *  2ND : TURBO - LASER - SHIELD                                2
+     *  3RD : TURBO - LASER - SHIELD - HACKING                      3
+     *  4TH : TURBO - LASER - DIEPORTAL - RELOAD - HACKING          4
+     *  5TH : TURBO - LASER - DIEPORTAL - RELOAD                    5
+     *  
+     * 4 PLAYER
+     *  1ST : TURBO - SHIELD                                        1
+     *  2ND : TURBO - LASER - SHIELD                                2
+     *  3RD : TURBO - LASER - DIEPORTAL - RELOAD - HACKING          4     
+     *  4TH : TURBO - LASER - DIEPORTAL - RELOAD                    5
+     *  
+     * 3 PLAYER
+     *  1ST : TURBO - SHIELD                                        1
+     *  2ND : TURBO - LASER - SHIELD - HACKING                      3
+     *  3RD : TURBO - LASER - DIEPORTAL - HACKING                   6
+     *  
+     * 2 PLAYER
+     *  1ST : TURBO - SHIELD                                        1                                                  
+     *  2ND : TURBO - LASER                                         7                                       
+     *  
+     * ARRAY NAMES
+     *  1 : FIRSTPLACE
+     *  2 : SECONDPLACE
+     *  3 : THIRDPLACE
+     *  4 : FOURTHPLACE
+     *  5 : LASTPLACE
+     *  
+     *  6 : LASTPLACETHREE
+     *  7 : LASTPLACETWO
      */
 
-    string[] FIRSTPLACE = { "Laser", "MagneticField", "FullHand", "Obstacle"};
-    string[] SECONDPLACE = {"Turbo", "Laser", "MagneticField", "Obstacle"};
-    string[] THIRDPLACE = {"Turbo", "Laser", "DiePortal", "MagneticField"};
-    string[] FOURTHPLACE = {"Turbo", "Laser", "DiePortal", "NewFuse"};
-    string[] LASTPLACE = {"Turbo", "Laser", "DiePortal", "NewFuse", "Reload"};
+    string[] FIRSTPLACE = {"Turbo", "Shield"};
+    string[] SECONDPLACE = {"Turbo", "Laser", "Shield"};
+    string[] THIRDPLACE = {"Turbo", "Laser", "Shield", "Hacking"};
+    string[] FOURTHPLACE = {"Turbo", "Laser", "DiePortal", "Reload", "Hacking"};
+    string[] LASTPLACE = {"Turbo", "Laser", "DiePortal", "Reload"};
 
-    string[] LASTTWOFIRST = {"Turbo", "MagneticField", "FullHand"};
-    string[] LASTTWOLAST = {"Turbo", "Laser", "MagneticField", "FullHand"};
+    string[] LASTPLACETHREE = {"Turbo", "Laser", "DiePortal", "Hacking"};
+    string[] LASTPLACETWO = { "Turbo", "Laser"};
 
     string[] TempArray;
 
@@ -149,11 +182,11 @@ public class PowerUps : MonoBehaviour
         {
             if (Position == 1)
             {
-                TempArray = LASTTWOFIRST;
+                TempArray = FIRSTPLACE;
             }
             else
             {
-                TempArray = LASTTWOLAST;
+                TempArray = LASTPLACETWO;
             }
         }
         else if (playersAlive == 3)
@@ -164,11 +197,11 @@ public class PowerUps : MonoBehaviour
             }
             else if (Position == 2)
             {
-                TempArray = SECONDPLACE;
+                TempArray = THIRDPLACE;
             }
             else
             {
-                TempArray = LASTPLACE;
+                TempArray = LASTPLACETHREE;
             }
         }
         else if (playersAlive == 4)
@@ -257,6 +290,7 @@ public class PowerUps : MonoBehaviour
         yield break;
     }
 
+    
     private IEnumerator DiePortal()
     {
 
@@ -340,24 +374,13 @@ public class PowerUps : MonoBehaviour
         yield break;
     }
 
-    private IEnumerator NewFuse()
+    private IEnumerator Hacking()
     {
-        Debug.Log(this.gameObject.name + " NewFuse");
+        Debug.Log(this.gameObject.name + " Hacking yo ass");
         yield break;
     }
 
-    private IEnumerator MagneticField()
-    {
-        Debug.Log(this.gameObject.name + " MagneticField");
 
-        yield break;
-    }
-
-    private IEnumerator FullHand()
-    {
-        Debug.Log(this.gameObject.name + " FullHand");
-        yield break;
-    }
 
     private IEnumerator Reload()
     {
@@ -365,9 +388,5 @@ public class PowerUps : MonoBehaviour
         yield break;
     }
 
-    private IEnumerator Obstacle()
-    {
-        Debug.Log(this.gameObject.name + " Obstacle");
-        yield break;
-    }
+
 }
