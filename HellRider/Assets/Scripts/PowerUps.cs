@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
 using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PowerUps : MonoBehaviour
 {
@@ -12,6 +13,24 @@ public class PowerUps : MonoBehaviour
     [Header("Position")]
     public int PlayersAlive;
     public int position;
+
+    [Header("speed buff n debuff")]
+    public float speedBuff = 2f;
+    public float speedDebuff = 0.5f;
+    private float speedMultiplier;
+
+    private bool isDebuffed;
+    private bool recentItem = false;
+    private bool isShielded = false;
+
+    [Header("VFX")]
+    public GameObject shieldEffect;
+    public GameObject laserEffect;
+    public GameObject TeleportEffect;
+    public GameObject hackingEffect;
+    public GameObject timeGainEffect;
+
+    private float timeAdded = 6;
 
     /* ARRAYS POG
      * 5 PLAYER
@@ -145,23 +164,37 @@ public class PowerUps : MonoBehaviour
     void Update()
     {
         //Debug.Log(this.gameObject.name + " " + this.gameObject.transform.position);
+
+        if (isDebuffed == true)
+        {
+            speedMultiplier = speedBuff * speedDebuff;
+        }
+        else
+        {
+            speedMultiplier = speedBuff;
+        }
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player"))
+        if (recentItem == false)
         {
-            //Debug.Log(this.gameObject.name + " boxed Player");
-            //PowerChooser(position, PlayersAlive);
-            //StartCoroutine("DiePortal");
+            if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player"))
+            {
+                //Debug.Log(this.gameObject.name + " boxed Player");
+                //PowerChooser(position, PlayersAlive);
+                //StartCoroutine("DiePortal");
+            }
+            else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
+            {
+                //Debug.Log(this.gameObject.name + " boxed AI");
+                //PowerChooser(position, PlayersAlive);
+                //StartCoroutine("DiePortal");
+            }
         }
-        else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
-        {
-            //Debug.Log(this.gameObject.name + " boxed AI");
-            //PowerChooser(position, PlayersAlive);
-            //StartCoroutine("DiePortal");
-        }
+
+
 
         
         if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("Player"))
@@ -256,11 +289,11 @@ public class PowerUps : MonoBehaviour
     {
         if (this.gameObject.CompareTag("AI"))
         {
-            AI.currentSpeedMultiplier = 2;
+            AI.currentSpeedMultiplier = speedMultiplier;
         }
         else if (this.gameObject.CompareTag("Player"))
         {
-            Joueur.currentSpeedMultiplier = 2;
+            Joueur.currentSpeedMultiplier = speedMultiplier;
             // Rajouter son ici
             
             int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
@@ -273,11 +306,11 @@ public class PowerUps : MonoBehaviour
 
         if (this.gameObject.CompareTag("AI"))
         {
-            AI.currentSpeedMultiplier = 1;
+            AI.currentSpeedMultiplier = speedMultiplier;
         }
         else if (this.gameObject.CompareTag("Player"))
         {
-            Joueur.currentSpeedMultiplier = 1;
+            Joueur.currentSpeedMultiplier = speedMultiplier;
         }
 
         //Debug.Log(this.gameObject.name + " Boostah OFF!");
@@ -377,16 +410,106 @@ public class PowerUps : MonoBehaviour
     private IEnumerator Hacking()
     {
         Debug.Log(this.gameObject.name + " Hacking yo ass");
+
+        for (int i = 0; i < otherPlayers.Length; i++)
+        {
+            if (otherPlayers[i].GetComponent<PowerUps>().position == 1)
+            {
+                otherPlayers[i].GetComponent<PowerUps>().DebuffCaller();
+            }
+        }
+
         yield break;
     }
-
-
 
     private IEnumerator Reload()
     {
         Debug.Log(this.gameObject.name + " Reload");
+
+        this.gameObject.GetComponent<Timer>().playingWithTime(timeAdded);
+
+        if (timeAdded > 0)
+        {
+            timeAdded--;
+        }
+
         yield break;
     }
 
+    private IEnumerator Shield()
+    {
+        Debug.Log(this.gameObject.name + " Shield");
 
+        isShielded = true;
+        //shieldEffect.SetActive(true);
+
+        yield return new WaitForSeconds(10f);
+
+        isShielded = false;
+        //shieldEffect.SetActive(false);
+
+        yield break;
+    }
+
+    public void DebuffCaller() // decides if you get debuffed or not, the function thats called due ti certain items
+    {
+        if (isShielded == false) //if no shield, get debuffed
+        {
+            StartCoroutine(Debuff());
+        }
+        else // if shield
+        {
+            isShielded = false;
+            StopCoroutine("Shield"); // stops the coroutine to prevent further bugs
+            //shieldEffect.SetActive(false);
+        }
+
+    }
+
+    private IEnumerator Debuff() // main debuff coroutine, used to slow someone
+    {
+        isDebuffed = true;
+        speedMultiplier = speedBuff * speedDebuff;
+
+        if (this.gameObject.CompareTag("AI"))
+        {
+            AI.currentSpeedMultiplier = speedMultiplier;
+        }
+        else if (this.gameObject.CompareTag("Player"))
+        {
+            Joueur.currentSpeedMultiplier = speedMultiplier;
+            // Rajouter son debuff ici
+
+            /*
+            int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
+            audioSource.PlayOneShot(TurboSound[randomIndex], 1f);
+            */
+
+        }
+
+        Debug.Log(this.gameObject.name + " debuffed!");
+        yield return new WaitForSeconds(2f);
+
+        isDebuffed = false;
+        speedMultiplier = speedBuff;
+
+        if (this.gameObject.CompareTag("AI"))
+        {
+            AI.currentSpeedMultiplier = speedMultiplier;
+        }
+        else if (this.gameObject.CompareTag("Player"))
+        {
+            Joueur.currentSpeedMultiplier = speedMultiplier;
+        }
+
+        yield break;
+    }
+
+    private IEnumerator RecentItem()
+    {
+        recentItem = true;
+        yield return new WaitForSeconds(3f);
+        recentItem = false;
+        yield break;
+    }
 }

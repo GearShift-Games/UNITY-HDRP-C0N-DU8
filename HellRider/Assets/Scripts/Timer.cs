@@ -97,4 +97,16 @@ public class Timer : MonoBehaviour
         this.gameObject.SetActive(false);
     }
 
+    public void playingWithTime(float timeAdded)
+    {
+        TimeLeft += timeAdded;
+
+        /*
+        float mathTime = 30 - TimeLeft; // imma need alex's help for this thing
+
+        animator.Play("UIpink", 0, 26.0f);
+        sparksPositionUI.Play("sparkPosition", 0, 26.0f);
+        */
+    }
+
 }
