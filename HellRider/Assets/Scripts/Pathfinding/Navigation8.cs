@@ -21,9 +21,10 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     public Transform[] CombinedPath; //the array where the ai store their full loop path
     public Transform[] EveryWaypoints; //put every waypoint here to render them
     private NavMeshAgent agent;
+    public int CurrentPathNumber = 1;
     public int currentWaypointIndex = 0;  // Index du waypoint actuel
     float nextWaypointDistance;
-    public int CurrentPathNumber = 1;
+    
 
 
 
