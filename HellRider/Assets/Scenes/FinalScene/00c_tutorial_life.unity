@@ -963,7 +963,7 @@ PrefabInstance:
     - target: {fileID: 557239852777416632, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
       propertyPath: TimeLeft
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 557239852777416632, guid: 0c74920cc6490d24bb78c82d556c7333,
         type: 3}
@@ -1164,6 +1164,13 @@ MonoBehaviour:
   otherPlayers: []
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!82 &264963252
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2627,6 +2634,13 @@ MonoBehaviour:
   - {fileID: 264963243}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!114 &978662207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3883,7 +3897,7 @@ PrefabInstance:
     - target: {fileID: 6916892290848385918, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7917642143642160243, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
