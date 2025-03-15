@@ -6288,6 +6288,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!114 &246969137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6310,6 +6317,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!43 &255627778
 Mesh:
   m_ObjectHideFlags: 0
@@ -7309,6 +7323,94 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1001 &415902661
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2070.8792
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.036106598
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -2826.531
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -6067185528594298527, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987f23fc65b17d6439b728c227a85e11, type: 2}
+    - target: {fileID: -3035608602465568333, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987f23fc65b17d6439b728c227a85e11, type: 2}
+    - target: {fileID: 919132149155446097, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_Name
+      value: decomposition_export
+      objectReference: {fileID: 0}
+    - target: {fileID: 1170970068873931921, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987f23fc65b17d6439b728c227a85e11, type: 2}
+    - target: {fileID: 7483894711331120201, guid: 119bdb0241b19a7478e1a5239e4471be,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 987f23fc65b17d6439b728c227a85e11, type: 2}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 119bdb0241b19a7478e1a5239e4471be, type: 3}
 --- !u!114 &429700444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7331,6 +7433,13 @@ MonoBehaviour:
   - {fileID: 246969122}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &439176250
 GameObject:
   m_ObjectHideFlags: 0
@@ -12343,6 +12452,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &996111333
 GameObject:
   m_ObjectHideFlags: 0
@@ -19444,6 +19560,13 @@ MonoBehaviour:
   - {fileID: 246969120}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!1 &1869669239
 GameObject:
   m_ObjectHideFlags: 0
@@ -21651,3 +21774,4 @@ SceneRoots:
   - {fileID: 660860114}
   - {fileID: 1814674449}
   - {fileID: 637393955}
+  - {fileID: 415902661}
