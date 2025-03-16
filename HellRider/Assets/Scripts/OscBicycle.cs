@@ -190,10 +190,10 @@ public class OscBicycle : MonoBehaviour
     public void RestartGame()
     {
         
-        //messageTransmitter("/Reset", 1);
+        messageTransmitter("/Reset", 1);
         messageTransmitter("/Calibrate", 0);
 
-        //SceneManager.LoadScene(0);
+        SceneManager.LoadScene(0);
         
     }
 
