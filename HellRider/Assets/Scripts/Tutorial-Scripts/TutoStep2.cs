@@ -18,6 +18,10 @@ public class TutoStep2 : MonoBehaviour
     private OscBicycle bigBike;
     public GameObject Osc;
 
+    //Hey, jay here, your tutorial is great, or is it? You see, it was almost perfect until it was found out that we need to turn left
+    public GameObject leftProgress;
+    public GameObject shoulderCheckAnim;
+
     void Start()
     {
         bigBike = Osc.GetComponent<OscBicycle>();
@@ -31,7 +35,12 @@ public class TutoStep2 : MonoBehaviour
         {
             directionCount++;
             other.gameObject.SetActive(false);
-            if (directionCount >= 2)
+            if (directionCount == 1)
+            {
+                leftProgress.SetActive(true);
+                shoulderCheckAnim.transform.rotation = Quaternion.identity;
+            }
+            else if (directionCount >= 2)
             {
                 StartCoroutine(TutoStep2Over());
             }
