@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &119873557351409028
 Transform:
   m_ObjectHideFlags: 0
@@ -266,7 +266,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1610617986529260186
 Transform:
   m_ObjectHideFlags: 0
@@ -643,7 +643,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1918429954003251056
 Transform:
   m_ObjectHideFlags: 0
@@ -748,7 +748,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5821362950060789497
 Transform:
   m_ObjectHideFlags: 0
@@ -974,10 +974,12 @@ MonoBehaviour:
   CombinedPath: []
   EveryWaypoints: []
   CurrentPathNumber: 1
+  currentWaypointIndex: 0
   marginOfError: 5
   maxSpeed: 50
   currentSpeed: 0
   currentSpeedMultiplier: 1
+  DifficultySlider: 1
   turnAngleThreshold: 45
   extremeTurnAngleThreshold: 90
   activationRadius: 8
@@ -986,7 +988,7 @@ MonoBehaviour:
   DistanceCheckpoint: 0
   Checkpointpassed: 0
   BikeAudioSource: {fileID: 0}
-  BikeSound: {fileID: 0}
+  BikeSoundAi: []
   ChangeTrack: 0
   Mainplayer: {fileID: 0}
   baseTurnSpeed: 120
@@ -1012,6 +1014,7 @@ MonoBehaviour:
   sparkAnimationUI: {fileID: 0}
   sparksPositionUI: {fileID: 0}
   explosion: {fileID: 157758686737739812}
+  isTuto: 0
   position: 0
 --- !u!1 &7497297855453227686
 GameObject:
@@ -1485,7 +1488,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 4017d46b7659cde4193accd36033fd19,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2461,7 +2464,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f3e604dd88eb62f468153378d82d539d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
