@@ -365,7 +365,12 @@ public class PowerUps : MonoBehaviour
         their3DPosition = otherPlayers[randomIndex].transform.position;
 
         Debug.Log(this.gameObject.name + " will go to " + otherPlayers[randomIndex].name);
-        yield return new WaitForSeconds(1f);
+
+        TeleportEffect.SetActive(true);
+
+        yield return new WaitForSeconds(0.5f);
+
+        TeleportEffect.SetActive(false);
 
         //this.gameObject.transform.position = their3DPosition;
 
