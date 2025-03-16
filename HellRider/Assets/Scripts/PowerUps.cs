@@ -115,13 +115,13 @@ public class PowerUps : MonoBehaviour
      */
 
     string[] FIRSTPLACE = {"Turbo", "Shield"};
-    string[] SECONDPLACE = {"Turbo", "Laser", "Shield"};
-    string[] THIRDPLACE = {"Turbo", "Laser", "Shield", "Hacking"};
-    string[] FOURTHPLACE = {"Turbo", "Laser", "DiePortal", "Reload", "Hacking"};
-    string[] LASTPLACE = {"Turbo", "Laser", "DiePortal", "Reload"};
+    string[] SECONDPLACE = {"Turbo", "Shield"};
+    string[] THIRDPLACE = {"Turbo", "Shield", "Hacking"};
+    string[] FOURTHPLACE = {"Turbo", "DiePortal", "Reload", "Hacking"};
+    string[] LASTPLACE = {"Turbo", "Hacking", "DiePortal", "Reload"};
 
-    string[] LASTPLACETHREE = {"Turbo", "Laser", "DiePortal", "Hacking"};
-    string[] LASTPLACETWO = { "Turbo", "Laser"};
+    string[] LASTPLACETHREE = {"Turbo", "DiePortal", "Hacking"};
+    string[] LASTPLACETWO = { "Turbo"};
 
     string[] TempArray;
 
@@ -185,8 +185,8 @@ public class PowerUps : MonoBehaviour
             if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player")) // random bulshit go
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
-                //PowerChooser(position, PlayersAlive);
-                StartCoroutine("DiePortal");
+                PowerChooser(position, PlayersAlive);
+                //StartCoroutine("DiePortal");
             }
             else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
             {
