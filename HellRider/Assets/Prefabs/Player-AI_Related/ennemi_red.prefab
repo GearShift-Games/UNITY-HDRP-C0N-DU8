@@ -577,10 +577,12 @@ MonoBehaviour:
   CombinedPath: []
   EveryWaypoints: []
   CurrentPathNumber: 1
+  currentWaypointIndex: 0
   marginOfError: 5
   maxSpeed: 50
   currentSpeed: 0
   currentSpeedMultiplier: 1
+  DifficultySlider: 1
   turnAngleThreshold: 45
   extremeTurnAngleThreshold: 90
   activationRadius: 8
@@ -589,7 +591,7 @@ MonoBehaviour:
   DistanceCheckpoint: 0
   Checkpointpassed: 0
   BikeAudioSource: {fileID: 0}
-  BikeSound: {fileID: 0}
+  BikeSoundAi: []
   ChangeTrack: 0
   Mainplayer: {fileID: 0}
   baseTurnSpeed: 120
@@ -615,6 +617,7 @@ MonoBehaviour:
   sparkAnimationUI: {fileID: 0}
   sparksPositionUI: {fileID: 0}
   explosion: {fileID: 7122806511899621155}
+  isTuto: 0
   position: 0
 --- !u!1 &7122806511899621155
 GameObject:
@@ -967,6 +970,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: casque_nouvelle_texture
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4017d46b7659cde4193accd36033fd19,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2020,7 +2028,7 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: f3e604dd88eb62f468153378d82d539d,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
