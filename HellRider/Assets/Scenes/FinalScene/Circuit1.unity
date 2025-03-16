@@ -6145,7 +6145,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &256214540
 Transform:
   m_ObjectHideFlags: 0
@@ -23790,9 +23790,9 @@ MonoBehaviour:
   position: 0
   speedBuff: 2
   speedDebuff: 0.5
-  shieldEffect: {fileID: 0}
+  shieldEffect: {fileID: 256214539}
   laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
+  TeleportEffect: {fileID: 2038535012}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
 --- !u!82 &978662210
@@ -46265,7 +46265,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2038535013
 Transform:
   m_ObjectHideFlags: 0
