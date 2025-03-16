@@ -41,7 +41,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
     public int DifficultySlider = 1;
     private float RubberBanding = 1.5f;          // Max speed * rubberbanding
-                                                 // Vitesse actuelle
+   // public float realTimeSpeed;      // Vitesse actuelle
 
     // Virage et activation
     [Header("Virage et activation")]
@@ -85,6 +85,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
 
     // Internal state tracking the current bank (tilt) around the z axis.
     private float currentBank = 0f;
+
+
 
     void Start()
     {
@@ -249,6 +251,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
                 BikeAudioSource.Stop();
             }
         }
+        //realTimeSpeed = agent.velocity.magnitude;
     }
 
     // Méthode pour changer la destination d'un waypoint avec une déviation aléatoire dans le plan XZ
