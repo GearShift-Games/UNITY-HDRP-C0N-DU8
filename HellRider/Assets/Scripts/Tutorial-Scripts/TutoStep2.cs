@@ -38,7 +38,7 @@ public class TutoStep2 : MonoBehaviour
             if (directionCount == 1)
             {
                 leftProgress.SetActive(true);
-                shoulderCheckAnim.transform.rotation = Quaternion.identity;
+                shoulderCheckAnim.transform.localEulerAngles = new Vector3(0,0,0);
             }
             else if (directionCount >= 2)
             {
