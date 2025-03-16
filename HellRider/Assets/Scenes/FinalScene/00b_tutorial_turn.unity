@@ -4433,6 +4433,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1573089612538480883, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_text
+      value: La course commence dans
+      objectReference: {fileID: 0}
     - target: {fileID: 1961205384622205591, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Name
@@ -4447,6 +4452,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_RenderMode
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3290637485256895407, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3663633599594253420, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}

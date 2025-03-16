@@ -2660,6 +2660,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 146550770214222811, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 573346257527605654, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: Player
@@ -2685,6 +2690,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1573089612538480883, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_text
+      value: La course commence dans
+      objectReference: {fileID: 0}
     - target: {fileID: 1961205384622205591, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_Name
@@ -2705,10 +2715,35 @@ PrefabInstance:
       propertyPath: m_PresetInfoIsWorld
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3290637485256895407, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554005860396313161, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3554005860396313161, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 354
+      objectReference: {fileID: 0}
     - target: {fileID: 3663633599594253420, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200794668200578726, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5334006361943677157, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6448451925505641345, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
@@ -2843,6 +2878,11 @@ PrefabInstance:
     - target: {fileID: 7917642143642160243, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8373636176464768358, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9058827001586642642, guid: 9d4b1382151645e4a85cdd04f4efe44a,
