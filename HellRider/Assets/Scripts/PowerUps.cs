@@ -339,7 +339,7 @@ public class PowerUps : MonoBehaviour
         int randomIndex = Random.Range(0, otherPlayers.Length);
 
         //make sure the one picked isnt already dead
-        while (!otherPlayers[randomIndex].activeInHierarchy)
+        while (!otherPlayers[randomIndex].activeInHierarchy && otherPlayers.Length > 0)
         {
             randomIndex = Random.Range(0, otherPlayers.Length);
         }

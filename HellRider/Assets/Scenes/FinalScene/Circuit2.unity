@@ -21028,6 +21028,31 @@ PrefabInstance:
       propertyPath: m_RenderMode
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3290637485256895407, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4200794668200578726, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038373045849357143, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 839.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038373045849357143, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6038373045849357143, guid: 9d4b1382151645e4a85cdd04f4efe44a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6916892290848385918, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_IsActive
