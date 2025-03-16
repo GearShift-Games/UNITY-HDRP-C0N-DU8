@@ -119,7 +119,7 @@ public class TestSon : MonoBehaviour
                 AudioSourceBikeSound.Play();
             }
             // Modification du pitch en fonction de la vitesse (si vous souhaitez garder cette fonctionnalité)
-            AudioSourceBikeSound.pitch = Mathf.Clamp((speed / 500f) * 2.5f, 0f, 2.5f);
+            AudioSourceBikeSound.pitch = Mathf.Clamp((speed / 500f) * 2.5f, 0f, 4f);
         }
         else
         {
