@@ -39,8 +39,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private float normalSpeed = 3.5f;            // Vitesse normale (sera modifiée toutes les 5 sec)
     private float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
     private float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
-    public int DifficultySlider = 1;
-    private float RubberBanding = 1.5f;          // Max speed * rubberbanding
+    public int DifficultySlider;
+    private float RubberBanding = 2f;          // Max speed * rubberbanding
    // public float realTimeSpeed;      // Vitesse actuelle
 
     // Virage et activation
@@ -106,8 +106,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         // Désactive la rotation automatique pour la gérer manuellement
         agent.updateRotation = false;
 
-        // Mise à jour de normalSpeed toutes les 1 secondes (random entre 35 et 50)
-        InvokeRepeating("ChangeNormalSpeed", 1f, 1f);
+        // Mise à jour de normalSpeed toutes les 3 secondes (random entre 35 et 50)
+        InvokeRepeating("ChangeNormalSpeed", 1f, 3f);
 
 
       

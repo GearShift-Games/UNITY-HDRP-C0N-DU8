@@ -246,7 +246,7 @@ public class OscBicycle : MonoBehaviour
 
         //value = ScaleValue(value, -15000,15000,-1,1);
 
-        Speed = value/30000f;
+        Speed = value/33000f;
         Speed = Speed * Speed * Speed;
 
         //Debug.Log(Speed);
