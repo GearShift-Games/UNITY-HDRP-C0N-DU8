@@ -185,8 +185,8 @@ public class PowerUps : MonoBehaviour
             if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player")) // random bulshit go
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
-                PowerChooser(position, PlayersAlive);
-                //StartCoroutine("Shield");
+                //PowerChooser(position, PlayersAlive);
+                StartCoroutine("DiePortal");
             }
             else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
             {
@@ -425,12 +425,12 @@ public class PowerUps : MonoBehaviour
         Debug.Log(this.gameObject.name + " Shield");
 
         isShielded = true;
-        //shieldEffect.SetActive(true);
+        shieldEffect.SetActive(true);
 
         yield return new WaitForSeconds(10f);
 
         isShielded = false;
-        //shieldEffect.SetActive(false);
+        shieldEffect.SetActive(false);
 
         yield break;
     }
