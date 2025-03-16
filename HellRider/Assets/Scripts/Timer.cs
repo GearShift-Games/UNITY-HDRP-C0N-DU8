@@ -92,9 +92,10 @@ public class Timer : MonoBehaviour
     {
         StillAlive = false; // so it only gets started once
         explosion.SetActive(true);
-        Time.timeScale = 0.5f ;
-        yield return new WaitForSeconds(0.5f);
+        //Time.timeScale = 0.5f;
+        yield return new WaitForSeconds(0.1f);
         this.gameObject.SetActive(false);
+        //Time.timeScale = 1f;
     }
 
     public void playingWithTime(float timeAdded)

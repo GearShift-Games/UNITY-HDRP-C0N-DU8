@@ -273,7 +273,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!82 &10819423
 AudioSource:
   m_ObjectHideFlags: 0
@@ -2176,6 +2176,13 @@ MonoBehaviour:
   - {fileID: 0}
   PlayersAlive: 0
   position: 0
+  speedBuff: 2
+  speedDebuff: 0.5
+  shieldEffect: {fileID: 0}
+  laserEffect: {fileID: 0}
+  TeleportEffect: {fileID: 0}
+  hackingEffect: {fileID: 0}
+  timeGainEffect: {fileID: 0}
 --- !u!114 &978662207
 MonoBehaviour:
   m_ObjectHideFlags: 0
