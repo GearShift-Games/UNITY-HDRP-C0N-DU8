@@ -158,7 +158,7 @@ public class TestSon : MonoBehaviour
         if (!hasPlayedAccelSound && lastSpeed < 1f && speed >= 40f)
         {
             int randomIndex = Random.Range(0, AccelerationSounds.Length); // Sélection aléatoire
-            audioSource.PlayOneShot(AccelerationSounds[randomIndex], 1f);
+            audioSource.PlayOneShot(AccelerationSounds[randomIndex], 3f);
             hasPlayedRapidAccelSound = true;
             hasPlayedAccelSound = true;
         }
@@ -173,14 +173,14 @@ public class TestSon : MonoBehaviour
         else if (isAccelerating)
         {
             float elapsed = Time.time - accelStartTime;
-            // Si en moins de 1.5 secondes, la vitesse augmente d'au moins 150
-            if (elapsed <= 1.5f && !hasPlayedRapidAccelSound && speed - initialSpeedForAccel >= 150f)
+            // Si en moins de 1.5 secondes, la vitesse augmente d'au moins 120
+            if (elapsed <= 2f && !hasPlayedRapidAccelSound && speed - initialSpeedForAccel >= 150f)
             {
                 int randomIndex = Random.Range(0, AccelerationSounds.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(AccelerationSounds[randomIndex], 1f);
+                audioSource.PlayOneShot(AccelerationSounds[randomIndex], 3f);
                 hasPlayedRapidAccelSound = true;
             }
-            else if (elapsed > 1.5f)
+            else if (elapsed > 2f)
             {
                 // Réinitialisation après 1.5 secondes
                 isAccelerating = false;
@@ -203,7 +203,7 @@ public class TestSon : MonoBehaviour
             if (decelElapsed <= 2.0f && !hasPlayedDecelSound && (initialSpeedForDecel - speed >= 50f))
             {
                 int randomIndex = Random.Range(0, decelerationClip.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(decelerationClip[randomIndex], 1f);
+                audioSource.PlayOneShot(decelerationClip[randomIndex], 1.5f);
                 hasPlayedDecelSound = true;
             }
             else if (decelElapsed > 2.0f)
