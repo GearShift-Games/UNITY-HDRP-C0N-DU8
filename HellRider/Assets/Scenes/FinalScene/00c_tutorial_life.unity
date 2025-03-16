@@ -1823,7 +1823,7 @@ MonoBehaviour:
   - {fileID: 572993390}
   - {fileID: 323390483}
   - {fileID: 2062120784}
-  radius: 18.100655
+  radius: 38.60327
 --- !u!1 &645411693
 GameObject:
   m_ObjectHideFlags: 0
@@ -3189,8 +3189,8 @@ MonoBehaviour:
   end: {fileID: 0}
   autoSetControlPoints: 0
   points:
-  - {x: 0, y: 0, z: 0.9999999}
-  - {x: 0, y: 0, z: 1.9999999}
+  - {x: 0, y: 0, z: 0.99999994}
+  - {x: 0, y: 0, z: 2}
   - {x: 0, y: 0, z: 159.14673}
   - {x: 0, y: 0, z: 160.14673}
   normals:
