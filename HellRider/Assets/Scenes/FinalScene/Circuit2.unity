@@ -1702,6 +1702,11 @@ PrefabInstance:
       objectReference: {fileID: 2004036404}
     - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
+      propertyPath: DifficultySlider
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
       propertyPath: LeftPath.Array.size
       value: 9
       objectReference: {fileID: 0}
@@ -2395,6 +2400,11 @@ PrefabInstance:
       propertyPath: BikeAudioSource
       value: 
       objectReference: {fileID: 1566196995}
+    - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: DifficultySlider
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: LeftPath.Array.size
@@ -3110,6 +3120,11 @@ PrefabInstance:
       propertyPath: BikeAudioSource
       value: 
       objectReference: {fileID: 1232716214}
+    - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: DifficultySlider
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: LeftPath.Array.size
@@ -3840,6 +3855,11 @@ PrefabInstance:
       propertyPath: BikeAudioSource
       value: 
       objectReference: {fileID: 879159733}
+    - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
+        type: 3}
+      propertyPath: DifficultySlider
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: LeftPath.Array.size
