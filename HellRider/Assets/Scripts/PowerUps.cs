@@ -182,7 +182,7 @@ public class PowerUps : MonoBehaviour
     {
         if (recentItem == false)
         {
-            if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player"))
+            if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player")) // random bulshit go
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
                 PowerChooser(position, PlayersAlive);
@@ -196,14 +196,12 @@ public class PowerUps : MonoBehaviour
             }
         }
 
-
-
-        
-        if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("Player"))
+        if (other.CompareTag("Laser")) // if hit by a laser
         {
-            StartCoroutine("Turbo");
+            StartCoroutine("Debuff");
         }
-        else if (other.CompareTag("Boostpad") && this.gameObject.CompareTag("AI"))
+
+        if (other.CompareTag("Boostpad")) // boostpad activated turbo
         {
             StartCoroutine("Turbo");
         }

@@ -11,6 +11,7 @@ TagManager:
   - ItemBox
   - TutoProgress
   - Boostpad
+  - Laser
   layers:
   - Default
   - TransparentFX
