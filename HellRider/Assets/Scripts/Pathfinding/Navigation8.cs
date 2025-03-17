@@ -40,7 +40,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     private float slowedSpeed = 1.5f;            // Vitesse réduite pour les virages serrés
     private float extremeSlowedSpeed = 1.0f;     // Vitesse très réduite pour les virages extrêmes
     public int DifficultySlider;
-    private float RubberBanding = 2f;          // Max speed * rubberbanding
+    private float RubberBanding = 2.6f;          // Max speed * rubberbanding
    // public float realTimeSpeed;      // Vitesse actuelle
 
     // Virage et activation

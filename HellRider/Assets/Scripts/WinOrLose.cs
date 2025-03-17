@@ -78,7 +78,7 @@ public class WinOrLose : MonoBehaviour
 
             if (LeftAlive == 1 && onGoingRace == true) //you win here 
             {
-                PlaySound(WinSound, 0.5f);
+                PlaySound(WinSound, 0.25f);
                 onGoingRace = false;
                 Won = true;
                 EndGameMenu.SetActive(true);
