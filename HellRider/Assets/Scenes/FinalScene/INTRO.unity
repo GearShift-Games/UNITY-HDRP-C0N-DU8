@@ -4988,10 +4988,9 @@ MonoBehaviour:
   speedBuff: 2
   speedDebuff: 0.5
   shieldEffect: {fileID: 0}
-  laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
+  DebuffEffect: {fileID: 0}
 --- !u!114 &246969137
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5017,10 +5016,9 @@ MonoBehaviour:
   speedBuff: 2
   speedDebuff: 0.5
   shieldEffect: {fileID: 0}
-  laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
+  DebuffEffect: {fileID: 0}
 --- !u!1 &248358949
 GameObject:
   m_ObjectHideFlags: 0
@@ -7096,10 +7094,9 @@ MonoBehaviour:
   speedBuff: 2
   speedDebuff: 0.5
   shieldEffect: {fileID: 0}
-  laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
+  DebuffEffect: {fileID: 0}
 --- !u!1 &433173575
 GameObject:
   m_ObjectHideFlags: 0
@@ -12617,10 +12614,9 @@ MonoBehaviour:
   speedBuff: 2
   speedDebuff: 0.5
   shieldEffect: {fileID: 0}
-  laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
+  DebuffEffect: {fileID: 0}
 --- !u!1 &979984028 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5967927698628257527, guid: 0c74920cc6490d24bb78c82d556c7333,
@@ -17431,10 +17427,9 @@ MonoBehaviour:
   speedBuff: 2
   speedDebuff: 0.5
   shieldEffect: {fileID: 0}
-  laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
+  DebuffEffect: {fileID: 0}
 --- !u!82 &1386422628
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20538,7 +20533,7 @@ PrefabInstance:
     - target: {fileID: 6916892290848385918, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7803091923767788300, guid: 9d4b1382151645e4a85cdd04f4efe44a,
         type: 3}
@@ -21677,10 +21672,9 @@ MonoBehaviour:
   speedBuff: 2
   speedDebuff: 0.5
   shieldEffect: {fileID: 0}
-  laserEffect: {fileID: 0}
-  TeleportEffect: {fileID: 0}
   hackingEffect: {fileID: 0}
   timeGainEffect: {fileID: 0}
+  DebuffEffect: {fileID: 0}
 --- !u!1 &1853623456
 GameObject:
   m_ObjectHideFlags: 0
