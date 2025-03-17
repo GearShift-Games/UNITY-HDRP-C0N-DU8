@@ -263,7 +263,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     }
 
     // Méthode appelée toutes les 5 secondes pour changer la normalSpeed
-    void ChangeNormalSpeed()
+    public void ChangeNormalSpeed()
     {
         if (Mainplayer.GetComponent<Timer>().position == 1)
         {

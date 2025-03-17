@@ -26,10 +26,11 @@ public class PowerUps : MonoBehaviour
 
     [Header("VFX")]
     public GameObject shieldEffect;
-    public GameObject laserEffect;
-    public GameObject TeleportEffect;
+    //public GameObject laserEffect;
+    //public GameObject TeleportEffect;
     public GameObject hackingEffect;
     public GameObject timeGainEffect;
+    public GameObject DebuffEffect;
 
     private float timeAdded = 6;
 
@@ -117,10 +118,10 @@ public class PowerUps : MonoBehaviour
     string[] FIRSTPLACE = {"Turbo", "Shield"};
     string[] SECONDPLACE = {"Turbo", "Shield"};
     string[] THIRDPLACE = {"Turbo", "Shield", "Hacking"};
-    string[] FOURTHPLACE = {"Turbo", "DiePortal", "Reload", "Hacking"};
-    string[] LASTPLACE = {"Turbo", "Hacking", "DiePortal", "Reload"};
+    string[] FOURTHPLACE = {"Turbo", "Reload", "Hacking"};
+    string[] LASTPLACE = {"Turbo", "Hacking", "Reload"};
 
-    string[] LASTPLACETHREE = {"Turbo", "DiePortal", "Hacking"};
+    string[] LASTPLACETHREE = {"Turbo", "Hacking"};
     string[] LASTPLACETWO = { "Turbo"};
 
     string[] TempArray;
@@ -292,6 +293,7 @@ public class PowerUps : MonoBehaviour
         if (this.gameObject.CompareTag("AI"))
         {
             AI.currentSpeedMultiplier = speedMultiplier;
+            AI.ChangeNormalSpeed();
         }
         else if (this.gameObject.CompareTag("Player"))
         {
@@ -402,9 +404,14 @@ public class PowerUps : MonoBehaviour
         {
             if (otherPlayers[i].GetComponent<PowerUps>().position == 1)
             {
+                hackingEffect.SetActive(true);
                 otherPlayers[i].GetComponent<PowerUps>().DebuffCaller();
             }
         }
+
+        yield return new WaitForSeconds(2f);
+
+        hackingEffect.SetActive(false);
 
         yield break;
     }
@@ -413,10 +420,17 @@ public class PowerUps : MonoBehaviour
     {
         if (timeAdded > 0)
         {
+            timeGainEffect.SetActive(true);
+
             Debug.Log(this.gameObject.name + " Reload this much : " + timeAdded);
             this.gameObject.GetComponent<Timer>().playingWithTime(timeAdded);
             timeAdded--;
         }
+
+        yield return new WaitForSeconds(2f);
+
+        timeGainEffect.SetActive(false);
+
         yield break;
     }
 
