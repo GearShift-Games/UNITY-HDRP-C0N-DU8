@@ -9,6 +9,10 @@ public class PowerUps : MonoBehaviour
 {
     public AudioSource audioSource;
     public AudioClip[] TurboSound;
+    public AudioClip[] HackingSound;
+    public AudioClip[] ReloadSound;
+    public AudioClip[] ShieldSound;
+    public AudioClip[] DebuffSound;
     public GameObject[] otherPlayers;
 
     [Header("Position")]
@@ -406,6 +410,8 @@ public class PowerUps : MonoBehaviour
             {
                 hackingEffect.SetActive(true);
                 otherPlayers[i].GetComponent<PowerUps>().DebuffCaller();
+                int randomIndex = Random.Range(0, HackingSound.Length); // Sélection aléatoire
+                audioSource.PlayOneShot(HackingSound[randomIndex], 1f);
             }
         }
 
@@ -425,6 +431,8 @@ public class PowerUps : MonoBehaviour
             Debug.Log(this.gameObject.name + " Reload this much : " + timeAdded);
             this.gameObject.GetComponent<Timer>().playingWithTime(timeAdded);
             timeAdded--;
+            int randomIndex = Random.Range(0, ReloadSound.Length); // Sélection aléatoire
+            audioSource.PlayOneShot(ReloadSound[randomIndex], 1f);
         }
 
         yield return new WaitForSeconds(2f);
@@ -440,7 +448,8 @@ public class PowerUps : MonoBehaviour
 
         isShielded = true;
         shieldEffect.SetActive(true);
-
+        int randomIndex = Random.Range(0, ShieldSound.Length); // Sélection aléatoire
+        audioSource.PlayOneShot(ShieldSound[randomIndex], 1f);
         yield return new WaitForSeconds(10f);
 
         isShielded = false;
@@ -478,6 +487,8 @@ public class PowerUps : MonoBehaviour
         {
             Joueur.currentSpeedMultiplier = speedMultiplier;
             // Rajouter son debuff ici
+            int randomIndex = Random.Range(0, DebuffSound.Length); // Sélection aléatoire
+            audioSource.PlayOneShot(DebuffSound[randomIndex], 1f);
 
             /*
             int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
