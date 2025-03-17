@@ -34,6 +34,7 @@ public class Timer : MonoBehaviour
         animator = playerUIFrame.GetComponent<Animator>();
         if (isTuto)
         {
+            float tutoTimeleft = (30 - 3) / 30;
             animator.Play("UIpink", 0, 26.0f);
             sparksPositionUI.Play("sparkPosition", 0, 26.0f);
         }
@@ -109,7 +110,10 @@ public class Timer : MonoBehaviour
         }
 
         float mathTime = 30 - TimeLeft; // imma need alex's help for this thing
+        mathTime = mathTime / 30f;
 
+        //animator.Update(mathTime);
+        //sparksPositionUI.Update(mathTime);
         animator.Play("UIpink", 0, mathTime);
         sparksPositionUI.Play("sparkPosition", 0, mathTime);
 

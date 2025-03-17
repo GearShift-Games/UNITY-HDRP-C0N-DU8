@@ -186,8 +186,8 @@ public class PowerUps : MonoBehaviour
             if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("Player")) // random bulshit go
             {
                 //Debug.Log(this.gameObject.name + " boxed Player");
-                PowerChooser(position, PlayersAlive);
-                //StartCoroutine("DiePortal");
+                //PowerChooser(position, PlayersAlive);
+                StartCoroutine("Reload");
             }
             else if (other.CompareTag("ItemBox") && this.gameObject.CompareTag("AI"))
             {
