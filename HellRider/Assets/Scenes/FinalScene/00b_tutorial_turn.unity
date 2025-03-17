@@ -2859,6 +2859,11 @@ PrefabInstance:
       propertyPath: playerUIPortrait
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4691518600191280219, guid: c3e20853fd56f4a4da695698e4ad38bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5568744951543452658, guid: c3e20853fd56f4a4da695698e4ad38bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3194,6 +3199,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSource: {fileID: 0}
   TurboSound: []
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 0}
   - {fileID: 0}

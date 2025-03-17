@@ -286,6 +286,7 @@ public class PowerUps : MonoBehaviour
         }
 
         PowerGotten = TempArray[Random.Range(0, TempArray.Length)];
+        Debug.Log(PowerGotten);
         StartCoroutine(PowerGotten); // PowerGotten is a string 
 
         StartCoroutine(RecentItem());
