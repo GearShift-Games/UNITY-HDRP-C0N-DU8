@@ -110,7 +110,7 @@ public class TestSon : MonoBehaviour
         // Pour le son de la roue du vélo avec une vitesse (pitch) proportionnelle à la vitesse du joueur
         if (speed > 0)
         {
-            if (!AudioSourceBikeSound.isPlaying)
+            if (!AudioSourceBikeSound.isPlaying && player.activeInHierarchy)
             {
                 // Sélection aléatoire d'un son parmi les 10
                 int randomIndex = Random.Range(0, bikeSounds.Length);
