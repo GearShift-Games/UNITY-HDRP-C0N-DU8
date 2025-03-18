@@ -76,7 +76,7 @@ public class TestSon : MonoBehaviour
 
 
         if(placement == 5 && !hasPlayedLastPlaceSound){
-            PlaySound(lastPlaceSound, 1f);
+            PlaySound(lastPlaceSound, 1.2f);
             hasPlayedLastPlaceSound = true; 
         } 
         else if (placement != 5)
@@ -92,14 +92,14 @@ public class TestSon : MonoBehaviour
             {
                // PlaySound(rankDownSound, 0.4f);
                 int randomIndex = Random.Range(0, rankDownSound.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(rankDownSound[randomIndex], 1f); // Joue le son
+                audioSource.PlayOneShot(rankDownSound[randomIndex], 1.5f); // Joue le son
                 //Debug.Log("Descend");
             }
             else if (placement < previousPlacement)
             {
                 //PlaySound(rankUpSound, 0.4f);
                 int randomIndex = Random.Range(0, rankUpSound.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(rankUpSound[randomIndex],1f); // Joue le son
+                audioSource.PlayOneShot(rankUpSound[randomIndex],1.5f); // Joue le son
                 //Debug.Log("Monte");
             }
         }
@@ -158,7 +158,7 @@ public class TestSon : MonoBehaviour
         if (!hasPlayedAccelSound && lastSpeed < 1f && speed >= 40f)
         {
             int randomIndex = Random.Range(0, AccelerationSounds.Length); // Sélection aléatoire
-            audioSource.PlayOneShot(AccelerationSounds[randomIndex], 3f);
+            audioSource.PlayOneShot(AccelerationSounds[randomIndex], 4f);
             hasPlayedRapidAccelSound = true;
             hasPlayedAccelSound = true;
         }
@@ -177,7 +177,7 @@ public class TestSon : MonoBehaviour
             if (elapsed <= 2f && !hasPlayedRapidAccelSound && speed - initialSpeedForAccel >= 150f)
             {
                 int randomIndex = Random.Range(0, AccelerationSounds.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(AccelerationSounds[randomIndex], 3f);
+                audioSource.PlayOneShot(AccelerationSounds[randomIndex], 4f);
                 hasPlayedRapidAccelSound = true;
             }
             else if (elapsed > 2f)
@@ -203,7 +203,7 @@ public class TestSon : MonoBehaviour
             if (decelElapsed <= 2.0f && !hasPlayedDecelSound && (initialSpeedForDecel - speed >= 50f))
             {
                 int randomIndex = Random.Range(0, decelerationClip.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(decelerationClip[randomIndex], 1.5f);
+                audioSource.PlayOneShot(decelerationClip[randomIndex], 2.3f);
                 hasPlayedDecelSound = true;
             }
             else if (decelElapsed > 2.0f)

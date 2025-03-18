@@ -28,8 +28,10 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
-
-        TimeLeft = 20f;
+        if (isTuto == false)
+        {
+            TimeLeft = 30f;
+        }        
 
         //TimerOn = true; pls dont start the timer of everyone when the game start
         // >:) you can tell me what to do
@@ -76,8 +78,8 @@ public class Timer : MonoBehaviour
                 sparksPositionUI.speed = 5;
             } else
             {
-                animator.speed = 1.5f;
-                sparksPositionUI.speed = 1.5f;
+                animator.speed = 1f;
+                sparksPositionUI.speed = 1f;
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
              
@@ -116,13 +118,13 @@ public class Timer : MonoBehaviour
     {
         TimeLeft += timeAdded;
 
-        if (TimeLeft > 20f)
+        if (TimeLeft > 30f)
         {
-            TimeLeft = 20f;
+            TimeLeft = 30f;
         }
 
-        float mathTime = 20 - TimeLeft; // imma need alex's help for this thing
-        mathTime = mathTime / 20f;
+        float mathTime = 30 - TimeLeft; // imma need alex's help for this thing
+        mathTime = mathTime / 30f;
 
         //animator.Update(mathTime);
         //sparksPositionUI.Update(mathTime);

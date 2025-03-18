@@ -249,6 +249,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4579122958443511426, guid: 30c717182b2ad4c4ba22809cd23c28dc,
         type: 3}
+      propertyPath: Osc
+      value: 
+      objectReference: {fileID: 1131302294}
+    - target: {fileID: 4579122958443511426, guid: 30c717182b2ad4c4ba22809cd23c28dc,
+        type: 3}
       propertyPath: Win
       value: 
       objectReference: {fileID: 1702116818}
@@ -2908,6 +2913,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: OSC Manager
       objectReference: {fileID: 0}
+    - target: {fileID: 9222719728536864864, guid: 0d8d3abc56e2acc458d3eb4a3a954fe7,
+        type: 3}
+      propertyPath: Player
+      value: 
+      objectReference: {fileID: 978662193}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3328,7 +3338,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 590c57d2e558b1649a4984431f69a4fd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.258
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0

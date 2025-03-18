@@ -28,6 +28,10 @@ public class TutoStep2 : MonoBehaviour
         bigBike.Calibrator();
     }
 
+    private void Update()
+    {
+        bigBike.Calibrator();
+    }
     private void OnTriggerEnter(Collider other)
     {
         //Debug.Log(healthPoints);

@@ -9,6 +9,7 @@ using UnityEngine.SceneManagement;
 using static UnityEditor.Experimental.GraphView.GraphView;
 using TMPro;
 using UnityEngine.UI;
+using System.Numerics;
 
 public class OscBicycle : MonoBehaviour
 {
@@ -27,6 +28,8 @@ public class OscBicycle : MonoBehaviour
 
     Scene scene;
 
+    public GameObject Player;
+
     private void Awake()
     {
         scene = SceneManager.GetActiveScene();
@@ -42,7 +45,10 @@ public class OscBicycle : MonoBehaviour
         // From Arduino
         oscReceiver.Bind("/Raw", TraiterRawOSC); // starts the tutorial for new player when acitvated
 
-        
+        oscReceiver.Bind("/leaderboard1", TraiterLeaderboard);
+        oscReceiver.Bind("/leaderboard2", TraiterLeaderboard);
+        oscReceiver.Bind("/leaderboard3", TraiterLeaderboard);
+
         if (scene.name != "INTRO")
         {
             hasUser = true;
@@ -59,7 +65,7 @@ public class OscBicycle : MonoBehaviour
         }
         else if (scene.name == "00b_tutorial_turn")
         {
-            Debug.Log("calibrating");
+            //Debug.Log("calibrating");
             messageTransmitter("/Calibrate", 1);
         }
         else
@@ -68,7 +74,25 @@ public class OscBicycle : MonoBehaviour
             messageTransmitter("/Calibrate", 0);
         }
 
-        Debug.Log("end of calibrator");
+        //Debug.Log("end of calibrator");
+    }
+
+    public void Leaderboard()
+    {
+        float score = Player.GetComponent<JoueurNav2>().score;
+
+        if (scene.name == "Circuit1")
+        {
+            messageTransmitter("/Leaderboard1", score);
+        }
+        else if (scene.name == "Circuit2")
+        {
+            messageTransmitter("/Leaderboard2", score);
+        }
+        else if (scene.name == "Circuit3")
+        {
+            messageTransmitter("/Leaderboard3", score);
+        }
     }
 
     private void Update()
@@ -107,7 +131,7 @@ public class OscBicycle : MonoBehaviour
         return Mathf.Clamp(((value - inputMin) / (inputMax - inputMin) * (outputMax - outputMin) + outputMin), outputMin, outputMax);
     }
 
-    void TraiterMessageOSC(OSCMessage oscMessage)
+    void TraiterLeaderboard(OSCMessage oscMessage)
     {
         // Récupérer une valeur numérique en tant que float
         // même si elle est de type float ou int :

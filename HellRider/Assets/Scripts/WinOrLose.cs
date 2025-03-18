@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 
 public class WinOrLose : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class WinOrLose : MonoBehaviour
     Scene scene;
     private bool Lost;
     private bool Won;
+
+    public GameObject Osc;
 
     void Awake()
     {
@@ -78,6 +81,7 @@ public class WinOrLose : MonoBehaviour
 
             if (LeftAlive == 1 && onGoingRace == true) //you win here 
             {
+                Osc.GetComponent<OscBicycle>().Leaderboard();
                 PlaySound(WinSound, 0.25f);
                 onGoingRace = false;
                 Won = true;

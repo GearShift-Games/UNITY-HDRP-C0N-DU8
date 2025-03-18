@@ -306,11 +306,11 @@ public class PowerUps : MonoBehaviour
             // Rajouter son ici
             
             int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
-            audioSource.PlayOneShot(TurboSound[randomIndex], 1f);
+            audioSource.PlayOneShot(TurboSound[randomIndex], 2.25f);
 
         }
 
-        Debug.Log(this.gameObject.name + " Boostah ON!");
+        //Debug.Log(this.gameObject.name + " Boostah ON!");
         yield return new WaitForSeconds(3f);
 
         if (this.gameObject.CompareTag("AI"))
@@ -328,7 +328,7 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator Laser()
     {
-        Debug.Log(this.gameObject.name + " Laser");
+        //Debug.Log(this.gameObject.name + " Laser");
 
         //laserEffect.SetActive(true);
 
@@ -371,7 +371,7 @@ public class PowerUps : MonoBehaviour
 
         their3DPosition = otherPlayers[randomIndex].transform.position;
 
-        Debug.Log(this.gameObject.name + " will go to " + otherPlayers[randomIndex].name);
+        //Debug.Log(this.gameObject.name + " will go to " + otherPlayers[randomIndex].name);
         yield return new WaitForSeconds(1f);
 
         //this.gameObject.transform.position = their3DPosition;
@@ -403,7 +403,7 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator Hacking()
     {
-        Debug.Log(this.gameObject.name + " Hacking yo ass");
+        //Debug.Log(this.gameObject.name + " Hacking yo ass");
 
         for (int i = 0; i < otherPlayers.Length; i++)
         {
@@ -412,7 +412,7 @@ public class PowerUps : MonoBehaviour
                 hackingEffect.SetActive(true);
                 otherPlayers[i].GetComponent<PowerUps>().DebuffCaller();
                 int randomIndex = Random.Range(0, HackingSound.Length); // Sélection aléatoire
-                audioSource.PlayOneShot(HackingSound[randomIndex], 1f);
+                audioSource.PlayOneShot(HackingSound[randomIndex], 1.3f);
             }
         }
 
@@ -429,11 +429,11 @@ public class PowerUps : MonoBehaviour
         {
             timeGainEffect.SetActive(true);
 
-            Debug.Log(this.gameObject.name + " Reload this much : " + timeAdded);
+            //Debug.Log(this.gameObject.name + " Reload this much : " + timeAdded);
             this.gameObject.GetComponent<Timer>().playingWithTime(timeAdded);
             timeAdded--;
             int randomIndex = Random.Range(0, ReloadSound.Length); // Sélection aléatoire
-            audioSource.PlayOneShot(ReloadSound[randomIndex], 1f);
+            audioSource.PlayOneShot(ReloadSound[randomIndex], 1.3f);
         }
 
         yield return new WaitForSeconds(2f);
@@ -445,7 +445,7 @@ public class PowerUps : MonoBehaviour
 
     private IEnumerator Shield()
     {
-        Debug.Log(this.gameObject.name + " Shield");
+        //Debug.Log(this.gameObject.name + " Shield");
 
         isShielded = true;
         shieldEffect.SetActive(true);
@@ -470,7 +470,7 @@ public class PowerUps : MonoBehaviour
             isShielded = false;
             StopCoroutine("Shield"); // stops the coroutine to prevent further bugs
             //shieldEffect.SetActive(false);
-            Debug.Log("shielded that lmao");
+            //Debug.Log("shielded that lmao");
         }
 
     }
@@ -489,7 +489,7 @@ public class PowerUps : MonoBehaviour
             Joueur.currentSpeedMultiplier = speedMultiplier;
             // Rajouter son debuff ici
             int randomIndex = Random.Range(0, DebuffSound.Length); // Sélection aléatoire
-            audioSource.PlayOneShot(DebuffSound[randomIndex], 1f);
+            audioSource.PlayOneShot(DebuffSound[randomIndex], 1.3f);
 
             /*
             int randomIndex = Random.Range(0, TurboSound.Length); // Sélection aléatoire
@@ -498,7 +498,7 @@ public class PowerUps : MonoBehaviour
 
         }
 
-        Debug.Log(this.gameObject.name + " debuffed!");
+        //Debug.Log(this.gameObject.name + " debuffed!");
         yield return new WaitForSeconds(2f);
 
         isDebuffed = false;

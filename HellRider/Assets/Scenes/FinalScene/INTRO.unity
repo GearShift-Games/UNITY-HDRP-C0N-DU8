@@ -4978,6 +4978,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   TurboSound:
   - {fileID: 0}
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 978662193}
   - {fileID: 246969126}
@@ -5006,6 +5010,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   TurboSound:
   - {fileID: 0}
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 978662193}
   - {fileID: 246969126}
@@ -7084,6 +7092,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   TurboSound:
   - {fileID: 0}
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 978662193}
   - {fileID: 246969126}
@@ -12604,6 +12616,10 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 081180f42aca1af4392046c622d8f246, type: 3}
   - {fileID: 8300000, guid: 7f9004a88bae0314481c836c6145ccbd, type: 3}
   - {fileID: 8300000, guid: 6b04459c920315f4eba1b031fb0051a9, type: 3}
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 246969126}
   - {fileID: 246969124}
@@ -17417,6 +17433,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   TurboSound:
   - {fileID: 0}
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 978662193}
   - {fileID: 246969124}
@@ -21662,6 +21682,10 @@ MonoBehaviour:
   audioSource: {fileID: 0}
   TurboSound:
   - {fileID: 0}
+  HackingSound: []
+  ReloadSound: []
+  ShieldSound: []
+  DebuffSound: []
   otherPlayers:
   - {fileID: 978662193}
   - {fileID: 246969124}
@@ -22438,7 +22462,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 590c57d2e558b1649a4984431f69a4fd, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.258
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
