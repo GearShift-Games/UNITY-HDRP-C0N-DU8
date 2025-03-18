@@ -273,8 +273,8 @@ public class Navigation8: MonoBehaviour, IPlayerScore
         }
         else
         {
-            normalSpeed = Random.Range(40f, 60f);
-            maxSpeed = 60f;
+            maxSpeed = Random.Range(40f, 60f) * DifficultySlider;
+            normalSpeed = maxSpeed;
         }
         
         /*

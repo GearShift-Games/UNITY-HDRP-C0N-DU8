@@ -4,7 +4,7 @@ using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public float TimeLeft = 30f;
+    public float TimeLeft = 20f;
     public bool TimerOn = false;
     public float seconds;
     public GameObject playerUIPortrait;
@@ -28,6 +28,9 @@ public class Timer : MonoBehaviour
 
     void Start()
     {
+
+        TimeLeft = 20f;
+
         //TimerOn = true; pls dont start the timer of everyone when the game start
         // >:) you can tell me what to do
         // yep i sure can =^D
@@ -73,8 +76,8 @@ public class Timer : MonoBehaviour
                 sparksPositionUI.speed = 5;
             } else
             {
-                animator.speed = 1;
-                sparksPositionUI.speed = 1;
+                animator.speed = 1.5f;
+                sparksPositionUI.speed = 1.5f;
             }
             //Debug.Log(this.gameObject + " " + TimeLeft);
              
@@ -113,13 +116,13 @@ public class Timer : MonoBehaviour
     {
         TimeLeft += timeAdded;
 
-        if (TimeLeft > 30f)
+        if (TimeLeft > 20f)
         {
-            TimeLeft = 30f;
+            TimeLeft = 20f;
         }
 
-        float mathTime = 30 - TimeLeft; // imma need alex's help for this thing
-        mathTime = mathTime / 30f;
+        float mathTime = 20 - TimeLeft; // imma need alex's help for this thing
+        mathTime = mathTime / 20f;
 
         //animator.Update(mathTime);
         //sparksPositionUI.Update(mathTime);
