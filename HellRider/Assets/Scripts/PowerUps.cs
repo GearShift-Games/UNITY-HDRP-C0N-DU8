@@ -450,7 +450,7 @@ public class PowerUps : MonoBehaviour
         isShielded = true;
         shieldEffect.SetActive(true);
         int randomIndex = Random.Range(0, ShieldSound.Length); // Sélection aléatoire
-        audioSource.PlayOneShot(ShieldSound[randomIndex], 0.4f);
+        audioSource.PlayOneShot(ShieldSound[randomIndex], 0.1f);
         yield return new WaitForSeconds(10f);
 
         isShielded = false;

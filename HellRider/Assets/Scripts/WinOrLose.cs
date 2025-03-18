@@ -118,13 +118,13 @@ public class WinOrLose : MonoBehaviour
             }
             else if (scene.name == "Circuit1")
             {
-                SceneManager.LoadScene("Circuit2");
-            }
-            else if (scene.name == "Circuit2")
-            {
                 SceneManager.LoadScene("Circuit3");
             }
             else if (scene.name == "Circuit3")
+            {
+                SceneManager.LoadScene("Circuit2");
+            }
+            else if (scene.name == "Circuit2")
             {
                 SceneManager.LoadScene("Outro");
             }

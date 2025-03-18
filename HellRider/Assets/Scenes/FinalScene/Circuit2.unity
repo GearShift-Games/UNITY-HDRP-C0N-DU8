@@ -2603,7 +2603,7 @@ PrefabInstance:
     - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: DifficultySlider
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2438015686765335400, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -3308,7 +3308,7 @@ PrefabInstance:
     - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: DifficultySlider
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2648968378377879886, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -4033,7 +4033,7 @@ PrefabInstance:
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: DifficultySlider
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 3105065023386596005, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
@@ -4803,7 +4803,7 @@ PrefabInstance:
     - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}
       propertyPath: DifficultySlider
-      value: 2
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 4442404144043646626, guid: b81aff34baa1c7b4daf11f8cb9a65c1a,
         type: 3}

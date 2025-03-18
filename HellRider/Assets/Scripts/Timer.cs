@@ -34,9 +34,10 @@ public class Timer : MonoBehaviour
         animator = playerUIFrame.GetComponent<Animator>();
         if (isTuto)
         {
-            float tutoTimeleft = (30 - 3) / 30;
-            animator.Play("UIpink", 0, 26.0f);
-            sparksPositionUI.Play("sparkPosition", 0, 26.0f);
+            float tutoTimeleft = (30 - 10);
+            tutoTimeleft = tutoTimeleft / 30;
+            animator.Play("UIpink", 0, tutoTimeleft);
+            sparksPositionUI.Play("sparkPosition", 0, tutoTimeleft);
         }
         else
         {
@@ -66,9 +67,17 @@ public class Timer : MonoBehaviour
                 uiDies.Play("ui_dying");
                 StartCoroutine(DiesWithLoves());
             }
+            if (isTuto)
+            {
+                animator.speed = 5;
+                sparksPositionUI.speed = 5;
+            } else
+            {
+                animator.speed = 1;
+                sparksPositionUI.speed = 1;
+            }
             //Debug.Log(this.gameObject + " " + TimeLeft);
-             animator.speed = 1;
-             sparksPositionUI.speed = 1;
+             
             //play fuse animation
         }
         else
