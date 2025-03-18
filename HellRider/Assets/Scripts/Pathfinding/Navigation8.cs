@@ -265,6 +265,19 @@ public class Navigation8: MonoBehaviour, IPlayerScore
     // Méthode appelée toutes les 5 secondes pour changer la normalSpeed
     public void ChangeNormalSpeed()
     {
+        if (DistanceFromPlayer > 1) // the ai will now accelerate when the player is ahead of it
+        {
+            maxSpeed = Random.Range(40f, 60f) * (RubberBanding * DistanceFromPlayer);
+            normalSpeed = maxSpeed;
+            //Debug.Log("that bastard! he's " + DistanceFromPlayer + " ahead of us!");
+        }
+        else
+        {
+            normalSpeed = Random.Range(40f, 60f);
+            maxSpeed = 60f;
+        }
+        
+        /*
         if (Mainplayer.GetComponent<Timer>().position == 1)
         {
             maxSpeed = Random.Range(40f, 60f) * (RubberBanding * DistanceFromPlayer);
@@ -276,7 +289,7 @@ public class Navigation8: MonoBehaviour, IPlayerScore
             normalSpeed = Random.Range(40f, 60f);
             maxSpeed = 60f;
         }
-
+        */
 
         //Debug.Log("Nouvelle normalSpeed: " + normalSpeed);
     }
